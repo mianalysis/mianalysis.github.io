@@ -1,0 +1,14 @@
+
+name: GenerateDocs
+
+# Controls when the action will run. Triggers the workflow on push request, or repository dispatch
+on:
+  repository_dispatch:
+    types: [generate]
+    
+jobs:
+  generate_job:
+    runs-on:  'windows-latest'
+    
+    steps:
+      run: echo "test"
