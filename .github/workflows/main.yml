@@ -11,4 +11,5 @@ jobs:
     runs-on:  'windows-latest'
     
     steps:
-      run: echo "test"
+      - name: Generate
+        run: echo "test"
