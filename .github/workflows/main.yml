@@ -41,3 +41,10 @@ jobs:
       
     - name: List post gen
       run: ls docs
+      
+    - name: Add files to repository
+      run: |
+        git add .
+        git commit -m "Updating files"
+        git fetch origin main
+        git push origin HEAD:main
