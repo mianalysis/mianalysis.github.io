@@ -29,7 +29,9 @@ jobs:
       run: mvn compile
 
     - name: Remove docs
-      run: rm -r docs
+      run: |
+        rm -r docs
+        mkdir docs
       
     - name: List dir
       run: ls
