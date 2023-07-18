@@ -11,8 +11,8 @@ jobs:
     runs-on:  'windows-latest'
     
     steps:
+    - uses: actions/checkout@v3
     - name: Checkout configs
-      uses: actions/checkout@v3
       with:
         repository: mianalysis/mia
         ref: main
@@ -44,7 +44,6 @@ jobs:
       
     - name: Add files to repository
       run: |
-        git add .
-        git commit -m "Updating files"
-        git fetch origin main
-        git push origin HEAD:main
+        git config --global user.name 'Stephen Cross'
+        git config --global user.email 'stephencross86@gmail.com'
+        
