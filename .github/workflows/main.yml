@@ -26,4 +26,4 @@ jobs:
         cache: maven
         
     - name: Run generator with Maven
-      run: mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
+      run: mvn compile exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
