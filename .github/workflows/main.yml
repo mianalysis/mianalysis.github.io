@@ -28,6 +28,9 @@ jobs:
     - name: Compile
       run: mvn compile
 
+    - name: Remove docs
+      run: rm -r docs
+      
     - name: List dir
       run: ls
 
