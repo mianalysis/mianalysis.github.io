@@ -16,7 +16,12 @@ jobs:
       with:
         repository: mianalysis/mia
         ref: main
-
+        path: .\temp
+        
+    - name: Check first 
+      run: |
+          ls
+          cd .\temp
     
     - name: Set up JDK 8
       uses: actions/setup-java@v3
