@@ -52,6 +52,9 @@ jobs:
 
         ref: main
         
+    - name: New repo list
+      run: ls
+      
     - name: Add files to repository
       run: |
         git config --global user.name 'Stephen Cross'
