@@ -29,6 +29,9 @@ jobs:
         
     - name: Compile
       run: |
+          echo "top pre"
+          ls
+          echo "temp pre"
           cd temp
           ls
           mvn compile
@@ -37,15 +40,21 @@ jobs:
 
           rm -r docs
           mkdir docs
+          
+          echo "temp post compile"
+          ls
+          echo "docs post compile "
+          ls docs
+
+
+    - name: Run generator with Maven
+      run: |
+          pwd
+          ls
+          mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
       
 
           ls docs
-
-    - name: Run generator with Maven
-      run: mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
-      
-    - name: List post gen
-      run: ls docs
       
     - name: Get current repo
 
