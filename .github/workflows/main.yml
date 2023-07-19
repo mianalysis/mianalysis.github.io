@@ -16,7 +16,7 @@ jobs:
       with:
         repository: mianalysis/mia
         ref: main
-        path: .\temp
+        
         
 
     
@@ -29,10 +29,6 @@ jobs:
         
     - name: Compile
       run: |
-          echo "top pre"
-          ls
-          echo "temp pre"
-          cd temp
           ls
           mvn compile
 
@@ -49,7 +45,7 @@ jobs:
 
     - name: Run generator with Maven
       run: |
-          pwd
+    
           ls
           mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
       
@@ -65,9 +61,15 @@ jobs:
         repository: mianalysis/mianalysis.github.io
 
         ref: main
+        path: .\curr
         
     - name: New repo list
-      run: ls
+      run: |
+          echo "TOP"
+          ls
+          echo "CURR"
+          ls
+          mv -r docs curr
       
     - name: Add files to repository
       run: |
