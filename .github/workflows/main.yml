@@ -75,5 +75,6 @@ jobs:
         ls
         git config --global user.name 'Stephen Cross'
         git config --global user.email 'stephencross86@gmail.com'
+        git add .
         git commit -am "Updating documentation"
         git push
