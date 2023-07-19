@@ -43,6 +43,9 @@ jobs:
     - name: Compile
       run: |
           ls
+          cd ghpages
+          rm -r *
+          cd ..
           ls mia
           cd mia
           mvn compile
@@ -66,7 +69,7 @@ jobs:
     - name: New repo list
       run: |
           ls
-          mv mia/docs ghpages
+          mv mia/docs/* ghpages
           
       
     - name: Add files to repository
