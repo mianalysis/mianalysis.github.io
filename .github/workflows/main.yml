@@ -43,7 +43,7 @@ jobs:
           mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
         
     - name: Copy documentation to ghpages
-      run: mv -f mia/docs/* ghpages
+      run: mv -Force mia/docs/* ghpages
       
     - name: Add files to repository
       run: |
