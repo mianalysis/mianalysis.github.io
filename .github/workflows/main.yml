@@ -59,7 +59,7 @@ jobs:
 
     - name: Run generator with Maven
       run: |
-    
+          cd mia
           ls
           mvn exec:java -D"exec.mainClass=io.github.mianalysis.mia.process.documentation.MainGenerator"
       
@@ -70,9 +70,11 @@ jobs:
         
     - name: New repo list
       run: |
-          
+          ls
           mv docs ..
           cd ..
+          rm -r mia
+          ls
       
     - name: Add files to repository
       run: |
