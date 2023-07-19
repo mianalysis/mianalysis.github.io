@@ -16,7 +16,7 @@ jobs:
       with:
         repository: mianalysis/mianalysis.github.io
         ref: main
-        path: .\gpages
+        path: .\ghpages
         
     - name: Get current repo
 
