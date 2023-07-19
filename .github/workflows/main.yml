@@ -16,6 +16,7 @@ jobs:
       with:
         repository: mianalysis/mianalysis.github.io
         ref: main
+        path: .\gpages
         
     - name: Get current repo
 
@@ -51,12 +52,6 @@ jobs:
           rm -r docs
           mkdir docs
           
-          echo "temp post compile"
-          ls
-          echo "docs post compile "
-          ls docs
-
-
     - name: Run generator with Maven
       run: |
           cd mia
@@ -71,13 +66,13 @@ jobs:
     - name: New repo list
       run: |
           ls
-          mv docs ..
-          cd ..
-          rm -r mia
-          ls
+          mv mia/docs ghpages
+          
       
     - name: Add files to repository
       run: |
+        cd ghpages
+        ls
         git config --global user.name 'Stephen Cross'
         git config --global user.email 'stephencross86@gmail.com'
         git commit -am "Updating documentation"
