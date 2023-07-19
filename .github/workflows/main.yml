@@ -68,8 +68,9 @@ jobs:
           echo "TOP"
           ls
           echo "CURR"
-          ls
-          mv -r docs curr
+          ls curr
+          mv docs curr
+          cd curr
       
     - name: Add files to repository
       run: |
