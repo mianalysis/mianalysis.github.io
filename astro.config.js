@@ -7,7 +7,7 @@ import start from "solid-start/astro";
 export default defineConfig({
   output: "server",
   adapter: node({
-    mode: "standalone"
+    mode: "standalone",
   }),
-  integrations: [start(), tailwind()]
+  integrations: [start(), tailwind()],
 });
