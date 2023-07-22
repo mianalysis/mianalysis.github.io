@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+p {
+  @apply text-gray-700;
+}
+
+/* a {
+  @apply 
+} */
+
+h1 {
+  @apply text-6xl text-sky-700 font-thin uppercase mb-8;
+}
+
+h2 {
+  @apply text-2xl text-sky-900 font-thin uppercase;
+}

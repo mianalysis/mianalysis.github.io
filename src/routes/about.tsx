@@ -1,31 +1,75 @@
 import { A } from "solid-start";
-import Counter from "~/components/Counter";
 
 export default function About() {
   return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-        About Page
-      </h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
+    <div class="text-center mx-auto  max-w-3xl space-y-5">
+      <h1>About MIA</h1>
+
+      <p>Image and object analysis workflow automation plugin for Fiji</p>
+
+      <h2>Description</h2>
+
+      <p>
+        ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular
+        framework for assembling image and object analysis workflows. Detected
+        objects can be transformed, filtered, measured and related. Analysis
+        workflows are batch-enabled by default, allowing easy processing of
+        high-content datasets. MIA is developed in the{" "}
+        <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+          Wolfson Bioimaging Facility
         </a>{" "}
-        to learn how to build Solid apps.
+        at the University of Bristol.
       </p>
-      <p class="my-4">
-        <A href="/" class="text-sky-600 hover:underline">
-          Home
-        </A>
-        {" - "}
-        <span>About Page</span>
+
+      <h2>Acknowledgements</h2>
+
+      <p>
+        The plugin makes use of a combination of plugins packaged with Fiji as
+        well as others that can be installed via the updater.
       </p>
-    </main>
+
+      <p>
+        Required plugins pre-packaged with Fiji: AnalyzeSkeleton, Auto
+        Threshold, bUnwarpJ, Bio-Formats, Colour Deconvolution, Correct Bleach,
+        MPICBG, TrackMate, Weka Trainable Segmentation. Required plugins that
+        need installing via the ImageJ updater: MorphoLibJ. Plugins bundled with
+        MIA: Stack Focuser.
+      </p>
+
+      <p>
+        A list of bundled dependencies along with their respective licenses can
+        be found here.
+      </p>
+
+      <p>
+        Special thanks to all MIA users who have provided vital feedback over
+        the years. In particular, big thanks to Dr. Dominic Alibhai for his many
+        suggestions and ideas.
+      </p>
+
+      <h2>Citing MIA</h2>
+
+      <p>
+        We hope you find MIA useful. If you've used MIA in your research, please
+        cite it using the Zenodo DOI for that version of the plugin. Zenodo DOIs
+        for MIA can be found here.
+      </p>
+
+      <h2>Publications</h2>
+
+      <p>
+        MIA has been used in a variety of different analyses, a few published
+        examples of which are listed below. For a more complete list, please go
+        to <A href="/publications">Publications</A>.
+      </p>
+
+      <h2>Ongoing development</h2>
+
+      <p>
+        This plugin is still in development and test coverage is currently
+        incomplete. Please keep an eye on results and add an issue if any
+        problems are encountered.
+      </p>
+    </div>
   );
 }

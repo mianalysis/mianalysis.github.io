@@ -1,31 +1,39 @@
 import { A } from "solid-start";
-import Counter from "~/components/Counter";
 
 export default function Home() {
   return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-        Hello world!
-      </h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
+    <div class="text-center mx-auto max-w-3xl space-y-8">
+      <h1>Home</h1>
+
+      <img src="/images/splash.png" alt="MIA" />
+
+      <section class="grid grid-cols-3 gap-8 items-center justify-center">
+        <a href="https://www.youtube.com/@mianalysis" class="p-5 border">
+          Video Tutorials
+        </a>
+        <A href="/guides" class="p-5 border">
+          Guides
+        </A>
+        <A href="/modules" class="p-5 border">
+          List of modules
+        </A>
+      </section>
+
+      <p>
+        ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular
+        framework for assembling image and object analysis workflows. Detected
+        objects can be transformed, filtered, measured and related. Analysis
+        workflows are batch-enabled by default, allowing easy processing of
+        high-content datasets.
+      </p>
+
+      <p>
+        MIA is developed in the{" "}
+        <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+          Wolfson Bioimaging Facility
         </a>{" "}
-        to learn how to build Solid apps.
+        at the University of Bristol.
       </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
-    </main>
+    </div>
   );
 }
