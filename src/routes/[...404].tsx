@@ -1,27 +1,14 @@
-import { A } from "solid-start";
+import { A } from 'solid-start';
 
 export default function NotFound() {
   return (
-    <main class="text-center mx-auto p-4">
+    <main class="text-center mx-auto space-y-5">
       <h1>Not Found</h1>
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
+
+      <p>
+        Return to {''}
         <A href="/" class="text-sky-600 hover:underline">
           Home
-        </A>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
         </A>
       </p>
     </main>
