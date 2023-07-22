@@ -1,22 +1,22 @@
-import { A } from "solid-start";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-8">
+    <div className="mx-auto max-w-3xl space-y-8 text-center">
       <h1>Home</h1>
 
       <img src="/images/splash.png" alt="MIA" />
 
-      <section class="grid grid-cols-3 gap-8 items-center justify-center">
-        <a href="https://www.youtube.com/@mianalysis" class="p-5 border">
+      <section className="grid grid-cols-3 items-center justify-center gap-8">
+        <a href="https://www.youtube.com/@mianalysis" className="border p-5">
           Video Tutorials
         </a>
-        <A href="/guides" class="p-5 border">
+        <Link href="/guides" className="border p-5">
           Guides
-        </A>
-        <A href="/modules" class="p-5 border">
+        </Link>
+        <Link href="/modules" className="border p-5">
           List of modules
-        </A>
+        </Link>
       </section>
 
       <p>

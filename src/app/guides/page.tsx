@@ -1,8 +1,8 @@
-import { A } from "@solidjs/router";
+import Link from "next/link";
 
 export default function Guides() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1>Guides</h1>
 
       <p>
@@ -13,13 +13,13 @@ export default function Guides() {
 
       <ul>
         <li>
-          <A href="/guides/getting-started">Getting Started</A>
+          <Link href="/guides/getting-started">Getting Started</Link>
         </li>
         <li>
-          <A href="/guides/example-workflows">Example Workflows</A>
+          <Link href="/guides/example-workflows">Example Workflows</Link>
         </li>
         <li>
-          <A href="/guides/processing-view">Processing View</A>
+          <Link href="/guides/processing-view">Processing View</Link>
         </li>
       </ul>
     </div>

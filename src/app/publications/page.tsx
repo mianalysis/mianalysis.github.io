@@ -1,6 +1,6 @@
 export default function Publications() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1>Publications</h1>
 
       <p>

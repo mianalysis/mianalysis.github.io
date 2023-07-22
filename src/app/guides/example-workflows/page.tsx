@@ -1,6 +1,6 @@
 export default function ExampleWorkflows() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1>Example workflows</h1>
 
       <p>
@@ -22,9 +22,9 @@ export default function ExampleWorkflows() {
       <p>
         Each module in these workflows includes a corresponding set of notes
         summarising the purpose of that module and its configuration. These
-        notes can be viewed by enabling the "Notes" panel ("View {">"} Show
-        notes panel" from the MIA menu) and selecting a module from the list of
-        modules in "editing view".
+        notes can be viewed by enabling the &quot;Notes&quot; panel (&quot;View{" "}
+        {">"} Show notes panel&quot; from the MIA menu) and selecting a module
+        from the list of modules in &quot;editing view&quot;.
       </p>
 
       <p>
@@ -34,8 +34,8 @@ export default function ExampleWorkflows() {
       </p>
 
       <p>
-        Note: Any object outlines in the generated "overlay" images will
-        typically only be visible when opened in ImageJ/Fiji.
+        Note: Any object outlines in the generated &quot;overlay&quot; images
+        will typically only be visible when opened in ImageJ/Fiji.
       </p>
     </div>
   );

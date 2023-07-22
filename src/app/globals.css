@@ -11,9 +11,9 @@ p {
 } */
 
 h1 {
-  @apply text-6xl text-sky-700 font-thin uppercase mb-8;
+  @apply mb-8 text-6xl font-thin uppercase text-sky-700;
 }
 
 h2 {
-  @apply text-2xl text-sky-900 font-thin uppercase;
+  @apply text-2xl font-thin uppercase text-sky-900;
 }

@@ -1,8 +1,8 @@
-import Video from "~/components/Video";
+import Video from "@/components/Video";
 
 export default function GettingStarted() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1>Getting Started</h1>
 
       <p>Downloading and installing MIA into Fiji</p>
@@ -27,18 +27,19 @@ export default function GettingStarted() {
         update site.
       </p>
 
-      <ol class="text-left">
+      <ol className="text-left">
         <li> Launch the ImageJ Updater from Help {">"} Update...</li>
         <li>
-          Click "Manage update sites" and in the window that opens ensure the
-          following two sites are ticked
+          Click &quot;Manage update sites&quot; and in the window that opens
+          ensure the following two sites are ticked
           <ul>
             <li>IJPB-plugins</li>
             <li>ModularImageAnalysis (MIA)</li>
           </ul>
         </li>
         <li>
-          Close the "Manage update sites" window, then click "Apply changes".
+          Close the &quot;Manage update sites&quot; window, then click
+          &quot;Apply changes&quot;.
         </li>
       </ol>
 
@@ -51,7 +52,7 @@ export default function GettingStarted() {
         Updater.
       </p>
 
-      <ol class="text-left">
+      <ol className="text-left">
         <li>Download the desired version of MIA from the Releases page.</li>
         <li>
           Place this .jar file into the /plugins directory of the your Fiji
@@ -63,7 +64,7 @@ export default function GettingStarted() {
       <h2>What next?!</h2>
 
       <p>
-        You're now ready to start using MIA. You can learn about the two
+        You&apos;re now ready to start using MIA. You can learn about the two
         interfaces in the Processing view and Editing view guides. For
         instructions on running pre-prepared workflows (distributed as .mia
         files) please see the Using existing workflows guide. Alternatively, you

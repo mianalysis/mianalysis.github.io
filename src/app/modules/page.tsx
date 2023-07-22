@@ -1,9 +1,8 @@
-import { For } from "solid-js";
-import modules from "~/assets/modules.json";
+import modules from "@/assets/modules.json";
 
 export default function Modules() {
   return (
-    <div class="text-center mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1>Modules</h1>
 
       <p>
@@ -13,13 +12,11 @@ export default function Modules() {
       </p>
 
       <ol>
-        <For each={modules.modules}>
-          {(module) => (
-            <li>
-              <a href={`/modules/${module.slug}`}>{module.name}</a>
-            </li>
-          )}
-        </For>
+        {modules.modules.map((module) => (
+          <li key={module.slug}>
+            <a href={`/modules/${module.slug}`}>{module.name}</a>
+          </li>
+        ))}
       </ol>
     </div>
   );

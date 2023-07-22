@@ -1,38 +1,41 @@
-import { useLocation, A } from "solid-start";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
-  const location = useLocation();
+  const pathname = usePathname();
 
   const active = (path: string) =>
-    path == location.pathname
+    path == pathname
       ? "border-sky-600"
       : "border-transparent hover:border-sky-600";
 
   return (
-    <nav class="bg-[#f8f9fa] flex justify-between items-center py-4 px-8 gap-8 drop-shadow-lg">
-      <A href="/" class="flex gap-4 items-center">
-        <img src="/images/logo.png" alt="Logo" class="max-h-6" />
+    <nav className="flex items-center justify-between gap-8 bg-[#f8f9fa] px-8 py-4 drop-shadow-lg">
+      <Link href="/" className="flex items-center gap-4">
+        <img src="/images/logo.png" alt="Logo" className="max-h-6" />
         ModularImageAnalysis (MIA)
-      </A>
+      </Link>
 
-      <ul class="flex items-center gap-8">
-        <li class={`border-b-2 ${active("/")}`}>
-          <A href="/">Home</A>
+      <ul className="flex items-center gap-8">
+        <li className={`border-b-2 ${active("/")}`}>
+          <Link href="/">Home</Link>
         </li>
-        <li class={`border-b-2 ${active("/guides")}`}>
-          <A href="/guides">Guides</A>
+        <li className={`border-b-2 ${active("/guides")}`}>
+          <Link href="/guides">Guides</Link>
         </li>
-        <li class={`border-b-2 ${active("/modules")}`}>
-          <A href="/modules">Modules</A>
+        <li className={`border-b-2 ${active("/modules")}`}>
+          <Link href="/modules">Modules</Link>
         </li>
-        <li class={`border-b-2 ${active("/publications")}`}>
-          <A href="/publications">Publications</A>
+        <li className={`border-b-2 ${active("/publications")}`}>
+          <Link href="/publications">Publications</Link>
         </li>
-        <li class={`border-b-2 ${active("/about")}`}>
-          <A href="/about">About</A>
+        <li className={`border-b-2 ${active("/about")}`}>
+          <Link href="/about">About</Link>
         </li>
-        <li class={`border-b-2 ${active("/guides/getting-started")}`}>
-          <A href="/guides/getting-started">Get started</A>
+        <li className={`border-b-2 ${active("/guides/getting-started")}`}>
+          <Link href="/guides/getting-started">Get started</Link>
         </li>
       </ul>
     </nav>

@@ -1,8 +1,8 @@
-import { A } from "solid-start";
+import Link from "next/link";
 
 export default function About() {
   return (
-    <div class="text-center mx-auto  max-w-3xl space-y-5">
+    <div className="mx-auto max-w-3xl  space-y-5 text-center">
       <h1>About MIA</h1>
 
       <p>Image and object analysis workflow automation plugin for Fiji</p>
@@ -50,9 +50,9 @@ export default function About() {
       <h2>Citing MIA</h2>
 
       <p>
-        We hope you find MIA useful. If you've used MIA in your research, please
-        cite it using the Zenodo DOI for that version of the plugin. Zenodo DOIs
-        for MIA can be found here.
+        We hope you find MIA useful. If you&apos;ve used MIA in your research,
+        please cite it using the Zenodo DOI for that version of the plugin.
+        Zenodo DOIs for MIA can be found here.
       </p>
 
       <h2>Publications</h2>
@@ -60,7 +60,7 @@ export default function About() {
       <p>
         MIA has been used in a variety of different analyses, a few published
         examples of which are listed below. For a more complete list, please go
-        to <A href="/publications">Publications</A>.
+        to <Link href="/publications">Publications</Link>.
       </p>
 
       <h2>Ongoing development</h2>
