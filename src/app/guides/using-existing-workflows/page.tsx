@@ -1,4 +1,5 @@
 import Video from '@/components/Video';
+import Link from 'next/link';
 
 export default function UsingExistingWorkflows() {
   return (
@@ -13,8 +14,15 @@ export default function UsingExistingWorkflows() {
         MIA workflows are distributed as .mia files. These allow the same workflow to be stored and
         easily shared between different computers. They can be configured to present a small number
         of key parameters (e.g. input file paths or filter thresholds) to the end user in MIA&apos;s
-        processing view while keeping the majority of parameters (those which should remain fixed)
-        accessible only via editing view.
+        <Link className="link" href="/guides/processing-view">
+          processing view
+        </Link>{' '}
+        while keeping the majority of parameters (those which should remain fixed) accessible only
+        via{' '}
+        <Link className="link" href="/guides/editing-view">
+          editing view
+        </Link>
+        .
       </p>
 
       <p>
@@ -33,7 +41,11 @@ export default function UsingExistingWorkflows() {
         </li>
 
         <li>
-          By default, MIA will load into &quot;processing view&quot;.
+          By default, MIA will load into{' '}
+          <Link className="link" href="/guides/processing-view">
+            processing view
+          </Link>
+          .
           <ul>
             <li>
               To make significant edits to a workflow (i.e. changes not possible using the

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function ProcessingView() {
   return (
     <div className="mx-auto max-w-3xl space-y-5">
@@ -10,7 +12,11 @@ export default function ProcessingView() {
       <p>
         MIA opens up in &quot;processing view&quot;, which is the standard view to run workflows
         from. This view includes controls to load workflow files and run analyses on new images.
-        Full workflow editing can be performed in editing view.
+        Full workflow editing can be performed in{' '}
+        <Link className="link" href="/guides/editing-view">
+          editing view
+        </Link>
+        .
       </p>
 
       <p>

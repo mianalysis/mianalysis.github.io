@@ -6,10 +6,6 @@ p {
   @apply text-gray-700;
 }
 
-/* a {
-  @apply 
-} */
-
 h1 {
   @apply mb-8 text-6xl font-thin uppercase text-sky-700;
 }
@@ -20,4 +16,8 @@ h2 {
 
 h3 {
   @apply truncate text-lg font-medium leading-snug;
+}
+
+.link {
+  @apply text-sky-700 underline hover:text-sky-900;
 }

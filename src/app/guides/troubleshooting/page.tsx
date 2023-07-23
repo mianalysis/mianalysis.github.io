@@ -10,7 +10,11 @@ export default function Troubleshooting() {
       <p>
         MIA is in ongoing development and from time-to-time, issues may arise. Below are listed some
         common problems and solutions. For any problems not covered in the table (or if you have
-        concerns something isn&apos;t working correctly), please submit an issue via GitHub.
+        concerns something isn&apos;t working correctly), please submit an{' '}
+        <a className="link" href="https://github.com/mianalysis/mia/issues">
+          issue
+        </a>{' '}
+        via GitHub.
       </p>
 
       <table className="text-left">

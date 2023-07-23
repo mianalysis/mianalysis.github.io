@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function ResultsFormat() {
   return (
     <div className="mx-auto max-w-3xl space-y-5">
@@ -20,7 +22,13 @@ export default function ResultsFormat() {
         with one row per detected object and a couple of record-keeping sheets.{' '}
       </p>
 
-      <p>The output file format is configured in the &quot;Output control&quot; module. </p>
+      <p>
+        The output file format is configured in the{' '}
+        <Link className="link" href="/modules/core/output-control">
+          Output control
+        </Link>{' '}
+        module.{' '}
+      </p>
 
       <h2>Summary sheet</h2>
 
@@ -65,7 +73,10 @@ export default function ResultsFormat() {
         <li>
           Image measurements:
           <li>These columns record the individual measurements assigned to each object.</li>
-          <li>Columns headings are in the form: [Image name]_(IM) // [Measurement name]</li>
+          <li>
+            Columns headings are in the form:
+            <code>[Image name]_(IM) // [Measurement name]</code>
+          </li>
           <li>
             For example, an image called &quot;Binary&quot; with the measurement &quot;THRESHOLD //
             GLOBAL Huang&quot; would be called &quot;Binary_(IM) // THRESHOLD // GLOBAL Huang&quot;.
@@ -80,7 +91,10 @@ export default function ResultsFormat() {
           Object counts:
           <ul>
             <li>These simply state the number of objects of the specified class.</li>
-            <li>These have headers in the form: [Objects name]_(OBJ) // NUMBER</li>
+            <li>
+              These have headers in the form:
+              <code>[Objects name]_(OBJ) // NUMBER</code>
+            </li>
             <li>
               For example, for the count of detected &quot;Nuclei&quot; objects, this would be
               &quot;Nuclei_(OBJ) // NUMBER&quot;.
@@ -100,8 +114,8 @@ export default function ResultsFormat() {
             measurements, these columns provide a single summary measurement statistic.
           </li>
           <li>
-            Headers for these values are in the form: [Objects name]_(OBJ_[Statistic]) //
-            [Measurement name]
+            Headers for these values are in the form:
+            <code>[Objects name]_(OBJ_[Statistic]) // [Measurement name]</code>
           </li>
           <li>
             For example, the header corresponding to the mean of the &quot;SHAPE // N_VOXELS&quot;

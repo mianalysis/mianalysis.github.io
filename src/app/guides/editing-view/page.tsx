@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function EditingView() {
   return (
     <div className="mx-auto max-w-3xl space-y-5">
@@ -11,12 +13,20 @@ export default function EditingView() {
         Workflows can be constructed and tested in &quot;editing view&quot;. Modules are assembled
         into a sequential list, with parameters for each displayed when the corresponding module
         name is clicked. It&apos;s also possible to control which parameters are visible to end
-        users via processing view. In editing view, workflows can be manually run one module at a
-        time or initiated for a full run in the same way as in processing view.
+        users via{' '}
+        <Link className="link" href="/guides/processing-view">
+          processing view
+        </Link>
+        . In editing view, workflows can be manually run one module at a time or initiated for a
+        full run in the same way as in processing view.
       </p>
 
       <p>
-        Details on constructing and editing workflows can be found in the Creating workflows guide.{' '}
+        Details on constructing and editing workflows can be found in the{' '}
+        <Link className="link" href="/guides/creating-workflows">
+          creating workflows
+        </Link>{' '}
+        guide.{' '}
       </p>
 
       <div className="aspect-video bg-black" />
@@ -36,7 +46,11 @@ export default function EditingView() {
         immediately after it, otherwise, it will be added to the bottom of the list. Similarly, the
         - button will remove any selected modules (note: multiple modules can be selected from the
         current workflow). The ? and ? buttons can be used to move modules around in the workflow. A
-        full list of modules and descriptions can be found in the module documentation.
+        full list of modules and descriptions can be found in the{' '}
+        <Link className="link" href="/modules">
+          module documentation
+        </Link>
+        .
       </p>
 
       <p>
@@ -91,8 +105,11 @@ export default function EditingView() {
       <p>
         Any modules identified as containing errors (e.g. missing input images or objects) will be
         shown in red with the icon. It is also possible to have optional modules which are disabled
-        under specific conditions (see workflow modules). Skipped modules are highlighted in orange
-        and given the icon.
+        under specific conditions (see{' '}
+        <Link className="link" href="/modules/workflow">
+          workflow modules
+        </Link>
+        ). Skipped modules are highlighted in orange and given the icon.
       </p>
 
       <div className="aspect-video bg-black" />
@@ -108,11 +125,14 @@ export default function EditingView() {
       </p>
 
       <p>
-        By default, no modules are visible to the end user in processing view. Modules can be made
-        editable in processing view by toggling the associated visibility button, with indicating a
-        visible (editable) parameter and one that will not be visible. Modules with visible
-        parameters will also have their name displayed in processing view, unless &quot;Show basic
-        title&quot; is unticked.
+        By default, no modules are visible to the end user in{' '}
+        <Link className="link" href="/guides/processing-view">
+          processing view
+        </Link>
+        . Modules can be made editable in processing view by toggling the associated visibility
+        button, with indicating a visible (editable) parameter and one that will not be visible.
+        Modules with visible parameters will also have their name displayed in processing view,
+        unless &quot;Show basic title&quot; is unticked.
       </p>
 
       <p>

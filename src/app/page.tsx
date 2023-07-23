@@ -26,8 +26,10 @@ export default function Home() {
 
       <p>
         MIA is developed in the{' '}
-        <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">Wolfson Bioimaging Facility</a> at
-        the University of Bristol.
+        <a className="link" href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+          Wolfson Bioimaging Facility
+        </a>{' '}
+        at the University of Bristol.
       </p>
     </div>
   );

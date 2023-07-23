@@ -139,7 +139,7 @@ $inPath="'$HOME\Ex1_only\'"
         &quot;inputPath&quot; optional argument.
       </p>
 
-      {/*  */}
+      <div className="aspect-video bg-black" />
 
       <h2>Optional arguments</h2>
 
@@ -151,7 +151,7 @@ $inPath="'$HOME\Ex1_only\'"
         &quot;verbose&quot;) control the text displayed in the terminal during execution.
       </p>
 
-      {/*  */}
+      <div className="aspect-video bg-black" />
     </div>
   );
 }
