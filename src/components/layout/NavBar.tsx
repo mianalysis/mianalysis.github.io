@@ -12,7 +12,7 @@ export default function NavBar() {
       : "border-transparent hover:border-sky-600";
 
   return (
-    <nav className="flex items-center justify-between gap-8 bg-[#f8f9fa] px-8 py-4 drop-shadow-lg">
+    <nav className="sticky top-0 flex items-center justify-between gap-8 bg-[#f8f9fa] px-8 py-4 drop-shadow-lg">
       <Link href="/" className="flex items-center gap-4">
         <img src="/images/logo.png" alt="Logo" className="max-h-6" />
         ModularImageAnalysis (MIA)
