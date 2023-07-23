@@ -5,11 +5,25 @@ import { ModuleCategory, Module } from '@/types';
 
 export const dynamicParams = false;
 
-// export async function generateStaticParams() {
-//   return modules.map(module => ({
-//     slug: module.slug,
-//   }));
-// }
+export async function generateStaticParams() {
+  const paths: string[][] = [];
+
+  function explore(category: ModuleCategory, slugs: string[]) {
+    paths.push(slugs);
+
+    category.sub_categories.forEach((sub_category) => {
+      explore(sub_category, [...slugs, sub_category.slug]);
+    });
+
+    category.modules.forEach((module) => {
+      paths.push([...slugs, module.slug]);
+    });
+  }
+
+  explore(rootCategory, []);
+
+  return paths.map((slugs) => ({ params: { slugs } }));
+}
 
 interface Props {
   params: { slugs: string[] };
