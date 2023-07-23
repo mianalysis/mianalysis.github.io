@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <div className="mx-auto max-w-3xl  space-y-5 text-center">
+    <div className="mx-auto max-w-3xl  space-y-5">
       <h1>About MIA</h1>
 
       <p>Image and object analysis workflow automation plugin for Fiji</p>

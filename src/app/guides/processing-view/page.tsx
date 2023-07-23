@@ -1,6 +1,6 @@
 export default function ProcessingView() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5 text-center">
+    <div className="mx-auto max-w-3xl space-y-5">
       <h1>Processing view</h1>
 
       <p>The default MIA interface for running existing workflows</p>

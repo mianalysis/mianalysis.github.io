@@ -1,6 +1,6 @@
 export default function Troubleshooting() {
   return (
-    <div className="mx-auto max-w-5xl space-y-5 text-center">
+    <div className="mx-auto max-w-5xl space-y-5">
       <h1>Troubleshooting</h1>
 
       <p>List of common issues and solutions</p>

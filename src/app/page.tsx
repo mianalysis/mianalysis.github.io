@@ -2,9 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-3xl space-y-8 text-center">
-      <h1>Home</h1>
-
+    <div className="mx-auto max-w-3xl space-y-8">
       <img src="/images/splash.png" alt="MIA" />
 
       <section className="grid grid-cols-3 items-center justify-center gap-8">

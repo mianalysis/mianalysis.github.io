@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="mx-auto space-y-5 text-center">
+    <div className="mx-auto space-y-5">
       <h1>Not Found</h1>
 
       <p>
