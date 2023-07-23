@@ -1,4 +1,5 @@
-import modules from "@/assets/modules.json";
+import rootCategory from '@/assets/modules.json';
+import ModuleCategory from '@/components/module/ModuleCategory';
 
 export default function Modules() {
   return (
@@ -6,18 +7,11 @@ export default function Modules() {
       <h1>Modules</h1>
 
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus,
-        maxime libero dicta quia tempore harum in ullam aliquam obcaecati qui at
-        eos similique necessitatibus ipsa. Laudantium impedit dolore ut tempora.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime libero dicta quia tempore harum in
+        ullam aliquam obcaecati qui at eos similique necessitatibus ipsa. Laudantium impedit dolore ut tempora.
       </p>
 
-      <ol>
-        {modules.modules.map((module) => (
-          <li key={module.slug}>
-            <a href={`/modules/${module.slug}`}>{module.name}</a>
-          </li>
-        ))}
-      </ol>
+      <ModuleCategory category={rootCategory} />
     </div>
   );
 }
