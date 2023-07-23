@@ -1,4 +1,4 @@
-import TerminalSnippet from "@/components/TerminalSnippet";
+import TerminalSnippet from '@/components/TerminalSnippet';
 
 export default function RunningHeadless() {
   return (
@@ -10,22 +10,20 @@ export default function RunningHeadless() {
       <h2>Introduction</h2>
 
       <p>
-        Using MIA's headless mode it's possible to run workflows without opening
-        a graphical Fiji environment. This enables running workflows on
-        terminal-only systems such as compute clusters. It also provides more
-        fine-grain control for multi-folder batch processing and facilitates
-        performing higher-level workflows such as parameter-sweeps.
+        Using MIA's headless mode it's possible to run workflows without opening a graphical Fiji
+        environment. This enables running workflows on terminal-only systems such as compute
+        clusters. It also provides more fine-grain control for multi-folder batch processing and
+        facilitates performing higher-level workflows such as parameter-sweeps.
       </p>
 
       <h2>Installing Fiji</h2>
 
       <p>
-        Headless running of workflows can be performed using any copy of Fiji
-        with a standard MIA install. If you've already got a copy of Fiji and
-        MIA, you can proceed to running a workflow. On systems lacking a
-        graphical interface (e.g. servers), Fiji can be installed using the
-        following system-specific commands. Following this, MIA is installed
-        using the steps outlined in installing MIA.
+        Headless running of workflows can be performed using any copy of Fiji with a standard MIA
+        install. If you've already got a copy of Fiji and MIA, you can proceed to running a
+        workflow. On systems lacking a graphical interface (e.g. servers), Fiji can be installed
+        using the following system-specific commands. Following this, MIA is installed using the
+        steps outlined in installing MIA.
       </p>
 
       <TerminalSnippet
@@ -60,9 +58,8 @@ cd .\fiji-win64\Fiji.app
       <h2>Installing MIA</h2>
 
       <p>
-        With Fiji installed, we can now install MIA and any relevant
-        dependencies. The following system-specific commands will perform these
-        operations.
+        With Fiji installed, we can now install MIA and any relevant dependencies. The following
+        system-specific commands will perform these operations.
       </p>
 
       <TerminalSnippet
@@ -88,14 +85,12 @@ cd .\fiji-win64\Fiji.app
       <h2>Running a workflow</h2>
 
       <p>
-        The following commands will run a workflow in headless mode. Examples
-        are given for running both a single file and also a folder (batch mode).
-        Headless mode can be configured with multiple optional parameters which
-        are listed in optional arguments. Arguments are specified as a
-        comma-separated list of names and values. If you don't have a workflow
-        to hand, you can download the example workflow (from the MIA-examples
-        repository) using the first few optional commands. Note: Headless
-        running requires MIA version 1.2.0 or newer.
+        The following commands will run a workflow in headless mode. Examples are given for running
+        both a single file and also a folder (batch mode). Headless mode can be configured with
+        multiple optional parameters which are listed in optional arguments. Arguments are specified
+        as a comma-separated list of names and values. If you don't have a workflow to hand, you can
+        download the example workflow (from the MIA-examples repository) using the first few
+        optional commands. Note: Headless running requires MIA version 1.2.0 or newer.
       </p>
 
       <TerminalSnippet
@@ -138,10 +133,10 @@ $inPath="'$HOME\Ex1_only\'"
       <h2>Required arguments</h2>
 
       <p>
-        Currently, headless running only requires a single argument specifying
-        the path to a pre-configured MIA workflow. In such a case, the file to
-        be processed is that specified in the workflow file's "Input path". To
-        run a different file, please use the "inputPath" optional argument.
+        Currently, headless running only requires a single argument specifying the path to a
+        pre-configured MIA workflow. In such a case, the file to be processed is that specified in
+        the workflow file's "Input path". To run a different file, please use the "inputPath"
+        optional argument.
       </p>
 
       {/*  */}
@@ -149,12 +144,11 @@ $inPath="'$HOME\Ex1_only\'"
       <h2>Optional arguments</h2>
 
       <p>
-        Workflow execution can be configured using additional optional
-        arguments. Arguably the most important optional arguments are
-        "inputPath", which allows specific files/folders to be processed, and
-        "variables", through which global variables in a workflow can be
-        modified. The remainder of the arguments (e.g. "showMemory" and
-        "verbose") control the text displayed in the terminal during execution.
+        Workflow execution can be configured using additional optional arguments. Arguably the most
+        important optional arguments are "inputPath", which allows specific files/folders to be
+        processed, and "variables", through which global variables in a workflow can be modified.
+        The remainder of the arguments (e.g. "showMemory" and "verbose") control the text displayed
+        in the terminal during execution.
       </p>
 
       {/*  */}

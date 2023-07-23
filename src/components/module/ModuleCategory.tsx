@@ -11,7 +11,7 @@ export default function ModuleCategory({ category }: Props) {
       <p>{category.description}</p>
 
       <section className="grid grid-cols-2 gap-8">
-        {category.sub_categories.map(sub_category => (
+        {category.sub_categories.map((sub_category) => (
           <Card
             key={sub_category.slug}
             title={sub_category.name}
@@ -19,8 +19,13 @@ export default function ModuleCategory({ category }: Props) {
             href={sub_category.path}
           />
         ))}
-        {category.modules.map(module => (
-          <Card key={module.slug} title={module.name} text={module.shortDescription} href={module.path} />
+        {category.modules.map((module) => (
+          <Card
+            key={module.slug}
+            title={module.name}
+            text={module.shortDescription}
+            href={module.path}
+          />
         ))}
       </section>
     </div>

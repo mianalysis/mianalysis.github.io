@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -20,19 +20,16 @@ export default function Home() {
       </section>
 
       <p>
-        ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular
-        framework for assembling image and object analysis workflows. Detected
-        objects can be transformed, filtered, measured and related. Analysis
-        workflows are batch-enabled by default, allowing easy processing of
-        high-content datasets.
+        ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular framework for
+        assembling image and object analysis workflows. Detected objects can be transformed,
+        filtered, measured and related. Analysis workflows are batch-enabled by default, allowing
+        easy processing of high-content datasets.
       </p>
 
       <p>
-        MIA is developed in the{" "}
-        <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">
-          Wolfson Bioimaging Facility
-        </a>{" "}
-        at the University of Bristol.
+        MIA is developed in the{' '}
+        <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">Wolfson Bioimaging Facility</a> at
+        the University of Bristol.
       </p>
     </div>
   );

@@ -1,17 +1,13 @@
-import NavBar from "@/components/layout/NavBar";
-import "./globals.css";
-import type { Metadata } from "next";
-import Footer from "@/components/layout/Footer";
+import NavBar from '@/components/layout/NavBar';
+import './globals.css';
+import type { Metadata } from 'next';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: "ModularImageAnalysis",
+  title: 'ModularImageAnalysis',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col">

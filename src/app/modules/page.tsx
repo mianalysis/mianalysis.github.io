@@ -7,8 +7,9 @@ export default function Modules() {
       <h1>Modules</h1>
 
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime libero dicta quia tempore harum in
-        ullam aliquam obcaecati qui at eos similique necessitatibus ipsa. Laudantium impedit dolore ut tempora.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, maxime libero dicta
+        quia tempore harum in ullam aliquam obcaecati qui at eos similique necessitatibus ipsa.
+        Laudantium impedit dolore ut tempora.
       </p>
 
       <ModuleCategory category={rootCategory} />

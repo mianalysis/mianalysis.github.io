@@ -15,7 +15,7 @@ export default function TreeNav({ category }: Props) {
 
   return (
     <ul className="text-gray-500">
-      {category.sub_categories.map(sub_category => (
+      {category.sub_categories.map((sub_category) => (
         <li key={sub_category.slug}>
           <Link
             href={sub_category.path}
@@ -26,16 +26,23 @@ export default function TreeNav({ category }: Props) {
           </Link>
 
           {pathname.startsWith(sub_category.path) && (
-            <div className="my-2 ml-4 border-l border-gray-200 pl-3">{TreeNav({ category: sub_category })}</div>
+            <div className="my-2 ml-4 border-l border-gray-200 pl-3">
+              {TreeNav({ category: sub_category })}
+            </div>
           )}
         </li>
       ))}
-      {category.modules.map(module => (
-        <li key={module.slug} className="relative transition-colors duration-200 hover:text-gray-950">
+      {category.modules.map((module) => (
+        <li
+          key={module.slug}
+          className="relative transition-colors duration-200 hover:text-gray-950"
+        >
           <Link href={module.path} className="flex py-1">
             {module.name}
           </Link>
-          {pathname === module.path && <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-blue-600" />}
+          {pathname === module.path && (
+            <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-blue-600" />
+          )}
         </li>
       ))}
     </ul>

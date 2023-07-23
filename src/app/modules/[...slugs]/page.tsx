@@ -15,20 +15,23 @@ interface Props {
   params: { slugs: string[] };
 }
 
-function findModuleOrCategoryNode(category: ModuleCategory, slugs: string[]): ModuleCategory | Module | undefined {
+function findModuleOrCategoryNode(
+  category: ModuleCategory,
+  slugs: string[]
+): ModuleCategory | Module | undefined {
   if (slugs.length === 0) {
     return category;
   }
 
   const slug = slugs.shift();
 
-  const subCategory = category.sub_categories.find(sub_category => sub_category.slug === slug);
+  const subCategory = category.sub_categories.find((sub_category) => sub_category.slug === slug);
 
   if (subCategory) {
     return findModuleOrCategoryNode(subCategory, slugs);
   }
 
-  return category.modules.find(module => module.slug === slug);
+  return category.modules.find((module) => module.slug === slug);
 }
 
 export default function Module({ params }: Props) {
@@ -42,7 +45,11 @@ export default function Module({ params }: Props) {
   return (
     <div className="mx-auto max-w-3xl space-y-5 text-center">
       <h1> {node.name}</h1>
-      {'sub_categories' in node ? <ModuleCategoryComponent category={node} /> : <ModuleDetails module={node} />}
+      {'sub_categories' in node ? (
+        <ModuleCategoryComponent category={node} />
+      ) : (
+        <ModuleDetails module={node} />
+      )}
     </div>
   );
 }

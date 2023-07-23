@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -6,7 +6,7 @@ export default function NotFound() {
       <h1>Not Found</h1>
 
       <p>
-        Return to {""}
+        Return to {''}
         <Link href="/" className="text-sky-600 hover:underline">
           Home
         </Link>

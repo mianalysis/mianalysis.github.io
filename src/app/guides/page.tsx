@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Card from '@/components/Card';
 
 export default function Guides() {
   return (
@@ -6,9 +6,8 @@ export default function Guides() {
       <h1>Guides</h1>
 
       <p>
-        Guides covering use of MIA. These include instructions to download and
-        install MIA, use existing or create new workflows or simply understand
-        the general structure of MIA.
+        Guides covering use of MIA. These include instructions to download and install MIA, use
+        existing or create new workflows or simply understand the general structure of MIA.
       </p>
 
       <div className="grid grid-cols-3 gap-8">

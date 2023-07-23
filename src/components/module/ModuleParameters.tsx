@@ -14,7 +14,7 @@ export default function ModuleParameters({ module }: Props) {
         </tr>
       </thead>
       <tbody>
-        {module.parameters.map(parameter => (
+        {module.parameters.map((parameter) => (
           <tr className="odd:bg-gray-100" key={parameter.name}>
             <td className="p-2">{parameter.name}</td>
             <td className="p-2" dangerouslySetInnerHTML={{ __html: parameter.description }} />
