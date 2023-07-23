@@ -10,7 +10,7 @@ export default function Troubleshooting() {
       <p>
         MIA is in ongoing development and from time-to-time, issues may arise. Below are listed some
         common problems and solutions. For any problems not covered in the table (or if you have
-        concerns something isn't working correctly), please submit an issue via GitHub.
+        concerns something isn&apos;t working correctly), please submit an issue via GitHub.
       </p>
 
       <table className="text-left">
@@ -29,8 +29,8 @@ export default function Troubleshooting() {
             <td>
               Certain modules require specific versions of other plugins to be installed. The
               warning message should list the required version of that plugin. You can check what
-              version of a plugin is currently installed by looking in the "plugins" folder of your
-              Fiji installation.
+              version of a plugin is currently installed by looking in the &quot;plugins&quot;
+              folder of your Fiji installation.
             </td>
           </tr>
           <tr>
@@ -39,10 +39,10 @@ export default function Troubleshooting() {
               loading a workflow
             </td>
             <td>
-              On its own this warning doesn't necessarily mean anything won't work as expected;
-              however, to ensure the workflow operates as intended, it's advisable to install the
-              same version of MIA as that used to prepare the workflow. Subsequent lines of this
-              warning should indicate the version used to create the workflow.
+              On its own this warning doesn&apos;t necessarily mean anything won&apos;t work as
+              expected; however, to ensure the workflow operates as intended, it&apos;s advisable to
+              install the same version of MIA as that used to prepare the workflow. Subsequent lines
+              of this warning should indicate the version used to create the workflow.
             </td>
           </tr>
           <tr>
