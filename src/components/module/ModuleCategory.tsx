@@ -10,7 +10,7 @@ export default function ModuleCategory({ category }: Props) {
     <div className="space-y-10">
       <p>{category.description}</p>
 
-      <section className="grid grid-cols-3 gap-8">
+      <section className="grid grid-cols-2 gap-8">
         {category.sub_categories.map(sub_category => (
           <Card
             key={sub_category.slug}

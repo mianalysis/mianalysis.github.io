@@ -9,8 +9,6 @@ export default function ModuleDetails({ module }: Props) {
     <div className="space-y-5">
       <p>{module.shortDescription}</p>
 
-      <hr />
-
       <h2>Description</h2>
 
       <p>{module.fullDescription}</p>

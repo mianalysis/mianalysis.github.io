@@ -8,9 +8,12 @@ interface Props {
 
 export default function Card({ title, text, href }: Props) {
   return (
-    <Link href={href} className="rounded-md border p-3 text-left">
+    <Link
+      href={href}
+      className="space-y-2 rounded-md border p-6 pt-5 text-left transition-shadow duration-500 hover:shadow-lg"
+    >
       <h3>{title}</h3>
-      <p>{text}</p>
+      <p className="line-clamp-3 text-sm font-normal text-gray-900">{text}</p>
     </Link>
   );
 }
