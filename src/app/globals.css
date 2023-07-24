@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Text defaults */
+
 p {
   @apply text-gray-700;
 }
@@ -20,4 +22,22 @@ h3 {
 
 .link {
   @apply text-sky-700 underline hover:text-sky-900;
+}
+
+/* Table defaults */
+
+table {
+  @apply text-left shadow-md;
+}
+
+tr {
+  @apply border-t even:bg-gray-50;
+}
+
+th {
+  @apply p-3 font-bold;
+}
+
+td {
+  @apply p-3;
 }

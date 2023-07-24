@@ -6,18 +6,18 @@ interface Props {
 
 export default function ModuleParameters({ module }: Props) {
   return (
-    <table className="border-b">
+    <table>
       <thead>
         <tr>
-          <th className="bold p-2">Parameter</th>
-          <th className="bold p-2">Description</th>
+          <th>Parameter</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
         {module.parameters.map((parameter) => (
-          <tr className="odd:bg-gray-100" key={parameter.name}>
-            <td className="p-2">{parameter.name}</td>
-            <td className="p-2" dangerouslySetInnerHTML={{ __html: parameter.description }} />
+          <tr key={parameter.name}>
+            <td>{parameter.name}</td>
+            <td dangerouslySetInnerHTML={{ __html: parameter.description }} />
           </tr>
         ))}
       </tbody>

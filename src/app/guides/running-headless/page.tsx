@@ -139,7 +139,23 @@ $inPath="'$HOME\Ex1_only\'"
         &quot;inputPath&quot; optional argument.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <table>
+        <thead>
+          <tr>
+            <th>Argument</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>workflowPath</td>
+            <td>
+              Path to .mia workflow file. This can either be relative to the current directory or an
+              absolute system path.
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>Optional arguments</h2>
 
@@ -151,7 +167,100 @@ $inPath="'$HOME\Ex1_only\'"
         &quot;verbose&quot;) control the text displayed in the terminal during execution.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <table>
+        <thead>
+          <tr>
+            <th>Argument</th>
+            <th>Description</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>inputPath</td>
+            <td>
+              If set, this will override the &quot;Input path&quot; file/folder set in the specified
+              workflow. When left blank, the &quot;Input path&quot; of the workflow file will be
+              used.
+            </td>
+            <td>
+              <code>[Blank]</code>
+            </td>
+          </tr>
+          <tr>
+            <td>variables</td>
+            <td>
+              Global variables (i.e. those specified as name-value pairs in a &quot;Global
+              Variables&quot; module) can be overridden using the form &quot;name1:value1;
+              name2:value2; etc.&quot;.
+            </td>
+            <td>
+              <code>[Blank]</code>
+            </td>
+          </tr>
+          <tr>
+            <td>showDebug</td>
+            <td>
+              Display any debug messages encountered during workflow execution to the terminal.
+              Debug messages are displayed in blue.
+            </td>
+            <td>
+              <code>false</code>
+            </td>
+          </tr>
+          <tr>
+            <td>showMemory</td>
+            <td>
+              Following execution of each module the current memory usage and elapsed time are
+              displayed in the terminal. Memory messages are displayed in green.
+            </td>
+            <td>
+              <code>false</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>showMessage</td>
+            <td>
+              Display any general messages encountered during workflow execution to the terminal.
+              Debug messages are displayed in white.
+            </td>
+            <td>
+              <code>true</code>
+            </td>
+          </tr>
+
+          <tr>
+            <td>showStatus</td>
+            <td>
+              Display module status updates in the terminal. Status messages are displayed in blue.
+            </td>
+            <td>
+              <code>true</code>
+            </td>
+          </tr>
+          <tr>
+            <td>showWarning</td>
+            <td>
+              Display any warning messages encountered during workflow execution to the terminal.
+              Warning messages are displayed in orange.
+            </td>
+            <td>
+              <code>true</code>
+            </td>
+          </tr>
+          <tr>
+            <td>verbose</td>
+            <td>
+              If processing multiple files/series (i.e. &quot;batch mode&quot;), verbose mode will
+              display the current module status, rather than the number of jobs completed.
+            </td>
+            <td>
+              <code>false</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }

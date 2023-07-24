@@ -17,7 +17,7 @@ export default function Troubleshooting() {
         via GitHub.
       </p>
 
-      <table className="text-left">
+      <table>
         <thead>
           <tr>
             <th>Problem</th>
