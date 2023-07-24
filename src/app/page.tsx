@@ -1,9 +1,11 @@
+import Image from 'next/image';
+import splash from '@/../public/images/splash.png';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="mx-auto max-w-3xl space-y-8">
-      <img src="/images/splash.png" alt="MIA" />
+      <Image src={splash} alt="MIA" />
 
       <section className="grid grid-cols-3 items-center justify-center gap-8">
         <a href="https://www.youtube.com/@mianalysis" className="border p-5">

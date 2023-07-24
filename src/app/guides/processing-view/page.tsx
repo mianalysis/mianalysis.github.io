@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import basicSmallView from '@/../public/images/screenshots/basic_view_small.png';
+import basicExpandedView from '@/../public/images/screenshots/basic_view_expanded.png';
 import Link from 'next/link';
 
 export default function ProcessingView() {
@@ -36,7 +39,7 @@ export default function ProcessingView() {
         independently expanded () or collapsed () by clicking anywhere on the associated header.
       </p>
 
-      <img src="/images/screenshots/basic_view_small.png" alt="Processing view" />
+      <Image src={basicSmallView} alt="Processing view" />
 
       <h2>Additional panels</h2>
 
@@ -62,7 +65,7 @@ export default function ProcessingView() {
         can be added by right-clicking the top row.
       </p>
 
-      <img src="/images/screenshots/basic_view_expanded.png" alt="Additional panels" />
+      <Image src={basicExpandedView} alt="Additional panels" />
     </div>
   );
 }

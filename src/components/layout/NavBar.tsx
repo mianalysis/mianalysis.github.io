@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import logo from '@/../public/images/logo.png';
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -12,7 +14,7 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 flex items-center justify-between gap-8 bg-[#f8f9fa] px-8 py-4 drop-shadow-lg">
       <Link href="/" className="flex items-center gap-4">
-        <img src="/images/logo.png" alt="Logo" className="max-h-6" />
+        <Image src={logo} alt="Logo" width={32} height={32} />
         ModularImageAnalysis (MIA)
       </Link>
 
