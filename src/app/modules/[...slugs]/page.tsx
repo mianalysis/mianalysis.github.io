@@ -57,7 +57,7 @@ export default function Module({ params }: Props) {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1> {node.name}</h1>
       {'sub_categories' in node ? (
         <ModuleCategoryComponent category={node} />

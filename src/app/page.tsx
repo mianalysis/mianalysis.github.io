@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
+    <div className="mx-auto max-w-4xl space-y-8">
       <Image src={splash} alt="MIA" />
 
       <section className="grid grid-cols-3 items-center justify-center gap-8">
@@ -24,14 +24,6 @@ export default function Home() {
         assembling image and object analysis workflows. Detected objects can be transformed,
         filtered, measured and related. Analysis workflows are batch-enabled by default, allowing
         easy processing of high-content datasets.
-      </p>
-
-      <p>
-        MIA is developed in the{' '}
-        <a className="link" href="https://www.bristol.ac.uk/wolfson-bioimaging/">
-          Wolfson Bioimaging Facility
-        </a>{' '}
-        at the University of Bristol.
       </p>
     </div>
   );

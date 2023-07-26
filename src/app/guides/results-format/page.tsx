@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ResultsFormat() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1>Results Format</h1>
 
       <p>Description of the default output results (.xlsx) format</p>

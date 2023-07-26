@@ -2,7 +2,7 @@ import TerminalSnippet from '@/components/TerminalSnippet';
 
 export default function RunningHeadless() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1>Running Headless</h1>
 
       <p>Running workflows directly from terminal</p>

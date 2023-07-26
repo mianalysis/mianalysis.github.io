@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ExampleWorkflows() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1>Example workflows</h1>
 
       <p>Accessing example workflows demonstrating use of MIA, with descriptions for each step</p>

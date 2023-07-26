@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function GettingStarted() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1>Getting Started</h1>
 
       <p>Downloading and installing MIA into Fiji</p>

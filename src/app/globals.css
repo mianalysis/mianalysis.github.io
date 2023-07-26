@@ -4,10 +4,6 @@
 
 /* Text defaults */
 
-p {
-  @apply text-gray-700;
-}
-
 h1 {
   @apply mb-8 text-6xl font-thin uppercase text-sky-700;
 }

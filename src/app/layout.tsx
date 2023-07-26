@@ -1,7 +1,7 @@
-import NavBar from '@/components/layout/NavBar';
 import './globals.css';
 import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 
 export const metadata: Metadata = {
   title: 'ModularImageAnalysis',
@@ -11,8 +11,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="flex min-h-screen w-screen flex-col">
-        <NavBar />
-        <main className="flex flex-1 p-16">{children}</main>
+        <Header />
+        <main className="flex flex-1 py-16">{children}</main>
         <Footer />
       </body>
     </html>

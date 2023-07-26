@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function EditingView() {
   return (
-    <div className="mx-auto max-w-3xl space-y-5">
+    <div className="mx-auto max-w-4xl space-y-5">
       <h1>Editing View</h1>
 
       <p>The interface for creating, editing and testing workflows</p>
