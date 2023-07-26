@@ -8,9 +8,10 @@ import { MdChevronRight, MdExpandMore } from 'react-icons/md';
 // TODO: Make generic over a "node" type rather than a ModuleCategory
 interface Props {
   category: ModuleCategory;
+  depth?: number;
 }
 
-export default function TreeNav({ category }: Props) {
+export default function TreeNav({ category, depth = 1 }: Props) {
   const pathname = usePathname();
 
   return (
@@ -19,15 +20,18 @@ export default function TreeNav({ category }: Props) {
         <li key={sub_category.slug}>
           <Link
             href={sub_category.path}
-            className="flex justify-between py-1 transition-colors duration-200 hover:text-gray-950"
+            className="relative flex justify-between py-1 transition-colors duration-200 hover:text-gray-950"
           >
+            {pathname.startsWith(sub_category.path) && depth > 1 && (
+              <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-blue-600" />
+            )}
             {sub_category.name}
             {pathname.startsWith(sub_category.path) ? <MdExpandMore /> : <MdChevronRight />}
           </Link>
 
           {pathname.startsWith(sub_category.path) && (
             <div className="my-2 ml-4 border-l border-gray-200 pl-3">
-              {TreeNav({ category: sub_category })}
+              {TreeNav({ category: sub_category, depth: depth + 1 })}
             </div>
           )}
         </li>

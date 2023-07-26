@@ -23,7 +23,7 @@ h3 {
 /* Table defaults */
 
 table {
-  @apply text-left shadow-md;
+  @apply w-full text-left shadow-md;
 }
 
 tr {

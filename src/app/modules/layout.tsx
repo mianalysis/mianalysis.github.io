@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 export default function ModuleLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto grid grid-cols-4 gap-16">
-      <div className="col-span-1">
+    <div className="mx-auto grid grid-cols-4 gap-8">
+      <div className="w-80">
         <Link href="/modules">Modules</Link>
 
         <TreeNav category={rootCategory} />

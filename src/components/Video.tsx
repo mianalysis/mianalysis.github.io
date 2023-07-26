@@ -4,7 +4,7 @@ interface Props {
 
 export default function Video({ id }: Props) {
   return (
-    <div className="aspect-video">
+    <div className="aspect-video shadow-lg">
       <iframe
         src={`https://www.youtube-nocookie.com/embed/${id}`}
         title="YouTube video player"
