@@ -83,7 +83,7 @@ export default function GettingStarted() {
       <h2>Next steps</h2>
 
       <p>
-        You&apos;re now ready to start using MIA. You can learn about the two interfaces in the
+        You&apos;re now ready to start using MIA. You can learn about the two interfaces in the{' '}
         <Link className="link" href="/guides/processing-view">
           Processing view
         </Link>{' '}
@@ -96,7 +96,7 @@ export default function GettingStarted() {
         <Link className="link" href="/guides/using-existing-workflows">
           Using existing workflows
         </Link>{' '}
-        guide. Alternatively, you can find instructions on developing new workflows in the
+        guide. Alternatively, you can find instructions on developing new workflows in the{' '}
         <Link className="link" href="/guides/creating-workflows">
           Creating workflows
         </Link>{' '}
