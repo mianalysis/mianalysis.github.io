@@ -5,11 +5,13 @@ import { ModuleCategory, Module } from '@/types';
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const paths: string[][] = [];
 
   function explore(category: ModuleCategory, slugs: string[]) {
-    paths.push(slugs);
+    if (slugs.length > 0) {
+      paths.push(slugs);
+    }
 
     category.sub_categories.forEach((sub_category) => {
       explore(sub_category, [...slugs, sub_category.slug]);
@@ -22,7 +24,7 @@ export async function generateStaticParams() {
 
   explore(rootCategory, []);
 
-  return paths.map((slugs) => ({ params: { slugs } }));
+  return paths.map((slugs) => ({ slugs }));
 }
 
 interface Props {
@@ -37,12 +39,12 @@ function findModuleOrCategoryNode(
     return category;
   }
 
-  const slug = slugs.shift();
+  const [slug, ...rest] = slugs;
 
   const subCategory = category.sub_categories.find((sub_category) => sub_category.slug === slug);
 
   if (subCategory) {
-    return findModuleOrCategoryNode(subCategory, slugs);
+    return findModuleOrCategoryNode(subCategory, rest);
   }
 
   return category.modules.find((module) => module.slug === slug);
