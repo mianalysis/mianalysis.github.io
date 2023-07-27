@@ -4,12 +4,23 @@
 
 /* Text defaults */
 
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Inter',
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
 h1 {
-  @apply mb-8 text-6xl font-thin uppercase text-sky-700;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  font-size: 60px;
 }
 
 h2 {
-  @apply text-2xl font-thin uppercase text-sky-900;
+  @apply mb-4 text-2xl font-thin uppercase text-sky-900;
 }
 
 h3 {
