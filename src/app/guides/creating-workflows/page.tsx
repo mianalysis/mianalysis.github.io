@@ -1,3 +1,4 @@
+import MiaIcon from '@/components/MiaIcon';
 import Video from '@/components/Video';
 import Link from 'next/link';
 
@@ -94,7 +95,7 @@ export default function CreatingWorkflows() {
           Modules can also be discovered and added using the module search feature.
           <ul>
             <li>
-              Access search via either the menu bar (&quot;View {'>'} Show module search&qout;) or
+              Access search via either the menu bar (&quot;View {'>'} Show module search&quot;) or
               by clicking &quot;Search for module&quot; in the available module list.
             </li>
             <li>
@@ -202,7 +203,8 @@ export default function CreatingWorkflows() {
           by toggling the visibility button to the right of the parameter.
           <ul>
             <li>
-              The icons indicates a visible (editable) parameter and one that will not be visible.
+              The <MiaIcon type="eye_open_black.png" /> icons indicates a visible (editable)
+              parameter and <MiaIcon type="eye_closed_black.png" /> one that will not be visible.
             </li>
           </ul>
         </li>
@@ -212,8 +214,9 @@ export default function CreatingWorkflows() {
           &quot;Can be disabled&quot; from the top of the parameter window.
           <ul>
             <li>
-              When selected, a power icon ( or ) will be displayed next to the module name in
-              processing view.
+              When selected, a power icon (<MiaIcon type="power_bright_green.png" /> or{' '}
+              <MiaIcon type="power_black_strike.png" />) will be displayed next to the module name
+              in processing view.
             </li>
           </ul>
         </li>

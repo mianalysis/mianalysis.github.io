@@ -2,6 +2,7 @@ import Image from 'next/image';
 import basicSmallView from '@/../public/images/screenshots/basic_view_small.png';
 import basicExpandedView from '@/../public/images/screenshots/basic_view_expanded.png';
 import Link from 'next/link';
+import MiaIcon from '@/components/MiaIcon';
 
 export default function ProcessingView() {
   return (
@@ -32,11 +33,15 @@ export default function ProcessingView() {
 
       <p>
         The basic processing view comprises a single main panel, showing all the available
-        parameters. Certain modules can be set by the workflow creator to be optionally enabled ()
-        or disabled (), while required modules have this icon greyed out (). Any parameters which
-        are incorrect (e.g. paths to files that don&apos;t exist) are highlighted in red with an
-        accompanying error icon (). Modules can also be grouped into sections, which can be
-        independently expanded () or collapsed () by clicking anywhere on the associated header.
+        parameters. Certain modules can be set by the workflow creator to be optionally enabled (
+        <MiaIcon type="power_bright_green.png" />) or disabled (
+        <MiaIcon type="power_black_strike.png" />
+        ), while required modules have this icon greyed out (<MiaIcon type="power_grey.png" />
+        ). Any parameters which are incorrect (e.g. paths to files that don&apos;t exist) are
+        highlighted in red with an accompanying error icon (<MiaIcon type="warning_red.png" />
+        ). Modules can also be grouped into sections, which can be independently expanded (
+        <MiaIcon type="down_arrow_dark_blue.png" />) or collapsed (
+        <MiaIcon type="right_arrow_dark_blue.png" />) by clicking anywhere on the associated header.
       </p>
 
       <Image src={basicSmallView} alt="Processing view" />

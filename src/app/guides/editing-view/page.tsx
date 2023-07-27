@@ -1,3 +1,4 @@
+import MiaIcon from '@/components/MiaIcon';
 import Link from 'next/link';
 
 export default function EditingView() {
@@ -75,10 +76,12 @@ export default function EditingView() {
       </p>
 
       <p>
-        Each module can be enabled and disabled using the associated and buttons, where a
-        strike-through indicates the module is currently disabled. Most modules are also able to
-        display an immediate visual output when they have been evaluated, this visualisation can be
-        toggled using the (visualisation enabled) and (visualisation disabled) buttons.
+        Each module can be enabled and disabled using the associated{' '}
+        <MiaIcon type="power_bright_green.png" /> and <MiaIcon type="power_black_strike.png" />{' '}
+        buttons, where a strike-through indicates the module is currently disabled. Most modules are
+        also able to display an immediate visual output when they have been evaluated, this
+        visualisation can be toggled using the <MiaIcon type="eye_open_black.png" /> (visualisation
+        enabled) and <MiaIcon type="eye_closed_black.png" /> (visualisation disabled) buttons.
       </p>
 
       <p>
@@ -91,25 +94,30 @@ export default function EditingView() {
 
       <p>
         Primarily for the purpose of testing, workflows can be run manually, one module at a time
-        using the evaluation buttons. The button indicates a module not yet run, a module currently
-        being evaluated and a module previously run. Editing a module will cause any
-        previously-evaluated modules downstream to reset to the &quot;not yet run&quot; state.
+        using the evaluation buttons. The <MiaIcon type="arrow_open_black.png" /> button indicates a
+        module not yet run, <MiaIcon type="dual_ring.gif" /> a module currently being evaluated and{' '}
+        <MiaIcon type="arrow_closed_green.png" />a module previously run. Editing a module will
+        cause any previously-evaluated modules downstream to reset to the &quot;not yet run&quot;
+        state.
       </p>
 
       <p>
         Separators can be used to break modules down into groups. Groups can be collapsed and
-        expanded using the and buttons on the associated separator row. All modules of a group can
-        also be simultaneously enabled or disabled using the associated separator button.
+        expanded using the <MiaIcon type="down_arrow_dark_blue.png" /> and{' '}
+        <MiaIcon type="right_arrow_dark_blue.png" /> buttons on the associated separator row. All
+        modules of a group can also be simultaneously enabled or disabled using the associated
+        separator <MiaIcon type="power_dark_blue.png" /> button.
       </p>
 
       <p>
         Any modules identified as containing errors (e.g. missing input images or objects) will be
-        shown in red with the icon. It is also possible to have optional modules which are disabled
-        under specific conditions (see{' '}
+        shown in red with the <MiaIcon type="warning_red.png" /> icon. It is also possible to have
+        optional modules which are disabled under specific conditions (see{' '}
         <Link className="link" href="/modules/workflow">
           workflow modules
         </Link>
-        ). Skipped modules are highlighted in orange and given the icon.
+        ). Skipped modules are highlighted in orange and given the{' '}
+        <MiaIcon type="skip_arrow_orange.png" /> icon.
       </p>
 
       <div className="aspect-video bg-black" />
@@ -130,18 +138,23 @@ export default function EditingView() {
           processing view
         </Link>
         . Modules can be made editable in processing view by toggling the associated visibility
-        button, with indicating a visible (editable) parameter and one that will not be visible.
-        Modules with visible parameters will also have their name displayed in processing view,
-        unless &quot;Show basic title&quot; is unticked.
+        button, with <MiaIcon type="eye_open_black.png" /> indicating a visible (editable) parameter
+        and <MiaIcon type="eye_closed_black.png" /> one that will not be visible. Modules with
+        visible parameters will also have their name displayed in processing view, unless &quot;Show
+        basic title&quot; is unticked.
       </p>
 
       <p>
         Similarly, entire modules can be made optional by selecting &quot;Can be disabled&quot;.
-        When selected, the module title will be displayed in processing view along with an or icon
+        When selected, the module title will be displayed in processing view along with an{' '}
+        <MiaIcon type="power_bright_green.png" /> or <MiaIcon type="power_black_strike.png" /> icon
         (depending on state of the module).
       </p>
 
-      <p>Any modules with identified errors will be highlighted in red along with the icon.</p>
+      <p>
+        Any modules with identified errors will be highlighted in red along with the{' '}
+        <MiaIcon type="warning_red.png" /> icon.
+      </p>
 
       <div className="aspect-video bg-black" />
 
