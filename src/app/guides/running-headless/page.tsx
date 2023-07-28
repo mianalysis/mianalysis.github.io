@@ -27,7 +27,7 @@ export default function RunningHeadless() {
       </p>
 
       <TerminalSnippet
-        Linux={`
+        bash={`
 # Downloading the latest copy of Fiji for 64-bit Linux 
 wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 
@@ -40,7 +40,7 @@ rm fiji-linux64.zip
 # Moving into extracted directory
 cd Fiji.app/
        `}
-        Windows={`
+        powershell={`
 # Downloading the latest copy of Fiji for 64-bit Windows
 Invoke-WebRequest https://downloads.imagej.net/fiji/latest/fiji-win64.zip
 
@@ -63,7 +63,7 @@ cd .\fiji-win64\Fiji.app
       </p>
 
       <TerminalSnippet
-        Linux={`
+        bash={`
 # Marking MIA and IJPB-plugins for installation
 ./ImageJ-linux64 --headless --update add-update-site MIA https://sites.imagej.net/ModularImageAnalysis/
 ./ImageJ-linux64 --headless --update add-update-site IJPB-plugins https://sites.imagej.net/IJPB-plugins
@@ -71,7 +71,7 @@ cd .\fiji-win64\Fiji.app
 # Performing update
 ./ImageJ-linux64 --headless --update update
        `}
-        Windows={`
+        powershell={`
 # Commands for Windows PowerShell
 # Marking MIA and IJPB-plugins for installation
 .\ImageJ-win64 --headless --console --update add-update-site MIA https://sites.imagej.net/ModularImageAnalysis/
@@ -94,7 +94,7 @@ cd .\fiji-win64\Fiji.app
       </p>
 
       <TerminalSnippet
-        Linux={`
+        bash={`
 # (Optional) Download example workflow to user folder
 wget https://github.com/mianalysis/mia-examples/releases/download/v1.0.0/Ex1_only.zip -O ~/example.zip
 unzip ~/example.zip -d ~/
@@ -111,7 +111,7 @@ inPath=~/Ex1_only/Ex1_3DStack1.tif
 inPath=~/Ex1_only/
 ./ImageJ-linux64 --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath', verbose=true"
         `}
-        Windows={`
+        powershell={`
 # (Optional) Download example workflow to user folder
 Invoke-WebRequest https://github.com/mianalysis/mia-examples/releases/download/v1.0.0/Ex1_only.zip -OutFile $HOME/example.zip
 Expand-Archive $HOME\example.zip -DestinationPath ~\

@@ -1,45 +1,77 @@
 'use client';
 
-import { useState } from 'react';
+import { useClickOutside } from '@/hooks/click';
+import classNames from 'classnames';
+import { useRef, useState } from 'react';
 import { MdCopyAll } from 'react-icons/md';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import bashSyntax from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
+import powershellSyntax from 'react-syntax-highlighter/dist/esm/languages/hljs/powershell';
+import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-type OS = 'Linux' | 'Windows';
+SyntaxHighlighter.registerLanguage('bash', bashSyntax);
+SyntaxHighlighter.registerLanguage('powershell', powershellSyntax);
 
-type Props = Record<OS, string>;
+const shells = {
+  bash: 'Linux',
+  powershell: 'Windows',
+} as const;
+
+type Shell = keyof typeof shells;
+
+type Props = Record<Shell, string>;
 
 export default function TerminalSnippet(snippets: Props) {
-  const [selectedOS, setSelectedOS] = useState<OS>('Linux');
+  const [selectedShell, setSelectedShell] = useState<Shell>('bash');
 
-  const selectedSnippet = snippets[selectedOS];
+  const selectedSnippet = snippets[selectedShell];
 
-  const copy = () => {
-    navigator.clipboard.writeText(selectedSnippet);
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(selectedSnippet);
+    setCopied(true);
   };
 
+  const copyButtonRef = useRef<HTMLButtonElement>(null);
+
+  useClickOutside(copyButtonRef, () => setCopied(false));
+
   return (
-    <div>
-      <div className="flex gap-4">
-        {Object.keys(snippets).map((key) => (
+    <div className="space-y-1">
+      <div className="flex gap-4 font-mono">
+        {Object.entries(shells).map(([shell, os]) => (
           <button
-            key={key}
+            key={shell}
             type="button"
-            onClick={() => setSelectedOS(key as OS)}
-            className={`rounded-md border px-2 py-1 ${
-              selectedSnippet === key ? 'border-gray-900' : 'border-transparent'
+            onClick={() => setSelectedShell(shell as Shell)}
+            className={`px-2 py-1 transition-colors duration-500 ${
+              selectedShell === shell ? ' text-black' : 'text-gray-300 hover:text-gray-500'
             }`}
           >
-            {key}
+            {os}
           </button>
         ))}
       </div>
 
-      <pre className="relative bg-gray-100 text-left">
-        <button type="button" onClick={copy} className="absolute right-0 top-0 p-2">
-          <MdCopyAll />
+      <div className="relative">
+        <button
+          type="button"
+          ref={copyButtonRef}
+          onClick={copy}
+          title="Copy to clipboard"
+          className={classNames(
+            'absolute right-0 top-0 p-3 transition-colors',
+            copied ? 'text-green-500' : 'text-white hover:text-gray-300'
+          )}
+        >
+          <MdCopyAll size={24} />
         </button>
 
-        <code>{selectedSnippet}</code>
-      </pre>
+        <SyntaxHighlighter language={selectedShell} style={obsidian}>
+          {selectedSnippet}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
 }
