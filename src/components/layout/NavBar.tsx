@@ -14,7 +14,7 @@ export default function NavBar() {
     <nav className="flex w-full max-w-4xl items-center justify-between gap-8">
       <Logo />
 
-      <ul className="flex items-center gap-8">
+      <ul className="flex list-none items-center gap-8">
         <li className={`border-b-2 transition-colors ${active('/')}`}>
           <Link href="/">Home</Link>
         </li>

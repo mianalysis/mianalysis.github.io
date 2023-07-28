@@ -15,7 +15,7 @@ export default function TreeNav({ category, depth = 1 }: Props) {
   const pathname = usePathname();
 
   return (
-    <ul className="text-gray-500">
+    <ul className="list-none text-gray-500">
       {category.sub_categories.map((sub_category) => (
         <li key={sub_category.slug}>
           <Link

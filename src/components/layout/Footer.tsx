@@ -20,7 +20,7 @@ export default function Footer() {
       </div>
 
       <div className="grid grid-cols-3 gap-8">
-        <ul className="space-y-1">
+        <ul className="list-none space-y-1">
           <li className="mb-5 font-thin uppercase drop-shadow-sm">Explore</li>
           <li className="hover:text-black">
             <a href="https://github.com/mianalysis">GitHub</a>
@@ -33,7 +33,7 @@ export default function Footer() {
           </li>
         </ul>
 
-        <ul className="space-y-1">
+        <ul className="list-none space-y-1">
           <li className="mb-5 font-thin uppercase drop-shadow-sm">Learn</li>
           <li className="hover:text-black">
             <Link href="/about">About</Link>
@@ -49,7 +49,7 @@ export default function Footer() {
           </li>
         </ul>
 
-        <ul className="space-y-1">
+        <ul className="list-none space-y-1">
           <li className="mb-5 font-thin uppercase drop-shadow-sm">Follow</li>
           <li className="hover:text-black">
             <a href="https://twitter.com/_mianalysis/">Twitter</a>
