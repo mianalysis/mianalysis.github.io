@@ -32,7 +32,7 @@ h1 {
 }
 
 h2 {
-  @apply mb-4 text-2xl font-thin uppercase;
+  @apply mb-4 text-2xl font-semibold uppercase;
 }
 
 h3 {
