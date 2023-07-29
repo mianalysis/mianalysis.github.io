@@ -18,7 +18,7 @@ export default function NavLink({ href, children }: Props) {
     <li
       className={classNames(
         'border-b-2 transition-colors',
-        active ? 'border-sky-600' : 'border-transparent hover:border-sky-500'
+        active ? 'border-mia-blue' : 'border-transparent hover:border-mia-orange'
       )}
     >
       <Link href={href}>{children}</Link>

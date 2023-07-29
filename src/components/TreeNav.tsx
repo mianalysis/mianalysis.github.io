@@ -23,7 +23,7 @@ export default function TreeNav({ category, depth = 1 }: Props) {
             className="relative flex justify-between py-1 transition-colors duration-200 hover:text-gray-950"
           >
             {pathname.startsWith(sub_category.path) && depth > 1 && (
-              <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-blue-600" />
+              <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-mia-blue" />
             )}
             {sub_category.name}
             {pathname.startsWith(sub_category.path) ? <MdExpandMore /> : <MdChevronRight />}
@@ -45,7 +45,7 @@ export default function TreeNav({ category, depth = 1 }: Props) {
             {module.name}
           </Link>
           {pathname === module.path && (
-            <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-blue-600" />
+            <div className="absolute -left-[13px] bottom-0 top-0 w-[1px] bg-mia-blue" />
           )}
         </li>
       ))}

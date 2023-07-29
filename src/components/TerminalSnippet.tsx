@@ -62,7 +62,7 @@ export default function TerminalSnippet(snippets: Props) {
           title="Copy to clipboard"
           className={classNames(
             'absolute right-0 top-0 p-3 transition-colors',
-            copied ? 'text-green-500' : 'text-white hover:text-gray-300'
+            copied ? 'text-mia-green' : 'text-white hover:text-gray-300'
           )}
         >
           <MdCopyAll size={24} />

@@ -71,23 +71,23 @@ export default function Home() {
       <section className="grid grid-cols-3 items-center justify-center gap-8">
         <a
           href="https://www.youtube.com/@mianalysis"
-          className="flex flex-col content-center items-center gap-4 border p-5 text-gray-600 transition-all duration-500 hover:text-black hover:shadow-md"
+          className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
         >
-          <MdMovie size={128} />
+          <MdMovie size={128} className="text-mia-orange" />
           Video Tutorials
         </a>
         <Link
           href="/guides"
-          className="flex flex-col content-center items-center gap-4 border p-5 text-gray-600 transition-all duration-500 hover:text-black hover:shadow-md"
+          className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
         >
-          <MdDescription size={128} />
+          <MdDescription size={128} className="text-mia-blue" />
           Guides
         </Link>
         <Link
           href="/modules"
-          className="flex flex-col content-center items-center gap-4 border p-5 text-gray-600 transition-all duration-500 hover:text-black hover:shadow-md"
+          className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
         >
-          <MdApps size={128} />
+          <MdApps size={128} className="text-mia-green" />
           List of modules
         </Link>
       </section>
