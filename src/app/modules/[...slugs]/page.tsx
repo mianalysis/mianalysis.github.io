@@ -1,28 +1,12 @@
-import rootCategory from '@/assets/modules.json';
 import ModuleCategoryComponent from '@/components/module/ModuleCategory';
 import ModuleDetails from '@/components/module/ModuleDetails';
-import { ModuleCategory, Module } from '@/types';
+import { findModuleOrCategory, getModulePaths } from '@/lib/modules';
+import { Module } from '@/types';
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  const paths: string[][] = [];
-
-  function explore(category: ModuleCategory, slugs: string[]) {
-    if (slugs.length > 0) {
-      paths.push(slugs);
-    }
-
-    category.sub_categories.forEach((sub_category) => {
-      explore(sub_category, [...slugs, sub_category.slug]);
-    });
-
-    category.modules.forEach((module) => {
-      paths.push([...slugs, module.slug]);
-    });
-  }
-
-  explore(rootCategory, []);
+  const paths = getModulePaths();
 
   return paths.map((slugs) => ({ slugs }));
 }
@@ -31,27 +15,8 @@ interface Props {
   params: { slugs: string[] };
 }
 
-function findModuleOrCategoryNode(
-  category: ModuleCategory,
-  slugs: string[]
-): ModuleCategory | Module | undefined {
-  if (slugs.length === 0) {
-    return category;
-  }
-
-  const [slug, ...rest] = slugs;
-
-  const subCategory = category.sub_categories.find((sub_category) => sub_category.slug === slug);
-
-  if (subCategory) {
-    return findModuleOrCategoryNode(subCategory, rest);
-  }
-
-  return category.modules.find((module) => module.slug === slug);
-}
-
 export default function Module({ params }: Props) {
-  const node = findModuleOrCategoryNode(rootCategory, params.slugs);
+  const node = findModuleOrCategory(params.slugs);
 
   // TODO: Handle differently
   if (!node) {
