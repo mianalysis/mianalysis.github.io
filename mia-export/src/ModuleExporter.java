@@ -25,6 +25,8 @@ public class ModuleExporter {
     private static TreeMap<Category, List<Module>> modulesByCategory;
 
     public static void main(String[] args) {
+        System.out.println("MIA version [" + MIA.getVersion() + "]");
+
         modulesByCategory = getModules();
 
         JSONObject json = generateCategory(Categories.getRootCategory(), "");
