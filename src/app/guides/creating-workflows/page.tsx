@@ -1,5 +1,6 @@
 import MiaIcon from '@/components/MiaIcon';
-import Video from '@/components/Video';
+import StaticVideo from '@/components/StaticVideo';
+import YouTubeVideo from '@/components/YouTubeVideo';
 import Link from 'next/link';
 
 export default function CreatingWorkflows() {
@@ -36,7 +37,7 @@ export default function CreatingWorkflows() {
         accompanying notes, explaining its configuration.
       </p>
 
-      <Video id="CfpWGBpZxEo" />
+      <YouTubeVideo id="CfpWGBpZxEo" />
 
       <h2>Accessing editing view</h2>
 
@@ -60,7 +61,7 @@ export default function CreatingWorkflows() {
         </li>
       </ul>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/switch_view.mp4" />
 
       <h2>Adding and arranging modules</h2>
 
@@ -109,17 +110,18 @@ export default function CreatingWorkflows() {
             </li>
             <li>Add detected modules to the current workflow using the + button to their right.</li>
           </ul>
-          <li>
-            Selected module(s) can be removed using the - button and moved up and down with the ?
-            and ? buttons.
-            <ul>
-              <li>Modules can also be moved by dragging them to a new position in the workflow.</li>
-            </ul>
-          </li>
+        </li>
+
+        <li>
+          Selected module(s) can be removed using the - button and moved up and down with the ? and
+          ? buttons.
+          <ul>
+            <li>Modules can also be moved by dragging them to a new position in the workflow.</li>
+          </ul>
         </li>
       </ul>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/add_modules.mp4" />
 
       <h2>Selecting files to process</h2>
 
@@ -172,7 +174,7 @@ export default function CreatingWorkflows() {
         </li>
       </ul>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/file_selection.mp4" />
 
       <h2>Configuring modules</h2>
 
@@ -224,11 +226,11 @@ export default function CreatingWorkflows() {
         <li>Modules and parameters can be renamed by right-clicking on their name.</li>
       </ul>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/update_parameters.mp4" />
 
       <h2>Configuring output results format</h2>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/set_results.mp4" />
 
       <li>
         The generated results spreadsheet can be configured in the always-present{' '}

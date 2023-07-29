@@ -1,4 +1,4 @@
-import Video from '@/components/Video';
+import YouTubeVideo from '@/components/YouTubeVideo';
 import Link from 'next/link';
 
 export default function GettingStarted() {
@@ -10,7 +10,7 @@ export default function GettingStarted() {
 
       <h2>Introduction</h2>
 
-      <Video id="UNgro7_wEIU" />
+      <YouTubeVideo id="UNgro7_wEIU" />
 
       <p>
         MIA can either be installed into Fiji via the ImageJ Updater (Option 1) or manually using

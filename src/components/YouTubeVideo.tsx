@@ -2,7 +2,7 @@ interface Props {
   id: string;
 }
 
-export default function Video({ id }: Props) {
+export default function YouTubeVideo({ id }: Props) {
   return (
     <div className="aspect-video shadow-lg">
       <iframe

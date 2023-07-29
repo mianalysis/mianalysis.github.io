@@ -1,4 +1,5 @@
-import Video from '@/components/Video';
+import StaticVideo from '@/components/StaticVideo';
+import YouTubeVideo from '@/components/YouTubeVideo';
 import Link from 'next/link';
 
 export default function UsingExistingWorkflows() {
@@ -30,7 +31,7 @@ export default function UsingExistingWorkflows() {
         accessible parameters, running the workflow and finding the output results.
       </p>
 
-      <Video id="Eiko7nlbZsM" />
+      <YouTubeVideo id="Eiko7nlbZsM" />
 
       <h2>Loading the workflow</h2>
 
@@ -67,7 +68,7 @@ export default function UsingExistingWorkflows() {
         </li>
       </ol>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/use-workflow/load.mp4" />
 
       <h2>Configuring and running</h2>
 
@@ -110,7 +111,7 @@ export default function UsingExistingWorkflows() {
         </li>
       </ol>
 
-      <div className="aspect-video bg-black" />
+      <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/use-workflow/run.mp4" />
 
       <h2>Saving changes</h2>
 
