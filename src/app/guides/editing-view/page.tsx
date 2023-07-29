@@ -1,5 +1,11 @@
 import MiaIcon from '@/components/MiaIcon';
 import Link from 'next/link';
+import editingViewFull from '@/../public/images/screenshots/editing_view_full.png';
+import editingViewControlPanel from '@/../public/images/screenshots/editing_view_control_panel.png';
+import editingViewModuleList from '@/../public/images/screenshots/editing_view_module_list.png';
+import editingViewParameterPanel from '@/../public/images/screenshots/editing_view_parameter_panel.png';
+import editingViewSearch from '@/../public/images/screenshots/editing_view_search.png';
+import Image from 'next/image';
 
 export default function EditingView() {
   return (
@@ -30,7 +36,7 @@ export default function EditingView() {
         guide.{' '}
       </p>
 
-      <div className="aspect-video bg-black" />
+      <Image src={editingViewFull} alt="Editing view" />
 
       <h2>Workflow controls</h2>
 
@@ -64,7 +70,7 @@ export default function EditingView() {
         The &quot;Stop&quot; button will terminate any active analysis runs.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <Image src={editingViewControlPanel} alt="Editing view control panel" />
 
       <h2>Modules in workflow</h2>
 
@@ -120,7 +126,7 @@ export default function EditingView() {
         <MiaIcon type="skip_arrow_orange.png" /> icon.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <Image src={editingViewModuleList} alt="Editing view module list" />
 
       <h2>Module parameters</h2>
 
@@ -156,7 +162,7 @@ export default function EditingView() {
         <MiaIcon type="warning_red.png" /> icon.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <Image src={editingViewParameterPanel} alt="Editing view parameter panel" />
 
       <h2>Module search</h2>
 
@@ -181,7 +187,7 @@ export default function EditingView() {
         workflow using the associated + button.
       </p>
 
-      <div className="aspect-video bg-black" />
+      <Image src={editingViewSearch} alt="Editing view search" />
     </div>
   );
 }
