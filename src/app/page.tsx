@@ -5,10 +5,10 @@ import dataExport from '@/../public/images/screenshots/data_export.png';
 import imagej from '@/../public/images/logos/imagej.png';
 import fiji from '@/../public/images/logos/fiji.png';
 import trackmate from '@/../public/images/logos/trackmate.png';
-import Link from 'next/link';
 import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
 import ModuleCloud from '@/components/module/ModuleCloud';
 import CodeSnippet from '@/components/splash/CodeSnippet';
+import Card from '@/components/Card';
 
 export default function Home() {
   return (
@@ -35,10 +35,10 @@ export default function Home() {
         <ModuleCloud />
       </section>
 
-      <section className="space-y-8">
+      <section>
         <h2>Compatible</h2>
 
-        <div className="grid grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-3 gap-8 items-center mb-8">
           <p className="opacity-70 text-2xl col-span-2">
             Designed with out-of-the-box support for spatially-calibrated 5D images, yielding image
             and object measurements in both pixel and physical units
@@ -125,27 +125,18 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-3 items-center justify-center gap-8">
-          <a
-            href="https://www.youtube.com/@mianalysis"
-            className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
-          >
+          <Card href="https://www.youtube.com/@mianalysis" className="flex flex-col items-center">
+            <h3>Video Tutorials</h3>
             <MdMovie size={128} className="text-mia-orange" />
-            Video Tutorials
-          </a>
-          <Link
-            href="/guides"
-            className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
-          >
+          </Card>
+          <Card href="/guides" className="flex flex-col items-center">
+            <h3>Guides</h3>
             <MdDescription size={128} className="text-mia-blue" />
-            Guides
-          </Link>
-          <Link
-            href="/modules"
-            className="flex flex-col content-center items-center gap-4 border p-5 transition-all duration-500 hover:opacity-80 hover:shadow-md"
-          >
+          </Card>
+          <Card href="/modules" className="flex flex-col items-center">
+            <h3>List of modules</h3>
             <MdApps size={128} className="text-mia-green" />
-            List of modules
-          </Link>
+          </Card>
         </div>
       </section>
     </div>
