@@ -41,3 +41,21 @@ export function getModulePaths() {
 
   return paths;
 }
+
+export function getModules() {
+  const modules: Module[] = [];
+
+  function explore(category: ModuleCategory) {
+    category.sub_categories.forEach((sub_category) => {
+      explore(sub_category);
+    });
+
+    category.modules.forEach((module) => {
+      modules.push(module);
+    });
+  }
+
+  explore(rootCategory);
+
+  return modules;
+}
