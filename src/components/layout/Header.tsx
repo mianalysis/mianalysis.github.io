@@ -1,11 +1,11 @@
 'use client';
 
-import useScroll from '@/hooks/scroll';
+import { useScrollY } from '@/hooks/scroll';
 import NavBar from './NavBar';
 import classnames from 'classnames';
 
 export default function Header() {
-  const scrolled = useScroll() > 0;
+  const scrolled = useScrollY() > 0;
 
   return (
     <>
