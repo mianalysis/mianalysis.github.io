@@ -10,7 +10,7 @@ export default function Guides() {
         existing or create new workflows or simply understand the general structure of MIA.
       </p>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid sm:grid-cols-2 gap-8">
         <Card href="/guides/getting-started">
           <h3>Getting Started</h3>
           <p>Downloading and installing MIA into Fiji</p>

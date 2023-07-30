@@ -11,7 +11,7 @@ export default function ModuleCategory({ category }: Props) {
     <div className="space-y-10">
       <p>{category.description}</p>
 
-      <section className="grid grid-cols-2 gap-8">
+      <section className="grid sm:grid-cols-2 gap-8">
         {category.sub_categories.map((sub_category) => (
           <Card key={sub_category.slug} className="border-2 border-dashed" href={sub_category.path}>
             <h3>{sub_category.name}</h3>

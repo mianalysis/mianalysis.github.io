@@ -4,16 +4,18 @@ import Link from 'next/link';
 
 export default function ModuleLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-6 gap-8 px-32">
-      <div className="w-80">
+    <div className="flex justify-center gap-16 w-full">
+      {/* Tree nav for large screens */}
+      <div className="w-80 hidden xl:block">
         <Link href="/modules">Modules</Link>
 
         <TreeNav category={rootCategory} />
       </div>
 
-      <div className="col-span-4">{children}</div>
+      <div>{children}</div>
 
-      <div />
+      {/* Keep children center only on large screens */}
+      <div className="w-80 hidden 2xl:block" />
     </div>
   );
 }

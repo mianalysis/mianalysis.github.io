@@ -39,7 +39,7 @@ export default function Home() {
       <section>
         <h2>Compatible</h2>
 
-        <div className="grid grid-cols-3 gap-8 items-center mb-8">
+        <div className="grid sm:grid-cols-3 gap-8 items-center mb-8">
           <p className="opacity-70 text-2xl col-span-2">
             Designed with out-of-the-box support for spatially-calibrated 5D images, yielding image
             and object measurements in both pixel and physical units
