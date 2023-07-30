@@ -5,6 +5,7 @@ import dataExport from '@/../public/images/screenshots/data_export.png';
 import imagej from '@/../public/images/logos/imagej.png';
 import fiji from '@/../public/images/logos/fiji.png';
 import trackmate from '@/../public/images/logos/trackmate.png';
+import bioformats from '@/../public/images/logos/bio_formats.png';
 import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
 import ModuleCloud from '@/components/module/ModuleCloud';
 import CodeSnippet from '@/components/splash/CodeSnippet';
@@ -46,14 +47,23 @@ export default function Home() {
           <Image src={dataExport} alt="MIA" />
         </div>
 
-        <div className="grid grid-cols-3 gap-8 content-center items-center">
-          <div className="flex gap-4">
-            <Image src={imagej} alt="ImageJ" width={82} height={82} />
-            <Image src={fiji} alt="Fiji" width={82} height={82} />
-            <Image src={trackmate} alt="TrackMate" width={82} height={82} />
+        <div className="flex gap-16 justify-between items-center">
+          <div className="flex gap-4 items-center drop-shadow-2xl">
+            <div>
+              <Image src={imagej} alt="ImageJ" width={200} height={200} />
+            </div>
+            <div>
+              <Image src={fiji} alt="Fiji" width={200} height={200} />
+            </div>
+            <div>
+              <Image src={trackmate} alt="TrackMate" width={200} height={200} />
+            </div>
+            <div>
+              <Image src={bioformats} alt="Bio-Formats" width={200} height={200} />
+            </div>
           </div>
 
-          <p className="opacity-70 text-2xl col-span-2">
+          <p className="opacity-70 text-2xl">
             Integrates with key ImageJ plugins such as{' '}
             <a href="https://github.com/openmicroscopy/bioformats">Bio-Formats</a>,{' '}
             <a href="https://github.com/fiji/TrackMate">TrackMate</a> and{' '}
