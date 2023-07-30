@@ -1,11 +1,19 @@
 import Link from 'next/link';
+import wbif from '@/../public/images/logos/wbif.jpg';
 import Logo from './Logo';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="mx-auto flex w-full max-w-4xl items-start justify-between gap-16 py-32 text-gray-700">
       <div className="space-y-6">
-        <Logo />
+        <div className="flex justify-between">
+          <Logo />
+
+          <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+            <Image src={wbif} alt="Wolfson Bioimaging Facility" height={32} />
+          </a>
+        </div>
 
         <p className="max-w-sm font-thin">
           Developed in the{' '}
