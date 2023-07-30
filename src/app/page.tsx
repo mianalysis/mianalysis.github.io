@@ -33,7 +33,10 @@ export default function Home() {
           dolor sit amet consectetur adipisicing elit. Minima, magni?
         </p>
 
-        <ModuleCloud />
+        {/* TODO: Improve mobile content */}
+        <div className="hidden sm:block">
+          <ModuleCloud />
+        </div>
       </section>
 
       <section>
@@ -47,7 +50,7 @@ export default function Home() {
           <Image src={dataExport} alt="MIA" />
         </div>
 
-        <div className="flex gap-16 justify-between items-center">
+        <div className="flex flex-col-reverse sm:flex-row gap-16 justify-between items-center">
           <div className="flex gap-4 items-center drop-shadow-2xl">
             <div>
               <Image src={imagej} alt="ImageJ" width={200} height={200} />
@@ -72,7 +75,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid grid-cols-3 gap-16 items-center">
+      <section className="grid sm:grid-cols-3 gap-16 items-center">
         <div className="col-span-2 space-y-8">
           <div>
             <h2>Efficient</h2>
@@ -134,7 +137,7 @@ export default function Home() {
           quam at perspiciatis deleniti ipsa consequatur magnam tempora?
         </p>
 
-        <div className="grid grid-cols-3 items-center justify-center gap-8">
+        <div className="grid sm:grid-cols-3 items-center gap-8">
           <Card href="https://www.youtube.com/@mianalysis" className="flex flex-col items-center">
             <h3>Video Tutorials</h3>
             <MdMovie size={128} className="text-mia-orange" />

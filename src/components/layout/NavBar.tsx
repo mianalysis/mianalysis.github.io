@@ -8,8 +8,7 @@ export default function NavBar() {
     <nav className="flex w-full max-w-4xl items-center justify-between gap-8">
       <Logo />
 
-      <ul className="flex list-none items-center gap-8">
-        <NavLink href="/">Home</NavLink>
+      <ul className="flex list-none items-center gap-4 sm:gap-8">
         <NavLink href="/guides">Guides</NavLink>
         <NavLink href="/modules">Modules</NavLink>
         <NavLink href="/publications">Publications</NavLink>

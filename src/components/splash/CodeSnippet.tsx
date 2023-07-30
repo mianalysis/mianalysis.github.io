@@ -6,9 +6,11 @@ import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 SyntaxHighlighter.registerLanguage('java', javaSyntax);
 
+// TODO: Sort max width issue on mobile
+
 export default function CodeSnippet() {
   return (
-    <div className="shadow-lg text-xs">
+    <div className="shadow-lg text-xs max-w-xs sm:max-w-none">
       <SyntaxHighlighter language="java" style={obsidian} showLineNumbers>
         {`@Override
 public Status process(Workspace workspace) {
