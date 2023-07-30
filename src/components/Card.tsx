@@ -3,14 +3,12 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 
 interface Props {
-  title: string;
-  text: string;
   href: string;
   className?: string;
   children?: ReactNode;
 }
 
-export default function Card({ title, text, href, className, children }: Props) {
+export default function Card({ href, className, children }: Props) {
   return (
     <Link
       href={href}
@@ -19,8 +17,6 @@ export default function Card({ title, text, href, className, children }: Props) 
         className
       )}
     >
-      <h3>{title}</h3>
-      <p>{text}</p>
       {children}
     </Link>
   );
