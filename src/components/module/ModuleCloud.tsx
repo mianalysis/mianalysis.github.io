@@ -16,10 +16,11 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { useScrollY } from '@/hooks/scroll';
 import { useRef } from 'react';
+import { uniqueBy } from '@/lib/util';
 
-const modules = getModules();
+const modules = uniqueBy(getModules(), 'slug');
 
-const scrollStep = 6;
+const scrollStep = 5;
 
 export default function ModuleCloud() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ export default function ModuleCloud() {
 
   return (
     <div className="relative" ref={containerRef}>
-      <p className="text-xs flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl ">
+      <p className="flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl items-center">
         {modules.map((module, i) => (
           <span
             key={module.slug}
@@ -38,7 +39,7 @@ export default function ModuleCloud() {
               // stripe the 3 colors across the modules
               i % 3 === 0 ? 'text-mia-green' : i % 3 === 1 ? 'text-mia-blue' : 'text-mia-orange',
               // adjust the size of the modules
-              i % 5 === 0 ? 'scale-80' : i % 5 === 1 ? 'scale-150' : 'scale-100',
+              i % 7 === 0 ? 'text-md' : 'text-xs',
               // adjust the blur of the modules
               scrollY % scrollStep === i % scrollStep ? 'blur-none' : 'blur-sm hover:blur-none'
             )}
