@@ -109,7 +109,7 @@ export default function Home() {
           <p className="opacity-70 text-2xl">
             Functionality can be extended via integration with{' '}
             <a href="https://imagej.net/scripting/">SciJava&apos;s scripting interface</a> or with
-            Java classes that extend the core MIA framework
+            Java modules that extend the core MIA framework
           </p>
         </div>
 
