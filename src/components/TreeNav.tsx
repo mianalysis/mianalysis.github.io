@@ -3,6 +3,7 @@
 import { Module, ModuleCategory } from '@/types';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import { MdChevronRight, MdExpandMore } from 'react-icons/md';
 
 // TODO: Make generic over a "node" type rather than a ModuleCategory
@@ -27,15 +28,18 @@ export default function TreeNav({ category, depth = 1 }: Props) {
 function InternalNode({ category, depth }: { category: ModuleCategory; depth: number }) {
   const pathname = usePathname();
 
-  const expanded = pathname.startsWith(category.path);
+  const [hidden, setHidden] = useState(false);
 
-  // TODO: Add support for collapsing the node
+  const toggleHidden = () => setHidden((hidden) => !hidden && pathname === category.path);
+
+  const expanded = pathname.startsWith(category.path) && !hidden;
 
   return (
     <li>
       <Link
         href={category.path}
         className="relative flex justify-between py-1 transition-colors duration-200 hover:text-gray-950"
+        onClick={toggleHidden}
       >
         {expanded && depth > 1 && (
           <div className="absolute -left-[14px] bottom-0 top-0 w-[3px] bg-mia-blue" />
