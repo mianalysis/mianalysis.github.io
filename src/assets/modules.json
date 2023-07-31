@@ -52,6 +52,20 @@
             },
             {
               "name": "Add filter",
+              "subParameters": [
+                {
+                  "name": "Filter source",
+                  "description": "Type of filter to add."
+                },
+                {
+                  "name": "Filter value",
+                  "description": "Value to filter filenames against."
+                },
+                {
+                  "name": "Filter type",
+                  "description": "Control how the present filter operates:<br><ul><li>\"Matches partially (include)\" will process an image if the filter value is partially present in the source (e.g. filename or extension).<\/li><li>\"Matches completely (include)\" will process an image if the filter value is exactly the same as the source.<\/li><li>\"Matches partially (exclude)\" will not process an image if the filter value is partially present in the source.<\/li><li>\"Matches completely (exclude)\" will not process an image if the filter value is exactly the same as the source.<\/li><\/ul>"
+                }
+              ],
               "description": "Add another filename filter.  All images to be processed will pass all filters."
             },
             {
@@ -69,6 +83,28 @@
           "parameters": [
             {
               "name": "Add variable",
+              "subParameters": [
+                {
+                  "name": "Variable type",
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                },
+                {
+                  "name": "Variable name",
+                  "description": "The variable value can be accessed from within the macro by using this variable name."
+                },
+                {
+                  "name": "Variable checkbox",
+                  "description": "Boolean (true/false) value assigned to this variable if \"Variable type\" is set to \"Boolean\"."
+                },
+                {
+                  "name": "Variable numeric value",
+                  "description": "Numeric value assigned to this variable if \"Variable type\" is set to \"Number\"."
+                },
+                {
+                  "name": "Variable text value",
+                  "description": "Text value assigned to this variable if \"Variable type\" is set to \"Text\"."
+                }
+              ],
               "description": "Pre-define variables, which will be immediately accessible within the macro.  These can be used to provide user-controllable values to file-based macros or to prevent the need for editing macro code via the \"Output control\" panel."
             },
             {
@@ -3422,6 +3458,10 @@
               "parameters": [
                 {
                   "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image for concatenation."
+                  }],
                   "description": "Add another image for concatenation."
                 },
                 {
@@ -3710,6 +3750,10 @@
               "parameters": [
                 {
                   "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image from workspace to add to output merged image."
+                  }],
                   "description": "Add another image to be included in output merged image.  All added images must have the same X,Y,Z and T dimensions."
                 },
                 {
@@ -6123,6 +6167,10 @@
                     },
                     {
                       "name": "Measure another image",
+                      "subParameters": [{
+                        "name": "Input image",
+                        "description": "Image for which the intensity profile will be measured.  Results from this profile will be added to a separate sheet in the .xlsx file."
+                      }],
                       "description": "Include another image from the workspace to be measured.  Each separate image will be measured at the same spatial points and be saved to a separate sheet of the .xlsx file."
                     },
                     {
@@ -8853,6 +8901,24 @@
                 },
                 {
                   "name": "Add measurement",
+                  "subParameters": [
+                    {
+                      "name": "Measurement 1",
+                      "description": "Measurement associated with objects from the first collection that will be used for this test."
+                    },
+                    {
+                      "name": "Measurement 2",
+                      "description": "Measurement associated with objects from the second collection that will be used for this test."
+                    },
+                    {
+                      "name": "Calculation",
+                      "description": "Controls the calculation used to compare the measurements values for the two objects being tested.  The two measurements can either be summed together or the difference between them taken."
+                    },
+                    {
+                      "name": "Measurement limit",
+                      "description": "The combined measurement (summed or difference, based on \"Calculation\" parameter) must be smaller than this value for the two objects to be linked."
+                    }
+                  ],
                   "description": "Add additional measurement criteria the two objects must satisfy in order to be related."
                 },
                 {
@@ -9201,6 +9267,10 @@
               "parameters": [
                 {
                   "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image for concatenation."
+                  }],
                   "description": "Add another image for concatenation."
                 },
                 {
@@ -9489,6 +9559,10 @@
               "parameters": [
                 {
                   "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image from workspace to add to output merged image."
+                  }],
                   "description": "Add another image to be included in output merged image.  All added images must have the same X,Y,Z and T dimensions."
                 },
                 {
@@ -9852,6 +9926,28 @@
           "parameters": [
             {
               "name": "Add variable",
+              "subParameters": [
+                {
+                  "name": "Variable type",
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                },
+                {
+                  "name": "Variable name",
+                  "description": "The variable value can be accessed from within the macro by using this variable name."
+                },
+                {
+                  "name": "Variable checkbox",
+                  "description": "Boolean (true/false) value assigned to this variable if \"Variable type\" is set to \"Boolean\"."
+                },
+                {
+                  "name": "Variable numeric value",
+                  "description": "Numeric value assigned to this variable if \"Variable type\" is set to \"Number\"."
+                },
+                {
+                  "name": "Variable text value",
+                  "description": "Text value assigned to this variable if \"Variable type\" is set to \"Text\"."
+                }
+              ],
               "description": "Pre-define variables, which will be immediately accessible within the macro.  These can be used to provide user-controllable values to file-based macros or to prevent the need for editing macro code via the \"Run macro\" panel."
             },
             {
@@ -9888,6 +9984,10 @@
             },
             {
               "name": "Intercept variable as measurement",
+              "subParameters": [{
+                "name": "Variable",
+                "description": "Variable assigned in the macro to be stored as a measurement associated with the input image.  This name must exactly match (including case) the name as written in the macro."
+              }],
               "description": "This allows variables assigned in the macro to be stored as measurements associated with the input image."
             }
           ],
@@ -9901,6 +10001,28 @@
           "parameters": [
             {
               "name": "Add variable",
+              "subParameters": [
+                {
+                  "name": "Variable type",
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                },
+                {
+                  "name": "Variable name",
+                  "description": "The variable value can be accessed from within the macro by using this variable name."
+                },
+                {
+                  "name": "Variable checkbox",
+                  "description": "Boolean (true/false) value assigned to this variable if \"Variable type\" is set to \"Boolean\"."
+                },
+                {
+                  "name": "Variable numeric value",
+                  "description": "Numeric value assigned to this variable if \"Variable type\" is set to \"Number\"."
+                },
+                {
+                  "name": "Variable text value",
+                  "description": "Text value assigned to this variable if \"Variable type\" is set to \"Text\"."
+                }
+              ],
               "description": "Pre-define variables, which will be immediately accessible within the macro.  These can be used to provide user-controllable values to file-based macros or to prevent the need for editing macro code via the \"Run macro on objects\" panel."
             },
             {
@@ -9933,6 +10055,10 @@
             },
             {
               "name": "Intercept variable as measurement",
+              "subParameters": [{
+                "name": "Variable",
+                "description": "Variable assigned in the macro to be stored as a measurement associated with the current object.  This name must exactly match (including case) the name as written in the macro."
+              }],
               "description": "This allows variables assigned in the macro to be stored as measurements associated with the current object."
             }
           ],
@@ -9962,6 +10088,52 @@
             },
             {
               "name": "Add output",
+              "subParameters": [
+                {
+                  "name": "Output type",
+                  "description": "Specifies the type of variable that has been added to the workspace during the script.  These can either be images, new object collections or measurements associated with existing images or object collections."
+                },
+                {
+                  "name": "Output image",
+                  "description": "Name of the image that has been added to the workspace during script execution.  This name must match that assigned to the image."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Name of the object collection that has been added to the workspace during script execution.  This name must match that assigned to the object collection."
+                },
+                {
+                  "name": "Associated image",
+                  "description": "Image from the workspace (i.e. one already present before running this module) to which a measurement has been added during execution of the script."
+                },
+                {
+                  "name": "Metadata name",
+                  "description": "Name of a metadata item which has been added during execution of the script."
+                },
+                {
+                  "name": "Associated objects",
+                  "description": "Object collection from the workspace (i.e. one already present before running this module) to which a measurement has been added during execution of the script."
+                },
+                {
+                  "name": "Measurement name",
+                  "description": "Name of the measurement that has been added to either an image or objects of an object collection.  This name must exactly match that assigned in the script."
+                },
+                {
+                  "name": "Parent name",
+                  "description": "Name of a parent object already in the workspace which has been related to the objects specified by \"Children name\" during execution of the script."
+                },
+                {
+                  "name": "Children name",
+                  "description": "Name of child objects already in the workspace which have been related to the objects specified by \"Parent name\" during execution of the script."
+                },
+                {
+                  "name": "Partners name 1",
+                  "description": "Name of partner object already in the workspace which have been related to the objects specified by \"Partners name 2\" during execution of the script."
+                },
+                {
+                  "name": "Partners name 2",
+                  "description": "Name of partner object already in the workspace which have been related to the objects specified by \"Partners name 1\" during execution of the script."
+                }
+              ],
               "description": "If images or new object collections have been added to the workspace during script execution they must be added here, so subsequent modules are aware of their presence.  The act of adding an output via this method simply tells subsequent MIA modules the relevant images/object collections were added to the workspace; the image/object collection must be added to the workspace during script execution using the \"workspace.addImage([image])\" or \"workspace.addObjects([object collection])\" commands."
             }
           ],
@@ -10054,6 +10226,44 @@
           "fullDescription": "Create fixed values which can be accessed by text entry parameters from all modules.  Use of global variables allows the same value to be used across multiple different modules without the need to explicitly type it.  Global variables are accessed with the notation \"V{[NAME]}\", where \"[NAME]\" is replaced with the name of the relevant variable.  Global variables can be used by any text or numeric parameter.",
           "parameters": [{
             "name": "Add new variable",
+            "subParameters": [
+              {
+                "name": "Variable name",
+                "description": "Name of this variable.  This is the name that will be used when referring to the variable in place of fixed values.  To refer to variables, use the form \"V{[VARIABLE_NAME]}\", where \"[VARIABLE_NAME]\" is replaced by the variable name.  For example, a variable called \"my_var\" would be referred to using the text \"V{my_var}\"."
+              },
+              {
+                "name": "Variable type",
+                "description": "Controls how the variable is specified:<br><ul><li>\"Boolean\" The output variable is assigned either \"True\" or \"False\" depending on whether the switch (specified with the \"Variable Boolean\" parameter) is enabled or disabled, respectively.<\/li><li>\"Choice\" Select the output variable from a pre-determined list of options (specified with the \"Variable choices\" parameter).<\/li><li>\"File\" Select a specific file on the computer for this variable using the \"Variable file\" parameter.  The variable will be set to the full path to this file.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Folder\" Select a specific folder on the computer for this variable using the \"Variable folder\" parameter.  The variable will be set to the full path to this folder.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Text\" Specify a fixed text value for this variable using the \"Variable value\" parameter.<\/li><\/ul>"
+              },
+              {
+                "name": "Variable Boolean",
+                "description": "Boolean value for the corresponding global variable when \"Variable type\" is in \"Boolean\" mode."
+              },
+              {
+                "name": "Variable value",
+                "description": "Fixed value for the corresponding global variable when \"Variable type\" is in \"Text\" mode."
+              },
+              {
+                "name": "Variable file",
+                "description": "Fixed value file location for the corresponding global variable when \"Variable type\" is in \"File\" mode."
+              },
+              {
+                "name": "Variable folder",
+                "description": "Fixed value folder location for the corresponding global variable when \"Variable type\" is in \"Folder\" mode."
+              },
+              {
+                "name": "Variable choices",
+                "description": "When \"Variable type\" is set to \"Choice\" mode, these are the options that will be presented by the \"Variable choice\" drop-down parameter.  Choices are specified as a comma-separated list."
+              },
+              {
+                "name": "Variable choice",
+                "description": "Pre-defined list of choices to select global variable value from when \"Variable type\" is in \"Choice\" mode."
+              },
+              {
+                "name": "Store as metadata item",
+                "description": "When selected, the variable will be stored as a metadata item.  This allows it to be exported to the final spreadsheet."
+              }
+            ],
             "description": "Add a new global variable.  Added variables can be removed using the \"Remove\" button."
           }],
           "slug": "global-variables"
@@ -10065,6 +10275,16 @@
           "fullDescription": "Removes the specified image(s) from the workspace.  Doing this helps keep memory usage down.  Measurements associated with an image can be retained for further use.",
           "parameters": [{
             "name": "Remove another image",
+            "subParameters": [
+              {
+                "name": "Input image",
+                "description": "Name of the image to be removed from the workspace."
+              },
+              {
+                "name": "Retain measurements",
+                "description": "Retain measurements for this image, or remove everything.  When selected, the image intensity information will be removed, as this is typically where most memory us used, however any measurements associated with it will be retained."
+              }
+            ],
             "description": "Mark another image from the workspace for removal."
           }],
           "slug": "remove-images"
@@ -10076,6 +10296,16 @@
           "fullDescription": "Removes the specified object set(s) from the workspace.  Doing this helps keep memory usage down.  Measurements associated with an object set can be retained for further use.",
           "parameters": [{
             "name": "Remove another object set",
+            "subParameters": [
+              {
+                "name": "Input objects",
+                "description": "Name of the object set to be removed from the workspace."
+              },
+              {
+                "name": "Retain measurements",
+                "description": "Retain measurements for this object set, or remove everything.  When selected, the object coordinates will be removed, as this is typically where most memory us used, however any measurements associated with each object will be retained."
+              }
+            ],
             "description": "Mark another object set from the workspace for removal."
           }],
           "slug": "remove-objects"
@@ -11875,6 +12105,44 @@
             },
             {
               "name": "Add condition",
+              "subParameters": [
+                {
+                  "name": "Reference value",
+                  "description": "Value \"Test value\" will be compared against.  If the two values match, the associated handling outcome of this condition will be implemented."
+                },
+                {
+                  "name": "Continuation mode",
+                  "description": "Controls what happens if the termination/redirection condition is met:<br><ul><li>\"Redirect to module\" The analysis workflow will skip to the module specified by the \"Redirect module\" parameter.  Any modules between the present module and the target module will not be evaluated.<\/li><li>\"Terminate\"The analysis will stop evaluating any further modules.<\/li><\/ul>"
+                },
+                {
+                  "name": "Redirect module",
+                  "description": "If the condition is met, the workflow will redirect to this module.  In doing so, it will skip evaluation of any modules between the present module and this module."
+                },
+                {
+                  "name": "Show redirect message",
+                  "description": "Controls if a message should be displayed in the log if redirection occurs."
+                },
+                {
+                  "name": "Redirect message",
+                  "description": "Message to display if redirection occurs."
+                },
+                {
+                  "name": "Show termination warning",
+                  "description": "When selected, a warning will be displayed in the terminal if terminating a workflow early."
+                },
+                {
+                  "name": "Export terminated workspaces",
+                  "description": "Controls if the workspace should still be exported to the output Excel spreadsheet if termination occurs."
+                },
+                {
+                  "name": "Remove images from workspace",
+                  "description": "Controls if images should be completely removed from the workspace along with any associated measurements if termination occurs."
+                },
+                {
+                  "name": "Remove objects from workspace",
+                  "description": "Controls if objects should be completely removed from the workspace along with any associated measurements if termination occurs."
+                }
+              ],
               "description": "Add another condition that \"Test value\" can be compared against.  Each condition can have its own handling outcome (e.g. termination/redirection)."
             }
           ],
@@ -11932,6 +12200,56 @@
             },
             {
               "name": "Add choice",
+              "subParameters": [
+                {
+                  "name": "Choice name",
+                  "description": "Name that this choice will appear as in the \"Choice\" drop-down menu."
+                },
+                {
+                  "name": "Continuation mode",
+                  "description": "Controls what happens if the termination/redirection condition is met:<br><ul><li>\"Redirect to module\" The analysis workflow will skip to the module specified by the \"Redirect module\" parameter.  Any modules between the present module and the target module will not be evaluated.<\/li><li>\"Terminate\"The analysis will stop evaluating any further modules.<\/li><\/ul>"
+                },
+                {
+                  "name": "Redirect module",
+                  "description": "If the condition is met, the workflow will redirect to this module.  In doing so, it will skip evaluation of any modules between the present module and this module."
+                },
+                {
+                  "name": "Show redirect message",
+                  "description": "Controls if a message should be displayed in the log if redirection occurs."
+                },
+                {
+                  "name": "Redirect message",
+                  "description": "Message to display if redirection occurs."
+                },
+                {
+                  "name": "Show termination warning",
+                  "description": "When selected, a warning will be displayed in the terminal if terminating a workflow early."
+                },
+                {
+                  "name": "Export terminated workspaces",
+                  "description": "Controls if the workspace should still be exported to the output Excel spreadsheet if termination occurs."
+                },
+                {
+                  "name": "Remove images from workspace",
+                  "description": "Controls if images should be completely removed from the workspace along with any associated measurements if termination occurs."
+                },
+                {
+                  "name": "Remove objects from workspace",
+                  "description": "Controls if objects should be completely removed from the workspace along with any associated measurements if termination occurs."
+                },
+                {
+                  "name": "Choice",
+                  "description": "Currently-selected choice from the available set (all choices added via \"Add choice\" option).  The relevant workflow operation (e.g. termination/redirection) will be implemented for the selected condition.  This control can be made visible in the processing view, so users can select between a set of pre-determined outcomes."
+                },
+                {
+                  "name": "Store as metadata item",
+                  "description": "When selected, the selected choice will be stored as a metadata item.  This allows it to be exported to the final spreadsheet."
+                },
+                {
+                  "name": "Metadata name",
+                  "description": "Name for selected choice to be stored as metadata using.  The choice will be accessible via this metadata name in subsequent modules and can be exported to the final spreadsheet."
+                }
+              ],
               "description": "Add another condition that \"Choice\" can select from.  Each choice can have its own handling outcome (e.g. termination/redirection)."
             }
           ],

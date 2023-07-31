@@ -19,4 +19,5 @@ export interface Module {
 export interface Parameter {
   name: string;
   description: string;
+  subParameters?: Parameter[];
 }

@@ -17,6 +17,7 @@ import io.github.mianalysis.mia.module.Categories;
 import io.github.mianalysis.mia.module.Category;
 import io.github.mianalysis.mia.module.Module;
 import io.github.mianalysis.mia.module.Modules;
+import io.github.mianalysis.mia.object.parameters.ParameterGroup;
 import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
 
 public class ModuleExporter {
@@ -94,11 +95,23 @@ public class ModuleExporter {
             return null;
         }
 
-        // TODO: Add support for parameter groups
-
-        return new JSONObject()
+        JSONObject json = new JSONObject()
                 .put("name", parameter.getName())
                 .put("description", parameter.getDescription());
+
+        if (parameter instanceof ParameterGroup) {
+            ParameterGroup group = (ParameterGroup) parameter;
+
+            final List<JSONObject> children = group.getTemplateParameters().values()
+                    .stream()
+                    .map(ModuleExporter::generateParameter)
+                    .filter(p -> p != null)
+                    .collect(Collectors.toList());
+
+            json.put("subParameters", children);
+        }
+
+        return json;
     }
 
     private static String slugify(String name) {
