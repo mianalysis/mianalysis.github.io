@@ -29,8 +29,8 @@ export default function Home() {
         <h2>Extensive</h2>
 
         <p className="opacity-70 text-2xl">
-          Near 200 modules covering a wide range of image analysis tasks, including Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Minima, magni?
+          Near 200 modules covering a wide range of image and object analysis processes such as
+          transform, filtering, detection, measurement and visualisation
         </p>
 
         {/* TODO: Improve mobile content */}
@@ -81,8 +81,8 @@ export default function Home() {
             <h2>Efficient</h2>
 
             <p className="opacity-70 text-2xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nesciunt aliquam
-              quisquam optio!
+              MIA&apos;s modular design allows for efficient, automated, and high throughput image
+              analysis
             </p>
           </div>
 
@@ -105,8 +105,8 @@ export default function Home() {
           <div>
             <h3>Memory Efficient</h3>
             <p className="opacity-70 text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quos recusandae
-              reprehenderit illum iusto ducimus
+              Dense spatial object data can be stored in a compressed quadtree coordinate structure
+              to significantly reduce memory usage
             </p>
           </div>
         </div>
@@ -130,11 +130,10 @@ export default function Home() {
       </section>
 
       <section>
-        <h2>Accessible</h2>
+        <h2>For you</h2>
 
         <p className="opacity-70 text-2xl mb-16">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium sint sequi mollitia
-          quam at perspiciatis deleniti ipsa consequatur magnam tempora?
+          Documented and ready to use for all your image analysis needs
         </p>
 
         <div className="grid sm:grid-cols-3 items-center gap-8">
@@ -147,7 +146,7 @@ export default function Home() {
             <MdDescription size={128} className="text-mia-blue" />
           </Card>
           <Card href="/modules" className="flex flex-col items-center">
-            <h3>List of modules</h3>
+            <h3>Module Index</h3>
             <MdApps size={128} className="text-mia-green" />
           </Card>
         </div>
