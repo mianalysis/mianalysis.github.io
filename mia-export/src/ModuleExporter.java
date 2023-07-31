@@ -77,6 +77,7 @@ public class ModuleExporter {
                 .values()
                 .stream()
                 .map(ModuleExporter::generateParameter)
+                .filter(p -> p != null)
                 .collect(Collectors.toList());
 
         return new JSONObject()
@@ -89,6 +90,12 @@ public class ModuleExporter {
     }
 
     private static JSONObject generateParameter(Parameter parameter) {
+        if (!parameter.isExported()) {
+            return null;
+        }
+
+        // TODO: Add support for parameter groups
+
         return new JSONObject()
                 .put("name", parameter.getName())
                 .put("description", parameter.getDescription());
