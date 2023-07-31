@@ -3,7 +3,7 @@ export interface ModuleCategory {
   slug: string;
   path: string;
   description: string;
-  sub_categories: ModuleCategory[];
+  subCategories: ModuleCategory[];
   modules: Module[];
 }
 

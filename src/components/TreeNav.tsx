@@ -16,8 +16,8 @@ interface Props {
 export default function TreeNav({ category, depth = 1 }: Props) {
   return (
     <ul className="list-none text-gray-500">
-      {category.sub_categories.map((sub_category) => (
-        <InternalNode key={sub_category.slug} category={sub_category} depth={depth} />
+      {category.subCategories.map((subCategory) => (
+        <InternalNode key={subCategory.slug} category={subCategory} depth={depth} />
       ))}
       {category.modules.map((module) => (
         <LeafNode key={module.slug} module={module} />

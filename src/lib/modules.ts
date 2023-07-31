@@ -11,7 +11,7 @@ export function findModuleOrCategory(
 
   const [slug, ...rest] = slugs;
 
-  const subCategory = category.sub_categories.find((sub_category) => sub_category.slug === slug);
+  const subCategory = category.subCategories.find((subCategory) => subCategory.slug === slug);
 
   if (subCategory) {
     return findModuleOrCategory(rest, subCategory);
@@ -28,8 +28,8 @@ export function getModulePaths() {
       paths.push(slugs);
     }
 
-    category.sub_categories.forEach((sub_category) => {
-      explore(sub_category, [...slugs, sub_category.slug]);
+    category.subCategories.forEach((subCategory) => {
+      explore(subCategory, [...slugs, subCategory.slug]);
     });
 
     category.modules.forEach((module) => {
@@ -46,8 +46,8 @@ export function getModules() {
   const modules: Module[] = [];
 
   function explore(category: ModuleCategory) {
-    category.sub_categories.forEach((sub_category) => {
-      explore(sub_category);
+    category.subCategories.forEach((subCategory) => {
+      explore(subCategory);
     });
 
     category.modules.forEach((module) => {

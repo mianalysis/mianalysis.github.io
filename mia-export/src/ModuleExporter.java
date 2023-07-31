@@ -65,7 +65,7 @@ public class ModuleExporter {
                 .put("slug", slug)
                 .put("path", path)
                 .put("description", category.getDescription())
-                .put("sub_categories", children)
+                .put("subCategories", children)
                 .put("modules", modules);
     }
 

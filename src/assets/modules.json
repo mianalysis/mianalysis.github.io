@@ -1,12 +1,15 @@
 {
   "path": "/modules",
-  "sub_categories": [
+  "name": "Modules",
+  "description": "All operations are performed using dedicated modules. Typically, a module will perform one specific task, such as loading an image or measuring the shapes of objects.",
+  "slug": "modules",
+  "subCategories": [
     {
       "path": "/modules/core",
-      "sub_categories": [],
       "name": "Core",
       "description": "Required modules for input and output control.  Each workflow contains one copy of each module.",
       "slug": "core",
+      "subCategories": [],
       "modules": [
         {
           "path": "/modules/core/input-control",
@@ -194,13 +197,16 @@
     },
     {
       "path": "/modules/images",
-      "sub_categories": [
+      "name": "Images",
+      "description": "Modules dealing primarily with images.  These operations typically take images as inputs and may output new images or update existing ones.",
+      "slug": "images",
+      "subCategories": [
         {
           "path": "/modules/images/configure",
-          "sub_categories": [],
           "name": "Configure",
           "description": "Non-pixel operations such as setting display ranges or spatial calibrations.",
           "slug": "configure",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/images/configure/set-intensity-display-range",
@@ -377,10 +383,10 @@
         },
         {
           "path": "/modules/images/measure",
-          "sub_categories": [],
           "name": "Measure",
           "description": "Operations making measurements on images. Measurements are associated with the input images for later use.",
           "slug": "measure",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/images/measure/create-2d-intensity-histogram",
@@ -706,13 +712,16 @@
         },
         {
           "path": "/modules/images/process",
-          "sub_categories": [
+          "name": "Process",
+          "description": "Image processing operations which act on a pixel level, such as image filtering or thresholding.",
+          "slug": "process",
+          "subCategories": [
             {
               "path": "/modules/images/process/binary",
-              "sub_categories": [],
               "name": "Binary",
               "description": "Image operations which either act binary images.  Binary images are 8-bit with 255-intensity background and 0-intensity objects.",
               "slug": "binary",
+              "subCategories": [],
               "modules": [
                 {
                   "path": "/modules/images/process/binary/binary-operations-(legacy)",
@@ -1140,10 +1149,10 @@
             },
             {
               "path": "/modules/images/process/threshold",
-              "sub_categories": [],
               "name": "Threshold",
               "description": "Operations binarising images from the workspace.  Thresholds can be calculated automatically or applied manually. ",
               "slug": "threshold",
+              "subCategories": [],
               "modules": [
                 {
                   "path": "/modules/images/process/threshold/global-auto-threshold",
@@ -1364,9 +1373,6 @@
               ]
             }
           ],
-          "name": "Process",
-          "description": "Image processing operations which act on a pixel level, such as image filtering or thresholding.",
-          "slug": "process",
           "modules": [
             {
               "path": "/modules/images/process/apply-clahe",
@@ -2463,12 +2469,15 @@
         },
         {
           "path": "/modules/images/transform",
-          "sub_categories": [{
+          "name": "Transform",
+          "description": "Image processing operations leading to changes in the whole stack layout.  For example, substack extraction, cropping or drift correction.",
+          "slug": "transform",
+          "subCategories": [{
             "path": "/modules/images/transform/registration",
-            "sub_categories": [],
             "name": "Registration",
             "description": "Modules performing alignment of images within a stack to account for sample drift or other motion.",
             "slug": "registration",
+            "subCategories": [],
             "modules": [
               {
                 "path": "/modules/images/transform/registration/affine-(block-matching)",
@@ -3425,9 +3434,6 @@
               }
             ]
           }],
-          "name": "Transform",
-          "description": "Image processing operations leading to changes in the whole stack layout.  For example, substack extraction, cropping or drift correction.",
-          "slug": "transform",
           "modules": [
             {
               "path": "/modules/images/transform/channel-extractor",
@@ -4097,17 +4103,14 @@
           ]
         }
       ],
-      "name": "Images",
-      "description": "Modules dealing primarily with images.  These operations typically take images as inputs and may output new images or update existing ones.",
-      "slug": "images",
       "modules": []
     },
     {
       "path": "/modules/input-output",
-      "sub_categories": [],
       "name": "Input output",
       "description": "Modules loading or saving files to the filesystem.",
       "slug": "input-output",
+      "subCategories": [],
       "modules": [
         {
           "path": "/modules/input-output/export-acc-dataset",
@@ -4741,13 +4744,16 @@
     },
     {
       "path": "/modules/objects",
-      "sub_categories": [
+      "name": "Objects",
+      "description": "Modules dealing primarily with objects.  These include object detection, measurements and operations leading to changes in existing objects.",
+      "slug": "objects",
+      "subCategories": [
         {
           "path": "/modules/objects/convert",
-          "sub_categories": [],
           "name": "Convert",
           "description": "Operations which allow conversion between objects and images.",
           "slug": "convert",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/objects/convert/convert-image-to-objects",
@@ -4864,10 +4870,10 @@
         },
         {
           "path": "/modules/objects/detect",
-          "sub_categories": [],
           "name": "Detect",
           "description": "Modules resulting in creation of new objects to be stored in the workspace.",
           "slug": "detect",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/objects/detect/circle-detection",
@@ -5592,10 +5598,10 @@
         },
         {
           "path": "/modules/objects/filter",
-          "sub_categories": [],
           "name": "Filter",
           "description": "Modules which can remove objects from an object collection (or move them to a new collection) based on various metrics.",
           "slug": "filter",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/objects/filter/number-of-children",
@@ -6111,13 +6117,16 @@
         },
         {
           "path": "/modules/objects/measure",
-          "sub_categories": [
+          "name": "Measure",
+          "description": "Operations making measurements of individual objects in the workspace.  Measurements are associated with the relevant input objects.",
+          "slug": "measure",
+          "subCategories": [
             {
               "path": "/modules/objects/measure/intensity",
-              "sub_categories": [],
               "name": "Intensity",
               "description": "Modules performing intensity-based measurements on objects in the workspace.",
               "slug": "intensity",
+              "subCategories": [],
               "modules": [
                 {
                   "path": "/modules/objects/measure/intensity/measure-intensity-along-path",
@@ -6471,10 +6480,10 @@
             },
             {
               "path": "/modules/objects/measure/miscellaneous",
-              "sub_categories": [],
               "name": "Miscellaneous",
               "description": "General object measurements, such as counting the number of child objects or binning measurements.",
               "slug": "miscellaneous",
+              "subCategories": [],
               "modules": [
                 {
                   "path": "/modules/objects/measure/miscellaneous/apply-weka-object-classification",
@@ -6800,10 +6809,10 @@
             },
             {
               "path": "/modules/objects/measure/spatial",
-              "sub_categories": [],
               "name": "Spatial",
               "description": "Modules performing spatial-based measurements on objects in the workspace.",
               "slug": "spatial",
+              "subCategories": [],
               "modules": [
                 {
                   "path": "/modules/objects/measure/spatial/calculate-nearest-neighbour",
@@ -7325,9 +7334,6 @@
               ]
             }
           ],
-          "name": "Measure",
-          "description": "Operations making measurements of individual objects in the workspace.  Measurements are associated with the relevant input objects.",
-          "slug": "measure",
           "modules": [
             {
               "path": "/modules/objects/measure/create-2d-intensity-histogram",
@@ -7653,10 +7659,10 @@
         },
         {
           "path": "/modules/objects/process",
-          "sub_categories": [],
           "name": "Process",
           "description": "Operations capable of creating new objects from existing ones.  For example, fitting ellipsoids or creating projections along an axis.",
           "slug": "process",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/objects/process/apply-clahe",
@@ -8753,12 +8759,15 @@
         },
         {
           "path": "/modules/objects/relate",
-          "sub_categories": [{
+          "name": "Relate",
+          "description": "Modules creating relationships between objects.  Relationships can be one-to-many (parent-child) or one-to-one (partners).",
+          "slug": "relate",
+          "subCategories": [{
             "path": "/modules/objects/relate/merge",
-            "sub_categories": [],
             "name": "Merge",
             "description": "Modules used for combining either different objects into one or combining objects from different collections into a single collection.",
             "slug": "merge",
+            "subCategories": [],
             "modules": [
               {
                 "path": "/modules/objects/relate/merge/combine-object-sets",
@@ -8833,9 +8842,6 @@
               }
             ]
           }],
-          "name": "Relate",
-          "description": "Modules creating relationships between objects.  Relationships can be one-to-many (parent-child) or one-to-one (partners).",
-          "slug": "relate",
           "modules": [
             {
               "path": "/modules/objects/relate/relate-many-to-many",
@@ -9233,10 +9239,10 @@
         },
         {
           "path": "/modules/objects/transform",
-          "sub_categories": [],
           "name": "Transform",
           "description": "Modules capable of updating coordinates of existing objects.  These operations can include hole filling and masking.",
           "slug": "transform",
+          "subCategories": [],
           "modules": [
             {
               "path": "/modules/objects/transform/channel-extractor",
@@ -9906,17 +9912,14 @@
           ]
         }
       ],
-      "name": "Objects",
-      "description": "Modules dealing primarily with objects.  These include object detection, measurements and operations leading to changes in existing objects.",
-      "slug": "objects",
       "modules": []
     },
     {
       "path": "/modules/script",
-      "sub_categories": [],
       "name": "Script",
       "description": "Modules for running code directly witin a workflow.  Both single commands and full scripts (e.g. macro, Jython and Groovy) can be implemented.",
       "slug": "script",
+      "subCategories": [],
       "modules": [
         {
           "path": "/modules/script/run-macro",
@@ -10176,10 +10179,10 @@
     },
     {
       "path": "/modules/system",
-      "sub_categories": [],
       "name": "System",
       "description": "Operations handling MIA properties such as memory and global variables.",
       "slug": "system",
+      "subCategories": [],
       "modules": [
         {
           "path": "/modules/system/add-custom-metadata-item",
@@ -10314,12 +10317,15 @@
     },
     {
       "path": "/modules/visualisation",
-      "sub_categories": [{
+      "name": "Visualisation",
+      "description": "Modules primarily concerned with generating and displaying images.  These include adding overlay elements and plotting data.",
+      "slug": "visualisation",
+      "subCategories": [{
         "path": "/modules/visualisation/overlays",
-        "sub_categories": [],
         "name": "Overlays",
         "description": "Modules adding ImageJ overlay elements to images.  For example, object outlines, object ID labels or fixed text.",
         "slug": "overlays",
+        "subCategories": [],
         "modules": [
           {
             "path": "/modules/visualisation/overlays/add-all-object-points",
@@ -11865,9 +11871,6 @@
           }
         ]
       }],
-      "name": "Visualisation",
-      "description": "Modules primarily concerned with generating and displaying images.  These include adding overlay elements and plotting data.",
-      "slug": "visualisation",
       "modules": [
         {
           "path": "/modules/visualisation/create-measurement-map",
@@ -12039,10 +12042,10 @@
     },
     {
       "path": "/modules/workflow",
-      "sub_categories": [],
       "name": "Workflow",
       "description": "Modules capable of controlling the order of module execution.  For example, skipping specific modules if certain criteria are met.",
       "slug": "workflow",
+      "subCategories": [],
       "modules": [
         {
           "path": "/modules/workflow/add-pause",
@@ -12396,8 +12399,5 @@
       ]
     }
   ],
-  "name": "Modules",
-  "description": "All operations are performed using dedicated modules. Typically, a module will perform one specific task, such as loading an image or measuring the shapes of objects.",
-  "slug": "modules",
   "modules": []
 }
