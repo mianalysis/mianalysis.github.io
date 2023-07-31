@@ -5,6 +5,11 @@ interface Props {
 }
 
 export default function ModuleParameters({ module }: Props) {
+  // TODO: Render sub parameters better
+  const parameters = module.parameters.flatMap((parameter) =>
+    parameter.subParameters ? [parameter, ...parameter.subParameters] : [parameter]
+  );
+
   return (
     <table>
       <thead>
@@ -14,7 +19,7 @@ export default function ModuleParameters({ module }: Props) {
         </tr>
       </thead>
       <tbody>
-        {module.parameters.map((parameter) => (
+        {parameters.map((parameter) => (
           <tr key={parameter.name}>
             <td>{parameter.name}</td>
             <td dangerouslySetInnerHTML={{ __html: parameter.description }} />
