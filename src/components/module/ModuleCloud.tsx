@@ -20,7 +20,7 @@ import { uniqueBy } from '@/lib/util';
 
 const modules = uniqueBy(getModules(), 'slug');
 
-const scrollStep = 4;
+const scrollStep = 5;
 
 export default function ModuleCloud() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +28,10 @@ export default function ModuleCloud() {
   const scrollY = Math.floor(useScrollY());
 
   return (
-    <div className="relative select-none" ref={containerRef}>
+    <div
+      className="relative select-none max-h-[75vh] sm:max-h-none overflow-hidden"
+      ref={containerRef}
+    >
       <p className="flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl items-center">
         {modules.map((module, i) => (
           <span
