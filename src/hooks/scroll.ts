@@ -1,5 +1,6 @@
 'use client';
 
+import { debounce } from '@/lib/util';
 import { useState, useEffect } from 'react';
 
 export const useScrollY = () => {
@@ -11,11 +12,13 @@ export const useScrollY = () => {
     });
   };
 
+  const debouncedHandleScroll = debounce(handleScroll, 100);
+
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', debouncedHandleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', debouncedHandleScroll);
     };
   }, []);
 
