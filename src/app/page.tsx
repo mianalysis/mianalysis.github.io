@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid sm:grid-cols-3 gap-16 items-center group">
+      <section className="grid sm:grid-cols-3 gap-16 items-center">
         <div className="col-span-2 space-y-8">
           <div>
             <h2>Efficient</h2>
