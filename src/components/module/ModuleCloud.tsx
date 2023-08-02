@@ -20,15 +20,15 @@ import { uniqueBy } from '@/lib/util';
 
 const modules = uniqueBy(getModules(), 'slug');
 
-const scrollStep = 5;
+const scrollStep = 4;
 
 export default function ModuleCloud() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const scrollY = useScrollY();
+  const scrollY = Math.floor(useScrollY());
 
   return (
-    <div className="relative" ref={containerRef}>
+    <div className="relative select-none" ref={containerRef}>
       <p className="flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl items-center">
         {modules.map((module, i) => (
           <span
@@ -41,7 +41,9 @@ export default function ModuleCloud() {
               // adjust the size of the modules
               i % 7 === 0 ? 'text-md' : 'text-xs',
               // adjust the blur of the modules
-              scrollY % scrollStep === i % scrollStep ? 'blur-none' : 'blur-sm hover:blur-none'
+              scrollY % scrollStep === i % scrollStep
+                ? 'opacity-100'
+                : 'opacity-20  hover:opacity-100'
             )}
           >
             {module.name}
