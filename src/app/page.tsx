@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import splash from '@/../public/images/screenshots/splash.png';
-import batchProcessing from '@/../public/images/screenshots/batch_processing.png';
 import dataExport from '@/../public/images/screenshots/data_export.png';
 import imagej from '@/../public/images/logos/imagej.png';
 import fiji from '@/../public/images/logos/fiji.png';
@@ -10,6 +9,7 @@ import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
 import ModuleCloud from '@/components/module/ModuleCloud';
 import CodeSnippet from '@/components/splash/CodeSnippet';
 import Card from '@/components/Card';
+import BatchProcessing from '@/components/splash/BatchProcessing';
 
 export default function Home() {
   return (
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid sm:grid-cols-3 gap-16 items-center">
+      <section className="grid sm:grid-cols-3 gap-16 items-center group">
         <div className="col-span-2 space-y-8">
           <div>
             <h2>Efficient</h2>
@@ -111,9 +111,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-          <Image src={batchProcessing} alt="MIA" className="shadow-xl" />
-        </div>
+        <BatchProcessing />
       </section>
 
       <section className="space-y-8">
