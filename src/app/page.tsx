@@ -10,7 +10,7 @@ import CompatibleIcons from '@/components/splash/CompatibleIcons';
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl space-y-48">
+    <div className="mx-auto max-w-4xl space-y-60">
       <section>
         <h1>Modular Image Analysis</h1>
 
