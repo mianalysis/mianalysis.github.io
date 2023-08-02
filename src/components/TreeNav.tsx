@@ -1,7 +1,6 @@
 'use client';
 
 import { Module, ModuleCategory } from '@/types';
-import classNames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -49,14 +48,11 @@ function InternalNode({ category, depth }: { category: ModuleCategory; depth: nu
         {expanded ? <MdExpandMore /> : <MdChevronRight />}
       </Link>
 
-      <div
-        className={classNames(
-          'ml-4 border-l border-gray-200 pl-3 opacity-0 max-h-0 delay-75 transition-all',
-          { 'opacity-100 max-h-screen my-2': expanded }
-        )}
-      >
-        {TreeNav({ category, depth: depth + 1 })}
-      </div>
+      {expanded && (
+        <div className="ml-4 border-l border-gray-200 pl-3 delay-75 my-2">
+          {TreeNav({ category, depth: depth + 1 })}
+        </div>
+      )}
     </li>
   );
 }
