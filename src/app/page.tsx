@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import splash from '@/../public/images/screenshots/splash.png';
 import dataExport from '@/../public/images/screenshots/data_export.png';
-import imagej from '@/../public/images/logos/imagej.png';
-import fiji from '@/../public/images/logos/fiji.png';
-import trackmate from '@/../public/images/logos/trackmate.png';
-import bioformats from '@/../public/images/logos/bio_formats.png';
 import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
 import ModuleCloud from '@/components/module/ModuleCloud';
 import CodeSnippet from '@/components/splash/CodeSnippet';
 import Card from '@/components/Card';
 import BatchProcessing from '@/components/splash/BatchProcessing';
+import CompatibleIcons from '@/components/splash/CompatibleIcons';
 
 export default function Home() {
   return (
@@ -51,20 +48,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col-reverse sm:flex-row gap-16 justify-between items-center">
-          <div className="flex gap-4 items-center drop-shadow-2xl">
-            <div>
-              <Image src={imagej} alt="ImageJ" width={200} height={200} />
-            </div>
-            <div>
-              <Image src={fiji} alt="Fiji" width={200} height={200} />
-            </div>
-            <div>
-              <Image src={trackmate} alt="TrackMate" width={200} height={200} />
-            </div>
-            <div>
-              <Image src={bioformats} alt="Bio-Formats" width={200} height={200} />
-            </div>
-          </div>
+          <CompatibleIcons />
 
           <p className="opacity-70 text-2xl">
             Integrates with key ImageJ plugins such as{' '}
