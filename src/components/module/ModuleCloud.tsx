@@ -31,6 +31,7 @@ export default function ModuleCloud() {
     <div
       className="relative select-none max-h-[75vh] sm:max-h-none overflow-hidden"
       ref={containerRef}
+      aria-hidden
     >
       <p className="flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl items-center">
         {modules.map((module, i) => (

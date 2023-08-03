@@ -10,7 +10,7 @@ SyntaxHighlighter.registerLanguage('java', javaSyntax);
 
 export default function CodeSnippet() {
   return (
-    <div className="shadow-lg text-xs max-w-xs sm:max-w-none">
+    <div className="shadow-lg text-xs max-w-xs sm:max-w-none" aria-hidden>
       <SyntaxHighlighter language="java" style={obsidian} showLineNumbers>
         {`@Override
 public Status process(Workspace workspace) {
