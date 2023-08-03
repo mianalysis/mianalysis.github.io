@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import splash from '@/../public/images/screenshots/splash.png';
+import splashMobile from '@/../public/images/screenshots/splash_mobile.png';
 import dataExport from '@/../public/images/screenshots/data_export.png';
 import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
 import ModuleCloud from '@/components/module/ModuleCloud';
@@ -11,7 +12,7 @@ import CompatibleIcons from '@/components/splash/CompatibleIcons';
 export default function Home() {
   return (
     <div className="mx-auto max-w-4xl space-y-60">
-      <section>
+      <section className="space-y-8">
         <h1>Modular Image Analysis</h1>
 
         <p className="mb-8 opacity-70 text-3xl">
@@ -19,7 +20,10 @@ export default function Home() {
           workflows
         </p>
 
-        <Image src={splash} alt="MIA" className="shadow-lg" />
+        <div className="shadow-lg">
+          <Image src={splash} alt="MIA" priority className="max-sm:hidden " />
+          <Image src={splashMobile} alt="MIA" priority className="sm:hidden" />
+        </div>
       </section>
 
       <section className="space-y-8">

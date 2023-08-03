@@ -29,7 +29,7 @@ export default function ModuleCloud() {
 
   return (
     <div
-      className="relative select-none max-h-[75vh] sm:max-h-none overflow-hidden"
+      className="relative select-none max-sm:max-h-[60vh] sm:max-h-none overflow-hidden"
       ref={containerRef}
       aria-hidden
     >
@@ -55,8 +55,8 @@ export default function ModuleCloud() {
         ))}
       </p>
 
-      <div className="absolute top-48 left-72 group">
-        <Image src={sample4} alt="MIA sample" width={256} height={256} className="" />
+      <div className="absolute top-48 left-72 group max-sm:max-w-[60vw]">
+        <Image src={sample4} alt="MIA sample" width={256} height={256} />
 
         <Image
           src={contextMenu5}
@@ -65,7 +65,7 @@ export default function ModuleCloud() {
         />
       </div>
 
-      <div className="absolute top-0 left-0 group">
+      <div className="absolute top-0 left-0 group max-sm:max-w-[60vw]">
         <Image src={sample1} alt="MIA sample" width={400} height={400} />
 
         <Image
@@ -83,7 +83,7 @@ export default function ModuleCloud() {
         />
       </div>
 
-      <div className="absolute top-32 right-0 group">
+      <div className="absolute top-32 right-0 group max-sm:max-w-[60vw]">
         <Image src={sample3} alt="MIA sample" width={400} height={400} />
 
         <Image
@@ -101,7 +101,7 @@ export default function ModuleCloud() {
         />
       </div>
 
-      <div className="absolute bottom-0 left-48 group">
+      <div className="absolute bottom-0 left-48 group max-sm:max-w-[60vw]">
         <Image src={sample2} alt="MIA sample" width={400} height={400} />
 
         <Image
