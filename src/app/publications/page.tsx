@@ -4,7 +4,7 @@ export default function Publications() {
       <section>
         <h1>Publications</h1>
 
-        <p>
+        <p className="opacity-70 text-3xl">
           Some publications for which MIA was used. This non-exhaustive list is updated
           periodically.
         </p>
