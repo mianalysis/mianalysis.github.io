@@ -20,10 +20,8 @@ export default function Home() {
           workflows
         </p>
 
-        <div className="shadow-lg">
-          <Image src={splash} alt="MIA" priority className="max-sm:hidden " />
-          <Image src={splashMobile} alt="MIA" priority className="sm:hidden" />
-        </div>
+        <Image src={splash} alt="MIA" priority className="max-sm:hidden shadow-lg" />
+        <Image src={splashMobile} alt="MIA" priority className="sm:hidden shadow-lg" />
       </section>
 
       <section className="space-y-8">

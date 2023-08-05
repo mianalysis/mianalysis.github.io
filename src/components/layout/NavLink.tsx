@@ -18,8 +18,8 @@ export default function NavLink({ href, children, className }: Props) {
   return (
     <li
       className={classNames(
-        'border-b-2 transition-colors duration-500 whitespace-nowrap',
-        active ? 'border-mia-blue' : 'border-transparent hover:border-mia-orange',
+        'underline decoration-2 underline-offset-4  transition-colors duration-500 whitespace-nowrap',
+        active ? 'decoration-mia-blue' : 'decoration-transparent hover:decoration-mia-orange',
         className
       )}
     >

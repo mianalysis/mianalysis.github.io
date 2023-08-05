@@ -17,3 +17,7 @@ export function debounce<T extends (...args: any[]) => void>(fn: T, delay: numbe
     }, delay);
   }) as T;
 }
+
+export function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
