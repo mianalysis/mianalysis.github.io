@@ -13,7 +13,7 @@ interface Props {
 export default function NavLink({ href, children, className }: Props) {
   const pathname = usePathname();
 
-  const active = href == pathname;
+  const active = pathname.endsWith(href);
 
   return (
     <li

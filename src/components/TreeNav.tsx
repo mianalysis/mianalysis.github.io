@@ -30,9 +30,9 @@ function InternalNode({ category, depth }: { category: ModuleCategory; depth: nu
 
   const [hidden, setHidden] = useState(false);
 
-  const toggleHidden = () => setHidden((hidden) => !hidden && pathname === category.path);
+  const toggleHidden = () => setHidden((hidden) => !hidden && pathname.endsWith(category.path));
 
-  const expanded = pathname.startsWith(category.path) && !hidden;
+  const expanded = pathname.includes(category.path) && !hidden;
 
   return (
     <li>
@@ -65,7 +65,7 @@ function LeafNode({ module }: { module: Module }) {
       <Link href={module.path} className="flex py-1">
         {module.name}
       </Link>
-      {pathname === module.path && (
+      {pathname.endsWith(module.path) && (
         <div className="absolute -left-[14px] bottom-0 top-0 w-[3px] bg-mia-blue" />
       )}
     </li>
