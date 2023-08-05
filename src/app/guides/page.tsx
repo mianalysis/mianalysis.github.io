@@ -2,7 +2,7 @@ import Card from '@/components/Card';
 
 export default function Guides() {
   return (
-    <div className="mx-auto max-w-4xl space-y-8">
+    <div className="mx-auto max-w-4xl space-y-10">
       <h1>Guides</h1>
 
       <p>

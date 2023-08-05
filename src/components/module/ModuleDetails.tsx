@@ -7,16 +7,20 @@ interface Props {
 
 export default function ModuleDetails({ module }: Props) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-16">
       <p>{module.shortDescription}</p>
 
-      <h2>Description</h2>
+      <section>
+        <h2>Description</h2>
 
-      <p dangerouslySetInnerHTML={{ __html: module.fullDescription }} />
+        <p dangerouslySetInnerHTML={{ __html: module.fullDescription }} />
+      </section>
 
-      <h2>Parameters</h2>
+      <section>
+        <h2>Parameters</h2>
 
-      <ModuleParameters module={module} />
+        <ModuleParameters module={module} />
+      </section>
     </div>
   );
 }
