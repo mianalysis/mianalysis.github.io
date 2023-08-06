@@ -24,7 +24,7 @@ export default function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
   useClickOutside(buttonRef, async () => {
-    await delay(100);
+    await delay(200);
     setExpanded(false);
   });
 
