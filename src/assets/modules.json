@@ -3764,7 +3764,7 @@
                 },
                 {
                   "name": "Overwrite mode",
-                  "description": "Controls where the output image is stored:<br><ul><li>\"Create new image\" Stores the merged image as a new image in the workspace with the name specified by \"Output image\".<\/li><li>\"Overwrite image\" Overwrite the image specified by the index \"Image index to overwrite (>= 1)\" in the workspace with the merged image."
+                  "description": "Controls where the output image is stored:<br><ul><li>\"Create new image\" Stores the merged image as a new image in the workspace with the name specified by \"Output image\".<\/li><li>\"Overwrite image\" Overwrite the image specified by the index \"Image index to overwrite (>= 1)\" in the workspace with the merged image.<\/li><\/ul>"
                 },
                 {
                   "name": "Output image",
@@ -4047,7 +4047,7 @@
                 },
                 {
                   "name": "Mask mode",
-                  "description": "Controls whether the input objects will be masked by an image or an object collection:<br><ul>\"Mask from image\" (Default) Input objects will be masked based on the image specified by \"Mask image\".  Any object regions coincident with black pixels (0 pixel intensity) will be removed.<li>\"Mask from objects (remove overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<li>\"Mask from objects (retain overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions not coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<li><\/ul>"
+                  "description": "Controls whether the input objects will be masked by an image or an object collection:<br><ul><li>\"Mask from image\" (Default) Input objects will be masked based on the image specified by \"Mask image\".  Any object regions coincident with black pixels (0 pixel intensity) will be removed.<\/li><li>\"Mask from objects (remove overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<\/li><li>\"Mask from objects (retain overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions not coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<\/li><\/ul>"
                 },
                 {
                   "name": "Mask objects",
@@ -4116,7 +4116,7 @@
           "path": "/modules/input-output/export-acc-dataset",
           "name": "Export ACC dataset",
           "shortDescription": "Exports objects and associated measurements in the Advanced Cell Classifier (ACC) format.",
-          "fullDescription": "Exports objects and associated measurements in the Advanced Cell Classifier (ACC) format.  The output dataset can be loaded into ACC, where machine learning can be applied to classify objects in a GUI-based environment.  This module allows specific measurements to be exported from all those associated with the input objects.  For more information on the format, please visit the <a href=\"https://www.cellclassifier.org/>Advanced Cell Classifier documentation<\/>.",
+          "fullDescription": "Exports objects and associated measurements in the Advanced Cell Classifier (ACC) format.  The output dataset can be loaded into ACC, where machine learning can be applied to classify objects in a GUI-based environment.  This module allows specific measurements to be exported from all those associated with the input objects.  For more information on the format, please visit the <a href=\"https://www.cellclassifier.org/\">Advanced Cell Classifier documentation<\/a>.",
           "parameters": [
             {
               "name": "Input objects",
@@ -5293,11 +5293,15 @@
                 },
                 {
                   "name": "Estimate width",
-                  "description": "When this is selected, the width of each line is estimated.  All points within the width extents of each line are included in the output objects (i.e. output objects are broad).  When not selected, the output objects have single pixel width.  If estimating width, width-based measurements will be associated with each output object."
+                  "description": "When this is selected, the width of each line is estimated and exported as a measurement.  This allows the output objects to be exported as \"wide\" objects, although only if Apply width to output is also selected"
+                },
+                {
+                  "name": "Apply width to output",
+                  "description": "When selected, the output ridge objects will have the width applied (rather than having single pixel width)."
                 },
                 {
                   "name": "Overlap mode",
-                  "description": "Controls how intersecting lines should be handled.  For more information see <a href=\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\"/>.<br><ul><li>\"None\" Ridges are terminated at line intersections, so two overlapping ridges will likely be identified as at least four separate ridge objects.<\/li><li>\"Slope\" When selected, this will attempt to resolve ridge overlaps such that two overlapping ridges would be identified as two separate objects.  Ridges output in this manner can have common, shared paths (i.e. during the overlap region).<\/li><\/ul>"
+                  "description": "Controls how intersecting lines should be handled.  For more information see <a href=\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\">                \"Controls how intersecting lines should be handled.  For more information see <a href=\\\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\\\">.<br><ul>\"\n.<br><ul><li>\"None\" Ridges are terminated at line intersections, so two overlapping ridges will likely be identified as at least four separate ridge objects.<\/li><li>\"Slope\" When selected, this will attempt to resolve ridge overlaps such that two overlapping ridges would be identified as two separate objects.  Ridges output in this manner can have common, shared paths (i.e. during the overlap region).<\/li><\/ul>"
                 },
                 {
                   "name": "Minimum length",
@@ -9072,7 +9076,7 @@
                 },
                 {
                   "name": "Relationship mode",
-                  "description": "Controls the type of calculation used when determining which objects are related:<br><ul><li>\"Centroid separation\" Distances are calculated from object centroid to object centroid.  These distances are always positive; increasing as the distance between centroids increases.<\/li><li>\"Spatial overlap\" The percentage of each object, which overlaps with another object is calculated.<\/li>"
+                  "description": "Controls the type of calculation used when determining which objects are related:<br><ul><li>\"Centroid separation\" Distances are calculated from object centroid to object centroid.  These distances are always positive; increasing as the distance between centroids increases.<\/li><li>\"Spatial overlap\" The percentage of each object, which overlaps with another object is calculated.<\/li><\/ul>"
                 },
                 {
                   "name": "Maximum separation",
@@ -9573,7 +9577,7 @@
                 },
                 {
                   "name": "Overwrite mode",
-                  "description": "Controls where the output image is stored:<br><ul><li>\"Create new image\" Stores the merged image as a new image in the workspace with the name specified by \"Output image\".<\/li><li>\"Overwrite image\" Overwrite the image specified by the index \"Image index to overwrite (>= 1)\" in the workspace with the merged image."
+                  "description": "Controls where the output image is stored:<br><ul><li>\"Create new image\" Stores the merged image as a new image in the workspace with the name specified by \"Output image\".<\/li><li>\"Overwrite image\" Overwrite the image specified by the index \"Image index to overwrite (>= 1)\" in the workspace with the merged image.<\/li><\/ul>"
                 },
                 {
                   "name": "Output image",
@@ -9856,7 +9860,7 @@
                 },
                 {
                   "name": "Mask mode",
-                  "description": "Controls whether the input objects will be masked by an image or an object collection:<br><ul>\"Mask from image\" (Default) Input objects will be masked based on the image specified by \"Mask image\".  Any object regions coincident with black pixels (0 pixel intensity) will be removed.<li>\"Mask from objects (remove overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<li>\"Mask from objects (retain overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions not coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<li><\/ul>"
+                  "description": "Controls whether the input objects will be masked by an image or an object collection:<br><ul><li>\"Mask from image\" (Default) Input objects will be masked based on the image specified by \"Mask image\".  Any object regions coincident with black pixels (0 pixel intensity) will be removed.<\/li><li>\"Mask from objects (remove overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<\/li><li>\"Mask from objects (retain overlap)\" Input objects will be masked based on all objects of the collection specified by \"Mask objects\".  Any object regions not coincident with any objects in the masking collection will be removed.  The masking objects will be unaffected by this process.<\/li><\/ul>"
                 },
                 {
                   "name": "Mask objects",
@@ -10573,7 +10577,7 @@
               },
               {
                 "name": "Contour colour mode",
-                "description": "Determines the colour look-up table to use when rendering the contours.  Colour corresponds to the magnitude of that contour line:<br><br>- \"Black fire\" Standard ImageJ \"Fire\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Ice\" Standard ImageJ \"Ice\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Jet\" Look-up table with colour progression blue > cyan > green > yellow > orange > red.<br><br>- \"Physics\" Standard Fiji \"Physics\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/physics.lut\".<br><br>- \"Random\" Random sequence of colours.<br><br>- \"Single colour\" All contour lines have the same colour, determined by the \"Contour colour\" parameter.<br><br>- \"Single colour gradient\" Single colour gradient from the colour determined by the \"Contour colour\" parameter (lowest magnitude contour line) and white (highest magnitude contour line).<br><br>- \"Spectrum\" Standard ImageJ \"Spectrum\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Thermal\" Standard Fiji \"Thermal\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/Thermal.lut\".<br>"
+                "description": "Determines the colour look-up table to use when rendering the contours.  Colour corresponds to the magnitude of that contour line:<br><br>- \"Black fire\" Standard ImageJ \"Fire\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Ice\" Standard ImageJ \"Ice\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Jet\" Look-up table with colour progression blue, cyan, green, yellow, orange, red.<br><br>- \"Physics\" Standard Fiji \"Physics\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/physics.lut\".<br><br>- \"Random\" Random sequence of colours.<br><br>- \"Single colour\" All contour lines have the same colour, determined by the \"Contour colour\" parameter.<br><br>- \"Single colour gradient\" Single colour gradient from the colour determined by the \"Contour colour\" parameter (lowest magnitude contour line) and white (highest magnitude contour line).<br><br>- \"Spectrum\" Standard ImageJ \"Spectrum\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Thermal\" Standard Fiji \"Thermal\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/Thermal.lut\".<br>"
               },
               {
                 "name": "Contour colour",
@@ -10601,7 +10605,7 @@
               },
               {
                 "name": "Label colour mode",
-                "description": "Determines the colour look-up table to use when rendering the contour labels.  Colour corresponds to the magnitude of that contour line:<br><br>- \"Black fire\" Standard ImageJ \"Fire\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Ice\" Standard ImageJ \"Ice\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Jet\" Look-up table with colour progression blue > cyan > green > yellow > orange > red.<br><br>- \"Physics\" Standard Fiji \"Physics\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/physics.lut\".<br><br>- \"Random\" Random sequence of colours.<br><br>- \"Single colour\" All contour line labels have the same colour, determined by the \"Contour colour\" parameter.<br><br>- \"Single colour gradient\" Single colour gradient from the colour determined by the \"Contour colour\" parameter (lowest magnitude contour line label) and white (highest magnitude contour line label).<br><br>- \"Spectrum\" Standard ImageJ \"Spectrum\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Thermal\" Standard Fiji \"Thermal\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/Thermal.lut\".<br>"
+                "description": "Determines the colour look-up table to use when rendering the contour labels.  Colour corresponds to the magnitude of that contour line:<br><br>- \"Black fire\" Standard ImageJ \"Fire\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Ice\" Standard ImageJ \"Ice\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Jet\" Look-up table with colour progression blue, cyan, green, yellow, orange, red.<br><br>- \"Physics\" Standard Fiji \"Physics\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/physics.lut\".<br><br>- \"Random\" Random sequence of colours.<br><br>- \"Single colour\" All contour line labels have the same colour, determined by the \"Contour colour\" parameter.<br><br>- \"Single colour gradient\" Single colour gradient from the colour determined by the \"Contour colour\" parameter (lowest magnitude contour line label) and white (highest magnitude contour line label).<br><br>- \"Spectrum\" Standard ImageJ \"Spectrum\" look-up table.  Values taken from \"https://github.com/imagej/ImageJA/blob/master/src/main/java/ij/LookUpTable.java\".<br><br>- \"Thermal\" Standard Fiji \"Thermal\" look-up table.  Values taken from \"https://github.com/fiji/fiji/tree/master/luts/Thermal.lut\".<br>"
               },
               {
                 "name": "Label colour",
