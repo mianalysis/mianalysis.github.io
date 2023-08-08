@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 The module documentation is generated from a static export of MIA located at `/src/assets/modules.json`.
 
-To regenerate the export for the latest version of MIA ensure that both **Java** and **Gradle** are installed and run the following command:
+To regenerate the export for the latest version of MIA ensure that both **Java** and **Maven** are installed and run the following command:
 
 ```bash
 npm run mia-export

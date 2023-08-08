@@ -1,4 +1,6 @@
 
+package com;
+
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
@@ -21,7 +23,7 @@ import io.github.mianalysis.mia.object.parameters.ParameterGroup;
 import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
 
 public class ModuleExporter {
-    private static final String OUTPUT_PATH = "../src/assets/modules.json";
+    private static final String OUTPUT_PATH = "./src/assets/modules.json";
     private static final int JSON_INDENTATION = 2;
     private static TreeMap<Category, List<Module>> modulesByCategory;
 

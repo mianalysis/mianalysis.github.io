@@ -9,7 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "prepare": "husky install",
-    "mia-export": "gradle run -p mia-export"
+    "mia-export": "mvn -f ./mia-export -X clean install exec:java"
   },
   "dependencies": {
     "@types/node": "20.4.4",
