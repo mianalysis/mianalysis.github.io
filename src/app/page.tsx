@@ -13,7 +13,8 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-4xl space-y-60">
       <section className="space-y-8">
-        <h1>Modular Image Analysis</h1>
+        <h1 className="max-sm:hidden">ModularImageAnalysis</h1>
+        <h1 className="sm:hidden leading-[4rem]">Modular Image Analysis</h1>
 
         <p className="mb-8 opacity-70 text-3xl">
           A Fiji plugin providing a modular framework for assembling image and object analysis
