@@ -1,4 +1,4 @@
-import { Module, ModuleCategory } from '@/types';
+import { Module, ModuleCategory, TreeNavNode } from '@/types';
 import rootCategory from '@/assets/modules.json';
 
 export function findModuleOrCategory(
@@ -58,4 +58,23 @@ export function getModules() {
   explore(rootCategory);
 
   return modules;
+}
+
+export function moduleCategoryToNode(moduleCategory: ModuleCategory): TreeNavNode {
+  function moduleToNode(module: Module): TreeNavNode {
+    return {
+      name: module.name,
+      path: module.path,
+      children: [],
+    };
+  }
+
+  return {
+    name: moduleCategory.name,
+    path: moduleCategory.path,
+    children: [
+      ...moduleCategory.modules.map(moduleToNode),
+      ...moduleCategory.subCategories.map(moduleCategoryToNode),
+    ],
+  };
 }

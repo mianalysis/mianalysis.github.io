@@ -21,3 +21,9 @@ export interface Parameter {
   description: string;
   subParameters?: Parameter[];
 }
+
+export interface TreeNavNode {
+  name: string;
+  path: string;
+  children: TreeNavNode[];
+}
