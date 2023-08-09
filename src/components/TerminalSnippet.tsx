@@ -12,19 +12,21 @@ import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 SyntaxHighlighter.registerLanguage('bash', bashSyntax);
 SyntaxHighlighter.registerLanguage('powershell', powershellSyntax);
 
-const shells = {
-  bash: 'Linux',
-  powershell: 'Windows',
+const systemLanguages = {
+  linux: 'bash',
+  mac: 'bash',
+  windows: 'powershell',
 } as const;
 
-type Shell = keyof typeof shells;
+type System = keyof typeof systemLanguages;
 
-type Props = Record<Shell, string>;
+type Props = Record<System, string>;
 
 export default function TerminalSnippet(snippets: Props) {
-  const [selectedShell, setSelectedShell] = useState<Shell>('bash');
+  const [selectedSystem, setSelectedSystem] = useState<System>('linux');
 
-  const selectedSnippet = snippets[selectedShell];
+  const selectedSnippet = snippets[selectedSystem];
+  const selectedLanguage = systemLanguages[selectedSystem];
 
   const [copied, setCopied] = useState(false);
 
@@ -40,16 +42,16 @@ export default function TerminalSnippet(snippets: Props) {
   return (
     <div className="space-y-1">
       <div className="flex gap-4 font-mono">
-        {Object.entries(shells).map(([shell, os]) => (
+        {Object.keys(systemLanguages).map((system) => (
           <button
-            key={shell}
+            key={system}
             type="button"
-            onClick={() => setSelectedShell(shell as Shell)}
-            className={`px-2 py-1 transition-colors duration-500 ${
-              selectedShell === shell ? ' text-black' : 'text-gray-300 hover:text-gray-500'
+            onClick={() => setSelectedSystem(system as System)}
+            className={`px-2 py-1 transition-colors duration-500 capitalize ${
+              selectedSystem === system ? ' text-black' : 'text-gray-300 hover:text-gray-500'
             }`}
           >
-            {os}
+            {system}
           </button>
         ))}
       </div>
@@ -68,7 +70,7 @@ export default function TerminalSnippet(snippets: Props) {
           <MdCopyAll size={24} />
         </button>
 
-        <SyntaxHighlighter language={selectedShell} style={obsidian}>
+        <SyntaxHighlighter language={selectedLanguage} style={obsidian}>
           {selectedSnippet}
         </SyntaxHighlighter>
       </div>

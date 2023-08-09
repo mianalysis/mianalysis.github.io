@@ -32,7 +32,7 @@ export default function RunningHeadless() {
         </p>
 
         <TerminalSnippet
-          bash={`
+          linux={`
 # Downloading the latest copy of Fiji for 64-bit Linux 
 wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 
@@ -43,11 +43,24 @@ unzip fiji-linux64.zip
 rm fiji-linux64.zip
 
 # Moving into extracted directory
-cd Fiji.app/
-       `}
-          powershell={`
+cd Fiji.app/ 
+          `}
+          mac={`
+# Downloading the latest copy of Fiji for 64-bit MacOS
+curl -O https://downloads.imagej.net/fiji/latest/fiji-macosx.zip
+
+# Unzipping archive
+unzip fiji-macosx.zip -d .
+
+# Removing downloaded zip archive
+rm fiji-macosx.zip
+
+# Moving into extracted directory
+cd Fiji.app/Contents/MacOS
+          `}
+          windows={`
 # Downloading the latest copy of Fiji for 64-bit Windows
-Invoke-WebRequest https://downloads.imagej.net/fiji/latest/fiji-win64.zip
+Invoke-WebRequest https://downloads.imagej.net/fiji/latest/fiji-win64.zip -OutFile .\fiji-win64.zip
 
 # Unzipping archive
 Expand-Archive .\fiji-win64.zip
@@ -57,7 +70,7 @@ Remove-Item .\fiji-win64.zip
 
 # Moving into extracted directory
 cd .\fiji-win64\Fiji.app
-        `}
+          `}
         />
       </section>
 
@@ -70,23 +83,30 @@ cd .\fiji-win64\Fiji.app
         </p>
 
         <TerminalSnippet
-          bash={`
+          linux={`
 # Marking MIA and IJPB-plugins for installation
 ./ImageJ-linux64 --headless --update add-update-site MIA https://sites.imagej.net/ModularImageAnalysis/
 ./ImageJ-linux64 --headless --update add-update-site IJPB-plugins https://sites.imagej.net/IJPB-plugins
 
 # Performing update
 ./ImageJ-linux64 --headless --update update
-       `}
-          powershell={`
-# Commands for Windows PowerShell
+          `}
+          mac={`
+# Marking MIA and IJPB-plugins for installation
+./ImageJ-macosx --headless --update add-update-site MIA https://sites.imagej.net/ModularImageAnalysis/
+./ImageJ-macosx --headless --update add-update-site IJPB-plugins https://sites.imagej.net/IJPB-plugins
+
+# Performing update
+./ImageJ-macosx --headless --update update
+          `}
+          windows={`
 # Marking MIA and IJPB-plugins for installation
 .\ImageJ-win64 --headless --console --update add-update-site MIA https://sites.imagej.net/ModularImageAnalysis/
 .\ImageJ-win64 --headless --console --update add-update-site IJPB-plugins https://sites.imagej.net/IJPB-plugins
 
 # Performing update
 .\ImageJ-win64 --headless --console --update update
-        `}
+          `}
         />
       </section>
 
@@ -104,40 +124,57 @@ cd .\fiji-win64\Fiji.app
         </p>
 
         <TerminalSnippet
-          bash={`
+          linux={`
 # (Optional) Download example workflow to user folder
-wget https://github.com/mianalysis/mia-examples/releases/download/v1.0.0/Ex1_only.zip -O ~/example.zip
-unzip ~/example.zip -d ~/
-rm ~/example.zip
+wget https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.5.zip -O ~/HeadlessExample.zip
+unzip ~/HeadlessExample.zip -d ~/
+rm ~/HeadlessExample.zip
 
 # Defining workflow path as a variable
-wfPath=~/Ex1_only/Ex1_NucleiSegmentation.mia
+wfPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
 
 # Running a workflow on a specified single file
-inPath=~/Ex1_only/Ex1_3DStack1.tif
+inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
 ./ImageJ-linux64 --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath'"
 
 # Running a workflow on a specified folder with verbose output
-inPath=~/Ex1_only/
+inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/
 ./ImageJ-linux64 --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath', verbose=true"
-        `}
-          powershell={`
+          `}
+          mac={`
 # (Optional) Download example workflow to user folder
-Invoke-WebRequest https://github.com/mianalysis/mia-examples/releases/download/v1.0.0/Ex1_only.zip -OutFile $HOME/example.zip
-Expand-Archive $HOME\example.zip -DestinationPath ~\
-rm $HOME\example.zip
+curl https://codeload.github.com/mianalysis/mia-examples/zip/refs/tags/v1.0.5 -o ~/HeadlessExample.zip
+unzip ~/HeadlessExample.zip -d ~/
+rm ~/HeadlessExample.zip
 
 # Defining workflow path as a variable
-$wfPath="'$HOME\Ex1_only\Ex1_NucleiSegmentation.mia'"
+wfPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
+
+# Running a workflow on a specified single file (execution may take a few seconds to start)
+inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
+./ImageJ-macosx --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath'"
+
+# Running a workflow on a specified folder with verbose output
+inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/
+./ImageJ-macosx --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath', verbose=true"
+          `}
+          windows={`
+# (Optional) Download example workflow to user folder
+Invoke-WebRequest https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.5.zip -OutFile $HOME/HeadlessExample.zip
+Expand-Archive $HOME\HeadlessExample.zip -DestinationPath ~\
+rm $HOME\HeadlessExample.zip
+
+# Defining workflow path as a variable
+$wfPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\Ex1_NucleiSegmentation.mia'"
 
 # Running a workflow on a specified single file
-$inPath="'$HOME\Ex1_only\Ex1_3DStack1.tif'"
+$inPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\Ex1_3DStack1.tif'"
 .\ImageJ-win64 --console --headless --run "MIA (headless)" "workflowPath=$wfPath, inputPath=$inPath"
 
 # Running a workflow on a specified folder with verbose output
-$inPath="'$HOME\Ex1_only\'"
+$inPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\'"
 .\ImageJ-win64 --console --headless --run "MIA (headless)" "workflowPath=$wfPath, inputPath=$inPath, verbose=true"
-        `}
+          `}
         />
       </section>
 
