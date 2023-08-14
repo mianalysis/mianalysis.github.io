@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Text defaults */
+
+html {
+  font-family:
+    'Helvetica Neue Light',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    'Inter',
+    Arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  font-size: 60px;
+}
+
+h2 {
+  @apply mb-4 text-2xl font-semibold uppercase;
+}
+
+h3 {
+  @apply truncate text-lg font-medium leading-snug;
+}
+
+.link {
+  @apply text-sky-700 underline hover:text-sky-900;
+}
+
+/* List defaults */
+ol {
+  @apply list-inside list-decimal;
+}
+
+ul {
+  @apply list-inside list-disc;
+}
+
+/* Table defaults */
+
+table {
+  @apply w-full text-left shadow-md;
+}
+
+tr {
+  @apply border-t even:bg-gray-50;
+}
+
+th {
+  @apply p-3 font-bold;
+}
+
+td {
+  @apply p-3;
+}
