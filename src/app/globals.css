@@ -24,15 +24,18 @@ html {
   font-variation-settings: normal;
 }
 
+body {
+  color: #424242;
+}
+
 h1 {
   margin-bottom: 2rem;
-  font-weight: 600;
-  letter-spacing: -1.2px;
+  font-weight: 350;
   font-size: 60px;
 }
 
 h2 {
-  @apply mb-4 text-2xl font-semibold uppercase;
+  @apply mb-4 text-3xl;
 }
 
 h3 {

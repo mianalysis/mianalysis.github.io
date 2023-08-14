@@ -8,7 +8,7 @@ export default function UsingExistingWorkflows() {
       <section className="space-y-4">
         <h1>Using Existing Workflows</h1>
 
-        <p className="opacity-70 text-3xl">
+        <p className="opacity-70 text-2xl">
           Opening, configuring and running pre-prepared workflows distributed as <code>.mia</code>{' '}
           files
         </p>

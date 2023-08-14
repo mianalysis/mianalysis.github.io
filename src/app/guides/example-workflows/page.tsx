@@ -6,7 +6,7 @@ export default function ExampleWorkflows() {
       <section>
         <h1>Example workflows</h1>
 
-        <p className="opacity-70 text-3xl">
+        <p className="opacity-70 text-2xl">
           Accessing example workflows demonstrating use of MIA, with descriptions for each step
         </p>
       </section>

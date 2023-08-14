@@ -6,7 +6,7 @@ export default function RunningHeadless() {
       <section className="space-y-4">
         <h1>Running Headless</h1>
 
-        <p className="opacity-70 text-3xl">Running workflows directly from terminal</p>
+        <p className="opacity-70 text-2xl">Running workflows directly from terminal</p>
       </section>
 
       <section className="space-y-4">

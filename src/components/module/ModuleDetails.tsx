@@ -8,7 +8,7 @@ interface Props {
 export default function ModuleDetails({ module }: Props) {
   return (
     <div className="space-y-16">
-      <p>{module.shortDescription}</p>
+      <p className="text-2xl">{module.shortDescription}</p>
 
       <section>
         <h2>Description</h2>
