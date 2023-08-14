@@ -13,7 +13,7 @@ export default function EditingView() {
       <section className="space-y-4">
         <h1>Editing View</h1>
 
-        <p className="opacity-70 text-3xl">
+        <p className="opacity-70 text-2xl">
           The interface for creating, editing and testing workflows
         </p>
       </section>

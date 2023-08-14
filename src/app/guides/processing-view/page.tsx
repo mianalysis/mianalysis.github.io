@@ -10,7 +10,7 @@ export default function ProcessingView() {
       <section>
         <h1>Processing view</h1>
 
-        <p className="opacity-70 text-3xl">
+        <p className="opacity-70 text-2xl">
           The default MIA interface for running existing workflows
         </p>
       </section>

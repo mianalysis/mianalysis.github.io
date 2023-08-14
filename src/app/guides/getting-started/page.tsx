@@ -7,7 +7,7 @@ export default function GettingStarted() {
       <section className="space-y-4">
         <h1>Getting Started</h1>
 
-        <p className="opacity-70 text-3xl">Downloading and installing MIA into Fiji</p>
+        <p className="opacity-70 text-2xl">Downloading and installing MIA into Fiji</p>
       </section>
 
       <section className="space-y-4">

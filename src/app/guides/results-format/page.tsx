@@ -7,7 +7,7 @@ export default function ResultsFormat() {
       <section className="space-y-4">
         <h1>Results Format</h1>
 
-        <p className="opacity-70 text-3xl">
+        <p className="opacity-70 text-2xl">
           Description of the default output results (<code>.xlsx</code>) format
         </p>
       </section>

@@ -13,8 +13,8 @@ const links = (
     <NavLink href="/guides">Guides</NavLink>
     <NavLink href="/modules">Modules</NavLink>
     <NavLink href="/publications">Publications</NavLink>
+    <NavLink href="/getinvolved">Get involved</NavLink>
     <NavLink href="/about">About</NavLink>
-    <NavLink href="/guides/getting-started">Get started</NavLink>
   </>
 );
 

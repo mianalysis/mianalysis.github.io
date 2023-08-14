@@ -4,7 +4,7 @@ export default function Troubleshooting() {
       <section>
         <h1>Troubleshooting</h1>
 
-        <p className="opacity-70 text-3xl">List of common issues and solutions</p>
+        <p className="opacity-70 text-2xl">List of common issues and solutions</p>
       </section>
 
       <section className="space-y-4">

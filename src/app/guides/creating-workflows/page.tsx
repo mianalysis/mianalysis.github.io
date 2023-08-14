@@ -9,6 +9,12 @@ export default function CreatingWorkflows() {
       <section className="space-y-4">
         <h1>Creating Workflows</h1>
 
+        <p className="opacity-70 text-2xl">Creating a new workflow from scratch</p>
+      </section>
+
+      <section className="space-y-4">
+        <h2>Introduction</h2>
+
         <p>
           Workflows can be created and edited from{' '}
           <Link className="link" href="/guides/editing-view">
