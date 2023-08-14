@@ -27,3 +27,11 @@ To regenerate the export for the latest version of MIA ensure that both **Java**
 ```bash
 npm run mia-export
 ```
+
+## Formatting
+
+This project uses [Prettier](https://prettier.io/) for code formatting. To format the code run:
+
+```bash
+npm run format
+```
