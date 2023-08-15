@@ -13,8 +13,6 @@ export default function GettingStarted() {
       <section className="space-y-4">
         <h2>Introduction</h2>
 
-        <YouTubeVideo id="UNgro7_wEIU" />
-
         <p>
           MIA can either be installed into Fiji via the ImageJ Updater (Option 1) or manually using
           the latest releases on GitHub (Option 2). For day-to-day use, installing from Fiji is
@@ -29,6 +27,8 @@ export default function GettingStarted() {
           </a>{' '}
           via GitHub.
         </p>
+
+        <YouTubeVideo id="UNgro7_wEIU" />
       </section>
 
       <section className="space-y-4">
