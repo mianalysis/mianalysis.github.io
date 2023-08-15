@@ -33,7 +33,11 @@
   "devDependencies": {
     "@types/react-syntax-highlighter": "^15.5.7",
     "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,css,md,json,tsx}": "prettier --write"
   }
 }

@@ -35,3 +35,9 @@ This project uses [Prettier](https://prettier.io/) for code formatting. To forma
 ```bash
 npm run format
 ```
+
+To install a git hook that will format the code run:
+
+```bash
+npm run prepare
+```
