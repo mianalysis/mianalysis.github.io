@@ -11,8 +11,8 @@ import CompatibleIcons from '@/components/splash/CompatibleIcons';
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl space-y-60">
-      <section className="space-y-8">
+    <div className="mx-auto max-w-4xl space-y-40">
+      <section className="space-y-4">
         <h1 className="max-sm:hidden">ModularImageAnalysis</h1>
         <h1 className="sm:hidden leading-[4rem]">Modular Image Analysis</h1>
 
@@ -25,7 +25,7 @@ export default function Home() {
         <Image src={splashMobile} alt="MIA" priority className="sm:hidden shadow-lg" />
       </section>
 
-      <section className="space-y-8">
+      <section className="space-y-4">
         <h2>Extensive</h2>
 
         <p className="opacity-70 text-2xl">
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       <section className="grid sm:grid-cols-3 gap-16 items-center">
-        <div className="sm:col-span-2 space-y-8">
+        <div className="sm:col-span-2 space-y-4">
           <div>
             <h2>Efficient</h2>
 
@@ -98,7 +98,7 @@ export default function Home() {
         <BatchProcessing />
       </section>
 
-      <section className="space-y-8">
+      <section className="space-y-4">
         <div>
           <h2>Extensible</h2>
           <p className="opacity-70 text-2xl">

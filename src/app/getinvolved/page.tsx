@@ -36,7 +36,7 @@ export default function GetInvolved() {
           following dependency to your pom.xml file:
         </p>
 
-        <pre>
+        {/* <pre>
           <code>
             {`
     <dependency>
@@ -45,6 +45,20 @@ export default function GetInvolved() {
         <version>1.3.0</version>
     </dependency>
                 `}
+          </code>
+        </pre> */}
+
+        <pre>
+          <code>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.mianalysis&lt;/groupId&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x09;&lt;artifactId&gt;mia&lt;/artifactId&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x09;&lt;version&gt;1.3.0&lt;/version&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;
           </code>
         </pre>
 
