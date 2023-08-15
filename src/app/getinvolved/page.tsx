@@ -7,8 +7,8 @@ export default function GetInvolved() {
         <h1>Get involved</h1>
 
         <p className="opacity-70 text-3xl">
-          We welcome any contributions to the MIA project. If you&apos;d like to get involved, here are a
-          few ways you could do so.
+          We welcome any contributions to the MIA project. If you&apos;d like to get involved, here
+          are a few ways you could do so.
         </p>
       </section>
 
@@ -16,9 +16,9 @@ export default function GetInvolved() {
         <h2>Adding a new MIA module</h2>
 
         <p>
-          We&apos;d love it if you&apos;d consider contributing a new module to MIA. Such a module could allow
-          an existing ImageJ plugin to be used as part of MIA workflows or add totally new
-          functionality. Modules can either be added to the main MIA plugin by submitting a pull
+          We&apos;d love it if you&apos;d consider contributing a new module to MIA. Such a module
+          could allow an existing ImageJ plugin to be used as part of MIA workflows or add totally
+          new functionality. Modules can either be added to the main MIA plugin by submitting a pull
           request or packaged as standalone .jar files which will be automatically detected by MIA.
           Details of MIA&apos;s module format are provided in our{' '}
           <a
@@ -27,8 +27,8 @@ export default function GetInvolved() {
           >
             mia-examples
           </a>{' '}
-          repository, where you&apos;ll find an example module as well as a blank template module that
-          can be used as a starting point for new modules.
+          repository, where you&apos;ll find an example module as well as a blank template module
+          that can be used as a starting point for new modules.
         </p>
 
         <p>
@@ -61,7 +61,8 @@ export default function GetInvolved() {
         <h2>Developing existing MIA modules</h2>
 
         <p>
-          We&apos;re in the process of transitioning from using ImageJ&apos;s ImagePlus format to the{' '}
+          We&apos;re in the process of transitioning from using ImageJ&apos;s ImagePlus format to
+          the{' '}
           <a className="link" href="https://imagej.net/libs/imglib2/">
             ImgLib2
           </a>{' '}
@@ -75,7 +76,8 @@ export default function GetInvolved() {
         <h2>Contributing new example workflows</h2>
 
         <p>
-          If you&apos;ve got a workflow you&apos;d like to share, please consider uploading it to the{' '}
+          If you&apos;ve got a workflow you&apos;d like to share, please consider uploading it to
+          the{' '}
           <a
             className="link"
             href="https://github.com/mianalysis/mia-examples/tree/main/DevelopmentExamples/DevEx1_CustomModule"
@@ -90,8 +92,8 @@ export default function GetInvolved() {
         <h2>Adding automated tests</h2>
 
         <p>
-          Automated testing for MIA is currently incomplete. We&apos;d be very grateful for any tests
-          that were added to the automated test suite.
+          Automated testing for MIA is currently incomplete. We&apos;d be very grateful for any
+          tests that were added to the automated test suite.
         </p>
       </section>
 
@@ -99,8 +101,8 @@ export default function GetInvolved() {
         <h2>Providing feedback</h2>
 
         <p>
-          Any feedback, feature suggestions or comments are very welcome. If you&apos;d like to tell us
-          how you&apos;re getting on with MIA, please contact us via the{' '}
+          Any feedback, feature suggestions or comments are very welcome. If you&apos;d like to tell
+          us how you&apos;re getting on with MIA, please contact us via the{' '}
           <a className="link" href="https://github.com/mianalysis/mia/issues">
             Issues
           </a>{' '}
