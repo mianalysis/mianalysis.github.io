@@ -14,7 +14,8 @@ export default function Publications() {
         <h2>2023</h2>
 
         <p>
-          Zhao, X., <em>et al.</em>, &quot;Highly efficient platelet generation in lung vasculature reproduced by microfluidics&quot;, <em>Nature Communications</em> (2023){' '}
+          Zhao, X., <em>et al.</em>, &quot;Highly efficient platelet generation in lung vasculature
+          reproduced by microfluidics&quot;, <em>Nature Communications</em> (2023){' '}
           <strong>14</strong> 4026, doi:{' '}
           <a className="link" href="https://doi.org/10.1038/s41467-023-39598-9">
             10.1038/s41467-023-39598-9
@@ -22,16 +23,17 @@ export default function Publications() {
         </p>
 
         <p>
-          Needs, H.I., <em>et al.</em>, &quot;Aggregation-prone Tau impairs mitochondrial import, which affects organelle morphology and neuronal complexity&quot;, <em>
-            J Cell Sci</em> (2023){' '}
-          <strong>136</strong>, doi:{' '}
+          Needs, H.I., <em>et al.</em>, &quot;Aggregation-prone Tau impairs mitochondrial import,
+          which affects organelle morphology and neuronal complexity&quot;, <em>J Cell Sci</em>{' '}
+          (2023) <strong>136</strong>, doi:{' '}
           <a className="link" href="https://doi.org/10.1242/jcs.260993">
             10.1242/jcs.260993
           </a>
         </p>
 
         <p>
-          Jiménez-Moreno, N. <em>et al.</em>, &quot;ATG8-dependent LMX1B-autophagy crosstalk shapes human midbrain dopaminergic neuronal resilience&quot;, <em>J Cell Biol</em> (2023){' '}
+          Jiménez-Moreno, N. <em>et al.</em>, &quot;ATG8-dependent LMX1B-autophagy crosstalk shapes
+          human midbrain dopaminergic neuronal resilience&quot;, <em>J Cell Biol</em> (2023){' '}
           <strong>222</strong> e201910133, doi:{' '}
           <a className="link" href="https://doi.org/10.1083/jcb.201910133">
             10.1083/jcb.201910133
