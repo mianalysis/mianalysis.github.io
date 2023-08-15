@@ -7,7 +7,7 @@ export default function GetInvolved() {
         <h1>Get involved</h1>
 
         <p className="opacity-70 text-3xl">
-          We welcome any contributions to the MIA project. If you'd like to get involved, here are a
+          We welcome any contributions to the MIA project. If you&apos;d like to get involved, here are a
           few ways you could do so.
         </p>
       </section>
@@ -16,27 +16,27 @@ export default function GetInvolved() {
         <h2>Adding a new MIA module</h2>
 
         <p>
-          We'd love it if you'd consider contributing a new module to MIA. Such a module could allow
+          We&apos;d love it if you&apos;d consider contributing a new module to MIA. Such a module could allow
           an existing ImageJ plugin to be used as part of MIA workflows or add totally new
           functionality. Modules can either be added to the main MIA plugin by submitting a pull
           request or packaged as standalone .jar files which will be automatically detected by MIA.
-          Details of MIA's module format are provided in our{' '}
+          Details of MIA&apos;s module format are provided in our{' '}
           <a
             className="link"
             href="https://github.com/mianalysis/mia-examples/tree/main/DevelopmentExamples/DevEx1_CustomModule"
           >
             mia-examples
           </a>{' '}
-          repository, where you'll find an example module as well as a blank template module that
+          repository, where you&apos;ll find an example module as well as a blank template module that
           can be used as a starting point for new modules.
         </p>
 
         <p>
-          If you'd like to include the latest version of MIA in your project, you can add the
+          If you&apos;d like to include the latest version of MIA in your project, you can add the
           following dependency to your pom.xml file:
         </p>
 
-        {/* <pre>
+        <pre>
           <code>
             {`
     <dependency>
@@ -45,20 +45,6 @@ export default function GetInvolved() {
         <version>1.3.0</version>
     </dependency>
                 `}
-          </code>
-        </pre> */}
-
-        <pre>
-          <code>
-            &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.mianalysis&lt;/groupId&gt;
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x09;&lt;artifactId&gt;mia&lt;/artifactId&gt;
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#x09;&lt;version&gt;1.3.0&lt;/version&gt;
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;
           </code>
         </pre>
 
@@ -75,11 +61,11 @@ export default function GetInvolved() {
         <h2>Developing existing MIA modules</h2>
 
         <p>
-          We're in the process of transitioning from using ImageJ's ImagePlus format to the{' '}
+          We&apos;re in the process of transitioning from using ImageJ&apos;s ImagePlus format to the{' '}
           <a className="link" href="https://imagej.net/libs/imglib2/">
             ImgLib2
           </a>{' '}
-          format. Amongst other benefits, this will allow MIA to make use ImgLib2's disk-cached
+          format. Amongst other benefits, this will allow MIA to make use ImgLib2&apos;s disk-cached
           image formats (loading images directly from storage). Any modules which could be rewritten
           to take advantage of ImgLib2 would help us reach this goal faster!
         </p>
@@ -89,7 +75,7 @@ export default function GetInvolved() {
         <h2>Contributing new example workflows</h2>
 
         <p>
-          If you've got a workflow you'd like to share, please consider uploading it to the{' '}
+          If you&apos;ve got a workflow you&apos;d like to share, please consider uploading it to the{' '}
           <a
             className="link"
             href="https://github.com/mianalysis/mia-examples/tree/main/DevelopmentExamples/DevEx1_CustomModule"
@@ -104,7 +90,7 @@ export default function GetInvolved() {
         <h2>Adding automated tests</h2>
 
         <p>
-          Automated testing for MIA is currently incomplete. We'd be very grateful for any tests
+          Automated testing for MIA is currently incomplete. We&apos;d be very grateful for any tests
           that were added to the automated test suite.
         </p>
       </section>
@@ -113,8 +99,8 @@ export default function GetInvolved() {
         <h2>Providing feedback</h2>
 
         <p>
-          Any feedback, feature suggestions or comments are very welcome. If you'd like to tell us
-          how you're getting on with MIA, please contact us via the{' '}
+          Any feedback, feature suggestions or comments are very welcome. If you&apos;d like to tell us
+          how you&apos;re getting on with MIA, please contact us via the{' '}
           <a className="link" href="https://github.com/mianalysis/mia/issues">
             Issues
           </a>{' '}
