@@ -12,6 +12,7 @@
     "mia-export": "mvn -f ./mia-export -X clean install exec:java"
   },
   "dependencies": {
+    "@docsearch/react": "^3.5.1",
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
