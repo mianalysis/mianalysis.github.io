@@ -1,0 +1,20 @@
+.DocSearch-Button-Placeholder,
+.DocSearch-Button-Keys {
+  display: none;
+}
+
+.DocSearch-Search-Icon {
+  width: 16px;
+  height: 16px;
+}
+
+.DocSearch-Button {
+  padding: unset;
+  margin: unset;
+  height: 24px;
+}
+
+.DocSearch-Button:hover {
+  box-shadow: unset;
+  background-color: unset;
+}
