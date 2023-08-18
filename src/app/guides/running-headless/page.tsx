@@ -126,53 +126,53 @@ cd .\fiji-win64\Fiji.app
         <TerminalSnippet
           linux={`
 # (Optional) Download example workflow to user folder
-wget https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.5.zip -O ~/HeadlessExample.zip
+wget https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.6.zip -O ~/HeadlessExample.zip
 unzip ~/HeadlessExample.zip -d ~/
 rm ~/HeadlessExample.zip
 
 # Defining workflow path as a variable
-wfPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
+wfPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
 
 # Running a workflow on a specified single file
-inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
+inPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
 ./ImageJ-linux64 --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath'"
 
 # Running a workflow on a specified folder with verbose output
-inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/
+inPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/
 ./ImageJ-linux64 --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath', verbose=true"
           `}
           mac={`
 # (Optional) Download example workflow to user folder
-curl https://codeload.github.com/mianalysis/mia-examples/zip/refs/tags/v1.0.5 -o ~/HeadlessExample.zip
+curl https://codeload.github.com/mianalysis/mia-examples/zip/refs/tags/v1.0.6 -o ~/HeadlessExample.zip
 unzip ~/HeadlessExample.zip -d ~/
 rm ~/HeadlessExample.zip
 
 # Defining workflow path as a variable
-wfPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
+wfPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/Ex1_NucleiSegmentation.mia
 
 # Running a workflow on a specified single file (execution may take a few seconds to start)
-inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
+inPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/Ex1_3DStack1.tif
 ./ImageJ-macosx --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath'"
 
 # Running a workflow on a specified folder with verbose output
-inPath=~/mia-examples-1.0.5/Ex1_NucleiSegmentation/
+inPath=~/mia-examples-1.0.6/Ex1_NucleiSegmentation/
 ./ImageJ-macosx --headless --run "MIA (headless)" "workflowPath='$wfPath', inputPath='$inPath', verbose=true"
           `}
           windows={`
 # (Optional) Download example workflow to user folder
-Invoke-WebRequest https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.5.zip -OutFile $HOME/HeadlessExample.zip
+Invoke-WebRequest https://github.com/mianalysis/mia-examples/archive/refs/tags/v1.0.6.zip -OutFile $HOME/HeadlessExample.zip
 Expand-Archive $HOME\HeadlessExample.zip -DestinationPath ~\
 rm $HOME\HeadlessExample.zip
 
 # Defining workflow path as a variable
-$wfPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\Ex1_NucleiSegmentation.mia'"
+$wfPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\Ex1_NucleiSegmentation.mia'"
 
 # Running a workflow on a specified single file
-$inPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\Ex1_3DStack1.tif'"
+$inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\Ex1_3DStack1.tif'"
 .\ImageJ-win64 --console --headless --run "MIA (headless)" "workflowPath=$wfPath, inputPath=$inPath"
 
 # Running a workflow on a specified folder with verbose output
-$inPath="'$HOME\mia-examples-1.0.5\Ex1_NucleiSegmentation\'"
+$inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
 .\ImageJ-win64 --console --headless --run "MIA (headless)" "workflowPath=$wfPath, inputPath=$inPath, verbose=true"
           `}
         />
