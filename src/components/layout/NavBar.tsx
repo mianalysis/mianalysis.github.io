@@ -35,7 +35,7 @@ export default function NavBar() {
       <div className="flex justify-between gap-x-8 py-2 max-sm:px-4">
         <Logo />
 
-        <ul className="flex max-sm:hidden list-none items-center gap-x-8">{links}</ul>
+        <ul className="flex max-sm:hidden list-none items-center gap-x-8 pl-0 pb-0">{links}</ul>
 
         <button type="button" onClick={toggle} className="sm:hidden" ref={buttonRef}>
           <MdMenu size={32} />

@@ -19,7 +19,7 @@ export default function TreeNav({ node, depth = 1 }: Props) {
   );
 
   return (
-    <ul className="list-none text-gray-500">
+    <ul className="tree-item list-none text-gray-500">
       {internalChildren.map((child) => (
         <InternalNode key={child.path} node={child} depth={depth} />
       ))}

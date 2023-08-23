@@ -48,11 +48,21 @@ h3 {
 
 /* List defaults */
 ol {
-  @apply list-inside list-decimal;
+  @apply list-inside list-decimal pl-6 pb-2;
+  > li > ul {
+    list-style-type: circle;
+  }
 }
 
 ul {
-  @apply list-inside list-disc;
+  @apply list-inside list-disc pl-6 pb-2;
+  > li > ul {
+    list-style-type: circle;
+  }
+}
+
+.tree-item {
+  @apply pl-0 pb-0;
 }
 
 /* Table defaults */
