@@ -1,3 +1,4 @@
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 import Link from 'next/link';
 
 export default function ExampleWorkflows() {
@@ -12,7 +13,7 @@ export default function ExampleWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           Example workflows for MIA can be found in the{' '}

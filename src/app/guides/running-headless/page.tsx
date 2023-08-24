@@ -1,4 +1,5 @@
 import TerminalSnippet from '@/components/TerminalSnippet';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 
 export default function RunningHeadless() {
   return (
@@ -10,7 +11,7 @@ export default function RunningHeadless() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           Using MIA&apos;s headless mode it&apos;s possible to run workflows without opening a
@@ -21,7 +22,7 @@ export default function RunningHeadless() {
       </section>
 
       <section className="space-y-4">
-        <h2>Installing Fiji</h2>
+        <AnchoredHeading type="h2">Installing Fiji</AnchoredHeading>
 
         <p>
           Headless running of workflows can be performed using any copy of Fiji with a standard MIA
@@ -75,7 +76,7 @@ cd .\fiji-win64\Fiji.app
       </section>
 
       <section className="space-y-4">
-        <h2>Installing MIA</h2>
+        <AnchoredHeading type="h2">Installing MIA</AnchoredHeading>
 
         <p>
           With Fiji installed, we can now install MIA and any relevant dependencies. The following
@@ -111,7 +112,7 @@ cd .\fiji-win64\Fiji.app
       </section>
 
       <section className="space-y-4">
-        <h2>Running a workflow</h2>
+        <AnchoredHeading type="h2">Running a workflow</AnchoredHeading>
 
         <p>
           The following commands will run a workflow in headless mode. Examples are given for
@@ -179,7 +180,7 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
       </section>
 
       <section className="space-y-4">
-        <h2>Required arguments</h2>
+        <AnchoredHeading type="h2">Required arguments</AnchoredHeading>
 
         <p>
           Currently, headless running only requires a single argument specifying the path to a
@@ -208,7 +209,7 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
       </section>
 
       <section className="space-y-4">
-        <h2>Optional arguments</h2>
+        <AnchoredHeading type="h2">Optional arguments</AnchoredHeading>
 
         <p>
           Workflow execution can be configured using additional optional arguments. Arguably the

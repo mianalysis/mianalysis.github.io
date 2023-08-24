@@ -1,6 +1,7 @@
 import MiaIcon from '@/components/MiaIcon';
 import StaticVideo from '@/components/StaticVideo';
 import YouTubeVideo from '@/components/YouTubeVideo';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 import Link from 'next/link';
 
 export default function CreatingWorkflows() {
@@ -13,7 +14,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           Workflows can be created and edited from{' '}
@@ -49,7 +50,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Accessing editing view</h2>
+        <AnchoredHeading type="h2">Accessing editing view</AnchoredHeading>
 
         <ul>
           <li>
@@ -75,7 +76,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Adding and arranging modules</h2>
+        <AnchoredHeading type="h2">Adding and arranging modules</AnchoredHeading>
 
         <ul>
           <li>
@@ -139,7 +140,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Selecting files to process</h2>
+        <AnchoredHeading type="h2">Selecting files to process</AnchoredHeading>
 
         <ul>
           <li>
@@ -194,7 +195,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Configuring modules</h2>
+        <AnchoredHeading type="h2">Configuring modules</AnchoredHeading>
 
         <ul>
           <li>
@@ -250,7 +251,7 @@ export default function CreatingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Configuring output results format</h2>
+        <AnchoredHeading type="h2">Configuring output results format</AnchoredHeading>
 
         <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/set_results.mp4" />
 

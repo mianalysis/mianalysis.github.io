@@ -1,4 +1,5 @@
 import YouTubeVideo from '@/components/YouTubeVideo';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 import Link from 'next/link';
 
 export default function GettingStarted() {
@@ -11,7 +12,7 @@ export default function GettingStarted() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           MIA can either be installed into Fiji via the ImageJ Updater (Option 1) or manually using
@@ -32,7 +33,7 @@ export default function GettingStarted() {
       </section>
 
       <section className="space-y-4">
-        <h2>Option 1: Installing directly from Fiji</h2>
+        <AnchoredHeading type="h2">Option 1: Installing directly from Fiji</AnchoredHeading>
 
         <p>The latest version of MIA can be installed directly into Fiji via an update site.</p>
 
@@ -60,7 +61,7 @@ export default function GettingStarted() {
       </section>
 
       <section className="space-y-4">
-        <h2>Option 2: Installing manually from GitHub</h2>
+        <AnchoredHeading type="h2">Option 2: Installing manually from GitHub</AnchoredHeading>
 
         <p>
           Specific versions of MIA can be downloaded from GitHub and installed into Fiji manually.
@@ -89,7 +90,7 @@ export default function GettingStarted() {
       </section>
 
       <section className="space-y-4">
-        <h2>Next steps</h2>
+        <AnchoredHeading type="h2">Next steps</AnchoredHeading>
 
         <p>
           You&apos;re now ready to start using MIA. You can learn about the two interfaces in the{' '}

@@ -1,5 +1,6 @@
 import StaticVideo from '@/components/StaticVideo';
 import YouTubeVideo from '@/components/YouTubeVideo';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 import Link from 'next/link';
 
 export default function UsingExistingWorkflows() {
@@ -15,7 +16,7 @@ export default function UsingExistingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           MIA workflows are distributed as .mia files. These allow the same workflow to be stored
@@ -42,7 +43,7 @@ export default function UsingExistingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Loading the workflow</h2>
+        <AnchoredHeading type="h2">Loading the workflow</AnchoredHeading>
 
         <ol>
           <li>
@@ -81,7 +82,7 @@ export default function UsingExistingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Configuring and running</h2>
+        <AnchoredHeading type="h2">Configuring and running</AnchoredHeading>
 
         <ol>
           <li>
@@ -126,7 +127,7 @@ export default function UsingExistingWorkflows() {
       </section>
 
       <section className="space-y-4">
-        <h2>Saving changes</h2>
+        <AnchoredHeading type="h2">Saving changes</AnchoredHeading>
 
         <ol>
           <li>

@@ -1,3 +1,5 @@
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
+
 export default function Troubleshooting() {
   return (
     <div className="mx-auto max-w-4xl space-y-16">
@@ -8,7 +10,7 @@ export default function Troubleshooting() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           MIA is in ongoing development and from time-to-time, issues may arise. Below are listed

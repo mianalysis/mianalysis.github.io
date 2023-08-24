@@ -1,3 +1,5 @@
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
+
 export default function Publications() {
   return (
     <div className="mx-auto max-w-4xl space-y-16">
@@ -11,7 +13,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2023</h2>
+        <AnchoredHeading type="h2">2023</AnchoredHeading>
 
         <p>
           Zhao, X., <em>et al.</em>, &quot;Highly efficient platelet generation in lung vasculature
@@ -59,7 +61,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2022</h2>
+        <AnchoredHeading type="h2">2022</AnchoredHeading>
 
         <p>
           López-Cuevas, P., <em>et al.</em>, &quot;Macrophage Reprogramming with Anti-miR223-Loaded
@@ -112,7 +114,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2021</h2>
+        <AnchoredHeading type="h2">2021</AnchoredHeading>
 
         <p>
           Kague, E., <em>et al.</em>, &quot;3D assessment of intervertebral disc degeneration in
@@ -157,7 +159,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2020</h2>
+        <AnchoredHeading type="h2">2020</AnchoredHeading>
 
         <p>
           Sundararaman, A., <em>et al.</em>, &quot;RhoJ Regulates α5β1 Integrin Trafficking to
@@ -178,7 +180,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2019</h2>
+        <AnchoredHeading type="h2">2019</AnchoredHeading>
 
         <p>
           Clark, D.J., <em>et al.</em>, &quot;Transient protein accumulation at the center of the T
@@ -215,7 +217,7 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
-        <h2>2018</h2>
+        <AnchoredHeading type="h2">2018</AnchoredHeading>
 
         <p>
           Roloff, E.v.L., <em>et al.</em>, &quot;Differences in autonomic innervation to the
