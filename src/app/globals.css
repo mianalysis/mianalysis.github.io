@@ -22,6 +22,8 @@ html {
     'Noto Color Emoji';
   font-feature-settings: normal;
   font-variation-settings: normal;
+
+  scroll-padding-top: 6rem;
 }
 
 body {
