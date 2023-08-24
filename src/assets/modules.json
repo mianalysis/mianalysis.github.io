@@ -1611,11 +1611,15 @@
                 },
                 {
                   "name": "Filter mode",
-                  "description": "Filter to be applied to the image.<br><ul><li>\"Difference of Gaussian 2D\" Difference of Gaussian filter (2D)  Used to enhance spot-like features of sizes similar to the setting for \"Filter radius\".<\/li><li>\"Gaussian 2D\" <\/li><li>\"Gaussian 3D\" <\/li><li>\"Gradient 2D\" <\/li><li>\"Maximum 2D\" <\/li><li>\"Maximum 3D\" <\/li><li>\"Mean 2D\" <\/li><li>\"Mean 3D\" <\/li><li>\"Median 2D\" <\/li><li>\"Median 3D\" <\/li><li>\"Minimum 2D\" <\/li><li>\"Minimum 3D\" <\/li><li>\"Ridge enhancement 2D\" Uses initial image processing steps from \"Ridge Detection\" plugin to enhance ridge-like structures.<\/li><li>\"Rolling frame\" Filters the image at each frame based on frames before and/after.  The frame window over which the statistics are calculated is user-controllable<\/li><li>\"Variance 2D\" <\/li><li>\"Variance 3D\" <\/li><\/ul>"
+                  "description": "Filter to be applied to the image.<br><ul><li>\"DoG 2D\" Difference of Gaussian filter in 2D.<\/li><li>\"Gaussian 2D\" <\/li><li>\"Gaussian 3D\" <\/li><li>\"Gradient 2D\" <\/li><li>\"LoG 2D (approximation)\" Approximation of a Laplacian of Gaussian filter in 2D.  This is used to enhance spot-like features of sizes similar to the setting for \"Filter radius\".<\/li><li>\"Maximum 2D\" <\/li><li>\"Maximum 3D\" <\/li><li>\"Mean 2D\" <\/li><li>\"Mean 3D\" <\/li><li>\"Median 2D\" <\/li><li>\"Median 3D\" <\/li><li>\"Minimum 2D\" <\/li><li>\"Minimum 3D\" <\/li><li>\"Ridge enhancement 2D\" Uses initial image processing steps from \"Ridge Detection\" plugin to enhance ridge-like structures.<\/li><li>\"Rolling frame\" Filters the image at each frame based on frames before and/after.  The frame window over which the statistics are calculated is user-controllable<\/li><li>\"Variance 2D\" <\/li><li>\"Variance 3D\" <\/li><\/ul>"
                 },
                 {
                   "name": "Filter radius",
                   "description": "Range the filter is calculated over.  Often also referred to as \"sigma\".  Value specified in pixel units, unless \"calibrated units\" is enabled."
+                },
+                {
+                  "name": "Filter radius 2",
+                  "description": ""
                 },
                 {
                   "name": "Calibrated units",
@@ -7905,11 +7909,15 @@
                 },
                 {
                   "name": "Filter mode",
-                  "description": "Filter to be applied to the image.<br><ul><li>\"Difference of Gaussian 2D\" Difference of Gaussian filter (2D)  Used to enhance spot-like features of sizes similar to the setting for \"Filter radius\".<\/li><li>\"Gaussian 2D\" <\/li><li>\"Gaussian 3D\" <\/li><li>\"Gradient 2D\" <\/li><li>\"Maximum 2D\" <\/li><li>\"Maximum 3D\" <\/li><li>\"Mean 2D\" <\/li><li>\"Mean 3D\" <\/li><li>\"Median 2D\" <\/li><li>\"Median 3D\" <\/li><li>\"Minimum 2D\" <\/li><li>\"Minimum 3D\" <\/li><li>\"Ridge enhancement 2D\" Uses initial image processing steps from \"Ridge Detection\" plugin to enhance ridge-like structures.<\/li><li>\"Rolling frame\" Filters the image at each frame based on frames before and/after.  The frame window over which the statistics are calculated is user-controllable<\/li><li>\"Variance 2D\" <\/li><li>\"Variance 3D\" <\/li><\/ul>"
+                  "description": "Filter to be applied to the image.<br><ul><li>\"DoG 2D\" Difference of Gaussian filter in 2D.<\/li><li>\"Gaussian 2D\" <\/li><li>\"Gaussian 3D\" <\/li><li>\"Gradient 2D\" <\/li><li>\"LoG 2D (approximation)\" Approximation of a Laplacian of Gaussian filter in 2D.  This is used to enhance spot-like features of sizes similar to the setting for \"Filter radius\".<\/li><li>\"Maximum 2D\" <\/li><li>\"Maximum 3D\" <\/li><li>\"Mean 2D\" <\/li><li>\"Mean 3D\" <\/li><li>\"Median 2D\" <\/li><li>\"Median 3D\" <\/li><li>\"Minimum 2D\" <\/li><li>\"Minimum 3D\" <\/li><li>\"Ridge enhancement 2D\" Uses initial image processing steps from \"Ridge Detection\" plugin to enhance ridge-like structures.<\/li><li>\"Rolling frame\" Filters the image at each frame based on frames before and/after.  The frame window over which the statistics are calculated is user-controllable<\/li><li>\"Variance 2D\" <\/li><li>\"Variance 3D\" <\/li><\/ul>"
                 },
                 {
                   "name": "Filter radius",
                   "description": "Range the filter is calculated over.  Often also referred to as \"sigma\".  Value specified in pixel units, unless \"calibrated units\" is enabled."
+                },
+                {
+                  "name": "Filter radius 2",
+                  "description": ""
                 },
                 {
                   "name": "Calibrated units",
