@@ -1,3 +1,4 @@
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 import Link from 'next/link';
 
 export default function About() {
@@ -12,7 +13,7 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2>Description</h2>
+        <AnchoredHeading type="h2">Description</AnchoredHeading>
 
         <p>
           ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular framework for
@@ -27,7 +28,7 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2>Acknowledgements</h2>
+        <AnchoredHeading type="h2">Acknowledgements</AnchoredHeading>
 
         <p>
           The plugin makes use of a combination of plugins packaged with Fiji as well as others that
@@ -100,7 +101,7 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2>Citing MIA</h2>
+        <AnchoredHeading type="h2">Citing MIA</AnchoredHeading>
 
         <p>
           We hope you find MIA useful. If you&apos;ve used MIA in your research, please cite it
@@ -113,7 +114,7 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2>Publications</h2>
+        <AnchoredHeading type="h2">Publications</AnchoredHeading>
 
         <p>
           MIA has been used in a variety of different analyses, a few published examples of which
@@ -126,7 +127,7 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2>Ongoing development</h2>
+        <AnchoredHeading type="h2">Ongoing development</AnchoredHeading>
 
         <p>
           This plugin is still in development and test coverage is currently incomplete. Please keep

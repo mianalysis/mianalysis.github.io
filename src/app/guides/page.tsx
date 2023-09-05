@@ -12,48 +12,48 @@ export default function Guides() {
 
       <div className="grid sm:grid-cols-2 gap-8">
         <Card href="/guides/getting-started">
-          <h3>Getting Started</h3>
+          <span className="h3">Getting Started</span>
           <p>Downloading and installing MIA into Fiji</p>
         </Card>
 
         <Card href="/guides/example-workflows">
-          <h3>Example Workflows</h3>
+          <span className="h3">Example Workflows</span>
           <p>
             Accessing example workflows demonstrating use of MIA, with descriptions for each step
           </p>
         </Card>
 
         <Card href="/guides/processing-view">
-          <h3>Processing View</h3>
+          <span className="h3">Processing View</span>
           <p>The default MIA interface for running existing workflows</p>
         </Card>
 
         <Card href="/guides/using-existing-workflows">
-          <h3>Using existing workflows</h3>
+          <span className="h3">Using existing workflows</span>
           <p>Opening, configuring and running pre-prepared workflows distributed as .mia files</p>
         </Card>
 
         <Card href="/guides/editing-view">
-          <h3>Editing view</h3>
+          <span className="h3">Editing view</span>
           <p>The interface for creating, editing and testing workflows</p>
         </Card>
 
         <Card href="/guides/creating-workflows">
-          <h3>Creating workflows</h3>
+          <span className="h3">Creating workflows</span>
           <p>Creating a new workflow from scratch</p>
         </Card>
 
         <Card href="/guides/results-format">
-          <h3>Results format</h3>
+          <span className="h3">Results format</span>
           <p>Description of the default output results (.xlsx) format</p>
         </Card>
         <Card href="/guides/running-headless">
-          <h3>Running headless</h3>
+          <span className="h3">Running headless</span>
           <p>Running workflows directly from terminal</p>
         </Card>
 
         <Card href="/guides/troubleshooting">
-          <h3>Troubleshooting</h3>
+          <span className="h3">Troubleshooting</span>
           <p>List of common issues and solutions</p>
         </Card>
       </div>

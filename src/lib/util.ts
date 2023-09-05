@@ -32,3 +32,11 @@ export const partition = <T>(array: T[], predicate: (element: T) => boolean) => 
     [[], []]
   );
 };
+
+export function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}

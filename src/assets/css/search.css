@@ -1,3 +1,7 @@
+.DocSearch-Input:focus-visible {
+  outline: none;
+}
+
 .DocSearch-Button-Placeholder,
 .DocSearch-Button-Keys {
   display: none;

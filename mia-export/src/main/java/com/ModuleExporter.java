@@ -87,6 +87,8 @@ public class ModuleExporter {
                 .put("name", module.getName())
                 .put("slug", slug)
                 .put("path", path)
+                .put("deprecated", module.isDeprecated())
+                .put("version", module.getVersionNumber())
                 .put("shortDescription", module.getShortDescription())
                 .put("fullDescription", module.getDescription())
                 .put("parameters", parameters);

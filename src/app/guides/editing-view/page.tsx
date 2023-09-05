@@ -6,6 +6,7 @@ import editingViewModuleList from '@/../public/images/screenshots/editing_view_m
 import editingViewParameterPanel from '@/../public/images/screenshots/editing_view_parameter_panel.png';
 import editingViewSearch from '@/../public/images/screenshots/editing_view_search.png';
 import Image from 'next/image';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 
 export default function EditingView() {
   return (
@@ -19,7 +20,7 @@ export default function EditingView() {
       </section>
 
       <section className="space-y-4">
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           Workflows can be constructed and tested in &quot;editing view&quot;. Modules are assembled
@@ -45,7 +46,7 @@ export default function EditingView() {
       </section>
 
       <section className="space-y-4">
-        <h2>Workflow controls</h2>
+        <AnchoredHeading type="h2">Workflow controls</AnchoredHeading>
 
         <p>
           The left-most section of editing view is split into two sections. The top half deals with
@@ -82,7 +83,7 @@ export default function EditingView() {
       </section>
 
       <section className="space-y-4">
-        <h2>Modules in workflow</h2>
+        <AnchoredHeading type="h2">Modules in workflow</AnchoredHeading>
 
         <p>
           Modules forming the current workflow are assembled into a sequential list, with the first
@@ -142,7 +143,7 @@ export default function EditingView() {
       </section>
 
       <section className="space-y-4">
-        <h2>Module parameters</h2>
+        <AnchoredHeading type="h2">Module parameters</AnchoredHeading>
 
         <p>
           Each module has a set of associated parameters, which can be accessed by clicking the
@@ -180,7 +181,7 @@ export default function EditingView() {
       </section>
 
       <section className="space-y-4">
-        <h2>Module search</h2>
+        <AnchoredHeading type="h2">Module search</AnchoredHeading>
 
         <p>
           An optional search panel can be enabled by either selecting &quot;Search for module&quot;

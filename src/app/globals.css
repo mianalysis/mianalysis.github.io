@@ -22,23 +22,28 @@ html {
     'Noto Color Emoji';
   font-feature-settings: normal;
   font-variation-settings: normal;
+
+  scroll-padding-top: 6rem;
 }
 
 body {
   color: #424242;
 }
 
-h1 {
+h1,
+.h1 {
   margin-bottom: 2rem;
   font-weight: 350;
   font-size: 60px;
 }
 
-h2 {
+h2,
+.h2 {
   @apply mb-4 text-3xl;
 }
 
-h3 {
+h3,
+.h3 {
   @apply truncate text-lg font-medium leading-snug;
 }
 

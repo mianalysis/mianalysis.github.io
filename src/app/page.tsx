@@ -120,15 +120,15 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-3 items-center gap-8">
           <Card href="https://www.youtube.com/@mianalysis" className="flex flex-col items-center">
-            <h3>Video Tutorials</h3>
+            <span className="h3">Video Tutorials</span>
             <MdMovie size={128} className="text-mia-orange" />
           </Card>
           <Card href="/guides" className="flex flex-col items-center">
-            <h3>Guides</h3>
+            <span className="h3">Guides</span>
             <MdDescription size={128} className="text-mia-blue" />
           </Card>
           <Card href="/modules" className="flex flex-col items-center">
-            <h3>Module Index</h3>
+            <span className="h3">Module Index</span>
             <MdApps size={128} className="text-mia-green" />
           </Card>
         </div>

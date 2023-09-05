@@ -1,5 +1,6 @@
 import { Module } from '@/types';
 import ModuleParameters from './ModuleParameters';
+import AnchoredHeading from '../layout/AnchoredHeading';
 
 interface Props {
   module: Module;
@@ -11,13 +12,13 @@ export default function ModuleDetails({ module }: Props) {
       <p className="text-2xl">{module.shortDescription}</p>
 
       <section>
-        <h2>Description</h2>
+        <AnchoredHeading type="h2">Description</AnchoredHeading>
 
         <p dangerouslySetInnerHTML={{ __html: module.fullDescription }} />
       </section>
 
       <section>
-        <h2>Parameters</h2>
+        <AnchoredHeading type="h2">Parameters</AnchoredHeading>
 
         <ModuleParameters module={module} />
       </section>

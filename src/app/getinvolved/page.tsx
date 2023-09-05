@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 
 export default function GetInvolved() {
   return (
@@ -13,7 +13,7 @@ export default function GetInvolved() {
       </section>
 
       <section className="space-y-4">
-        <h2>Adding a new MIA module</h2>
+        <AnchoredHeading type="h2">Adding a new MIA module</AnchoredHeading>
 
         <p>
           We&apos;d love it if you&apos;d consider contributing a new module to MIA. Such a module
@@ -58,7 +58,7 @@ export default function GetInvolved() {
       </section>
 
       <section className="space-y-4">
-        <h2>Developing existing MIA modules</h2>
+        <AnchoredHeading type="h2">Developing existing MIA modules</AnchoredHeading>
 
         <p>
           We&apos;re in the process of transitioning from using ImageJ&apos;s ImagePlus format to
@@ -73,7 +73,7 @@ export default function GetInvolved() {
       </section>
 
       <section className="space-y-4">
-        <h2>Contributing new example workflows</h2>
+        <AnchoredHeading type="h2">Contributing new example workflows</AnchoredHeading>
 
         <p>
           If you&apos;ve got a workflow you&apos;d like to share, please consider uploading it to
@@ -89,7 +89,7 @@ export default function GetInvolved() {
       </section>
 
       <section className="space-y-4">
-        <h2>Adding automated tests</h2>
+        <AnchoredHeading type="h2">Adding automated tests</AnchoredHeading>
 
         <p>
           Automated testing for MIA is currently incomplete. We&apos;d be very grateful for any
@@ -98,7 +98,7 @@ export default function GetInvolved() {
       </section>
 
       <section className="space-y-4">
-        <h2>Providing feedback</h2>
+        <AnchoredHeading type="h2">Providing feedback</AnchoredHeading>
 
         <p>
           Any feedback, feature suggestions or comments are very welcome. If you&apos;d like to tell

@@ -3,6 +3,7 @@ import basicSmallView from '@/../public/images/screenshots/basic_view_small.png'
 import basicExpandedView from '@/../public/images/screenshots/basic_view_expanded.png';
 import Link from 'next/link';
 import MiaIcon from '@/components/MiaIcon';
+import AnchoredHeading from '@/components/layout/AnchoredHeading';
 
 export default function ProcessingView() {
   return (
@@ -16,7 +17,7 @@ export default function ProcessingView() {
       </section>
 
       <section>
-        <h2>Introduction</h2>
+        <AnchoredHeading type="h2">Introduction</AnchoredHeading>
 
         <p>
           MIA opens up in &quot;processing view&quot;, which is the standard view to run workflows
@@ -36,7 +37,7 @@ export default function ProcessingView() {
       </section>
 
       <section>
-        <h2>Processing view</h2>
+        <AnchoredHeading type="h2">Processing view</AnchoredHeading>
 
         <p>
           The basic processing view comprises a single main panel, showing all the available
@@ -56,7 +57,7 @@ export default function ProcessingView() {
       </section>
 
       <section>
-        <h2>Additional panels</h2>
+        <AnchoredHeading type="h2">Additional panels</AnchoredHeading>
 
         <p>
           Additional panels are available via the &quot;View&quot; menu. These are present in both
