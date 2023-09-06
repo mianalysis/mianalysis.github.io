@@ -52,12 +52,22 @@ h3,
 }
 
 /* List defaults */
+ul,
 ol {
-  @apply list-inside list-decimal;
+  @apply list-outside pl-8 pb-2;
 }
 
 ul {
-  @apply list-inside list-disc;
+  @apply list-disc;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+li > ul,
+ol {
+  @apply list-[circle];
 }
 
 /* Table defaults */

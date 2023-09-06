@@ -82,20 +82,22 @@ export default function ResultsFormat() {
 
           <li>
             Image measurements:
-            <li>These columns record the individual measurements assigned to each object.</li>
-            <li>
-              Columns headings are in the form:
-              <code>[Image name]_(IM) // [Measurement name]</code>
-            </li>
-            <li>
-              For example, an image called &quot;Binary&quot; with the measurement &quot;THRESHOLD
-              // GLOBAL Huang&quot; would be called &quot;Binary_(IM) // THRESHOLD // GLOBAL
-              Huang&quot;.
-            </li>
-            <li>
-              Image measurements columns can be enabled/disabled using the &quot;Ind&quot; controls
-              in the &quot;Output control&quot; module.
-            </li>
+            <ul>
+              <li>These columns record the individual measurements assigned to each object.</li>
+              <li>
+                Columns headings are in the form:
+                <code>[Image name]_(IM) // [Measurement name]</code>
+              </li>
+              <li>
+                For example, an image called &quot;Binary&quot; with the measurement &quot;THRESHOLD
+                // GLOBAL Huang&quot; would be called &quot;Binary_(IM) // THRESHOLD // GLOBAL
+                Huang&quot;.
+              </li>
+              <li>
+                Image measurements columns can be enabled/disabled using the &quot;Ind&quot;
+                controls in the &quot;Output control&quot; module.
+              </li>
+            </ul>
           </li>
 
           <li>
@@ -120,30 +122,33 @@ export default function ResultsFormat() {
 
           <li>
             Object measurement statistics:
-            <li>
-              Since multiple objects may be detected for an input file, each with their own
-              measurements, these columns provide a single summary measurement statistic.
-            </li>
-            <li>
-              Headers for these values are in the form:
-              <code>[Objects name]_(OBJ_[Statistic]) // [Measurement name]</code>
-            </li>
-            <li>
-              For example, the header corresponding to the mean of the &quot;SHAPE // N_VOXELS&quot;
-              measurement for &quot;Nuclei&quot; objects would be &quot;Nuclei_(OBJ_MEAN) // SHAPE
-              // N_VOXELS&quot;.
-            </li>
-            <li>
-              Supported statistics are the mean (&quot;MEAN&quot;), minimum (&quot;MIN&quot;),
-              maximum (&quot;MAX&quot;), standard deviation (&quot;STD&quot;) and sum
-              (&quot;SUM&quot;).
-            </li>
-            <li>
-              Object measurement statistic columns can be enabled/disabled using the
-              &quot;Mean&quot;, &quot;Min&quot;, &quot;Max&quot;, &quot;Sum&quot; and
-              &quot;Std&quot; controls in the &quot;Output control&quot; module. The &quot;Ind&quot;
-              control determines if the measurement appears in the object-specific results sheet.
-            </li>
+            <ul>
+              <li>
+                Since multiple objects may be detected for an input file, each with their own
+                measurements, these columns provide a single summary measurement statistic.
+              </li>
+              <li>
+                Headers for these values are in the form:
+                <code>[Objects name]_(OBJ_[Statistic]) // [Measurement name]</code>
+              </li>
+              <li>
+                For example, the header corresponding to the mean of the &quot;SHAPE //
+                N_VOXELS&quot; measurement for &quot;Nuclei&quot; objects would be
+                &quot;Nuclei_(OBJ_MEAN) // SHAPE // N_VOXELS&quot;.
+              </li>
+              <li>
+                Supported statistics are the mean (&quot;MEAN&quot;), minimum (&quot;MIN&quot;),
+                maximum (&quot;MAX&quot;), standard deviation (&quot;STD&quot;) and sum
+                (&quot;SUM&quot;).
+              </li>
+              <li>
+                Object measurement statistic columns can be enabled/disabled using the
+                &quot;Mean&quot;, &quot;Min&quot;, &quot;Max&quot;, &quot;Sum&quot; and
+                &quot;Std&quot; controls in the &quot;Output control&quot; module. The
+                &quot;Ind&quot; control determines if the measurement appears in the object-specific
+                results sheet.
+              </li>
+            </ul>
           </li>
         </ul>
       </section>
