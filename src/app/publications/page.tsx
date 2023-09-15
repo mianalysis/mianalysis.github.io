@@ -16,6 +16,23 @@ export default function Publications() {
         <AnchoredHeading type="h2">2023</AnchoredHeading>
 
         <p>
+          Oates, T.C.L., <em>et al.</em>, &quot;Defining the proteomic landscape of cultured
+          macrophages and their polarization continuum&quot;, <em>Immunology & Cell Biology</em>{' '}
+          (2023) , doi:{' '}
+          <a className="link" href="https://doi.org/10.1111/imcb.12687">
+            10.1111/imcb.12687
+          </a>
+        </p>
+
+        <p>
+          Hilditch, A.T., <em>et al.</em>, &quot;Assembling membraneless organelles from de novo
+          designed proteins&quot;, <em>Nature Chemistry</em> (2023) , doi:{' '}
+          <a className="link" href="https://doi.org/10.1038/s41557-023-01321-y">
+            10.1038/s41557-023-01321-y
+          </a>
+        </p>
+
+        <p>
           Zhao, X., <em>et al.</em>, &quot;Highly efficient platelet generation in lung vasculature
           reproduced by microfluidics&quot;, <em>Nature Communications</em> (2023){' '}
           <strong>14</strong> 4026, doi:{' '}
