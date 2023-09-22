@@ -159,14 +159,6 @@ public class ModuleExporter {
             }
         }
 
-        List<Module> mods = modulesByCategory.get(Categories.IMAGES_PROCESS);
-        for (Module m : mods)
-            System.out.println("Images " + m.getName());
-
-        List<Module> mods2 = modulesByCategory.get(Categories.OBJECTS_PROCESS);
-        for (Module m2 : mods2)
-            System.out.println("Objects " + m2.getName());
-
         return modulesByCategory;
     }
 }
