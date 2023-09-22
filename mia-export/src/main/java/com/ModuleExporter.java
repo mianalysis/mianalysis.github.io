@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 
 import org.json.JSONObject;
@@ -25,7 +25,7 @@ import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
 public class ModuleExporter {
     private static final String OUTPUT_PATH = "./src/assets/modules.json";
     private static final int JSON_INDENTATION = 2;
-    private static TreeMap<Category, List<Module>> modulesByCategory;
+    private static HashMap<Category, List<Module>> modulesByCategory;
 
     public static void main(String[] args) {
         System.out.println("MIA version [" + MIA.getVersion() + "]");
@@ -124,12 +124,12 @@ public class ModuleExporter {
                 .replaceAll(" ", "-");
     }
 
-    private static TreeMap<Category, List<Module>> getModules() {
+    private static HashMap<Category, List<Module>> getModules() {
         // Get a list of Modules
         List<String> moduleNames = AvailableModules.getModuleNames(false);
 
         // Converting the list of classes to a list of Modules
-        TreeMap<Category, List<Module>> modulesByCategory = new TreeMap<>();
+        HashMap<Category, List<Module>> modulesByCategory = new HashMap<>();
 
         Modules tempCollection = new Modules();
 
@@ -153,10 +153,19 @@ public class ModuleExporter {
                     return modules;
                 });
 
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException
+                    | InvocationTargetException e) {
                 MIA.log.writeError(e);
             }
         }
+
+        List<Module> mods = modulesByCategory.get(Categories.IMAGES_PROCESS);
+        for (Module m : mods)
+            System.out.println("Images " + m.getName());
+
+        List<Module> mods2 = modulesByCategory.get(Categories.OBJECTS_PROCESS);
+        for (Module m2 : mods2)
+            System.out.println("Objects " + m2.getName());
 
         return modulesByCategory;
     }
