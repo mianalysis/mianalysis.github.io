@@ -59,7 +59,7 @@ export default function GuideLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex justify-center gap-16 w-full">
       {/* Tree nav for large screens */}
-      <div className="w-80 max-xl:hidden">
+      <div className="w-80 max-xl:hidden sticky top-32 self-start max-h-[80vh] pr-4 overflow-auto">
         <Link href="/guides">Guides</Link>
 
         <TreeNav node={rootNode} />
