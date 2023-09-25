@@ -848,41 +848,6 @@
                   "slug": "binary-operations-2d"
                 },
                 {
-                  "path": "/modules/images/process/binary/dilate-and-erode",
-                  "deprecated": false,
-                  "name": "Dilate and erode",
-                  "shortDescription": "Applies binary dilate or erode operations to an image in the workspace.",
-                  "fullDescription": "Applies binary dilate or erode operations to an image in the workspace.  Dilate will expand all foreground-labelled regions by a specified number of pixels, while erode will shrink all foreground-labelled regions by the same ammount.<br><br>This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter.  If 2D operations are applied on higher dimensionality images the operations will be performed in a slice-by-slice manner.  All operations (both 2D and 3D) use the plugin \"<a href=\"https://github.com/ijpb/MorphoLibJ\">MorphoLibJ<\/a>\".",
-                  "version": "1.0.0",
-                  "parameters": [
-                    {
-                      "name": "Input image",
-                      "description": "Image from workspace to apply dilate or erode operation to."
-                    },
-                    {
-                      "name": "Apply to input image",
-                      "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
-                    },
-                    {
-                      "name": "Output image",
-                      "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name.  This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter."
-                    },
-                    {
-                      "name": "Filter mode",
-                      "description": "Controls what sort of dilate or erode operation is performed on the input image:<br><ul><li>\"Dilate 2D\" Change any foreground-connected background pixels to foreground.  This effectively expands objects by one pixel.  Uses ImageJ implementation.<\/li><li>\"Dilate 3D\" Change any foreground-connected background pixels to foreground.  This effectively expands objects by one pixel.  Uses MorphoLibJ implementation.<\/li><li>\"Erode 2D\" Change any background-connected foreground pixels to background.  This effectively shrinks objects by one pixel.  Uses ImageJ implementation.<\/li><li>\"Erode 3D\" Change any background-connected foreground pixels to background.  This effectively shrinks objects by one pixel.  Uses MorphoLibJ implementation.<\/li><\/ul>"
-                    },
-                    {
-                      "name": "Number of iterations",
-                      "description": "Number of times the operation will be run on a single image.  Effectively, this allows objects to be dilated or eroded by a specific number of pixels."
-                    },
-                    {
-                      "name": "Binary logic",
-                      "description": "Controls whether objects are considered to be white (255 intensity) on a black (0 intensity) background, or black on a white background."
-                    }
-                  ],
-                  "slug": "dilate-and-erode"
-                },
-                {
                   "path": "/modules/images/process/binary/calculate-distance-map",
                   "deprecated": false,
                   "name": "Calculate distance map",
@@ -916,6 +881,41 @@
                     }
                   ],
                   "slug": "calculate-distance-map"
+                },
+                {
+                  "path": "/modules/images/process/binary/dilate-and-erode",
+                  "deprecated": false,
+                  "name": "Dilate and erode",
+                  "shortDescription": "Applies binary dilate or erode operations to an image in the workspace.",
+                  "fullDescription": "Applies binary dilate or erode operations to an image in the workspace.  Dilate will expand all foreground-labelled regions by a specified number of pixels, while erode will shrink all foreground-labelled regions by the same ammount.<br><br>This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter.  If 2D operations are applied on higher dimensionality images the operations will be performed in a slice-by-slice manner.  All operations (both 2D and 3D) use the plugin \"<a href=\"https://github.com/ijpb/MorphoLibJ\">MorphoLibJ<\/a>\".",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input image",
+                      "description": "Image from workspace to apply dilate or erode operation to."
+                    },
+                    {
+                      "name": "Apply to input image",
+                      "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
+                    },
+                    {
+                      "name": "Output image",
+                      "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name.  This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter."
+                    },
+                    {
+                      "name": "Filter mode",
+                      "description": "Controls what sort of dilate or erode operation is performed on the input image:<br><ul><li>\"Dilate 2D\" Change any foreground-connected background pixels to foreground.  This effectively expands objects by one pixel.  Uses ImageJ implementation.<\/li><li>\"Dilate 3D\" Change any foreground-connected background pixels to foreground.  This effectively expands objects by one pixel.  Uses MorphoLibJ implementation.<\/li><li>\"Erode 2D\" Change any background-connected foreground pixels to background.  This effectively shrinks objects by one pixel.  Uses ImageJ implementation.<\/li><li>\"Erode 3D\" Change any background-connected foreground pixels to background.  This effectively shrinks objects by one pixel.  Uses MorphoLibJ implementation.<\/li><\/ul>"
+                    },
+                    {
+                      "name": "Number of iterations",
+                      "description": "Number of times the operation will be run on a single image.  Effectively, this allows objects to be dilated or eroded by a specific number of pixels."
+                    },
+                    {
+                      "name": "Binary logic",
+                      "description": "Controls whether objects are considered to be white (255 intensity) on a black (0 intensity) background, or black on a white background."
+                    }
+                  ],
+                  "slug": "dilate-and-erode"
                 },
                 {
                   "path": "/modules/images/process/binary/extended-minimamaxima",
@@ -2041,6 +2041,268 @@
             "subCategories": [],
             "modules": [
               {
+                "path": "/modules/images/transform/registration/affine-(mops)",
+                "deprecated": false,
+                "name": "Affine (MOPS)",
+                "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
+                "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect MOPS (\"Multi-Scale Oriented Patches\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>References:<ul><li>Brown, Matthew & Szeliski, Richard \"Multi-image feature matching using multi-scale oriented patches\". US Patent 7,382,897 (June 3, 2008). Asignee: Microsoft Corporation.<\/li><\/ul>",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": "Image from workspace to apply registration to."
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
+                  },
+                  {
+                    "name": "Output image",
+                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "External source",
+                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
+                  },
+                  {
+                    "name": "Transformation mode",
+                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Test flip (mirror image)",
+                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
+                  },
+                  {
+                    "name": "Independent rotation",
+                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
+                  },
+                  {
+                    "name": "Orientation increment (degs)",
+                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
+                  },
+                  {
+                    "name": "Show transformation(s)",
+                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
+                  },
+                  {
+                    "name": "Clear between images",
+                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
+                  },
+                  {
+                    "name": "Initial Gaussian blur (px)",
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Steps per scale",
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Minimum image size (px)",
+                    "description": "\"The Scale Space stops if the size of the octave would be smaller than minimum image size. Tip: Increase the minimum size to discard large features (i.e. those extracted from looking at an image from far, such as the overall shape).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Maximum image size (px)",
+                    "description": "\"The Scale Space starts with the first octave equal or smaller than the maximum image size. Tip: By reducing the size, fine scaled features will be discarded. Increasing the size beyond that of the actual images has no effect.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Feature descriptor size",
+                    "description": "\"The MOPS-descriptor is simply a nxn intensity patch with normalized intensities. Brown (2005) suggests n=8.  We found larger descriptors with n>16 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Feature descriptor orientation bins",
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Closest/next closest ratio",
+                    "description": "\"Correspondence candidates from local descriptor matching are accepted only if the Euclidean distance to the nearest neighbour is significantly smaller than that to the next nearest neighbour. Lowe (2004) suggests a ratio of r=0.8 which requires some increase when matching things that appear significantly distorted.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Maximal alignment error (px)",
+                    "description": "\"Matching local descriptors gives many false positives, but true positives are consistent with respect to a common transformation while false positives are not. This consistent set and the underlying transformation are identified using RANSAC. This value is the maximal allowed transfer error of a match to be counted as a good one. Tip: Set this to about 10% of the image size.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Inlier ratio",
+                    "description": "\"The ratio of the number of true matches to the number of all matches including both true and false used by RANSAC. 0.05 means that minimally 5% of all matches are expected to be good while 0.9 requires that 90% of the matches were good. Only transformations with this minimal ratio of true consent matches are accepted. Tip: Do not go below 0.05 (and only if 5% is more than about 7 matches) except with a very small maximal alignment error to avoid wrong solutions.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  }
+                ],
+                "slug": "affine-(mops)"
+              },
+              {
+                "path": "/modules/images/transform/registration/affine-(sift)",
+                "deprecated": false,
+                "name": "Affine (SIFT)",
+                "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
+                "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect SIFT (\"Scale Invariant Feature Transform\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>Note: The SIFT-algorithm is protected by U.S. Patent 6,711,293: Method and apparatus for identifying scale invariant features in an image and use of same for locating an object in an image by the University of British Columbia. That is, for commercial applications the permission of the author is required. Anything else is published under the terms of the GPL, so feel free to use it for academic or personal purposes.<br><br>References:<ul><li>Lowe, David G. \"Object recognition from local scale-invariant features\". <i>Proceedings of the International Conference on Computer Vision<\/i> <b>2<\/b> (1999) 1150\u20131157.<\/li><li>Lowe, David G. \"Distinctive Image Features from Scale-Invariant Keypoints\". <i>International Journal of Computer Vision<\/i> <b>60<\/b> (2004) 91\u2013110.<\/li><\/ul>",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": "Image from workspace to apply registration to."
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
+                  },
+                  {
+                    "name": "Output image",
+                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "External source",
+                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
+                  },
+                  {
+                    "name": "Transformation mode",
+                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Test flip (mirror image)",
+                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
+                  },
+                  {
+                    "name": "Independent rotation",
+                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
+                  },
+                  {
+                    "name": "Orientation increment (degs)",
+                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
+                  },
+                  {
+                    "name": "Show transformation(s)",
+                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
+                  },
+                  {
+                    "name": "Clear between images",
+                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
+                  },
+                  {
+                    "name": "Initial Gaussian blur (px)",
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Steps per scale",
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Minimum image size (px)",
+                    "description": "\"The Scale Space stops if the size of the octave would be smaller than minimum image size. Tip: Increase the minimum size to discard large features (i.e. those extracted from looking at an image from far, such as the overall shape).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Maximum image size (px)",
+                    "description": "\"The Scale Space starts with the first octave equal or smaller than the maximum image size. Tip: By reducing the size, fine scaled features will be discarded. Increasing the size beyond that of the actual images has no effect.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Feature descriptor size",
+                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Feature descriptor orientation bins",
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Closest/next closest ratio",
+                    "description": "\"Correspondence candidates from local descriptor matching are accepted only if the Euclidean distance to the nearest neighbour is significantly smaller than that to the next nearest neighbour. Lowe (2004) suggests a ratio of r=0.8 which requires some increase when matching things that appear significantly distorted.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Maximal alignment error (px)",
+                    "description": "\"Matching local descriptors gives many false positives, but true positives are consistent with respect to a common transformation while false positives are not. This consistent set and the underlying transformation are identified using RANSAC. This value is the maximal allowed transfer error of a match to be counted as a good one. Tip: Set this to about 10% of the image size.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Inlier ratio",
+                    "description": "\"The ratio of the number of true matches to the number of all matches including both true and false used by RANSAC. 0.05 means that minimally 5% of all matches are expected to be good while 0.9 requires that 90% of the matches were good. Only transformations with this minimal ratio of true consent matches are accepted. Tip: Do not go below 0.05 (and only if 5% is more than about 7 matches) except with a very small maximal alignment error to avoid wrong solutions.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  }
+                ],
+                "slug": "affine-(sift)"
+              },
+              {
                 "path": "/modules/images/transform/registration/affine-(block-matching)",
                 "deprecated": false,
                 "name": "Affine (block matching)",
@@ -2176,6 +2438,140 @@
                 "slug": "affine-(block-matching)"
               },
               {
+                "path": "/modules/images/transform/registration/affine-(fixed-transform)",
+                "deprecated": false,
+                "name": "Affine (fixed transform)",
+                "shortDescription": "",
+                "fullDescription": "",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Output image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Transformation",
+                    "description": ""
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": ""
+                  }
+                ],
+                "slug": "affine-(fixed-transform)"
+              },
+              {
+                "path": "/modules/images/transform/registration/affine-(manual)",
+                "deprecated": false,
+                "name": "Affine (manual)",
+                "shortDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.",
+                "fullDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.  When the module runs, the input and reference images are displayed. The user then selects matching points on each image and clicks \"Add pair(s)\". Points must be added in the same order on each image (ID numbers next to each point provide a reference). Points are shown in the control window and can be deleted by highlighting the relevant entry and clicking \"Remove pair\". Finally, the alignment is accepted by clicking \"Finish adding pairs\", at which point the images are closed and the transform is applied.  If multiple slices/timepoints are to be aligned, the next image pair will immediately be displayed and the processes is repeated.  The transformed input image can either overwrite the input image in the workspace, or be saved to the workspace with a new name.Alignments are calculated using the <a href=\"https://github.com/axtimwalde/mpicbg\">MPICBG<\/a> image transformation library.",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": "Image from workspace to apply registration to."
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
+                  },
+                  {
+                    "name": "Output image",
+                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "External source",
+                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
+                  },
+                  {
+                    "name": "Transformation mode",
+                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Test flip (mirror image)",
+                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
+                  },
+                  {
+                    "name": "Independent rotation",
+                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
+                  },
+                  {
+                    "name": "Orientation increment (degs)",
+                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
+                  },
+                  {
+                    "name": "Show transformation(s)",
+                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
+                  },
+                  {
+                    "name": "Clear between images",
+                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
+                  },
+                  {
+                    "name": "Point selection mode",
+                    "description": "The source for points to be used in calculation of image registration:<br><ul><li>\"Pre-selected points\" Points have been previously-selected on the input images as multi-point ROIs.  These points are passed directly into the registration calculation.  This negates the need for user-interaction at runtime.<\/li><li>\"Select at runtime\" Points must be manually-selected by the user at analysis runtime.  The two images to be aligned are displayed and a dialog box opens to allow selection of point pairs.  Point pairs must be added in the same order on each image.  For images where multiple slices/timepoints need to be registered, image pairs will be opened sequentially, with the point selections from the previous slice/timepoint being pre-selected for convenience.<\/li><\/ul>"
+                  }
+                ],
+                "slug": "affine-(manual)"
+              },
+              {
                 "path": "/modules/images/transform/registration/affine-(object-centroids)",
                 "deprecated": false,
                 "name": "Affine (object centroids)",
@@ -2285,402 +2681,6 @@
                   }
                 ],
                 "slug": "affine-(object-centroids)"
-              },
-              {
-                "path": "/modules/images/transform/registration/affine-(fixed-transform)",
-                "deprecated": false,
-                "name": "Affine (fixed transform)",
-                "shortDescription": "",
-                "fullDescription": "",
-                "version": "1.0.0",
-                "parameters": [
-                  {
-                    "name": "Input image",
-                    "description": ""
-                  },
-                  {
-                    "name": "Apply to input image",
-                    "description": ""
-                  },
-                  {
-                    "name": "Output image",
-                    "description": ""
-                  },
-                  {
-                    "name": "Transformation",
-                    "description": ""
-                  },
-                  {
-                    "name": "Fill mode",
-                    "description": ""
-                  },
-                  {
-                    "name": "Enable multithreading",
-                    "description": ""
-                  }
-                ],
-                "slug": "affine-(fixed-transform)"
-              },
-              {
-                "path": "/modules/images/transform/registration/affine-(mops)",
-                "deprecated": false,
-                "name": "Affine (MOPS)",
-                "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
-                "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect MOPS (\"Multi-Scale Oriented Patches\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>References:<ul><li>Brown, Matthew & Szeliski, Richard \"Multi-image feature matching using multi-scale oriented patches\". US Patent 7,382,897 (June 3, 2008). Asignee: Microsoft Corporation.<\/li><\/ul>",
-                "version": "1.0.0",
-                "parameters": [
-                  {
-                    "name": "Input image",
-                    "description": "Image from workspace to apply registration to."
-                  },
-                  {
-                    "name": "Apply to input image",
-                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
-                  },
-                  {
-                    "name": "Output image",
-                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
-                  },
-                  {
-                    "name": "Registration axis",
-                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
-                  },
-                  {
-                    "name": "Other axis mode",
-                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Fill mode",
-                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
-                  },
-                  {
-                    "name": "Show detected points",
-                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
-                  },
-                  {
-                    "name": "Enable multithreading",
-                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
-                  },
-                  {
-                    "name": "Reference mode",
-                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Number of previous frames",
-                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
-                  },
-                  {
-                    "name": "Previous frames statistic",
-                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
-                  },
-                  {
-                    "name": "Reference image",
-                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
-                  },
-                  {
-                    "name": "Calculation source",
-                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "External source",
-                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
-                  },
-                  {
-                    "name": "Calculation channel",
-                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
-                  },
-                  {
-                    "name": "Transformation mode",
-                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Test flip (mirror image)",
-                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
-                  },
-                  {
-                    "name": "Independent rotation",
-                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
-                  },
-                  {
-                    "name": "Orientation increment (degs)",
-                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
-                  },
-                  {
-                    "name": "Show transformation(s)",
-                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
-                  },
-                  {
-                    "name": "Clear between images",
-                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
-                  },
-                  {
-                    "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Minimum image size (px)",
-                    "description": "\"The Scale Space stops if the size of the octave would be smaller than minimum image size. Tip: Increase the minimum size to discard large features (i.e. those extracted from looking at an image from far, such as the overall shape).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Maximum image size (px)",
-                    "description": "\"The Scale Space starts with the first octave equal or smaller than the maximum image size. Tip: By reducing the size, fine scaled features will be discarded. Increasing the size beyond that of the actual images has no effect.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Feature descriptor size",
-                    "description": "\"The MOPS-descriptor is simply a nxn intensity patch with normalized intensities. Brown (2005) suggests n=8.  We found larger descriptors with n>16 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Closest/next closest ratio",
-                    "description": "\"Correspondence candidates from local descriptor matching are accepted only if the Euclidean distance to the nearest neighbour is significantly smaller than that to the next nearest neighbour. Lowe (2004) suggests a ratio of r=0.8 which requires some increase when matching things that appear significantly distorted.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Maximal alignment error (px)",
-                    "description": "\"Matching local descriptors gives many false positives, but true positives are consistent with respect to a common transformation while false positives are not. This consistent set and the underlying transformation are identified using RANSAC. This value is the maximal allowed transfer error of a match to be counted as a good one. Tip: Set this to about 10% of the image size.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Inlier ratio",
-                    "description": "\"The ratio of the number of true matches to the number of all matches including both true and false used by RANSAC. 0.05 means that minimally 5% of all matches are expected to be good while 0.9 requires that 90% of the matches were good. Only transformations with this minimal ratio of true consent matches are accepted. Tip: Do not go below 0.05 (and only if 5% is more than about 7 matches) except with a very small maximal alignment error to avoid wrong solutions.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  }
-                ],
-                "slug": "affine-(mops)"
-              },
-              {
-                "path": "/modules/images/transform/registration/affine-(manual)",
-                "deprecated": false,
-                "name": "Affine (manual)",
-                "shortDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.",
-                "fullDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.  When the module runs, the input and reference images are displayed. The user then selects matching points on each image and clicks \"Add pair(s)\". Points must be added in the same order on each image (ID numbers next to each point provide a reference). Points are shown in the control window and can be deleted by highlighting the relevant entry and clicking \"Remove pair\". Finally, the alignment is accepted by clicking \"Finish adding pairs\", at which point the images are closed and the transform is applied.  If multiple slices/timepoints are to be aligned, the next image pair will immediately be displayed and the processes is repeated.  The transformed input image can either overwrite the input image in the workspace, or be saved to the workspace with a new name.Alignments are calculated using the <a href=\"https://github.com/axtimwalde/mpicbg\">MPICBG<\/a> image transformation library.",
-                "version": "1.0.0",
-                "parameters": [
-                  {
-                    "name": "Input image",
-                    "description": "Image from workspace to apply registration to."
-                  },
-                  {
-                    "name": "Apply to input image",
-                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
-                  },
-                  {
-                    "name": "Output image",
-                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
-                  },
-                  {
-                    "name": "Registration axis",
-                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
-                  },
-                  {
-                    "name": "Other axis mode",
-                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Fill mode",
-                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
-                  },
-                  {
-                    "name": "Show detected points",
-                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
-                  },
-                  {
-                    "name": "Enable multithreading",
-                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
-                  },
-                  {
-                    "name": "Reference mode",
-                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Number of previous frames",
-                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
-                  },
-                  {
-                    "name": "Previous frames statistic",
-                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
-                  },
-                  {
-                    "name": "Reference image",
-                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
-                  },
-                  {
-                    "name": "Calculation source",
-                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "External source",
-                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
-                  },
-                  {
-                    "name": "Calculation channel",
-                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
-                  },
-                  {
-                    "name": "Transformation mode",
-                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Test flip (mirror image)",
-                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
-                  },
-                  {
-                    "name": "Independent rotation",
-                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
-                  },
-                  {
-                    "name": "Orientation increment (degs)",
-                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
-                  },
-                  {
-                    "name": "Show transformation(s)",
-                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
-                  },
-                  {
-                    "name": "Clear between images",
-                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
-                  },
-                  {
-                    "name": "Point selection mode",
-                    "description": "The source for points to be used in calculation of image registration:<br><ul><li>\"Pre-selected points\" Points have been previously-selected on the input images as multi-point ROIs.  These points are passed directly into the registration calculation.  This negates the need for user-interaction at runtime.<\/li><li>\"Select at runtime\" Points must be manually-selected by the user at analysis runtime.  The two images to be aligned are displayed and a dialog box opens to allow selection of point pairs.  Point pairs must be added in the same order on each image.  For images where multiple slices/timepoints need to be registered, image pairs will be opened sequentially, with the point selections from the previous slice/timepoint being pre-selected for convenience.<\/li><\/ul>"
-                  }
-                ],
-                "slug": "affine-(manual)"
-              },
-              {
-                "path": "/modules/images/transform/registration/affine-(sift)",
-                "deprecated": false,
-                "name": "Affine (SIFT)",
-                "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
-                "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect SIFT (\"Scale Invariant Feature Transform\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>Note: The SIFT-algorithm is protected by U.S. Patent 6,711,293: Method and apparatus for identifying scale invariant features in an image and use of same for locating an object in an image by the University of British Columbia. That is, for commercial applications the permission of the author is required. Anything else is published under the terms of the GPL, so feel free to use it for academic or personal purposes.<br><br>References:<ul><li>Lowe, David G. \"Object recognition from local scale-invariant features\". <i>Proceedings of the International Conference on Computer Vision<\/i> <b>2<\/b> (1999) 1150\u20131157.<\/li><li>Lowe, David G. \"Distinctive Image Features from Scale-Invariant Keypoints\". <i>International Journal of Computer Vision<\/i> <b>60<\/b> (2004) 91\u2013110.<\/li><\/ul>",
-                "version": "1.0.0",
-                "parameters": [
-                  {
-                    "name": "Input image",
-                    "description": "Image from workspace to apply registration to."
-                  },
-                  {
-                    "name": "Apply to input image",
-                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
-                  },
-                  {
-                    "name": "Output image",
-                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
-                  },
-                  {
-                    "name": "Registration axis",
-                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
-                  },
-                  {
-                    "name": "Other axis mode",
-                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Fill mode",
-                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
-                  },
-                  {
-                    "name": "Show detected points",
-                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
-                  },
-                  {
-                    "name": "Enable multithreading",
-                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
-                  },
-                  {
-                    "name": "Reference mode",
-                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Number of previous frames",
-                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
-                  },
-                  {
-                    "name": "Previous frames statistic",
-                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
-                  },
-                  {
-                    "name": "Reference image",
-                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
-                  },
-                  {
-                    "name": "Calculation source",
-                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "External source",
-                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
-                  },
-                  {
-                    "name": "Calculation channel",
-                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
-                  },
-                  {
-                    "name": "Transformation mode",
-                    "description": "Controls the type of registration being applied:<br><ul><li>\"Affine (trans., rot., scale, shear)\" Applies the full affine transformation, whereby the input image can undergo translation, rotation, reflection, scaling and shear.<\/li><li>\"Rigid (trans., rot.)\" Applies only translation and rotation to the input image.  As such, all features should remain the same size.<\/li><li>\"Similarity (trans., rot., iso-scale)\" Applies translation, rotating and linear scaling to the input image.<\/li><li>\"Translation\" Applies only translation (motion within the 2D plane) to the input image.<\/li><\/ul>"
-                  },
-                  {
-                    "name": "Test flip (mirror image)",
-                    "description": "When selected, alignment will be tested for both the \"normal\" and \"flipped\" (mirror) states of the image.  The state yielding the lower cost to alignment will be retained."
-                  },
-                  {
-                    "name": "Independent rotation",
-                    "description": "When selected, the image will be rotated multiple times, with registration optimised at each orientation.  The orientation with the best score will be retained.  This is useful for algorithms which perform poorly with rotated features (e.g. block matching).  The increment between rotations is controlled by \"Orientation increment (degs)\"."
-                  },
-                  {
-                    "name": "Orientation increment (degs)",
-                    "description": "If \"Independent rotation\" is enabled, this is the angular increment between rotations.  The increment is specified in degree units."
-                  },
-                  {
-                    "name": "Show transformation(s)",
-                    "description": "When selected, the affine transform will be displayed in the results table.  Fixed affine transform values such as these can be applied using the \"Affine (fixed transform)\" module."
-                  },
-                  {
-                    "name": "Clear between images",
-                    "description": "If \"Show transformation(s)\" is enabled, this parameter can be used to reset the displayed affine transform in the results table.  If this option isn't selected, the new transform will be added to the bottom of the results table."
-                  },
-                  {
-                    "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Minimum image size (px)",
-                    "description": "\"The Scale Space stops if the size of the octave would be smaller than minimum image size. Tip: Increase the minimum size to discard large features (i.e. those extracted from looking at an image from far, such as the overall shape).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Maximum image size (px)",
-                    "description": "\"The Scale Space starts with the first octave equal or smaller than the maximum image size. Tip: By reducing the size, fine scaled features will be discarded. Increasing the size beyond that of the actual images has no effect.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Closest/next closest ratio",
-                    "description": "\"Correspondence candidates from local descriptor matching are accepted only if the Euclidean distance to the nearest neighbour is significantly smaller than that to the next nearest neighbour. Lowe (2004) suggests a ratio of r=0.8 which requires some increase when matching things that appear significantly distorted.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Maximal alignment error (px)",
-                    "description": "\"Matching local descriptors gives many false positives, but true positives are consistent with respect to a common transformation while false positives are not. This consistent set and the underlying transformation are identified using RANSAC. This value is the maximal allowed transfer error of a match to be counted as a good one. Tip: Set this to about 10% of the image size.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  },
-                  {
-                    "name": "Inlier ratio",
-                    "description": "\"The ratio of the number of true matches to the number of all matches including both true and false used by RANSAC. 0.05 means that minimally 5% of all matches are expected to be good while 0.9 requires that 90% of the matches were good. Only transformations with this minimal ratio of true consent matches are accepted. Tip: Do not go below 0.05 (and only if 5% is more than about 7 matches) except with a very small maximal alignment error to avoid wrong solutions.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
-                  }
-                ],
-                "slug": "affine-(sift)"
               },
               {
                 "path": "/modules/images/transform/registration/register-images",
@@ -3565,55 +3565,79 @@
           "slug": "export-acc-dataset"
         },
         {
-          "path": "/modules/input-output/save-image-(generic)",
-          "deprecated": true,
-          "name": "Save image (generic)",
-          "shortDescription": "Save an image/stack from the workspace to file.",
-          "fullDescription": "Save an image/stack from the workspace to file.  Output file locations and filenames are generated from metadata items and fixed values.  This gives greater flexibility to output image locations than the standard \"Save image\" module.  To prevent overwriting of previously-saved files, the current date and time can be appended to the end of each filename.  Images can be saved in a variety of formats (AVI, TIF and Zipped TIF).",
+          "path": "/modules/input-output/extract-metadata",
+          "deprecated": false,
+          "name": "Extract metadata",
+          "shortDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.",
+          "fullDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.  These metadata values can subsequently be accessed in the form M{[NAME]}, where [NAME] is the metadata name.  Some common file and foldername formats are included as pre-defined metadata extraction methods, while other forms can be constructed using regular expressions.",
           "version": "1.0.0",
           "parameters": [
             {
-              "name": "Input image",
-              "description": "Image to be saved to file."
+              "name": "Extractor mode",
+              "description": "Data source for metadata extraction:<br><ul><li>\"Filename\" Metadata taken from filename (not including folder path)<\/li><li>\"Foldername\" Metadata taken from parent foldername (incuding full system path to that folder)<\/li><li>\"Metadata file\" Metadata taken from a separate file, specified by the \"Metadata file\" parameter<\/li><li>\"Series name\" Metadata taken from seriesname (if not from a multi-series file, this is just the filename)<\/li><\/ul>"
             },
             {
-              "name": "Generic format",
-              "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+              "name": "Filename extractor",
+              "description": "The format of the filename to be converted to metadata values:<br><ul><li>\"Generic\" Name format is compiled using regular expressions defined in the \"Pattern\" parameter.  Each group (pattern enclosed in parenthesis) specified in the pattern is assigned to a metadata value.  Metadata value names are defined by the comma-separated list defined in \"Groups (comma separated)\".<\/li><li>\"CV1000 filename\" The Yokogawa CellVoyager CV1000 format (e.g. W1F001T0001Z00C1.tif)<\/li><li>\"CV7000 filename\" The Yokogawa CellVoyager CV7000 format (e.g. AssayPlate_Greiner_#655090_C02_T0001F001L01A01Z01C01.tif)<\/li><li>\"IncuCyte long filename\" The Incucyte long format, where each timepoint is stored as a separate image file and accordingly the filename records the time of acquisition (e.g. MySample1_A1_1_2021y08m06d_11h39m.tif)<\/li><li>\"IncuCyte short filename\" The Incucyte short format, where all timepoints are stored in a single file and the filename only records the well and field (e.g. MySample1_A1_1.tif)<\/li><li>\"Opera filename\" The Perkin Elmer Opera LX name format, which specifies row, column and field (e.g. 001001001.flex)<\/li><\/ul>"
             },
             {
-              "name": "Append date/time mode",
-              "description": ""
+              "name": "Foldername extractor",
+              "description": "The format of the foldername to be converted to metadata values:<br><ul><li>\"<li>\"Generic\" Name format is compiled using regular expressions defined in the \"Pattern\" parameter.  Each group (pattern enclosed in parenthesis) specified in the pattern is assigned to a metadata value.  Metadata value names are defined by the comma-separated list defined in \"Groups (comma separated)\".<\/li><li>\"CV1000 foldername\" The Yokogawa CV1000 format (e.g. 20210806T113905_10x_K01_MySample1)<\/li><li>\"Opera measurement foldername\" The Perkin Elmer Opera LX foldername format (e.g. Meas_01(2021-08-06_11-39-05))<\/li><\/ul>"
             },
             {
-              "name": "File format",
-              "description": "The format the output image will be saved as:<br><ul><li>\"AVI\" Video written using the stock ImageJ \"<a href=\"https://github.com/imagej/imagej1/blob/master/ij/plugin/filter/AVI_Writer.java\">AVI Writer<\/a>\".  Videos can use different compression algorithms specified using \"Compression mode\".  Framerate specified by \"Frame rate (fps)\" parameter.<\/li><li>\"TIF\" Standard multidimensional (multi-page) TIF image saving.<\/li><li>\"ZIP\" TIF images stored using ZIP compression.  For images with large homogeneous regions of pixel intensity this can greatly reduce file size in a lossless manner.  Zipped images can be read directly back into ImageJ/Fiji without the need for prior decompression.<\/li><\/ul>"
+              "name": "Metadata file extractor",
+              "description": "The format of the metadata file to be converted to metadata values:<br><ul><li>\"CSV file\" Metadata values stored in a two-column CSV file, where the first column defines an identifier to the current file being processed (e.g. filename, or series name) and the second column defines a value that will be assigned as metadata.  Optionally, this value can be split into multiple metadata values using a regular expression.<\/li><li>\"Opera file (.flex)\" Specifically extracts the \"Area name\" property from the current .flex file.<\/li><\/ul>"
             },
             {
-              "name": "Channel mode",
-              "description": "Control whether saved images should be in ImageJ \"Composite\" (display all channels simultaneously) or \"Color\" (display one channel at a time) mode."
+              "name": "Input source",
+              "description": "If extracting metadata from a CSV file, this controls whether a single, static CSV file is used or whether there is one provided (with a fixed name) in the current folder (i.e where the current image file is loaded from)."
             },
             {
-              "name": "Save as RGB",
-              "description": "Convert images to RGB prior to saving.  This is useful for displaying multi-channel images to a format that can be easily viewed outside ImageJ."
+              "name": "Metadata file",
+              "description": "If extracting metadata from a static CSV file (i.e. the same file for all processed images), this is the path to that metadata CSV file."
             },
             {
-              "name": "Compression mode",
-              "description": "Compression mode used when saving AVI videos (\"File format\" parameter):<br><ul><li>\"JPEG\" Lossy video compression with quality specified by \"Quality (0-100)\" parameter.  This option is good when reducing video size is more important than retaining perfect image quality.<\/li><li>\"None\" Frames are stored in their raw format (uncompressed).  This gives the highest quality, but also the largest file size.<\/li><li>\"PNG\" PNG video compression.<\/li><\/ul>"
+              "name": "Metadata file name",
+              "description": "If extracting metadata from a dynamic CSV file (i.e. the file is in the current image folder), this is the name of that metadata CSV file (it must be the same name in all folders)."
             },
             {
-              "name": "Quality (0-100)",
-              "description": "Quality of output JPEG-compressed video (values in range 0-100).  For reference, saving AVIs via ImageJ's \"File > Save As...\" menu uses a quality of 90."
+              "name": "Metadata item to match",
+              "description": "For CSV-based metadata extraction, the first column of the CSV file identifies which row to read.  This parameter defines the source (e.g. filename, series name, etc.).  Choices are: File in input folder,Static file"
             },
             {
-              "name": "Frame rate (fps)",
-              "description": "Output video framerate (frames per second)."
+              "name": "Pattern",
+              "description": "Regular expression pattern to use when interpreting generic metadata formats.  This pattern must contain at least one group (specified using standard regex parenthesis notation)."
             },
             {
-              "name": "Flatten overlay",
-              "description": "Flatten any overlay elements onto the image prior to saving."
+              "name": "Groups (comma separated)",
+              "description": "When interpreting generic metadata formats, these group names will be assigned to each group matched using regular expressions.  The metadata values will subsequently be accessed via these names in the form M{[NAME]}, where [NAME] is the group name."
+            },
+            {
+              "name": "Case insensitive",
+              "description": "When selected regular expression matches will be found irrespective of case."
+            },
+            {
+              "name": "Show pattern matching test",
+              "description": "When selected (and constructing a regular expression extractor), an example string can be provided and the identified groups displayed.  This allows for regular expression forms to be tested during workflow assembly."
+            },
+            {
+              "name": "Example string",
+              "description": "If testing a regular expression form (\"Show pattern matching test\" selected), this is the example string which will be processed and broken down into its individual metadata values."
+            },
+            {
+              "name": "Identified groups",
+              "description": "If testing a regular expression form (\"Show pattern matching test\" selected), the extracted metadata values will be displayed here."
+            },
+            {
+              "name": "Split using regular expressions",
+              "description": "When selected, the metadata value taken from a CSV file will itself be broken down into multiple metadata values using a regular expressions"
+            },
+            {
+              "name": "Metadata value name",
+              "description": "If a metadata value loaded from CSV is not to be sub-divided into multiple metadata values, the entire value loaded will be stored as a metadata item with this name."
             }
           ],
-          "slug": "save-image-(generic)"
+          "slug": "extract-metadata"
         },
         {
           "path": "/modules/input-output/load-image",
@@ -3775,199 +3799,6 @@
           "slug": "load-image"
         },
         {
-          "path": "/modules/input-output/save-image",
-          "deprecated": false,
-          "name": "Save image",
-          "shortDescription": "Save an image/stack from the workspace to file.",
-          "fullDescription": "Save an image/stack from the workspace to file.  These files can be placed in the same folder as the input file, located in a specific folder or placed in a directory structure mirroring the input structure, but based at a new location.  For greater flexibility in output file locations and filenames, the \"Save image (generic)\" module can be used.  To prevent overwriting of previously-saved files, the current date and time can be appended to the end of each filename.  Images can be saved in a variety of formats (AVI, TIF and Zipped TIF).",
-          "version": "1.0.0",
-          "parameters": [
-            {
-              "name": "Save location",
-              "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
-            },
-            {
-              "name": "Mirrored directory root",
-              "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
-            },
-            {
-              "name": "File path",
-              "description": "Path to folder where images will be saved."
-            },
-            {
-              "name": "File name (generic)",
-              "description": ""
-            },
-            {
-              "name": "Save name mode",
-              "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
-            },
-            {
-              "name": "File name",
-              "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
-            },
-            {
-              "name": "Append series mode",
-              "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
-            },
-            {
-              "name": "Append date/time mode",
-              "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
-            },
-            {
-              "name": "Add filename suffix",
-              "description": "A custom suffix to be added to each filename."
-            },
-            {
-              "name": "Input image",
-              "description": "Image to be saved to file."
-            },
-            {
-              "name": "File format",
-              "description": "The format the output image will be saved as:<br><ul><li>\"AVI\" Video written using the stock ImageJ \"<a href=\"https://github.com/imagej/imagej1/blob/master/ij/plugin/filter/AVI_Writer.java\">AVI Writer<\/a>\".  Videos can use different compression algorithms specified using \"Compression mode\".  Framerate specified by \"Frame rate (fps)\" parameter.<\/li><li>\"TIF\" Standard multidimensional (multi-page) TIF image saving.<\/li><li>\"ZIP\" TIF images stored using ZIP compression.  For images with large homogeneous regions of pixel intensity this can greatly reduce file size in a lossless manner.  Zipped images can be read directly back into ImageJ/Fiji without the need for prior decompression.<\/li><\/ul>"
-            },
-            {
-              "name": "Channel mode",
-              "description": "Control whether saved images should be in ImageJ \"Composite\" (display all channels simultaneously) or \"Color\" (display one channel at a time) mode."
-            },
-            {
-              "name": "Save as RGB",
-              "description": "Convert images to RGB prior to saving.  This is useful for displaying multi-channel images to a format that can be easily viewed outside ImageJ."
-            },
-            {
-              "name": "Compression mode",
-              "description": "Compression mode used when saving AVI videos (\"File format\" parameter):<br><ul><li>\"JPEG\" Lossy video compression with quality specified by \"Quality (0-100)\" parameter.  This option is good when reducing video size is more important than retaining perfect image quality.<\/li><li>\"None\" Frames are stored in their raw format (uncompressed).  This gives the highest quality, but also the largest file size.<\/li><li>\"PNG\" PNG video compression.<\/li><\/ul>"
-            },
-            {
-              "name": "Quality (0-100)",
-              "description": "Quality of output JPEG-compressed video (values in range 0-100).  For reference, saving AVIs via ImageJ's \"File > Save As...\" menu uses a quality of 90."
-            },
-            {
-              "name": "Frame rate (fps)",
-              "description": "Output video framerate (frames per second)."
-            },
-            {
-              "name": "Flatten overlay",
-              "description": "Flatten any overlay elements onto the image prior to saving."
-            }
-          ],
-          "slug": "save-image"
-        },
-        {
-          "path": "/modules/input-output/load-objects-from-rois",
-          "deprecated": false,
-          "name": "Load objects from ROIs",
-          "shortDescription": "",
-          "fullDescription": "",
-          "version": "1.0.0",
-          "parameters": [
-            {
-              "name": "Output objects",
-              "description": ""
-            },
-            {
-              "name": "Assign tracks",
-              "description": ""
-            },
-            {
-              "name": "Output track objects",
-              "description": ""
-            },
-            {
-              "name": "Reference image",
-              "description": ""
-            },
-            {
-              "name": "File path mode",
-              "description": ""
-            },
-            {
-              "name": "Generic file path",
-              "description": ""
-            },
-            {
-              "name": "Specific file path",
-              "description": ""
-            }
-          ],
-          "slug": "load-objects-from-rois"
-        },
-        {
-          "path": "/modules/input-output/extract-metadata",
-          "deprecated": false,
-          "name": "Extract metadata",
-          "shortDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.",
-          "fullDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.  These metadata values can subsequently be accessed in the form M{[NAME]}, where [NAME] is the metadata name.  Some common file and foldername formats are included as pre-defined metadata extraction methods, while other forms can be constructed using regular expressions.",
-          "version": "1.0.0",
-          "parameters": [
-            {
-              "name": "Extractor mode",
-              "description": "Data source for metadata extraction:<br><ul><li>\"Filename\" Metadata taken from filename (not including folder path)<\/li><li>\"Foldername\" Metadata taken from parent foldername (incuding full system path to that folder)<\/li><li>\"Metadata file\" Metadata taken from a separate file, specified by the \"Metadata file\" parameter<\/li><li>\"Series name\" Metadata taken from seriesname (if not from a multi-series file, this is just the filename)<\/li><\/ul>"
-            },
-            {
-              "name": "Filename extractor",
-              "description": "The format of the filename to be converted to metadata values:<br><ul><li>\"Generic\" Name format is compiled using regular expressions defined in the \"Pattern\" parameter.  Each group (pattern enclosed in parenthesis) specified in the pattern is assigned to a metadata value.  Metadata value names are defined by the comma-separated list defined in \"Groups (comma separated)\".<\/li><li>\"CV1000 filename\" The Yokogawa CellVoyager CV1000 format (e.g. W1F001T0001Z00C1.tif)<\/li><li>\"CV7000 filename\" The Yokogawa CellVoyager CV7000 format (e.g. AssayPlate_Greiner_#655090_C02_T0001F001L01A01Z01C01.tif)<\/li><li>\"IncuCyte long filename\" The Incucyte long format, where each timepoint is stored as a separate image file and accordingly the filename records the time of acquisition (e.g. MySample1_A1_1_2021y08m06d_11h39m.tif)<\/li><li>\"IncuCyte short filename\" The Incucyte short format, where all timepoints are stored in a single file and the filename only records the well and field (e.g. MySample1_A1_1.tif)<\/li><li>\"Opera filename\" The Perkin Elmer Opera LX name format, which specifies row, column and field (e.g. 001001001.flex)<\/li><\/ul>"
-            },
-            {
-              "name": "Foldername extractor",
-              "description": "The format of the foldername to be converted to metadata values:<br><ul><li>\"<li>\"Generic\" Name format is compiled using regular expressions defined in the \"Pattern\" parameter.  Each group (pattern enclosed in parenthesis) specified in the pattern is assigned to a metadata value.  Metadata value names are defined by the comma-separated list defined in \"Groups (comma separated)\".<\/li><li>\"CV1000 foldername\" The Yokogawa CV1000 format (e.g. 20210806T113905_10x_K01_MySample1)<\/li><li>\"Opera measurement foldername\" The Perkin Elmer Opera LX foldername format (e.g. Meas_01(2021-08-06_11-39-05))<\/li><\/ul>"
-            },
-            {
-              "name": "Metadata file extractor",
-              "description": "The format of the metadata file to be converted to metadata values:<br><ul><li>\"CSV file\" Metadata values stored in a two-column CSV file, where the first column defines an identifier to the current file being processed (e.g. filename, or series name) and the second column defines a value that will be assigned as metadata.  Optionally, this value can be split into multiple metadata values using a regular expression.<\/li><li>\"Opera file (.flex)\" Specifically extracts the \"Area name\" property from the current .flex file.<\/li><\/ul>"
-            },
-            {
-              "name": "Input source",
-              "description": "If extracting metadata from a CSV file, this controls whether a single, static CSV file is used or whether there is one provided (with a fixed name) in the current folder (i.e where the current image file is loaded from)."
-            },
-            {
-              "name": "Metadata file",
-              "description": "If extracting metadata from a static CSV file (i.e. the same file for all processed images), this is the path to that metadata CSV file."
-            },
-            {
-              "name": "Metadata file name",
-              "description": "If extracting metadata from a dynamic CSV file (i.e. the file is in the current image folder), this is the name of that metadata CSV file (it must be the same name in all folders)."
-            },
-            {
-              "name": "Metadata item to match",
-              "description": "For CSV-based metadata extraction, the first column of the CSV file identifies which row to read.  This parameter defines the source (e.g. filename, series name, etc.).  Choices are: File in input folder,Static file"
-            },
-            {
-              "name": "Pattern",
-              "description": "Regular expression pattern to use when interpreting generic metadata formats.  This pattern must contain at least one group (specified using standard regex parenthesis notation)."
-            },
-            {
-              "name": "Groups (comma separated)",
-              "description": "When interpreting generic metadata formats, these group names will be assigned to each group matched using regular expressions.  The metadata values will subsequently be accessed via these names in the form M{[NAME]}, where [NAME] is the group name."
-            },
-            {
-              "name": "Case insensitive",
-              "description": "When selected regular expression matches will be found irrespective of case."
-            },
-            {
-              "name": "Show pattern matching test",
-              "description": "When selected (and constructing a regular expression extractor), an example string can be provided and the identified groups displayed.  This allows for regular expression forms to be tested during workflow assembly."
-            },
-            {
-              "name": "Example string",
-              "description": "If testing a regular expression form (\"Show pattern matching test\" selected), this is the example string which will be processed and broken down into its individual metadata values."
-            },
-            {
-              "name": "Identified groups",
-              "description": "If testing a regular expression form (\"Show pattern matching test\" selected), the extracted metadata values will be displayed here."
-            },
-            {
-              "name": "Split using regular expressions",
-              "description": "When selected, the metadata value taken from a CSV file will itself be broken down into multiple metadata values using a regular expressions"
-            },
-            {
-              "name": "Metadata value name",
-              "description": "If a metadata value loaded from CSV is not to be sub-divided into multiple metadata values, the entire value loaded will be stored as a metadata item with this name."
-            }
-          ],
-          "slug": "extract-metadata"
-        },
-        {
           "path": "/modules/input-output/load-objects",
           "deprecated": false,
           "name": "Load objects",
@@ -4097,6 +3928,175 @@
             }
           ],
           "slug": "load-objects"
+        },
+        {
+          "path": "/modules/input-output/load-objects-from-rois",
+          "deprecated": false,
+          "name": "Load objects from ROIs",
+          "shortDescription": "",
+          "fullDescription": "",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Output objects",
+              "description": ""
+            },
+            {
+              "name": "Assign tracks",
+              "description": ""
+            },
+            {
+              "name": "Output track objects",
+              "description": ""
+            },
+            {
+              "name": "Reference image",
+              "description": ""
+            },
+            {
+              "name": "File path mode",
+              "description": ""
+            },
+            {
+              "name": "Generic file path",
+              "description": ""
+            },
+            {
+              "name": "Specific file path",
+              "description": ""
+            }
+          ],
+          "slug": "load-objects-from-rois"
+        },
+        {
+          "path": "/modules/input-output/save-image",
+          "deprecated": false,
+          "name": "Save image",
+          "shortDescription": "Save an image/stack from the workspace to file.",
+          "fullDescription": "Save an image/stack from the workspace to file.  These files can be placed in the same folder as the input file, located in a specific folder or placed in a directory structure mirroring the input structure, but based at a new location.  For greater flexibility in output file locations and filenames, the \"Save image (generic)\" module can be used.  To prevent overwriting of previously-saved files, the current date and time can be appended to the end of each filename.  Images can be saved in a variety of formats (AVI, TIF and Zipped TIF).",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Save location",
+              "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
+            },
+            {
+              "name": "Mirrored directory root",
+              "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
+            },
+            {
+              "name": "File path",
+              "description": "Path to folder where images will be saved."
+            },
+            {
+              "name": "File name (generic)",
+              "description": ""
+            },
+            {
+              "name": "Save name mode",
+              "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
+            },
+            {
+              "name": "File name",
+              "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Append series mode",
+              "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
+            },
+            {
+              "name": "Append date/time mode",
+              "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
+            },
+            {
+              "name": "Add filename suffix",
+              "description": "A custom suffix to be added to each filename."
+            },
+            {
+              "name": "Input image",
+              "description": "Image to be saved to file."
+            },
+            {
+              "name": "File format",
+              "description": "The format the output image will be saved as:<br><ul><li>\"AVI\" Video written using the stock ImageJ \"<a href=\"https://github.com/imagej/imagej1/blob/master/ij/plugin/filter/AVI_Writer.java\">AVI Writer<\/a>\".  Videos can use different compression algorithms specified using \"Compression mode\".  Framerate specified by \"Frame rate (fps)\" parameter.<\/li><li>\"TIF\" Standard multidimensional (multi-page) TIF image saving.<\/li><li>\"ZIP\" TIF images stored using ZIP compression.  For images with large homogeneous regions of pixel intensity this can greatly reduce file size in a lossless manner.  Zipped images can be read directly back into ImageJ/Fiji without the need for prior decompression.<\/li><\/ul>"
+            },
+            {
+              "name": "Channel mode",
+              "description": "Control whether saved images should be in ImageJ \"Composite\" (display all channels simultaneously) or \"Color\" (display one channel at a time) mode."
+            },
+            {
+              "name": "Save as RGB",
+              "description": "Convert images to RGB prior to saving.  This is useful for displaying multi-channel images to a format that can be easily viewed outside ImageJ."
+            },
+            {
+              "name": "Compression mode",
+              "description": "Compression mode used when saving AVI videos (\"File format\" parameter):<br><ul><li>\"JPEG\" Lossy video compression with quality specified by \"Quality (0-100)\" parameter.  This option is good when reducing video size is more important than retaining perfect image quality.<\/li><li>\"None\" Frames are stored in their raw format (uncompressed).  This gives the highest quality, but also the largest file size.<\/li><li>\"PNG\" PNG video compression.<\/li><\/ul>"
+            },
+            {
+              "name": "Quality (0-100)",
+              "description": "Quality of output JPEG-compressed video (values in range 0-100).  For reference, saving AVIs via ImageJ's \"File > Save As...\" menu uses a quality of 90."
+            },
+            {
+              "name": "Frame rate (fps)",
+              "description": "Output video framerate (frames per second)."
+            },
+            {
+              "name": "Flatten overlay",
+              "description": "Flatten any overlay elements onto the image prior to saving."
+            }
+          ],
+          "slug": "save-image"
+        },
+        {
+          "path": "/modules/input-output/save-image-(generic)",
+          "deprecated": true,
+          "name": "Save image (generic)",
+          "shortDescription": "Save an image/stack from the workspace to file.",
+          "fullDescription": "Save an image/stack from the workspace to file.  Output file locations and filenames are generated from metadata items and fixed values.  This gives greater flexibility to output image locations than the standard \"Save image\" module.  To prevent overwriting of previously-saved files, the current date and time can be appended to the end of each filename.  Images can be saved in a variety of formats (AVI, TIF and Zipped TIF).",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Input image",
+              "description": "Image to be saved to file."
+            },
+            {
+              "name": "Generic format",
+              "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+            },
+            {
+              "name": "Append date/time mode",
+              "description": ""
+            },
+            {
+              "name": "File format",
+              "description": "The format the output image will be saved as:<br><ul><li>\"AVI\" Video written using the stock ImageJ \"<a href=\"https://github.com/imagej/imagej1/blob/master/ij/plugin/filter/AVI_Writer.java\">AVI Writer<\/a>\".  Videos can use different compression algorithms specified using \"Compression mode\".  Framerate specified by \"Frame rate (fps)\" parameter.<\/li><li>\"TIF\" Standard multidimensional (multi-page) TIF image saving.<\/li><li>\"ZIP\" TIF images stored using ZIP compression.  For images with large homogeneous regions of pixel intensity this can greatly reduce file size in a lossless manner.  Zipped images can be read directly back into ImageJ/Fiji without the need for prior decompression.<\/li><\/ul>"
+            },
+            {
+              "name": "Channel mode",
+              "description": "Control whether saved images should be in ImageJ \"Composite\" (display all channels simultaneously) or \"Color\" (display one channel at a time) mode."
+            },
+            {
+              "name": "Save as RGB",
+              "description": "Convert images to RGB prior to saving.  This is useful for displaying multi-channel images to a format that can be easily viewed outside ImageJ."
+            },
+            {
+              "name": "Compression mode",
+              "description": "Compression mode used when saving AVI videos (\"File format\" parameter):<br><ul><li>\"JPEG\" Lossy video compression with quality specified by \"Quality (0-100)\" parameter.  This option is good when reducing video size is more important than retaining perfect image quality.<\/li><li>\"None\" Frames are stored in their raw format (uncompressed).  This gives the highest quality, but also the largest file size.<\/li><li>\"PNG\" PNG video compression.<\/li><\/ul>"
+            },
+            {
+              "name": "Quality (0-100)",
+              "description": "Quality of output JPEG-compressed video (values in range 0-100).  For reference, saving AVIs via ImageJ's \"File > Save As...\" menu uses a quality of 90."
+            },
+            {
+              "name": "Frame rate (fps)",
+              "description": "Output video framerate (frames per second)."
+            },
+            {
+              "name": "Flatten overlay",
+              "description": "Flatten any overlay elements onto the image prior to saving."
+            }
+          ],
+          "slug": "save-image-(generic)"
         },
         {
           "path": "/modules/input-output/save-objects-as-rois",
@@ -5057,73 +5057,6 @@
           "subCategories": [],
           "modules": [
             {
-              "path": "/modules/objects/filter/number-of-children",
-              "deprecated": false,
-              "name": "Number of children",
-              "shortDescription": "Filter an object collection based on the number of children each object has from another object collection.",
-              "fullDescription": "Filter an object collection based on the number of children each object has from another object collection.  The threshold (reference) value can be either a fixed value (same for all objects), a measurement associated with an image (same for all objects within a single analysis run) or a measurement associated with a parent object (potentially different for all objects).  Objects which satisfy the specified numeric filter (less than, equal to, greater than, etc.) can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  The number of objects failing the filter can be stored as a metadata value.",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input objects",
-                  "description": "Objects to be filtered."
-                },
-                {
-                  "name": "Filter mode",
-                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
-                },
-                {
-                  "name": "Output (filtered) objects",
-                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
-                },
-                {
-                  "name": "Method for filtering",
-                  "description": "Numeric comparison used to determine which objects should be removed.  Objects with specified property (e.g. a measurement value) that passes this filter will be removed.  For example, an object with a measurement value of 7 would be removed if \"Method for filtering\" is set to \"Less than\" with a reference value of 10.  Choices are: Less than, Less than or equal to, Equal to, Greater than or equal to, Greater than, Not equal to."
-                },
-                {
-                  "name": "Reference mode",
-                  "description": "Type of reference value used to compare objects to:<br><ul><li>\"Fixed value\" Objects will be compared to a single, fixed value specified using the \"Reference value\" parameter.<\/li><li>\"Image measurement\" Objects will be compared to a measurement associated with an image in the workspace.  The image and associated measurement are specified by the \"Reference value image\" and \"Reference image measurement\" parameters.  In this mode, all objects will still be compared to the same value; however, this value can vary between input files.<\/li><li>\"Parent object measurement\" Objects will be compared to a measurement associated with a parent object.  The parent object and measurement are specified by the \"Reference value parent object\" and \"Reference object measurement\" parameters.  In this mode all objects can (but won't necessarily) be compared to different values.<\/li><\/ul>"
-                },
-                {
-                  "name": "Reference value",
-                  "description": "When \"Reference mode\" is set to \"Fixed value\", all objects will be compared to this fixed value."
-                },
-                {
-                  "name": "Reference value image",
-                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to a measurement associated with this image."
-                },
-                {
-                  "name": "Reference image measurement",
-                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to this measurement, which itself is associated with the image specified by \"Reference value image\"."
-                },
-                {
-                  "name": "Reference value parent object",
-                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to a measurement associated with their parent object from this collection."
-                },
-                {
-                  "name": "Reference object measurement",
-                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to this measurement, which itself is associated with the parent object specified by \"Reference value parent object\"."
-                },
-                {
-                  "name": "Reference value multiplier",
-                  "description": "Irrespective of how the reference value was determined, it can be systematically adjusted prior to use for comparison using this multiplier.  For example, an image measurement reference value of 32 with a \"Reference value multiplier\" of \"0.5\" will see all objects compared against a value of 16.  This is useful when comparing to dynamic values coming from image and parent object measurements."
-                },
-                {
-                  "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
-                },
-                {
-                  "name": "Store individual filter results",
-                  "description": "When selected, each input object will be assigned a measurement reporting if that object passed or failed the filter.  The measurement value is \"1\" for objects that failed the filter (i.e. would be removed if the relevant removal setting was enabled) and \"0\" for objects that passed (i.e. wouldn't be removed)."
-                },
-                {
-                  "name": "Child objects",
-                  "description": "Objects will be filtered against the number of children they have from this object collection."
-                }
-              ],
-              "slug": "number-of-children"
-            },
-            {
               "path": "/modules/objects/filter/based-on-measurement",
               "deprecated": false,
               "name": "Based on measurement",
@@ -5191,6 +5124,85 @@
               "slug": "based-on-measurement"
             },
             {
+              "path": "/modules/objects/filter/filter-objects",
+              "deprecated": true,
+              "name": "Filter objects",
+              "shortDescription": "DEPRECATED:  Please use individual filter modules instead (e.",
+              "fullDescription": "DEPRECATED:  Please use individual filter modules instead (e.g. \"Based on measurement\").<br><br>Filter an object collection based on a variety of properties.  Objects that satisfy the relevant condition can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be filtered."
+                },
+                {
+                  "name": "Filter mode",
+                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": "Controls the type of filter being used:<br><ul><li>\"Exclude objects on image edge (2D)\" Remove any objects based on contact with the image edge.  Contact is considered as a case where an object pixel is in the outer-most row, column or slice  of an image (e.g. x = 0 or y = max_value).  Can optionally also consider top and bottom of 3D stack (Z-position).<\/li><li>\"Remove objects with missing measurements\" Remove any objects without a specific measurement value (i.e. values with NaN values).<\/li><li>\"Remove objects without parent\" Remove any objects without an assigned parent from a specific object collection.<\/li><li>\"Remove objects with a parent\" Remove any objects with an assigned parent from a specific object collection.<\/li><li>\"Remove objects with fewer children than:\" Remove any objects with fewer children from a specific object collection than a threshold value.<\/li><li>\"Remove objects with more children than:\" Remove any objects with more children from a specific object collection than a threshold value.<\/li><li>\"Remove objects with measurements < than:\" Remove any objects with a smaller measurement value a specific threshold.<\/li><li>\"Remove objects with measurements > than:\" Remove any objects with a larger measurement value a specific threshold.<\/li><li>\"Specific object IDs (runtime)\" Remove objects by their specific ID numbers.  This is a manual option, whereby an image is displayed to the user (pre-prepared to show object ID numbers) along with a dialog box allowing the user to write a comma-separated list of objects to remove.<\/li><\/ul>"
+                },
+                {
+                  "name": "Include Z-position",
+                  "description": "When selected, object pixels which make contact with the lower (z = 0) and upper (z = max_value) slices of the image stack will lead to removal of that object.  If not selected, pixels along this edge will be ignored (i.e. contact won't lead to object removal).  If enabled for single slice stacks all objects will removed."
+                },
+                {
+                  "name": "Measurement to filter on",
+                  "description": "Objects will be filtered against their value of this measurement.  Objects missing this measurement are not removed; however, they can be removed by using the module \"With / without measurement\"."
+                },
+                {
+                  "name": "Parent object",
+                  "description": "Parent object to filter by.  The presence or absence of this relationship will determine which of the input objects are counted, removed or moved (depending on the \"Filter mode\" parameter)."
+                },
+                {
+                  "name": "Child objects",
+                  "description": "Objects will be filtered against the number of children they have from this object collection."
+                },
+                {
+                  "name": "Reference mode",
+                  "description": "Type of reference value used to compare objects to:<br><ul><li>\"Fixed value\" Objects will be compared to a single, fixed value specified using the \"Reference value\" parameter.<\/li><li>\"Image measurement\" Objects will be compared to a measurement associated with an image in the workspace.  The image and associated measurement are specified by the \"Reference value image\" and \"Reference image measurement\" parameters.  In this mode, all objects will still be compared to the same value; however, this value can vary between input files.<\/li><li>\"Parent object measurement\" Objects will be compared to a measurement associated with a parent object.  The parent object and measurement are specified by the \"Reference value parent object\" and \"Reference object measurement\" parameters.  In this mode all objects can (but won't necessarily) be compared to different values.<\/li><\/ul>"
+                },
+                {
+                  "name": "Reference value",
+                  "description": "When \"Reference mode\" is set to \"Fixed value\", all objects will be compared to this fixed value."
+                },
+                {
+                  "name": "Reference value image",
+                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to a measurement associated with this image."
+                },
+                {
+                  "name": "Reference image measurement",
+                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to this measurement, which itself is associated with the image specified by \"Reference value image\"."
+                },
+                {
+                  "name": "Reference value parent object",
+                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to a measurement associated with their parent object from this collection."
+                },
+                {
+                  "name": "Reference object measurement",
+                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to this measurement, which itself is associated with the parent object specified by \"Reference value parent object\"."
+                },
+                {
+                  "name": "Reference value multiplier",
+                  "description": "Irrespective of how the reference value was determined, it can be systematically adjusted prior to use for comparison using this multiplier.  For example, an image measurement reference value of 32 with a \"Reference value multiplier\" of \"0.5\" will see all objects compared against a value of 16.  This is useful when comparing to dynamic values coming from image and parent object measurements."
+                },
+                {
+                  "name": "Show image",
+                  "description": "When selected, a specific image will be displayed when this module executes.  This can be used to display a pre-prepared, object ID-labelled image to the user, thus acting as a reference for which object IDs to remove.  The image to be displayed is set using the \"Image to display\" parameter."
+                },
+                {
+                  "name": "Image to display",
+                  "description": "Image to display when the module executes.  For example, this could be a pre-prepared image with object IDs inserted as text overlays using the \"Add labels\" module."
+                }
+              ],
+              "slug": "filter-objects"
+            },
+            {
               "path": "/modules/objects/filter/measurement-extremes",
               "deprecated": false,
               "name": "Measurement extremes",
@@ -5236,6 +5248,73 @@
                 }
               ],
               "slug": "measurement-extremes"
+            },
+            {
+              "path": "/modules/objects/filter/number-of-children",
+              "deprecated": false,
+              "name": "Number of children",
+              "shortDescription": "Filter an object collection based on the number of children each object has from another object collection.",
+              "fullDescription": "Filter an object collection based on the number of children each object has from another object collection.  The threshold (reference) value can be either a fixed value (same for all objects), a measurement associated with an image (same for all objects within a single analysis run) or a measurement associated with a parent object (potentially different for all objects).  Objects which satisfy the specified numeric filter (less than, equal to, greater than, etc.) can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  The number of objects failing the filter can be stored as a metadata value.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be filtered."
+                },
+                {
+                  "name": "Filter mode",
+                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": "Numeric comparison used to determine which objects should be removed.  Objects with specified property (e.g. a measurement value) that passes this filter will be removed.  For example, an object with a measurement value of 7 would be removed if \"Method for filtering\" is set to \"Less than\" with a reference value of 10.  Choices are: Less than, Less than or equal to, Equal to, Greater than or equal to, Greater than, Not equal to."
+                },
+                {
+                  "name": "Reference mode",
+                  "description": "Type of reference value used to compare objects to:<br><ul><li>\"Fixed value\" Objects will be compared to a single, fixed value specified using the \"Reference value\" parameter.<\/li><li>\"Image measurement\" Objects will be compared to a measurement associated with an image in the workspace.  The image and associated measurement are specified by the \"Reference value image\" and \"Reference image measurement\" parameters.  In this mode, all objects will still be compared to the same value; however, this value can vary between input files.<\/li><li>\"Parent object measurement\" Objects will be compared to a measurement associated with a parent object.  The parent object and measurement are specified by the \"Reference value parent object\" and \"Reference object measurement\" parameters.  In this mode all objects can (but won't necessarily) be compared to different values.<\/li><\/ul>"
+                },
+                {
+                  "name": "Reference value",
+                  "description": "When \"Reference mode\" is set to \"Fixed value\", all objects will be compared to this fixed value."
+                },
+                {
+                  "name": "Reference value image",
+                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to a measurement associated with this image."
+                },
+                {
+                  "name": "Reference image measurement",
+                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to this measurement, which itself is associated with the image specified by \"Reference value image\"."
+                },
+                {
+                  "name": "Reference value parent object",
+                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to a measurement associated with their parent object from this collection."
+                },
+                {
+                  "name": "Reference object measurement",
+                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to this measurement, which itself is associated with the parent object specified by \"Reference value parent object\"."
+                },
+                {
+                  "name": "Reference value multiplier",
+                  "description": "Irrespective of how the reference value was determined, it can be systematically adjusted prior to use for comparison using this multiplier.  For example, an image measurement reference value of 32 with a \"Reference value multiplier\" of \"0.5\" will see all objects compared against a value of 16.  This is useful when comparing to dynamic values coming from image and parent object measurements."
+                },
+                {
+                  "name": "Store summary filter results",
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                },
+                {
+                  "name": "Store individual filter results",
+                  "description": "When selected, each input object will be assigned a measurement reporting if that object passed or failed the filter.  The measurement value is \"1\" for objects that failed the filter (i.e. would be removed if the relevant removal setting was enabled) and \"0\" for objects that passed (i.e. wouldn't be removed)."
+                },
+                {
+                  "name": "Child objects",
+                  "description": "Objects will be filtered against the number of children they have from this object collection."
+                }
+              ],
+              "slug": "number-of-children"
             },
             {
               "path": "/modules/objects/filter/number-of-partners",
@@ -5352,11 +5431,11 @@
               "slug": "object-proximity"
             },
             {
-              "path": "/modules/objects/filter/filter-objects",
-              "deprecated": true,
-              "name": "Filter objects",
-              "shortDescription": "DEPRECATED:  Please use individual filter modules instead (e.",
-              "fullDescription": "DEPRECATED:  Please use individual filter modules instead (e.g. \"Based on measurement\").<br><br>Filter an object collection based on a variety of properties.  Objects that satisfy the relevant condition can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).",
+              "path": "/modules/objects/filter/objects-with-specific-ids",
+              "deprecated": false,
+              "name": "Objects with specific IDs",
+              "shortDescription": "Filter an object collection based on user-defined list of object ID numbers.",
+              "fullDescription": "Filter an object collection based on user-defined list of object ID numbers.  When the module executes, the user is presented with a dialog box where they can enter a comma-separated list of object IDs to remove.  Once the list is complete, the user presses \"OK\" to proceed.  All objects with ID numbers matching those in the list can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  To assist with selection of ID numbers, an optional image can be displayed - this could be pre-prepared to display object ID numbers using the \"Add labels\" module.  The number of objects specified for removal can be stored as a metadata value.",
               "version": "1.0.0",
               "parameters": [
                 {
@@ -5372,63 +5451,19 @@
                   "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
                 },
                 {
-                  "name": "Method for filtering",
-                  "description": "Controls the type of filter being used:<br><ul><li>\"Exclude objects on image edge (2D)\" Remove any objects based on contact with the image edge.  Contact is considered as a case where an object pixel is in the outer-most row, column or slice  of an image (e.g. x = 0 or y = max_value).  Can optionally also consider top and bottom of 3D stack (Z-position).<\/li><li>\"Remove objects with missing measurements\" Remove any objects without a specific measurement value (i.e. values with NaN values).<\/li><li>\"Remove objects without parent\" Remove any objects without an assigned parent from a specific object collection.<\/li><li>\"Remove objects with a parent\" Remove any objects with an assigned parent from a specific object collection.<\/li><li>\"Remove objects with fewer children than:\" Remove any objects with fewer children from a specific object collection than a threshold value.<\/li><li>\"Remove objects with more children than:\" Remove any objects with more children from a specific object collection than a threshold value.<\/li><li>\"Remove objects with measurements < than:\" Remove any objects with a smaller measurement value a specific threshold.<\/li><li>\"Remove objects with measurements > than:\" Remove any objects with a larger measurement value a specific threshold.<\/li><li>\"Specific object IDs (runtime)\" Remove objects by their specific ID numbers.  This is a manual option, whereby an image is displayed to the user (pre-prepared to show object ID numbers) along with a dialog box allowing the user to write a comma-separated list of objects to remove.<\/li><\/ul>"
-                },
-                {
-                  "name": "Include Z-position",
-                  "description": "When selected, object pixels which make contact with the lower (z = 0) and upper (z = max_value) slices of the image stack will lead to removal of that object.  If not selected, pixels along this edge will be ignored (i.e. contact won't lead to object removal).  If enabled for single slice stacks all objects will removed."
-                },
-                {
-                  "name": "Measurement to filter on",
-                  "description": "Objects will be filtered against their value of this measurement.  Objects missing this measurement are not removed; however, they can be removed by using the module \"With / without measurement\"."
-                },
-                {
-                  "name": "Parent object",
-                  "description": "Parent object to filter by.  The presence or absence of this relationship will determine which of the input objects are counted, removed or moved (depending on the \"Filter mode\" parameter)."
-                },
-                {
-                  "name": "Child objects",
-                  "description": "Objects will be filtered against the number of children they have from this object collection."
-                },
-                {
-                  "name": "Reference mode",
-                  "description": "Type of reference value used to compare objects to:<br><ul><li>\"Fixed value\" Objects will be compared to a single, fixed value specified using the \"Reference value\" parameter.<\/li><li>\"Image measurement\" Objects will be compared to a measurement associated with an image in the workspace.  The image and associated measurement are specified by the \"Reference value image\" and \"Reference image measurement\" parameters.  In this mode, all objects will still be compared to the same value; however, this value can vary between input files.<\/li><li>\"Parent object measurement\" Objects will be compared to a measurement associated with a parent object.  The parent object and measurement are specified by the \"Reference value parent object\" and \"Reference object measurement\" parameters.  In this mode all objects can (but won't necessarily) be compared to different values.<\/li><\/ul>"
-                },
-                {
-                  "name": "Reference value",
-                  "description": "When \"Reference mode\" is set to \"Fixed value\", all objects will be compared to this fixed value."
-                },
-                {
-                  "name": "Reference value image",
-                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to a measurement associated with this image."
-                },
-                {
-                  "name": "Reference image measurement",
-                  "description": "When \"Reference mode\" is set to \"Image measurement\", all objects will be compared to this measurement, which itself is associated with the image specified by \"Reference value image\"."
-                },
-                {
-                  "name": "Reference value parent object",
-                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to a measurement associated with their parent object from this collection."
-                },
-                {
-                  "name": "Reference object measurement",
-                  "description": "When \"Reference mode\" is set to \"Parent object measurement\", all objects will be compared to this measurement, which itself is associated with the parent object specified by \"Reference value parent object\"."
-                },
-                {
-                  "name": "Reference value multiplier",
-                  "description": "Irrespective of how the reference value was determined, it can be systematically adjusted prior to use for comparison using this multiplier.  For example, an image measurement reference value of 32 with a \"Reference value multiplier\" of \"0.5\" will see all objects compared against a value of 16.  This is useful when comparing to dynamic values coming from image and parent object measurements."
-                },
-                {
                   "name": "Show image",
                   "description": "When selected, a specific image will be displayed when this module executes.  This can be used to display a pre-prepared, object ID-labelled image to the user, thus acting as a reference for which object IDs to remove.  The image to be displayed is set using the \"Image to display\" parameter."
                 },
                 {
                   "name": "Image to display",
                   "description": "Image to display when the module executes.  For example, this could be a pre-prepared image with object IDs inserted as text overlays using the \"Add labels\" module."
+                },
+                {
+                  "name": "Store filter results",
+                  "description": "When selected, the number of removed (or moved) objects is counted and stored as a metadata item (name in the format \"FILTER // NUM_[inputObjectsName]_BY_ID\")."
                 }
               ],
-              "slug": "filter-objects"
+              "slug": "objects-with-specific-ids"
             },
             {
               "path": "/modules/objects/filter/remove-on-image-edge",
@@ -5480,41 +5515,6 @@
                 }
               ],
               "slug": "remove-on-image-edge"
-            },
-            {
-              "path": "/modules/objects/filter/objects-with-specific-ids",
-              "deprecated": false,
-              "name": "Objects with specific IDs",
-              "shortDescription": "Filter an object collection based on user-defined list of object ID numbers.",
-              "fullDescription": "Filter an object collection based on user-defined list of object ID numbers.  When the module executes, the user is presented with a dialog box where they can enter a comma-separated list of object IDs to remove.  Once the list is complete, the user presses \"OK\" to proceed.  All objects with ID numbers matching those in the list can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  To assist with selection of ID numbers, an optional image can be displayed - this could be pre-prepared to display object ID numbers using the \"Add labels\" module.  The number of objects specified for removal can be stored as a metadata value.",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input objects",
-                  "description": "Objects to be filtered."
-                },
-                {
-                  "name": "Filter mode",
-                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
-                },
-                {
-                  "name": "Output (filtered) objects",
-                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
-                },
-                {
-                  "name": "Show image",
-                  "description": "When selected, a specific image will be displayed when this module executes.  This can be used to display a pre-prepared, object ID-labelled image to the user, thus acting as a reference for which object IDs to remove.  The image to be displayed is set using the \"Image to display\" parameter."
-                },
-                {
-                  "name": "Image to display",
-                  "description": "Image to display when the module executes.  For example, this could be a pre-prepared image with object IDs inserted as text overlays using the \"Add labels\" module."
-                },
-                {
-                  "name": "Store filter results",
-                  "description": "When selected, the number of removed (or moved) objects is counted and stored as a metadata item (name in the format \"FILTER // NUM_[inputObjectsName]_BY_ID\")."
-                }
-              ],
-              "slug": "objects-with-specific-ids"
             },
             {
               "path": "/modules/objects/filter/with--without-measurement",
@@ -5669,6 +5669,25 @@
                   "slug": "measure-intensity-along-path"
                 },
                 {
+                  "path": "/modules/objects/measure/intensity/measure-object-gini-coefficient",
+                  "deprecated": false,
+                  "name": "Measure object Gini coefficient",
+                  "shortDescription": "Measure the Gini coefficient of all pixels within each object on an object-by-object basis.",
+                  "fullDescription": "Measure the Gini coefficient of all pixels within each object on an object-by-object basis.  The Gini coefficient measures the inequality in intensity of pixels.  A coefficient of 0 indicates perfect intensity homogeneity (all pixels with the same value), while a value of 1 indicates the maximum possible inequality (all pixels are black, except for a single bright pixel).",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Input image",
+                      "description": ""
+                    }
+                  ],
+                  "slug": "measure-object-gini-coefficient"
+                },
+                {
                   "path": "/modules/objects/measure/intensity/measure-object-colocalisation",
                   "deprecated": false,
                   "name": "Measure object colocalisation",
@@ -5734,25 +5753,6 @@
                     }
                   ],
                   "slug": "measure-object-colocalisation"
-                },
-                {
-                  "path": "/modules/objects/measure/intensity/measure-object-gini-coefficient",
-                  "deprecated": false,
-                  "name": "Measure object Gini coefficient",
-                  "shortDescription": "Measure the Gini coefficient of all pixels within each object on an object-by-object basis.",
-                  "fullDescription": "Measure the Gini coefficient of all pixels within each object on an object-by-object basis.  The Gini coefficient measures the inequality in intensity of pixels.  A coefficient of 0 indicates perfect intensity homogeneity (all pixels with the same value), while a value of 1 indicates the maximum possible inequality (all pixels are black, except for a single bright pixel).",
-                  "version": "1.0.0",
-                  "parameters": [
-                    {
-                      "name": "Input objects",
-                      "description": ""
-                    },
-                    {
-                      "name": "Input image",
-                      "description": ""
-                    }
-                  ],
-                  "slug": "measure-object-gini-coefficient"
                 },
                 {
                   "path": "/modules/objects/measure/intensity/measure-object-greyscale-k-function",
@@ -6973,6 +6973,81 @@
               "slug": "extract-object-edges"
             },
             {
+              "path": "/modules/objects/process/fit-gaussian-2d",
+              "deprecated": false,
+              "name": "Fit Gaussian 2D",
+              "shortDescription": "Gaussian spot fitting.",
+              "fullDescription": "Gaussian spot fitting.  Can take objects as estimated locations.\n***Only works in 2D***\n***Only works for refinement of existing spots***",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": "Image from the workspace to which the 2D Gaussian profiles will be fit."
+                },
+                {
+                  "name": "Input objects",
+                  "description": "Objects for which 2D Gaussians will be fit.  A single Gaussian will be calculated for each object, with the centroid of the input object used as the starting estimate for the Gaussian centroid.  Fit parameters will be stored as measurements associated with the relevant input objects."
+                },
+                {
+                  "name": "Method to estimate sigma",
+                  "description": "Controls how the initial estimate of Gaussian sigma will be calculated.  Note: The initial radius value can also influence the range of accepted sigma values (see \"Limit sigma range\" parameter).<br><ul><li>\"Fixed value\" The same initial sigma value is applied to the fitting of all objects.  This value is provided by the \"Sigma\" parameter.<\/li><li>\"Measurement\" A different sigma value is applied to the fitting of each object.  This value is provided by the measurement (specified by \"Sigma measurement\") associated with the object being fit.<\/li><\/ul>"
+                },
+                {
+                  "name": "Sigma",
+                  "description": "If \"Method to estimate sigma\" is set to \"Fixed value\", this is the initial sigma value that will be used in the fitting of all objects."
+                },
+                {
+                  "name": "Sigma measurement",
+                  "description": "If \"Method to estimate sigma\" is set to \"Measurement\", this is the measurement that will provide the intial sigma value used in the fitting of each object."
+                },
+                {
+                  "name": "Measurement multiplier",
+                  "description": "If using object-associated measurements as the intial estimate of sigma, these measurements can be systematically increased or decreased with this multiplier.  Values less than 1 will reduce the sigma estimate, while values greater than 1 will increase it.  To use the default sigma value, set this to 1."
+                },
+                {
+                  "name": "Limit sigma range",
+                  "description": "When selected, the final sigma value must lie within a specific range.  This range is controlled by the \"Minimum sigma (multiplier)\" and \"Maximum sigma (multiplier)\" parameters."
+                },
+                {
+                  "name": "Minimum sigma (multiplier)",
+                  "description": "If limiting the final sigma range (\"Limit sigma range\" parameter selected), this value controls the minimum allowed sigma value.  The minimum range is specified as a multiplier of the input sigma estimate.  For example, an estimate sigma value of 4 with a \"Minimum sigma (multiplier)\" multiplier of 0.5 forces the predicted sigma to have a value of at least 2.  Variable sigma ranges allow measurement-based sigma estimates to have appropriate limits."
+                },
+                {
+                  "name": "Maximum sigma (multiplier)",
+                  "description": "If limiting the final sigma range (\"Limit sigma range\" parameter selected), this value controls the maximum allowed sigma value.  The maximum range is specified as a multiplier of the input sigma estimate.  For example, an estimate sigma value of 4 with a \"Maximum sigma (multiplier)\" multiplier of 3 forces the predicted sigma to have a value of at most 12.  Variable sigma ranges allow measurement-based sigma estimates to have appropriate limits."
+                },
+                {
+                  "name": "Fixed fitting window",
+                  "description": "When selected, the size of the cropped image region, to which the 2D Gaussian is fit, is controlled by the \"Window size\" parameter.  Otherwise, the window size is automatically selected as 4 times the initial estimate of sigma, plus 1."
+                },
+                {
+                  "name": "Window size",
+                  "description": "If using a fixed fitting window (\"Fixed fitting window\" parameter selected), this is the size of the image crop (centered on the object being fit) that will be used."
+                },
+                {
+                  "name": "Maximum number of evaluations",
+                  "description": "The maximum number of iterations the fitting algorithm can use."
+                },
+                {
+                  "name": "Remove objects with failed fitting",
+                  "description": "If selected, any objects for which fits can't be determined (fitter runs out of evaluations before completing) will be removed from the input object set."
+                },
+                {
+                  "name": "Apply volume",
+                  "description": "If selected, the coordinates of the input objects will be updated to be circles.  The output circles will be centred on the best-fit location and have radii equal to the x-axis sigma value."
+                },
+                {
+                  "name": "Create Gaussian image",
+                  "description": "If selected, an image containing all calculated Gaussian fits will be added to the workspace."
+                },
+                {
+                  "name": "Gaussian image name",
+                  "description": "If \"Create Gaussian image\" is selected, this is the name of the output Gaussian profile image that will be added to the workspace."
+                }
+              ],
+              "slug": "fit-gaussian-2d"
+            },
+            {
               "path": "/modules/objects/process/fit-active-contours",
               "deprecated": false,
               "name": "Fit active contours",
@@ -7158,81 +7233,6 @@
                 }
               ],
               "slug": "fit-ellipsoid"
-            },
-            {
-              "path": "/modules/objects/process/fit-gaussian-2d",
-              "deprecated": false,
-              "name": "Fit Gaussian 2D",
-              "shortDescription": "Gaussian spot fitting.",
-              "fullDescription": "Gaussian spot fitting.  Can take objects as estimated locations.\n***Only works in 2D***\n***Only works for refinement of existing spots***",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input image",
-                  "description": "Image from the workspace to which the 2D Gaussian profiles will be fit."
-                },
-                {
-                  "name": "Input objects",
-                  "description": "Objects for which 2D Gaussians will be fit.  A single Gaussian will be calculated for each object, with the centroid of the input object used as the starting estimate for the Gaussian centroid.  Fit parameters will be stored as measurements associated with the relevant input objects."
-                },
-                {
-                  "name": "Method to estimate sigma",
-                  "description": "Controls how the initial estimate of Gaussian sigma will be calculated.  Note: The initial radius value can also influence the range of accepted sigma values (see \"Limit sigma range\" parameter).<br><ul><li>\"Fixed value\" The same initial sigma value is applied to the fitting of all objects.  This value is provided by the \"Sigma\" parameter.<\/li><li>\"Measurement\" A different sigma value is applied to the fitting of each object.  This value is provided by the measurement (specified by \"Sigma measurement\") associated with the object being fit.<\/li><\/ul>"
-                },
-                {
-                  "name": "Sigma",
-                  "description": "If \"Method to estimate sigma\" is set to \"Fixed value\", this is the initial sigma value that will be used in the fitting of all objects."
-                },
-                {
-                  "name": "Sigma measurement",
-                  "description": "If \"Method to estimate sigma\" is set to \"Measurement\", this is the measurement that will provide the intial sigma value used in the fitting of each object."
-                },
-                {
-                  "name": "Measurement multiplier",
-                  "description": "If using object-associated measurements as the intial estimate of sigma, these measurements can be systematically increased or decreased with this multiplier.  Values less than 1 will reduce the sigma estimate, while values greater than 1 will increase it.  To use the default sigma value, set this to 1."
-                },
-                {
-                  "name": "Limit sigma range",
-                  "description": "When selected, the final sigma value must lie within a specific range.  This range is controlled by the \"Minimum sigma (multiplier)\" and \"Maximum sigma (multiplier)\" parameters."
-                },
-                {
-                  "name": "Minimum sigma (multiplier)",
-                  "description": "If limiting the final sigma range (\"Limit sigma range\" parameter selected), this value controls the minimum allowed sigma value.  The minimum range is specified as a multiplier of the input sigma estimate.  For example, an estimate sigma value of 4 with a \"Minimum sigma (multiplier)\" multiplier of 0.5 forces the predicted sigma to have a value of at least 2.  Variable sigma ranges allow measurement-based sigma estimates to have appropriate limits."
-                },
-                {
-                  "name": "Maximum sigma (multiplier)",
-                  "description": "If limiting the final sigma range (\"Limit sigma range\" parameter selected), this value controls the maximum allowed sigma value.  The maximum range is specified as a multiplier of the input sigma estimate.  For example, an estimate sigma value of 4 with a \"Maximum sigma (multiplier)\" multiplier of 3 forces the predicted sigma to have a value of at most 12.  Variable sigma ranges allow measurement-based sigma estimates to have appropriate limits."
-                },
-                {
-                  "name": "Fixed fitting window",
-                  "description": "When selected, the size of the cropped image region, to which the 2D Gaussian is fit, is controlled by the \"Window size\" parameter.  Otherwise, the window size is automatically selected as 4 times the initial estimate of sigma, plus 1."
-                },
-                {
-                  "name": "Window size",
-                  "description": "If using a fixed fitting window (\"Fixed fitting window\" parameter selected), this is the size of the image crop (centered on the object being fit) that will be used."
-                },
-                {
-                  "name": "Maximum number of evaluations",
-                  "description": "The maximum number of iterations the fitting algorithm can use."
-                },
-                {
-                  "name": "Remove objects with failed fitting",
-                  "description": "If selected, any objects for which fits can't be determined (fitter runs out of evaluations before completing) will be removed from the input object set."
-                },
-                {
-                  "name": "Apply volume",
-                  "description": "If selected, the coordinates of the input objects will be updated to be circles.  The output circles will be centred on the best-fit location and have radii equal to the x-axis sigma value."
-                },
-                {
-                  "name": "Create Gaussian image",
-                  "description": "If selected, an image containing all calculated Gaussian fits will be added to the workspace."
-                },
-                {
-                  "name": "Gaussian image name",
-                  "description": "If \"Create Gaussian image\" is selected, this is the name of the output Gaussian profile image that will be added to the workspace."
-                }
-              ],
-              "slug": "fit-gaussian-2d"
             },
             {
               "path": "/modules/objects/process/fit-longest-chord",
