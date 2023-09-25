@@ -6,9 +6,9 @@ import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.json.JSONObject;
@@ -25,7 +25,7 @@ import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
 public class ModuleExporter {
     private static final String OUTPUT_PATH = "./src/assets/modules.json";
     private static final int JSON_INDENTATION = 2;
-    private static TreeMap<Category, List<Module>> modulesByCategory;
+    private static HashMap<Category, TreeSet<Module>> modulesByCategory;
 
     public static void main(String[] args) {
         System.out.println("MIA version [" + MIA.getVersion() + "]");
@@ -57,7 +57,7 @@ public class ModuleExporter {
                 .map(c -> generateCategory(c, path))
                 .collect(Collectors.toList());
 
-        final List<JSONObject> modules = modulesByCategory.getOrDefault(category, new ArrayList<>())
+        final List<JSONObject> modules = modulesByCategory.getOrDefault(category, new TreeSet<>())
                 .stream()
                 .map(m -> generateModule(m, path))
                 .collect(Collectors.toList());
@@ -124,12 +124,12 @@ public class ModuleExporter {
                 .replaceAll(" ", "-");
     }
 
-    private static TreeMap<Category, List<Module>> getModules() {
+    private static HashMap<Category, TreeSet<Module>> getModules() {
         // Get a list of Modules
         List<String> moduleNames = AvailableModules.getModuleNames(false);
 
         // Converting the list of classes to a list of Modules
-        TreeMap<Category, List<Module>> modulesByCategory = new TreeMap<>();
+        HashMap<Category, TreeSet<Module>> modulesByCategory = new HashMap<>();
 
         Modules tempCollection = new Modules();
 
@@ -146,14 +146,15 @@ public class ModuleExporter {
 
                 modulesByCategory.compute(module.getCategory(), (category, modules) -> {
                     if (modules == null)
-                        modules = new ArrayList<>();
+                        modules = new TreeSet<>();
 
                     modules.add(module);
 
                     return modules;
                 });
 
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | NoSuchMethodException
+                    | InvocationTargetException e) {
                 MIA.log.writeError(e);
             }
         }
