@@ -18,7 +18,7 @@ export default function Publications() {
         <p>
           Oates, T.C.L., <em>et al.</em>, &quot;Defining the proteomic landscape of cultured
           macrophages and their polarization continuum&quot;, <em>Immunology & Cell Biology</em>{' '}
-          (2023) , doi:{' '}
+          (2023), doi:{' '}
           <a className="link" href="https://doi.org/10.1111/imcb.12687">
             10.1111/imcb.12687
           </a>
