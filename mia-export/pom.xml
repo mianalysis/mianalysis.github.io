@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.github.mianalysis</groupId>
             <artifactId>mia</artifactId>
-            <version>1.4.0</version>
+            <version>1.4.2</version>
         </dependency>
     </dependencies>
 </project>
