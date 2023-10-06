@@ -93,7 +93,7 @@
               "subParameters": [
                 {
                   "name": "Variable type",
-                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul><li>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.<li>\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.<li>\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
                 },
                 {
                   "name": "Variable name",
@@ -702,6 +702,53 @@
                 "description": "Image to measure intensity statistics for.  The resulting measurements will be associated with this image for use in subsequent modules."
               }],
               "slug": "measure-image-intensity"
+            },
+            {
+              "path": "/modules/images/measure/measure-image-intensity-orientation",
+              "deprecated": false,
+              "name": "Measure image intensity orientation",
+              "shortDescription": "Calculates the orientation of structures in an image.",
+              "fullDescription": "Calculates the orientation of structures in an image.  This module uses the <a href=\"https://imagej.net/plugins/directionality\">Directionality_<\/a> plugin to calculate core measures.  Additional measurements, such as the Alignment Index [1] are also calculated.  All measurements are made for the entire image stack; that is, the individual slice histograms are merged and normalised prior to calculation of all measurements.  For multi-slice stacks, images can first be decomposed into whole-slice objects using the CreateWholeSliceObjects module, then processed on a per-object basis using the MeasureObjectIntensityOrientation module.<br><br>References:<br><ol><li>Sun, M., et al. \"Rapid Quantification of 3D Collagen Fiber Alignment and Fiber Intersection Correlations with High Sensitivity\" <i>PLOS ONE<\/i> (2015), doi: https://doi.org/10.1371/journal.pone.0131814<\/li><\/ol>",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output orientation map",
+                  "description": ""
+                },
+                {
+                  "name": "Orientation map name",
+                  "description": ""
+                },
+                {
+                  "name": "Method",
+                  "description": ""
+                },
+                {
+                  "name": "Number of bins",
+                  "description": ""
+                },
+                {
+                  "name": "Histogram start (�)",
+                  "description": ""
+                },
+                {
+                  "name": "Histogram end (�)",
+                  "description": ""
+                },
+                {
+                  "name": "Include bin range in name",
+                  "description": ""
+                },
+                {
+                  "name": "Include number of bins in name",
+                  "description": ""
+                }
+              ],
+              "slug": "measure-image-intensity-orientation"
             },
             {
               "path": "/modules/images/measure/measure-image-texture",
@@ -1487,8 +1534,8 @@
               "path": "/modules/images/process/apply-deepimagej-model",
               "deprecated": false,
               "name": "Apply DeepImageJ model",
-              "shortDescription": "Uses <a href=\"https://deepimagej.",
-              "fullDescription": "Uses <a href=\"https://deepimagej.github.io/deepimagej/\">DeepImageJ<\/a> to run Tensorflow and Pytorch models from the <a href=\"https://bioimage.io/#/\">BioImage Model Zoo<\/a>.  This module will detect and run any models already installed in the active copy of Fiji.",
+              "shortDescription": "Uses DeepImageJ to run Tensorflow and Pytorch models from the BioImage Model Zoo.",
+              "fullDescription": "Uses DeepImageJ to run Tensorflow and Pytorch models from the BioImage Model Zoo.  This module will detect and run any models already installed in the active copy of Fiji.  For more information on DeepImageJ and the BioImage Model Zoo, please go to <a href=\"https://deepimagej.github.io/deepimagej/\">DeepImageJ<\/a> and <a href=\"https://bioimage.io/#/\">BioImage Model Zoo<\/a>.",
               "version": "1.0.0",
               "parameters": [
                 {
@@ -2046,7 +2093,7 @@
                 "name": "Affine (MOPS)",
                 "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
                 "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect MOPS (\"Multi-Scale Oriented Patches\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>References:<ul><li>Brown, Matthew & Szeliski, Richard \"Multi-image feature matching using multi-scale oriented patches\". US Patent 7,382,897 (June 3, 2008). Asignee: Microsoft Corporation.<\/li><\/ul>",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2134,11 +2181,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2154,7 +2201,7 @@
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2177,7 +2224,7 @@
                 "name": "Affine (SIFT)",
                 "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
                 "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/Feature_Extraction\">Feature Extraction<\/a> plugin and associated MPICBG tools to detect SIFT (\"Scale Invariant Feature Transform\") features from the input images and calculate and apply the necessary 2D affine transforms.<br><br>Note: The SIFT-algorithm is protected by U.S. Patent 6,711,293: Method and apparatus for identifying scale invariant features in an image and use of same for locating an object in an image by the University of British Columbia. That is, for commercial applications the permission of the author is required. Anything else is published under the terms of the GPL, so feel free to use it for academic or personal purposes.<br><br>References:<ul><li>Lowe, David G. \"Object recognition from local scale-invariant features\". <i>Proceedings of the International Conference on Computer Vision<\/i> <b>2<\/b> (1999) 1150\u20131157.<\/li><li>Lowe, David G. \"Distinctive Image Features from Scale-Invariant Keypoints\". <i>International Journal of Computer Vision<\/i> <b>60<\/b> (2004) 91\u2013110.<\/li><\/ul>",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2265,11 +2312,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2281,11 +2328,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2308,7 +2355,7 @@
                 "name": "Affine (block matching)",
                 "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
                 "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://github.com/fiji/blockmatching\">Block Matching<\/a> plugin and associated MPICBG tools to detect matching regions from the input images and calculate and apply the necessary 2D affine transforms.",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2424,7 +2471,7 @@
                   },
                   {
                     "name": "Local region sigma",
-                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k× the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
+                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k� the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
                   },
                   {
                     "name": "Maximal absolute local displacement (px)",
@@ -2478,7 +2525,7 @@
                 "name": "Affine (manual)",
                 "shortDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.",
                 "fullDescription": "Apply 2D affine transforms to align images from the workspace to other images from the workspace using manually-selected reference points.  When the module runs, the input and reference images are displayed. The user then selects matching points on each image and clicks \"Add pair(s)\". Points must be added in the same order on each image (ID numbers next to each point provide a reference). Points are shown in the control window and can be deleted by highlighting the relevant entry and clicking \"Remove pair\". Finally, the alignment is accepted by clicking \"Finish adding pairs\", at which point the images are closed and the transform is applied.  If multiple slices/timepoints are to be aligned, the next image pair will immediately be displayed and the processes is repeated.  The transformed input image can either overwrite the input image in the workspace, or be saved to the workspace with a new name.Alignments are calculated using the <a href=\"https://github.com/axtimwalde/mpicbg\">MPICBG<\/a> image transformation library.",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2577,7 +2624,7 @@
                 "name": "Affine (object centroids)",
                 "shortDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.",
                 "fullDescription": "Apply slice-by-slice (2D) affine-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses centroids of previously-detected objects as the reference points for image alignment",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2748,11 +2795,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2764,11 +2811,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2791,7 +2838,7 @@
                 "name": "Unwarp (automatic)",
                 "shortDescription": "Apply slice-by-slice (2D) B-spline unwarping-based image registration to a multi-dimensional stack.",
                 "fullDescription": "Apply slice-by-slice (2D) B-spline unwarping-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/BUnwarpJ\">BUnwarpJ<\/a> plugin to calculate and apply the necessary 2D transforms.  Detailed information about how the BUnwarpJ process works can be found at <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>.",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -2902,7 +2949,7 @@
                 "name": "Unwarp (manual)",
                 "shortDescription": "Apply 2D B-spline unwarping transforms to align images from the workspace to other images from the workspace using manually-selected reference points.",
                 "fullDescription": "Apply 2D B-spline unwarping transforms to align images from the workspace to other images from the workspace using manually-selected reference points.  When the module runs, the input and reference images are displayed. The user then selects matching points on each image and clicks \"Add pair(s)\". Points must be added in the same order on each image (ID numbers next to each point provide a reference). Points are shown in the control window and can be deleted by highlighting the relevant entry and clicking \"Remove pair\". Finally, the alignment is accepted by clicking \"Finish adding pairs\", at which point the images are closed and the transform is applied.  If multiple slices/timepoints are to be aligned, the next image pair will immediately be displayed and the processes is repeated.  The transformed input image can either overwrite the input image in the workspace, or be saved to the workspace with a new name.Alignments are calculated using the <a href=\"https://imagej.net/BUnwarpJ\">BUnwarpJ<\/a> image transformation library.",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "parameters": [
                   {
                     "name": "Input image",
@@ -3570,7 +3617,7 @@
           "name": "Extract metadata",
           "shortDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.",
           "fullDescription": "Metadata values can be extracted from a variety of sources and assigned to the current workspace.  These metadata values can subsequently be accessed in the form M{[NAME]}, where [NAME] is the metadata name.  Some common file and foldername formats are included as pre-defined metadata extraction methods, while other forms can be constructed using regular expressions.",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "parameters": [
             {
               "name": "Extractor mode",
@@ -4411,7 +4458,7 @@
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -4431,6 +4478,29 @@
                 }
               ],
               "slug": "cluster-points"
+            },
+            {
+              "path": "/modules/objects/detect/create-whole-slice-objects",
+              "deprecated": false,
+              "name": "Create whole slice objects",
+              "shortDescription": "For conversion of an image to individual slice objects.",
+              "fullDescription": "For conversion of an image to individual slice objects.  This is useful for subsequently making independent measurements on each slice of an image.  Individual objects can either be created per slice or per timepoint.  Output objects are automatically assigned measurements for timepoint and optionally also slice if processing slice-by-slice.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output mode",
+                  "description": ""
+                }
+              ],
+              "slug": "create-whole-slice-objects"
             },
             {
               "path": "/modules/objects/detect/distance-bands",
@@ -4742,7 +4812,7 @@
                 },
                 {
                   "name": "Overlap mode",
-                  "description": "Controls how intersecting lines should be handled.  For more information see <a href=\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\">                \"Controls how intersecting lines should be handled.  For more information see <a href=\\\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\\\">.<br><ul>\"\n.<br><ul><li>\"None\" Ridges are terminated at line intersections, so two overlapping ridges will likely be identified as at least four separate ridge objects.<\/li><li>\"Slope\" When selected, this will attempt to resolve ridge overlaps such that two overlapping ridges would be identified as two separate objects.  Ridges output in this manner can have common, shared paths (i.e. during the overlap region).<\/li><\/ul>"
+                  "description": "Controls how intersecting lines should be handled.  For more information see <a href=\"https://imagej.net/Ridge_Detection.html#Overlap_resolution\">https://imagej.net/Ridge_Detection.html#Overlap_resolution<\/a>.<br><ul><li>\"None\" Ridges are terminated at line intersections, so two overlapping ridges will likely be identified as at least four separate ridge objects.<\/li><li>\"Slope\" When selected, this will attempt to resolve ridge overlaps such that two overlapping ridges would be identified as two separate objects.  Ridges output in this manner can have common, shared paths (i.e. during the overlap region).<\/li><\/ul>"
                 },
                 {
                   "name": "Minimum length",
@@ -5845,6 +5915,49 @@
                   "slug": "measure-object-intensity"
                 },
                 {
+                  "path": "/modules/objects/measure/intensity/measure-object-intensity-orientation",
+                  "deprecated": false,
+                  "name": "Measure object intensity orientation",
+                  "shortDescription": "Calculates the orientation of structures in each object for a specific image.",
+                  "fullDescription": "Calculates the orientation of structures in each object for a specific image.  This module uses the <a href=\"https://imagej.net/plugins/directionality\">Directionality_<\/a> plugin to calculate core measures.  Additional measurements, such as the Alignment Index [1] are also calculated.  All measurements are made for all slices within an object; that is, the individual slice histograms are merged and normalised prior to calculation of all measurements.<br><br>References:<br><ol><li>Sun, M., et al. \"Rapid Quantification of 3D Collagen Fiber Alignment and Fiber Intersection Correlations with High Sensitivity\" <i>PLOS ONE<\/i> (2015), doi: https://doi.org/10.1371/journal.pone.0131814<\/li><\/ol>",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input image",
+                      "description": ""
+                    },
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Method",
+                      "description": ""
+                    },
+                    {
+                      "name": "Number of bins",
+                      "description": ""
+                    },
+                    {
+                      "name": "Histogram start (�)",
+                      "description": ""
+                    },
+                    {
+                      "name": "Histogram end (�)",
+                      "description": ""
+                    },
+                    {
+                      "name": "Include bin range in name",
+                      "description": ""
+                    },
+                    {
+                      "name": "Include number of bins in name",
+                      "description": ""
+                    }
+                  ],
+                  "slug": "measure-object-intensity-orientation"
+                },
+                {
                   "path": "/modules/objects/measure/intensity/measure-object-texture",
                   "deprecated": false,
                   "name": "Measure object texture",
@@ -6604,11 +6717,11 @@
                     },
                     {
                       "name": "Measure volume",
-                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px³), volume (calibrated_units³), number of voxels, base area (px²), base area (calibrated_units²), height (n_slices) and height (calibrated_units)."
+                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px�), volume (calibrated_units�), number of voxels, base area (px�), base area (calibrated_units�), height (n_slices) and height (calibrated_units)."
                     },
                     {
                       "name": "Measure projected area",
-                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px²) and area (calibrated_units²)."
+                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px�) and area (calibrated_units�)."
                     },
                     {
                       "name": "Measure projected diameter",
@@ -6688,65 +6801,6 @@
                     }
                   ],
                   "slug": "measure-relative-orientation"
-                },
-                {
-                  "path": "/modules/objects/measure/spatial/measure-skeleton",
-                  "deprecated": false,
-                  "name": "Measure skeleton",
-                  "shortDescription": "Creates and measures the skeletonised form of specified input objects.",
-                  "fullDescription": "Creates and measures the skeletonised form of specified input objects.  This module uses the <a href=\"https://imagej.net/AnalyzeSkeleton\">AnalyzeSkeleton<\/a> plugin by Ignacio Arganda-Carreras.<br><br>The optional, output skeleton object acts solely as a linking object for the edge, junction and loop objects.  It doesn't itself hold any coordinate data.",
-                  "version": "1.0.0",
-                  "parameters": [
-                    {
-                      "name": "Input objects",
-                      "description": "Input objects from the workspace to be skeletonised.  These can be either 2D or 3D objects.  Skeleton measurements will be added to this object."
-                    },
-                    {
-                      "name": "Add skeletons to workspace",
-                      "description": "When selected, the coordinates for the various skeleton components (edges, junctions and loops) will be stored as new objects.  These objects will all be children of a parent \"Skeleton\" object, which itself will be a child of the corresponding input object."
-                    },
-                    {
-                      "name": "Output skeleton objects",
-                      "description": "If \"Add skeletons to workspace\" is selected, a single \"Skeleton\" object will be created per input object.  This skeleton object will act as a linking object (parent) for the edges, junctions and loops that comprise that skeleton.  As such, the skeleton object itself doesn't store any coordinate information."
-                    },
-                    {
-                      "name": "Output edge objects",
-                      "description": "If \"Add skeletons to workspace\" is selected, the edges of each skeleton will be stored in these objects.  An \"Edge\" is comprised of a continuous run of points each with one (end points) or two neighbours.  These edge objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each edge object has a partner relationship with its adjacent \"Junction\" and (optionally) \"Loop\" objects (specified by the \"Output junction objects\" and \"Output loop objects\" parameters, respectively)."
-                    },
-                    {
-                      "name": "Output junction objects",
-                      "description": "If \"Add skeletons to workspace\" is selected, the junctions of each skeleton will be stored in these objects.  A \"Junction\" is comprised of a contiguous regions of points each with three or neighbours.  These junction objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each junction object has a partner relationship with its adjacent \"Edge\" and (optionally) \"Loop\" objects (specified by the \"Output edge objects\" and \"Output loop objects\" parameters, respectively)."
-                    },
-                    {
-                      "name": "Export loop objects",
-                      "description": "When selected (and if \"Add skeletons to workspace\" is also selected), the loops of each skeleton will be stored in the workspace as new objects.  The name for the output loop objects is determined by the \"Output loop objects\" parameter."
-                    },
-                    {
-                      "name": "Output loop objects",
-                      "description": "If both \"Add skeletons to workspace\" and \"Export loop objects\" are selected, the loops of each skeleton will be stored in these objects.  A \"Loop\" is comprised of a continuous region of points bounded on all sides by either \"Edge\" or \"Junction\" points.  These loop objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each loop object has a partner relationship with its adjacent \"Edge\" and \"Junction\" objects (specified by the \"Output edge objects\" and \"Output junction objects\" parameters, respectively)."
-                    },
-                    {
-                      "name": "Export largest shortest path",
-                      "description": "When selected, the largest shortest path between any two points in the skeleton will be stored in the workspace as a new object.  For each input object, the shortest path between all point pairs within the skeleton is calculated and the largest of all these paths stored as a new object.  The name for the output largest shortest path object associated with each input object is determined by the \"Output largest shortest path\" parameter.  <a href=\"https://imagej.net/plugins/analyze-skeleton/\">Analyse Skeleton<\/a> calculates the largest shortest path using <a href=\"https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm\">Floyd-Warshall algorithm<\/a>.  Note: These objects are not the same as the <a href=\"https://en.wikipedia.org/wiki/Longest_path_problem\">longest possible path<\/a>."
-                    },
-                    {
-                      "name": "Output largest shortest path",
-                      "description": "If \"Export largest shortest path\"is selected, the largest shortest path for each skeleton will be stored in the workspace.  For each skeleton, the shortest path between all point pairs is calculated; the largest shortest path is the longest of all these paths.  The largest shortest path objects are children of the corresponding input object."
-                    },
-                    {
-                      "name": "Minimum branch length",
-                      "description": "The minimum length of a branch (edge terminating in point with just one neighbour) for it to be included in skeleton measurements and (optionally) exported as an object."
-                    },
-                    {
-                      "name": "Calibrated units",
-                      "description": "When selected, spatial values are assumed to be specified in calibrated units (as defined by the \"Input control\" parameter \"Spatial unit\").  Otherwise, pixel units are assumed."
-                    },
-                    {
-                      "name": "Enable multithreading",
-                      "description": "Break the image down into strips, each one processed on a separate CPU thread.  The overhead required to do this means it's best for large multi-core CPUs, but should be left disabled for small images or on CPUs with few cores."
-                    }
-                  ],
-                  "slug": "measure-skeleton"
                 },
                 {
                   "path": "/modules/objects/measure/spatial/measure-specific-width",
@@ -6874,6 +6928,77 @@
           "slug": "process",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/process/create-skeleton",
+              "deprecated": false,
+              "name": "Create skeleton",
+              "shortDescription": "Creates and measures the skeletonised form of specified input objects.",
+              "fullDescription": "Creates and measures the skeletonised form of specified input objects.  This module uses the <a href=\"https://imagej.net/AnalyzeSkeleton\">AnalyzeSkeleton<\/a> plugin by Ignacio Arganda-Carreras.<br><br>The optional, output skeleton object acts solely as a linking object for the edge, junction and loop objects.  It doesn't itself hold any coordinate data.",
+              "version": "1.1.0",
+              "parameters": [
+                {
+                  "name": "Input mode",
+                  "description": ""
+                },
+                {
+                  "name": "Input image",
+                  "description": "Input image from the workspace to be skeletonised."
+                },
+                {
+                  "name": "Binary logic",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": "Input objects from the workspace to be skeletonised.  These can be either 2D or 3D objects.  Skeleton measurements will be added to this object."
+                },
+                {
+                  "name": "Add skeletons to workspace",
+                  "description": "When selected, the coordinates for the various skeleton components (edges, junctions and loops) will be stored as new objects.  These objects will all be children of a parent \"Skeleton\" object, which itself will be a child of the corresponding input object."
+                },
+                {
+                  "name": "Output skeleton objects",
+                  "description": "If \"Add skeletons to workspace\" is selected, a single \"Skeleton\" object will be created per input object.  This skeleton object will act as a linking object (parent) for the edges, junctions and loops that comprise that skeleton.  As such, the skeleton object itself doesn't store any coordinate information."
+                },
+                {
+                  "name": "Output edge objects",
+                  "description": "If \"Add skeletons to workspace\" is selected, the edges of each skeleton will be stored in these objects.  An \"Edge\" is comprised of a continuous run of points each with one (end points) or two neighbours.  These edge objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each edge object has a partner relationship with its adjacent \"Junction\" and (optionally) \"Loop\" objects (specified by the \"Output junction objects\" and \"Output loop objects\" parameters, respectively)."
+                },
+                {
+                  "name": "Output junction objects",
+                  "description": "If \"Add skeletons to workspace\" is selected, the junctions of each skeleton will be stored in these objects.  A \"Junction\" is comprised of a contiguous regions of points each with three or neighbours.  These junction objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each junction object has a partner relationship with its adjacent \"Edge\" and (optionally) \"Loop\" objects (specified by the \"Output edge objects\" and \"Output loop objects\" parameters, respectively)."
+                },
+                {
+                  "name": "Export loop objects",
+                  "description": "When selected (and if \"Add skeletons to workspace\" is also selected), the loops of each skeleton will be stored in the workspace as new objects.  The name for the output loop objects is determined by the \"Output loop objects\" parameter."
+                },
+                {
+                  "name": "Output loop objects",
+                  "description": "If both \"Add skeletons to workspace\" and \"Export loop objects\" are selected, the loops of each skeleton will be stored in these objects.  A \"Loop\" is comprised of a continuous region of points bounded on all sides by either \"Edge\" or \"Junction\" points.  These loop objects are children of a \"Skeleton\" object (specified by the \"Output skeleton objects\" parameter), which itself is the child of the corresponding input object.  Each loop object has a partner relationship with its adjacent \"Edge\" and \"Junction\" objects (specified by the \"Output edge objects\" and \"Output junction objects\" parameters, respectively)."
+                },
+                {
+                  "name": "Export largest shortest path",
+                  "description": "When selected, the largest shortest path between any two points in the skeleton will be stored in the workspace as a new object.  For each input object, the shortest path between all point pairs within the skeleton is calculated and the largest of all these paths stored as a new object.  The name for the output largest shortest path object associated with each input object is determined by the \"Output largest shortest path\" parameter.  <a href=\"https://imagej.net/plugins/analyze-skeleton/\">Analyse Skeleton<\/a> calculates the largest shortest path using <a href=\"https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm\">Floyd-Warshall algorithm<\/a>.  Note: These objects are not the same as the <a href=\"https://en.wikipedia.org/wiki/Longest_path_problem\">longest possible path<\/a>."
+                },
+                {
+                  "name": "Output largest shortest path",
+                  "description": "If \"Export largest shortest path\"is selected, the largest shortest path for each skeleton will be stored in the workspace.  For each skeleton, the shortest path between all point pairs is calculated; the largest shortest path is the longest of all these paths.  The largest shortest path objects are children of the corresponding input object."
+                },
+                {
+                  "name": "Minimum branch length",
+                  "description": "The minimum length of a branch (edge terminating in point with just one neighbour) for it to be included in skeleton measurements and (optionally) exported as an object."
+                },
+                {
+                  "name": "Calibrated units",
+                  "description": "When selected, spatial values are assumed to be specified in calibrated units (as defined by the \"Input control\" parameter \"Spatial unit\").  Otherwise, pixel units are assumed."
+                },
+                {
+                  "name": "Enable multithreading",
+                  "description": "Break the image down into strips, each one processed on a separate CPU thread.  The overhead required to do this means it's best for large multi-core CPUs, but should be left disabled for small images or on CPUs with few cores."
+                }
+              ],
+              "slug": "create-skeleton"
+            },
             {
               "path": "/modules/objects/process/extract-object-cross-section",
               "deprecated": false,
@@ -7803,7 +7928,7 @@
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -8169,7 +8294,7 @@
               "subParameters": [
                 {
                   "name": "Variable type",
-                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul><li>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.<li>\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.<li>\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
                 },
                 {
                   "name": "Variable name",
@@ -8246,7 +8371,7 @@
               "subParameters": [
                 {
                   "name": "Variable type",
-                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
+                  "description": "Controls the data type of the variable that will be assigned within the macro:<br><ul><li>\"Boolean\" Variable will be assigned a true/false value depending on whether the checkbox was selected/deselected (respectively).<\/li>.<li>\"Number\" Variable will be assigned a numeric value to which mathematical operations can be applied.<\/li>.<li>\"Text\" Variable will be assigned a text value.  Irrespective of whether the value contains only numeric characters this will be interpreted as text.<\/li><\/ul>."
                 },
                 {
                   "name": "Variable name",
@@ -9486,7 +9611,7 @@
             "name": "Add object outline",
             "shortDescription": "Adds an overlay to the specified input image showing the outline of each specified input object.",
             "fullDescription": "Adds an overlay to the specified input image showing the outline of each specified input object.",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "parameters": [
               {
                 "name": "Colour mode",
@@ -10616,7 +10741,7 @@
           "name": "Workflow handling",
           "shortDescription": "Implement workflow handling outcome based on a variety of metrics (e.",
           "fullDescription": "Implement workflow handling outcome based on a variety of metrics (e.g. object counts, image measurements, metadata values).  Outcomes can include termination of the analysis and redirection of the active module to another part of the workflow.  Redirection allows parts of the analysis to skipped.",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "parameters": [
             {
               "name": "Test mode",

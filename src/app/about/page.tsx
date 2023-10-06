@@ -104,8 +104,23 @@ export default function About() {
         <AnchoredHeading type="h2">Citing MIA</AnchoredHeading>
 
         <p>
-          We hope you find MIA useful. If you&apos;ve used MIA in your research, please cite it
-          using the Zenodo DOI for that version of the plugin. Zenodo DOIs for MIA can be found{' '}
+          We hope you find MIA useful. If you&apos;ve used MIA in your research, please cite the
+          following paper:
+        </p>
+
+        <p>
+          Cross, S.J., Fisher, J.D.J.R. & Jepson, M.A., &quot;ModularImageAnalysis (MIA): Assembly
+          of modularised image and object analysis workflows in ImageJ&quot;,{' '}
+          <em>Journal of Microscopy</em> (2023), doi:{' '}
+          <a className="link" href="https://doi.org/10.1111/jmi.13227">
+            110.1111/jmi.13227
+          </a>
+          .
+        </p>
+
+        <p>
+          MIA is also archived at Zenodo, which provides a unique DOI for each released version.
+          Zenodo DOIs can be found{' '}
           <a className="link" href="https://zenodo.org/record/8164907">
             here
           </a>
