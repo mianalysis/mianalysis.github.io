@@ -16,6 +16,23 @@ export default function Publications() {
         <AnchoredHeading type="h2">2023</AnchoredHeading>
 
         <p>
+          Lu, J., <em>et al.</em>, &quot;Five Inhibitory Receptors Display Distinct Vesicular
+          Distributions in Murine T Cells&quot;, <em>Cells</em> (2023), doi:{' '}
+          <a className="link" href="https://doi.org/10.3390/cells12212558">
+            10.3390/cells12212558
+          </a>
+        </p>
+
+        <p>
+          Anton, A., <em>et al.</em>, &quot;Adult neurogenesis does not explain the extensive
+          post-eclosion growth of Heliconius mushroom bodies&quot;, <em>R Soc Open Sci.</em> (2023),
+          doi:{' '}
+          <a className="link" href="https://doi.org/10.1098/rsos.230755">
+            10.1098/rsos.230755
+          </a>
+        </p>
+
+        <p>
           Oates, T.C.L., <em>et al.</em>, &quot;Defining the proteomic landscape of cultured
           macrophages and their polarization continuum&quot;, <em>Immunology & Cell Biology</em>{' '}
           (2023), doi:{' '}

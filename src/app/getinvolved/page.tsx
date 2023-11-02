@@ -42,7 +42,7 @@ export default function GetInvolved() {
     <dependency>
         <groupId>io.github.mianalysis</groupId>
         <artifactId>mia</artifactId>
-        <version>1.3.0</version>
+        <version>1.4.4</version>
     </dependency>
                 `}
           </code>
