@@ -116,7 +116,7 @@
             },
             {
               "name": "Run macro",
-              "description": "When selected, a final macro can be run once all the analysis runs (jobs) have been completed.  By using the workspace handling macros (\"MIA_GetListOfWorkspaceIDs\" and \"MIA_SetActiveWorkspace\") it's possible to switch between workspaces, thus facilitating dataset-wide analyses.  This macro will be executed only once as part of the final data exporting phase of the analysis."
+              "description": "When selected, a final macro can be run once all the analysis runs (jobs) have been completed.  By using the workspace handling macros (\"MIA_GetListOfWorkspaceIDs\"and \"MIA_SetActiveWorkspace\") it's possible to switch between workspaces, thus facilitating dataset-wide analyses.  This macro will be executed only once as part of the final data exporting phase of the analysis."
             },
             {
               "name": "Macro mode",
@@ -218,7 +218,7 @@
               "name": "Set intensity display range",
               "shortDescription": "Set the minimum and maximum displayed intensities for a specified image from the workspace.",
               "fullDescription": "Set the minimum and maximum displayed intensities for a specified image from the workspace.  Any pixels with intensities outside the set displayed range will be rendered with the corresponding extreme value (i.e. any pixels with intensities less than the minimum display value will be shown with the same as the value at the minimum display value).  Display ranges can be calculated automatically or specified manually.  One or both extrema can be set at a time.<br><br>Note: Unlike the \"Normalise intensity\" module, pixel values are unchanged by this module.  The only change is to the way ImageJ/Fiji renders the image.",
-              "version": "1.0.0",
+              "version": "1.0.1",
               "parameters": [
                 {
                   "name": "Input image",
@@ -768,11 +768,11 @@
                   "description": ""
                 },
                 {
-                  "name": "Histogram start (°)",
+                  "name": "Histogram start (�)",
                   "description": ""
                 },
                 {
-                  "name": "Histogram end (°)",
+                  "name": "Histogram end (�)",
                   "description": ""
                 },
                 {
@@ -940,7 +940,7 @@
                   "name": "Calculate distance map",
                   "shortDescription": "Creates a 32-bit greyscale image from an input binary image, where the value of each foreground pixel in the input image is equal to its Euclidean distance to the nearest background pixel.",
                   "fullDescription": "Creates a 32-bit greyscale image from an input binary image, where the value of each foreground pixel in the input image is equal to its Euclidean distance to the nearest background pixel.  This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter.  The output image will have pixel values of 0 coincident with background pixels in the input image and values greater than zero coincident with foreground pixels.  Uses the plugin \"<a href=\"https://github.com/ijpb/MorphoLibJ\">MorphoLibJ<\/a>\".",
-                  "version": "1.0.0",
+                  "version": "1.0.1",
                   "parameters": [
                     {
                       "name": "Input image",
@@ -952,7 +952,7 @@
                     },
                     {
                       "name": "Weight modes",
-                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
+                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                     },
                     {
                       "name": "Match Z to XY",
@@ -2256,11 +2256,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2276,7 +2276,7 @@
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2387,11 +2387,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2403,11 +2403,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2546,7 +2546,7 @@
                   },
                   {
                     "name": "Local region sigma",
-                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k× the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
+                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k� the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
                   },
                   {
                     "name": "Maximal absolute local displacement (px)",
@@ -2805,6 +2805,97 @@
                 "slug": "affine-(object-centroids)"
               },
               {
+                "path": "/modules/images/transform/registration/elastix-registration",
+                "deprecated": false,
+                "name": "Elastix registration",
+                "shortDescription": "",
+                "fullDescription": "",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Output image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": ""
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": ""
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": ""
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": ""
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": ""
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": ""
+                  },
+                  {
+                    "name": "External source",
+                    "description": ""
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": ""
+                  },
+                  {
+                    "name": "Affine",
+                    "description": ""
+                  },
+                  {
+                    "name": "Fast affine",
+                    "description": ""
+                  },
+                  {
+                    "name": "Rigid",
+                    "description": ""
+                  },
+                  {
+                    "name": "Spline",
+                    "description": ""
+                  },
+                  {
+                    "name": "Spline grid spacing",
+                    "description": ""
+                  }
+                ],
+                "slug": "elastix-registration"
+              },
+              {
                 "path": "/modules/images/transform/registration/register-images",
                 "deprecated": true,
                 "name": "Register images",
@@ -2870,11 +2961,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2886,11 +2977,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -3189,6 +3280,37 @@
                 }
               ],
               "slug": "concatenate-stacks"
+            },
+            {
+              "path": "/modules/images/transform/concatenate-stacks-2",
+              "deprecated": true,
+              "name": "Concatenate stacks 2",
+              "shortDescription": "This is a candidate replacement for the original ConcatenateStacks.",
+              "fullDescription": "This is a candidate replacement for the original ConcatenateStacks.  For now, it's marked as \"deprecated\" to keep it hidden.<br>Combine two or more image stacks into a single stack.  This module allows images to be combined along any of the axes X,Y,C,Z or T.<br><br>Note: Image stack dimensions and bit-depths must be compatible.",
+              "version": "1.1.0",
+              "parameters": [
+                {
+                  "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image for concatenation."
+                  }],
+                  "description": "Add another image for concatenation."
+                },
+                {
+                  "name": "Allow missing images",
+                  "description": "If enabled, the moduule can ignore any images specified for inclusion that aren't present in the workspace.  This is useful if an image's existence is dependent on optional modules."
+                },
+                {
+                  "name": "Output image",
+                  "description": "The resultant image of concatenation to be added to the workspace."
+                },
+                {
+                  "name": "Axis mode",
+                  "description": "Axis along which to concatenate input images."
+                }
+              ],
+              "slug": "concatenate-stacks-2"
             },
             {
               "path": "/modules/images/transform/convert-3d-stack-(switch-z-and-t)",
@@ -3921,6 +4043,41 @@
           "slug": "load-image"
         },
         {
+          "path": "/modules/input-output/load-image-2",
+          "deprecated": true,
+          "name": "Load image 2",
+          "shortDescription": "In development image loader using ImgLib2.",
+          "fullDescription": "In development image loader using ImgLib2.",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Output image",
+              "description": "Name assigned to the image."
+            },
+            {
+              "name": "Import mode",
+              "description": "Controls where the image will be loaded from:<br><ul><li>\"Current file\" (default option) will import the current root-file for the workspace (this is the file specified in the \"Input control\" module).<\/li><li>\"Matching format\" will load the image matching a filename based on the root-file for the workspace and a series of rules.<\/li><li>\"Specific file\" will load the image at the location specified by \"File path\".<\/li><\/ul>"
+            },
+            {
+              "name": "Generic format",
+              "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+            },
+            {
+              "name": "File path",
+              "description": "Path to file to be loaded."
+            },
+            {
+              "name": "Series mode",
+              "description": "Controls which series should be loaded for multiseries files (e.g. Leica LIF files):<br><ul><li>\"Current series\" will load the same series as the current root file (i.e. that selected via \"Input control\").<\/li><li>\"Specific series\" will load a specific series specified by the \"Series number\"parameter.<\/li><\/ul>"
+            },
+            {
+              "name": "Series number",
+              "description": "If a specific series is being loaded (\"Series mode\" set to \"Specific series\"), this is the series that will be used."
+            }
+          ],
+          "slug": "load-image-2"
+        },
+        {
           "path": "/modules/input-output/load-objects",
           "deprecated": false,
           "name": "Load objects",
@@ -4425,6 +4582,121 @@
           "subCategories": [],
           "modules": [
             {
+              "path": "/modules/objects/detect/cellpose-detection",
+              "deprecated": false,
+              "name": "Cellpose detection",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Cellpose environment path",
+                  "description": ""
+                },
+                {
+                  "name": "Environment type",
+                  "description": ""
+                },
+                {
+                  "name": "Cellpose version",
+                  "description": ""
+                },
+                {
+                  "name": "Use MXNet",
+                  "description": ""
+                },
+                {
+                  "name": "Use resample",
+                  "description": ""
+                },
+                {
+                  "name": "Use GPU",
+                  "description": ""
+                },
+                {
+                  "name": "Use fast mode",
+                  "description": ""
+                },
+                {
+                  "name": "Model mode",
+                  "description": ""
+                },
+                {
+                  "name": "Custom model path",
+                  "description": ""
+                },
+                {
+                  "name": "Model",
+                  "description": ""
+                },
+                {
+                  "name": "Use nuclei channel",
+                  "description": ""
+                },
+                {
+                  "name": "Nuclei channel",
+                  "description": ""
+                },
+                {
+                  "name": "Use cyto channel",
+                  "description": ""
+                },
+                {
+                  "name": "Cyto channel",
+                  "description": ""
+                },
+                {
+                  "name": "Dimension mode",
+                  "description": ""
+                },
+                {
+                  "name": "Diameter",
+                  "description": ""
+                },
+                {
+                  "name": "Cell probability threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Flow threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Anisotropy",
+                  "description": ""
+                },
+                {
+                  "name": "Diameter threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Stitch threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Use Omnipose mask reconstruction features",
+                  "description": ""
+                },
+                {
+                  "name": "Use DBSCAN clustering",
+                  "description": ""
+                },
+                {
+                  "name": "Additional flags",
+                  "description": ""
+                }
+              ],
+              "slug": "cellpose-detection"
+            },
+            {
               "path": "/modules/objects/detect/circle-detection",
               "deprecated": false,
               "name": "Circle detection",
@@ -4533,7 +4805,7 @@
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -4576,73 +4848,6 @@
                 }
               ],
               "slug": "create-whole-slice-objects"
-            },
-            {
-              "path": "/modules/objects/detect/distance-bands",
-              "deprecated": false,
-              "name": "Distance bands",
-              "shortDescription": "",
-              "fullDescription": "",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input image",
-                  "description": ""
-                },
-                {
-                  "name": "Binary logic",
-                  "description": ""
-                },
-                {
-                  "name": "Output objects",
-                  "description": ""
-                },
-                {
-                  "name": "Band mode",
-                  "description": ""
-                },
-                {
-                  "name": "Volume type",
-                  "description": ""
-                },
-                {
-                  "name": "Merge bands",
-                  "description": ""
-                },
-                {
-                  "name": "Match Z to XY",
-                  "description": ""
-                },
-                {
-                  "name": "Weight mode",
-                  "description": ""
-                },
-                {
-                  "name": "Band width",
-                  "description": ""
-                },
-                {
-                  "name": "Spatial units mode",
-                  "description": ""
-                },
-                {
-                  "name": "Apply minimum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Minimum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Apply maximum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Maximum band distance",
-                  "description": ""
-                }
-              ],
-              "slug": "distance-bands"
             },
             {
               "path": "/modules/objects/detect/identify-objects",
@@ -4697,7 +4902,7 @@
               "name": "Manually identify objects",
               "shortDescription": "Manually create objects using the ImageJ selection tools.",
               "fullDescription": "Manually create objects using the ImageJ selection tools.  Selected regions can be interpolated in Z and T to speed up the object creation process.<br><br>This module will display a control panel and an image onto which selections are made.  <br><br>Following selection of a region to be included in the object, the user can either add this region to a new object (\"Add new\" button), or add it to an existing object (\"Add to existing\" button).  The target object for adding to an existing object is specified using the \"Existing object number\" control (a list of existing object IDs is shown directly below this control).<br><br>References to each selection are displayed below the controls.  Previously-added regions can be re-selected by clicking the relevant reference.  This allows selections to be deleted or used as a basis for further selections.<br><br>Once all selections have been made, objects are added to the workspace with the \"Finish\" button.<br><br>Objects need to be added slice-by-slice and can be linked in 3D using the \"Add to existing\" control.",
-              "version": "1.0.1",
+              "version": "1.0.2",
               "parameters": [
                 {
                   "name": "Input image",
@@ -6030,6 +6235,10 @@
                       "description": "Image from which pixel intensities will be measured.  This image can be 8-bit, 16-bit or 32-bit.  Measurements are always taken from the first channel if more than one channel is present (to measure additional channels, please first use the \"Extract substack\" module)."
                     },
                     {
+                      "name": "Measure median intensity",
+                      "description": "When selected, the median intensity of each input object will be calculated.  For very large objects, this can require a lot of memory"
+                    },
+                    {
                       "name": "Measure weighted centre",
                       "description": "When selected, the intensity-weighted centroid of each input object will be calculated.  With this, the greater the intensity in a particular region of an object, the more the \"centre of mass\" will be drawn towards it."
                     }
@@ -6097,11 +6306,11 @@
                       "description": ""
                     },
                     {
-                      "name": "Histogram start (°)",
+                      "name": "Histogram start (�)",
                       "description": ""
                     },
                     {
-                      "name": "Histogram end (°)",
+                      "name": "Histogram end (�)",
                       "description": ""
                     },
                     {
@@ -6257,6 +6466,29 @@
               "slug": "miscellaneous",
               "subCategories": [],
               "modules": [
+                {
+                  "path": "/modules/objects/measure/miscellaneous/adopt-parent-measurement",
+                  "deprecated": false,
+                  "name": "Adopt parent measurement",
+                  "shortDescription": "",
+                  "fullDescription": "",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Parent objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Measurement",
+                      "description": ""
+                    }
+                  ],
+                  "slug": "adopt-parent-measurement"
+                },
                 {
                   "path": "/modules/objects/measure/miscellaneous/apply-weka-object-classification",
                   "deprecated": false,
@@ -6887,11 +7119,11 @@
                     },
                     {
                       "name": "Measure volume",
-                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px³), volume (calibrated_units³), number of voxels, base area (px²), base area (calibrated_units²), height (n_slices) and height (calibrated_units)."
+                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px�), volume (calibrated_units�), number of voxels, base area (px�), base area (calibrated_units�), height (n_slices) and height (calibrated_units)."
                     },
                     {
                       "name": "Measure projected area",
-                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px²) and area (calibrated_units²)."
+                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px�) and area (calibrated_units�)."
                     },
                     {
                       "name": "Measure projected diameter",
@@ -7072,6 +7304,22 @@
                       "description": "Input individual timepoint instance objects for the track.  These are the spatial records of the tracked objects in a single timepoint and are children of the track object specified by \"Input track objects\".  Instantaneous track measurements (e.g. instantaneous x-velociyty) are associated with the corresponding spot objects."
                     },
                     {
+                      "name": "Position mode",
+                      "description": ""
+                    },
+                    {
+                      "name": "X-position measurement",
+                      "description": ""
+                    },
+                    {
+                      "name": "Y-position measurement",
+                      "description": ""
+                    },
+                    {
+                      "name": "Z-position measurement",
+                      "description": ""
+                    },
+                    {
                       "name": "Subtract average motion",
                       "description": "When selected, the average motion of all points between two frames is subtracted from the motion prior to calculation of any track measurements.  This can be used as a crude form of drift correction; however, it only works for global drift (where the whole sample moved together) and is less robust with few tracked objects.  Ideally, drift would be removed from the input images using image registration prior to object detection."
                     },
@@ -7098,6 +7346,73 @@
           "slug": "process",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/process/create-distance-bands",
+              "deprecated": false,
+              "name": "Create distance bands",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.2.1",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Volume type",
+                  "description": ""
+                },
+                {
+                  "name": "Relative mode",
+                  "description": ""
+                },
+                {
+                  "name": "Parent objects",
+                  "description": ""
+                },
+                {
+                  "name": "Band mode",
+                  "description": ""
+                },
+                {
+                  "name": "Match Z to XY",
+                  "description": ""
+                },
+                {
+                  "name": "Weight mode",
+                  "description": ""
+                },
+                {
+                  "name": "Band width",
+                  "description": ""
+                },
+                {
+                  "name": "Spatial units mode",
+                  "description": ""
+                },
+                {
+                  "name": "Apply minimum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Minimum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Apply maximum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum band distance",
+                  "description": ""
+                }
+              ],
+              "slug": "create-distance-bands"
+            },
             {
               "path": "/modules/objects/process/create-skeleton",
               "deprecated": false,
@@ -7913,7 +8228,7 @@
               "name": "Relate many-to-one",
               "shortDescription": "Relate objects of two classes based on a variety of metrics (e.",
               "fullDescription": "Relate objects of two classes based on a variety of metrics (e.g. spatial overlap or proximity).  The assigned relationships are of the form many-to-one, where many input \"child\" objects can be related to at most, one \"parent\" object (see \"Relate many-to-many\" and \"Relate one-to-one\" modules for alternatives).  Measurements associated with this relationship (e.g. distance from child to parent surface) are stored as measurements of the relevant child object.",
-              "version": "1.0.0",
+              "version": "1.0.1",
               "parameters": [
                 {
                   "name": "Parent (larger) objects",
@@ -7962,6 +8277,14 @@
                 {
                   "name": "Enable multithreading",
                   "description": "Process multiple object relationships simultaneously.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                },
+                {
+                  "name": "Show objects",
+                  "description": ""
+                },
+                {
+                  "name": "Show measurements",
+                  "description": ""
                 }
               ],
               "slug": "relate-many-to-one"
@@ -8082,7 +8405,7 @@
               "name": "Single class cluster",
               "shortDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.",
               "fullDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.  In K-Means++ [1], an optimisation of the standard K-Means algorithm, the points are assigned to a pre-determined number of clusters such that each point is assigned to its closest cluster mean position (this process is repeated until the cluster assignments stabilise or a maximum number of iterations is reached).  For DBSCAN [2], points are clustered based on a minimum number of neighbours within a specified spatial range.  As such, this algorithm doesn't require prior knowledge of the number of clusters.  Both algorithms use their respective <a href=\"https://commons.apache.org/proper/commons-math/\">Apache Commons Math implementations.<\/a><br><br>References:<br>[1] Arthur, D.; Vassilvitskii, S. (2007). \"k-means++: the advantages of careful seeding.\" <i>Proceedings of the eighteenth annual ACM-SIAM symposium on Discrete algorithms. Society for Industrial and Applied Mathematics Philadelphia, PA, USA.<\/i> pp. 1027\u20131035<br>[2] Ester, M.; Kriegel, H.-P.; Sander, J.; Xu, X. (1996). \"A density-based algorithm for discovering clusters in large spatial databases with noise.\" <i>Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD-96). AAAI Press.<\/i> pp. 226\u2013231",
-              "version": "1.0.0",
+              "version": "1.1.0",
               "parameters": [
                 {
                   "name": "Input objects",
@@ -8094,11 +8417,11 @@
                 },
                 {
                   "name": "Apply volume",
-                  "description": "When selected, the output cluster object will be assigned volume based on the extents of all child objects."
+                  "description": "When selected, the output cluster object will gain all coordinates of any child objects."
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -8607,7 +8930,7 @@
           "name": "Run script",
           "shortDescription": "Run Fiji-compatible scripts directly within a MIA workflow.",
           "fullDescription": "Run Fiji-compatible scripts directly within a MIA workflow.  These can be used to perform advanced actions, such as making measurements that aren't explicitly supported in MIA or running additional plugins.  Each script has access to the current workspace, thus providing a route to interact with and specify new images and objects.  Scripts also have access to this module, which in turn can be used to access all modules in the current workflow.  Scripts are run once per workflow execution.",
-          "version": "1.0.1",
+          "version": "1.0.2",
           "parameters": [
             {
               "name": "Script mode",
@@ -8860,6 +9183,19 @@
             "description": "Mark another object set from the workspace for removal."
           }],
           "slug": "remove-objects"
+        },
+        {
+          "path": "/modules/system/test-big-image",
+          "deprecated": true,
+          "name": "Test big image",
+          "shortDescription": "In development image loader using ImgLib2.",
+          "fullDescription": "In development image loader using ImgLib2.",
+          "version": "1.0.0",
+          "parameters": [{
+            "name": "Output image",
+            "description": ""
+          }],
+          "slug": "test-big-image"
         }
       ]
     },
@@ -10339,6 +10675,22 @@
                 {
                   "name": "Spot objects",
                   "description": "Objects present in each frame of this track.  These are children of the \"Input objects\" and provide the coordinate information for each frame."
+                },
+                {
+                  "name": "Position mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-position measurement",
+                  "description": ""
+                },
+                {
+                  "name": "Y-position measurement",
+                  "description": ""
+                },
+                {
+                  "name": "Z-position measurement",
+                  "description": ""
                 },
                 {
                   "name": "Apply to input image",
