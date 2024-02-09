@@ -21,6 +21,7 @@ import io.github.mianalysis.mia.module.Module;
 import io.github.mianalysis.mia.module.Modules;
 import io.github.mianalysis.mia.object.parameters.ParameterGroup;
 import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
+import net.imagej.patcher.LegacyInjector;
 
 public class ModuleExporter {
     private static final String OUTPUT_PATH = "./src/assets/modules.json";
@@ -28,6 +29,8 @@ public class ModuleExporter {
     private static HashMap<Category, TreeSet<Module>> modulesByCategory;
 
     public static void main(String[] args) {
+        LegacyInjector.preinit();
+
         System.out.println("MIA version [" + MIA.getVersion() + "]");
 
         modulesByCategory = getModules();
