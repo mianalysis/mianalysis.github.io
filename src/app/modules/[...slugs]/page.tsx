@@ -1,7 +1,7 @@
 import ModuleCategoryComponent from '@/components/module/ModuleCategory';
 import ModuleDetails from '@/components/module/ModuleDetails';
 import { findModuleOrCategory, getModulePaths } from '@/lib/modules';
-import { Module } from '@/types';
+// import { Module } from '@/types';
 
 export const dynamicParams = false;
 

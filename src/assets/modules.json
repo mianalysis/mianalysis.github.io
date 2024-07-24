@@ -768,11 +768,11 @@
                   "description": ""
                 },
                 {
-                  "name": "Histogram start (�)",
+                  "name": "Histogram start (°)",
                   "description": ""
                 },
                 {
-                  "name": "Histogram end (�)",
+                  "name": "Histogram end (°)",
                   "description": ""
                 },
                 {
@@ -2256,11 +2256,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2276,7 +2276,7 @@
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2387,11 +2387,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2403,11 +2403,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -2546,7 +2546,7 @@
                   },
                   {
                     "name": "Local region sigma",
-                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k� the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
+                    "description": "\"The local smoothness filter inspects each match and compares how well the estimated translational offset agrees with all other matches weighted by their distance to the inspected match. To that end, a local linear transformation (typically rigid) is calculated using weighted least squares. The weight for each match is defined by a Gaussian radial distribution function (RDF) centered at the reference match.  This parameter controls sigma for this RDF. A match is rejected if its transfer error relative to the estimated linear transformation is larger than an absolute threshold or larger than k× the average transfer error of all weighted matches (k is specified in the relative field).  \"Description taken from <a href=\"https://imagej.net/Elastic_Alignment_and_Montage.html\">https://imagej.net/Elastic_Alignment_and_Montage.html<\/a>"
                   },
                   {
                     "name": "Maximal absolute local displacement (px)",
@@ -2873,6 +2873,14 @@
                     "description": ""
                   },
                   {
+                    "name": "Elastix executable",
+                    "description": ""
+                  },
+                  {
+                    "name": "Transformix executable",
+                    "description": ""
+                  },
+                  {
                     "name": "Affine",
                     "description": ""
                   },
@@ -2961,11 +2969,11 @@
                   },
                   {
                     "name": "Initial Gaussian blur (px)",
-                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur ?0 slightly to get more but eventually less stable keypoints. Increasing ?0 increases the computational cost for Gaussian blur, setting it to ?0=3.2px is equivalent to keep ?0=1.6px and use half maximum image size. Tip: Keep the default value ?0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Accurate localization of keypoints requires initial smoothing of the image. If your images are blurred already, you might lower the initial blur σ0 slightly to get more but eventually less stable keypoints. Increasing σ0 increases the computational cost for Gaussian blur, setting it to σ0=3.2px is equivalent to keep σ0=1.6px and use half maximum image size. Tip: Keep the default value σ0=1.6px as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Steps per scale",
-                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from ?0 to 2?0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"Keypoint candidates are extracted at all scales between maximum image size and minimum image size. This Scale Space is represented in octaves each covering a fixed number of discrete scale steps from σ0 to 2σ0. More steps result in more but eventually less stable keypoint candidates. Tip: Keep 3 as suggested by Lowe (2004) and do not use more than 10.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Minimum image size (px)",
@@ -2977,11 +2985,11 @@
                   },
                   {
                     "name": "Feature descriptor size",
-                    "description": "\"The SIFT-descriptor consists of n�n gradient histograms, each from a 4�4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"The SIFT-descriptor consists of n×n gradient histograms, each from a 4×4px block. n is this value. Lowe (2004) uses n=4. We found larger descriptors with n=8 perform better for Transmission Electron Micrographs from serial sections.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Feature descriptor orientation bins",
-                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4�4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                    "description": "\"For SIFT-descriptors, this is the number of orientation bins b per 4×4px block as described above. Tip: Keep the default value b=8 as suggested by Lowe (2004).\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
                   },
                   {
                     "name": "Closest/next closest ratio",
@@ -3302,6 +3310,10 @@
                   "description": "If enabled, the moduule can ignore any images specified for inclusion that aren't present in the workspace.  This is useful if an image's existence is dependent on optional modules."
                 },
                 {
+                  "name": "Remove input images",
+                  "description": ""
+                },
+                {
                   "name": "Output image",
                   "description": "The resultant image of concatenation to be added to the workspace."
                 },
@@ -3316,8 +3328,8 @@
               "path": "/modules/images/transform/convert-3d-stack-(switch-z-and-t)",
               "deprecated": false,
               "name": "Convert 3D stack (switch Z and T)",
-              "shortDescription": "Emsures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).",
-              "fullDescription": "Emsures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).  This module verifies the singular dimension of a 3D stack is correct for the specified output type (e.g. single slice when dealing with timeseries).  Any stacks which are not in the expected order have their T and Z axes swapped.",
+              "shortDescription": "Ensures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).",
+              "fullDescription": "Ensures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).  This module verifies the singular dimension of a 3D stack is correct for the specified output type (e.g. single slice when dealing with timeseries).  Any stacks which are not in the expected order have their T and Z axes swapped.",
               "version": "1.0.0",
               "parameters": [
                 {
@@ -3809,6 +3821,65 @@
           "slug": "export-acc-dataset"
         },
         {
+          "path": "/modules/input-output/export-voc-annotations",
+          "deprecated": false,
+          "name": "Export VOC annotations",
+          "shortDescription": "",
+          "fullDescription": "",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Save location",
+              "description": ""
+            },
+            {
+              "name": "Mirrored directory root",
+              "description": ""
+            },
+            {
+              "name": "File path",
+              "description": ""
+            },
+            {
+              "name": "File name (generic)",
+              "description": ""
+            },
+            {
+              "name": "Save name mode",
+              "description": ""
+            },
+            {
+              "name": "File name",
+              "description": ""
+            },
+            {
+              "name": "Append series mode",
+              "description": ""
+            },
+            {
+              "name": "Append date/time mode",
+              "description": ""
+            },
+            {
+              "name": "Add filename suffix",
+              "description": ""
+            },
+            {
+              "name": "Input objects",
+              "description": ""
+            },
+            {
+              "name": "Input image",
+              "description": ""
+            },
+            {
+              "name": "Metadata item for class",
+              "description": ""
+            }
+          ],
+          "slug": "export-voc-annotations"
+        },
+        {
           "path": "/modules/input-output/extract-metadata",
           "deprecated": false,
           "name": "Extract metadata",
@@ -4229,6 +4300,10 @@
               "description": ""
             },
             {
+              "name": "Assign object class",
+              "description": ""
+            },
+            {
               "name": "Reference image",
               "description": ""
             },
@@ -4431,6 +4506,14 @@
             },
             {
               "name": "Track objects",
+              "description": ""
+            },
+            {
+              "name": "Add object class",
+              "description": ""
+            },
+            {
+              "name": "Metadata item",
               "description": ""
             },
             {
@@ -4805,7 +4888,7 @@
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -4902,11 +4985,67 @@
               "name": "Manually identify objects",
               "shortDescription": "Manually create objects using the ImageJ selection tools.",
               "fullDescription": "Manually create objects using the ImageJ selection tools.  Selected regions can be interpolated in Z and T to speed up the object creation process.<br><br>This module will display a control panel and an image onto which selections are made.  <br><br>Following selection of a region to be included in the object, the user can either add this region to a new object (\"Add new\" button), or add it to an existing object (\"Add to existing\" button).  The target object for adding to an existing object is specified using the \"Existing object number\" control (a list of existing object IDs is shown directly below this control).<br><br>References to each selection are displayed below the controls.  Previously-added regions can be re-selected by clicking the relevant reference.  This allows selections to be deleted or used as a basis for further selections.<br><br>Once all selections have been made, objects are added to the workspace with the \"Finish\" button.<br><br>Objects need to be added slice-by-slice and can be linked in 3D using the \"Add to existing\" control.",
-              "version": "1.0.2",
+              "version": "1.1.0",
               "parameters": [
+                {
+                  "name": "Save location",
+                  "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
+                },
+                {
+                  "name": "Mirrored directory root",
+                  "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
+                },
+                {
+                  "name": "File path",
+                  "description": "Path to folder where images will be saved."
+                },
+                {
+                  "name": "File name (generic)",
+                  "description": ""
+                },
+                {
+                  "name": "Save name mode",
+                  "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
+                },
+                {
+                  "name": "File name",
+                  "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                },
+                {
+                  "name": "Append series mode",
+                  "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
+                },
+                {
+                  "name": "Append date/time mode",
+                  "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
+                },
+                {
+                  "name": "Add filename suffix",
+                  "description": "A custom suffix to be added to each filename."
+                },
                 {
                   "name": "Input image",
                   "description": "Image onto which selections will be drawn.  This will be displayed automatically when the module runs."
+                },
+                {
+                  "name": "Add existing objects",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Allow missing objects",
+                  "description": ""
+                },
+                {
+                  "name": "Apply existing class",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata item for class",
+                  "description": ""
                 },
                 {
                   "name": "Output objects",
@@ -4931,6 +5070,26 @@
                 {
                   "name": "Temporal interpolation",
                   "description": "Interpolate objects across multiple frames.  Objects assigned the same ID will be interpolated to appear in all frames between the first and last specified timepoints.  Specified regions must contain a degree of overlap (higher overlap will give better results)."
+                },
+                {
+                  "name": "Assign classes",
+                  "description": ""
+                },
+                {
+                  "name": "Classes source",
+                  "description": ""
+                },
+                {
+                  "name": "Class file",
+                  "description": ""
+                },
+                {
+                  "name": "Allow additions",
+                  "description": ""
+                },
+                {
+                  "name": "Class list (comma-separated)",
+                  "description": ""
                 },
                 {
                   "name": "Instruction text",
@@ -5460,7 +5619,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5472,6 +5631,49 @@
                 }
               ],
               "slug": "based-on-measurement"
+            },
+            {
+              "path": "/modules/objects/filter/based-on-metadata",
+              "deprecated": false,
+              "name": "Based on metadata",
+              "shortDescription": "Filter an object collection based on a metadata value associated with this object.",
+              "fullDescription": "Filter an object collection based on a metadata value associated with this object.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Filter mode",
+                  "description": ""
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": ""
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": ""
+                },
+                {
+                  "name": "Reference value",
+                  "description": ""
+                },
+                {
+                  "name": "Store summary filter results",
+                  "description": ""
+                },
+                {
+                  "name": "Store individual filter results",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata to filter on",
+                  "description": "Objects will be filtered against their value of this measurement.  Objects missing this measurement are not removed; however, they can be removed by using the module \"With / without measurement\"."
+                }
+              ],
+              "slug": "based-on-metadata"
             },
             {
               "path": "/modules/objects/filter/filter-objects",
@@ -5700,7 +5902,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5767,7 +5969,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5947,6 +6149,41 @@
                 }
               ],
               "slug": "with--without-measurement"
+            },
+            {
+              "path": "/modules/objects/filter/with--without-metadata",
+              "deprecated": false,
+              "name": "With / without metadata",
+              "shortDescription": "Filter an object collection based on the presence of a specific metadata item for each object.",
+              "fullDescription": "Filter an object collection based on the presence of a specific metadata item for each object.  Objects which do/don't have the relevant metadata item can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  The number of objects failing the filter can be stored as a metadata value.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be filtered."
+                },
+                {
+                  "name": "Filter mode",
+                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": "Controls whether objects are removed when a specific metadata item is present or not:<br><br>- \"Remove objects without metadata\" Objects without the metadata item specified by \"Metadata item to filter on\" are removed, counted or moved (depending on the \"Filter mode\" parameter).<br><br>- \"Remove objects with metadata\" Objects with the metadata item specified by \"Metadata item to filter on\" are removed, counted or moved (depending on the \"Filter mode\" parameter).<br>"
+                },
+                {
+                  "name": "Metadata item to filter on",
+                  "description": "Metadata item to filter by.  The presence or absence of this metadata item will determine which of the input objects are counted, removed or moved (depending on the \"Filter mode\" parameter)."
+                },
+                {
+                  "name": "Store filter results",
+                  "description": "When selected, the number of removed (or moved) objects is counted and stored as a metadata item (name in the format \"FILTER // NUM_[inputObjectsName] WITHOUT [metadata item name] METADATA\")."
+                }
+              ],
+              "slug": "with--without-metadata"
             },
             {
               "path": "/modules/objects/filter/with--without-parent",
@@ -6241,6 +6478,10 @@
                     {
                       "name": "Measure weighted centre",
                       "description": "When selected, the intensity-weighted centroid of each input object will be calculated.  With this, the greater the intensity in a particular region of an object, the more the \"centre of mass\" will be drawn towards it."
+                    },
+                    {
+                      "name": "Measure peak brightness location",
+                      "description": "When selected, the location of the brightest pixel in the object will be calculated.  In instances where multiple pixels have the same brightest value, the mean of their positions will be used"
                     }
                   ],
                   "slug": "measure-object-intensity"
@@ -6306,11 +6547,11 @@
                       "description": ""
                     },
                     {
-                      "name": "Histogram start (�)",
+                      "name": "Histogram start (°)",
                       "description": ""
                     },
                     {
-                      "name": "Histogram end (�)",
+                      "name": "Histogram end (°)",
                       "description": ""
                     },
                     {
@@ -7119,11 +7360,11 @@
                     },
                     {
                       "name": "Measure volume",
-                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px�), volume (calibrated_units�), number of voxels, base area (px�), base area (calibrated_units�), height (n_slices) and height (calibrated_units)."
+                      "description": "When selected, 3D volume metrics will be calculated for each input object.  Metrics are: volume (px³), volume (calibrated_units³), number of voxels, base area (px²), base area (calibrated_units²), height (n_slices) and height (calibrated_units)."
                     },
                     {
                       "name": "Measure projected area",
-                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px�) and area (calibrated_units�)."
+                      "description": "When selected, 2D area metrics will be calculated for each input object.  For 3D objects, a 2D projection in the XY plane is used for measurements.  This projection includes all XY coordinates present in any Z-slice.  Metrics are: area (px²) and area (calibrated_units²)."
                     },
                     {
                       "name": "Measure projected diameter",
@@ -7324,6 +7565,10 @@
                       "description": "When selected, the average motion of all points between two frames is subtracted from the motion prior to calculation of any track measurements.  This can be used as a crude form of drift correction; however, it only works for global drift (where the whole sample moved together) and is less robust with few tracked objects.  Ideally, drift would be removed from the input images using image registration prior to object detection."
                     },
                     {
+                      "name": "Calculate orientation",
+                      "description": ""
+                    },
+                    {
                       "name": "Identify leading point",
                       "description": "When selected, the \"leading point\" of each object in the track will be determined and stored as X,Y,Z coordinate measurements associated with the relevant object.  The orientation of the track at that location will also be calculated.  In this instance, \"leading point\" refers to the front-most point in the object when considering the direction the object is moving in that frame.  This can be calculated relative to the previous frame, next frame or both previous and next frames (controlled by the \"Orientation mode\" parameter)."
                     },
@@ -7346,6 +7591,25 @@
           "slug": "process",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/process/create-bounding-boxes",
+              "deprecated": false,
+              "name": "Create bounding boxes",
+              "shortDescription": "Creates a solid bounding box for each input object.",
+              "fullDescription": "Creates a solid bounding box for each input object.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Input objects to extract bounding box from."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Output bounding box objects to be stored in the workspace."
+                }
+              ],
+              "slug": "create-bounding-boxes"
+            },
             {
               "path": "/modules/objects/process/create-distance-bands",
               "deprecated": false,
@@ -8015,25 +8279,6 @@
                 }
               ],
               "slug": "grow-objects"
-            },
-            {
-              "path": "/modules/objects/process/project-objects",
-              "deprecated": false,
-              "name": "Project objects",
-              "shortDescription": "",
-              "fullDescription": "",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input objects",
-                  "description": "Objects to be projected into the xy-plane.  Tese are related as a parent of their respective projected object."
-                },
-                {
-                  "name": "Output objects",
-                  "description": "Output projected objects to be stored in the workspace.  These are related as children of the respective input object."
-                }
-              ],
-              "slug": "project-objects"
             }
           ]
         },
@@ -8064,6 +8309,10 @@
                   {
                     "name": "Input objects 2",
                     "description": "Second of two object collections to combine.  Depending on the choice for parameter \"Output mode\", this collection may be updated to include the objects from the first collection (\"Input objects 2\")."
+                  },
+                  {
+                    "name": "Allow missing objects",
+                    "description": ""
                   },
                   {
                     "name": "Output mode",
@@ -8129,6 +8378,37 @@
             ]
           }],
           "modules": [
+            {
+              "path": "/modules/objects/relate/object-slices-to-3d",
+              "deprecated": false,
+              "name": "Object slices to 3D",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Linking distance XY",
+                  "description": ""
+                },
+                {
+                  "name": "Calibrated units",
+                  "description": ""
+                },
+                {
+                  "name": "Max number of missing slices",
+                  "description": ""
+                }
+              ],
+              "slug": "object-slices-to-3d"
+            },
             {
               "path": "/modules/objects/relate/relate-many-to-many",
               "deprecated": false,
@@ -8228,7 +8508,7 @@
               "name": "Relate many-to-one",
               "shortDescription": "Relate objects of two classes based on a variety of metrics (e.",
               "fullDescription": "Relate objects of two classes based on a variety of metrics (e.g. spatial overlap or proximity).  The assigned relationships are of the form many-to-one, where many input \"child\" objects can be related to at most, one \"parent\" object (see \"Relate many-to-many\" and \"Relate one-to-one\" modules for alternatives).  Measurements associated with this relationship (e.g. distance from child to parent surface) are stored as measurements of the relevant child object.",
-              "version": "1.0.1",
+              "version": "1.1.0",
               "parameters": [
                 {
                   "name": "Parent (larger) objects",
@@ -8236,7 +8516,7 @@
                 },
                 {
                   "name": "Child (smaller) objects",
-                  "description": "Objects to relate to the parents.  Each child will be assigned at most one parent.  There's no guarantee a child will be assigned any parent, especially when using options such as \"Limit linking by distance\"."
+                  "description": "Objects to relate to the parents.  Each child will be assigned at most one parent.  There's no guarantee a child will be assigned any parent, especially when using options such as \"Linking distance limit\"."
                 },
                 {
                   "name": "Method to relate objects",
@@ -8247,12 +8527,12 @@
                   "description": "Controls the method used for determining proximity-based relationships:<br><ul><li>\"Centroid\" Distances are from child object centroids to parent object centroids.  These distances are always positive; increasing as the distance between centroids increases.<\/li><li>\"Child centroid to parent surface\" Distances are from child object centroids to the closest point on parent object surfaces.  These distances increase in magnitude the further from the parent surface a child centroid is; however, they are assigned a positive value if the child is outside the parent and a negative value if the child is inside the parent.  For example, a centroid 5px outside the object will be simply \"5px\", whereas a centroid 5px from the surface, but contained within the parent object will be recorded as \"-5px\".<\/li><li>\"Surface\" Distances are between the closest points on the child and parent surfaces.  These distances increase in magnitude the greater the minimum parent-child surface distance is; however, they are assigned a positive value if the closest child surface point is outside the parent and a negative value if the closest child surface point is inside the parent.  For example, a closest child surface point 5px outside the object will be simply \"5px\", whereas a closest child surface point 5px from the surface, but contained within the parent object will be recorded as \"-5px\".  Note: Any instances where the child and parent surfaces overlap will be recorded as \"0px\" distance.<\/li><\/ul>"
                 },
                 {
-                  "name": "Limit linking by distance",
-                  "description": "When selected, objects will only be related if the distance between them (as calculated by the \"Reference mode\" metric) is less than or equal to the distance defined by \"Maximum linking distance (px)\"."
+                  "name": "Linking distance limit",
+                  "description": "Depending on the options selected, objects will only be related if the distance between them (as calculated by the \"Reference mode\" metric) is less than or equal to the distance defined by \"Maximum linking distance (px)\"."
                 },
                 {
                   "name": "Maximum linking distance (px)",
-                  "description": "If \"Limit linking by distance\" is selected, this is the maximum permitted distance between objects for them to be assigned a relationship."
+                  "description": "If \"Linking distance limit\" is set to a value other than \"No limit\", this is the maximum permitted distance between objects for them to be assigned a relationship."
                 },
                 {
                   "name": "Inside/outside mode",
@@ -8421,7 +8701,7 @@
                 },
                 {
                   "name": "Clustering algorithm",
-                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ?-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
+                  "description": "The clustering algorithm to use:<br><ul><li>\"DBSCAN\" Points are clustered based on a minimum number of neighbours (\"Minimum number of points per cluster\") within a specified distance (\"Neighbourhood for clustering (epsilon)\").  All proximal points which satisfy these criteria are added to a common cluster.  This uses the <a href=\"https://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/stat/clustering/DBSCANClusterer.html\">Apache Commons Math3<\/a> implementation of DBSCAN, which describes the algorithm as: \"A point p is density connected to another point q, if there exists a chain of points pi, with i = 1 .. n and p1 = p and pn = q, such that each pair <pi, pi+1> is directly density-reachable. A point q is directly density-reachable from point p if it is in the ε-neighborhood of this point.\".<\/li><li>\"KMeans++\" Points are assigned into a pre-determined number of clusters (defined by \"Number of clusters\"), with each point assigned to the cluster with the closest centroid.  Since the cluster centroids will vary with each added point, this process is optimised iteratively.  The algorithm continues until either no points switch clusters or the maximum number of allowed iterations (\"Maximum number of iterations\") is reached.<\/li><\/ul>"
                 },
                 {
                   "name": "Number of clusters",
@@ -8445,9 +8725,84 @@
                 }
               ],
               "slug": "single-class-cluster"
+            }
+          ]
+        },
+        {
+          "path": "/modules/objects/track",
+          "name": "Track",
+          "description": "Modules tracking objects between frames.  Establishes parent-child relationships, with parent track objects acting as links for all instances of that track.",
+          "slug": "track",
+          "subCategories": [],
+          "modules": [
+            {
+              "path": "/modules/objects/track/kalman-tracking",
+              "deprecated": false,
+              "name": "Kalman tracking",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output track objects",
+                  "description": ""
+                },
+                {
+                  "name": "Search radius (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum linking distance (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum frame gap",
+                  "description": ""
+                }
+              ],
+              "slug": "kalman-tracking"
             },
             {
-              "path": "/modules/objects/relate/track-objects",
+              "path": "/modules/objects/track/overlap-tracking-3d",
+              "deprecated": false,
+              "name": "Overlap tracking 3D",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output track objects",
+                  "description": ""
+                },
+                {
+                  "name": "Allow track splitting",
+                  "description": ""
+                },
+                {
+                  "name": "Allow track merging",
+                  "description": ""
+                },
+                {
+                  "name": "Track segment objects",
+                  "description": ""
+                },
+                {
+                  "name": "Min IoU",
+                  "description": ""
+                }
+              ],
+              "slug": "overlap-tracking-3d"
+            },
+            {
+              "path": "/modules/objects/track/track-objects",
               "deprecated": false,
               "name": "Track objects",
               "shortDescription": "Track objects between frames.",
@@ -8723,6 +9078,25 @@
               "slug": "mask-objects"
             },
             {
+              "path": "/modules/objects/transform/project-objects",
+              "deprecated": false,
+              "name": "Project objects",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be projected into the xy-plane.  Tese are related as a parent of their respective projected object."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Output projected objects to be stored in the workspace.  These are related as children of the respective input object."
+                }
+              ],
+              "slug": "project-objects"
+            },
+            {
               "path": "/modules/objects/transform/reassign-enclosed-objects",
               "deprecated": false,
               "name": "Reassign enclosed objects",
@@ -8978,6 +9352,10 @@
                 {
                   "name": "Measurement name",
                   "description": "Name of the measurement that has been added to either an image or objects of an object collection.  This name must exactly match that assigned in the script."
+                },
+                {
+                  "name": "Object metadata name",
+                  "description": ""
                 },
                 {
                   "name": "Parent name",
@@ -9241,6 +9619,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9326,6 +9708,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -9534,6 +9920,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9653,6 +10043,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9745,6 +10139,10 @@
                   "description": "If \"Label mode\" is set to either \"Measurement value\" or \"Parent measurement value\", these are the measurements which will be used."
                 },
                 {
+                  "name": "Metadata item for label",
+                  "description": ""
+                },
+                {
                   "name": "Prefix",
                   "description": "Text to display at beginning of every label"
                 },
@@ -9822,6 +10220,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -9959,6 +10361,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10054,6 +10460,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10139,6 +10549,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -10395,6 +10809,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10530,6 +10948,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10635,6 +11057,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -10750,6 +11176,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -10930,6 +11360,129 @@
                 }
               ],
               "slug": "plot-measurements-as-scatter"
+            },
+            {
+              "path": "/modules/visualisation/plots/plot-track-motility",
+              "deprecated": false,
+              "name": "Plot track motility",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Colour mode",
+                  "description": ""
+                },
+                {
+                  "name": "Colour map",
+                  "description": ""
+                },
+                {
+                  "name": "Single colour",
+                  "description": ""
+                },
+                {
+                  "name": "Child objects for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Measurement for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Parent object for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Partner objects for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Opacity (%)",
+                  "description": ""
+                },
+                {
+                  "name": "Range minimum mode",
+                  "description": ""
+                },
+                {
+                  "name": "Minimum value",
+                  "description": ""
+                },
+                {
+                  "name": "Range maximum mode",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum value",
+                  "description": ""
+                },
+                {
+                  "name": "Input tracks",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output image",
+                  "description": ""
+                },
+                {
+                  "name": "Plot mode",
+                  "description": ""
+                },
+                {
+                  "name": "Line width",
+                  "description": ""
+                },
+                {
+                  "name": "Add object ID",
+                  "description": ""
+                },
+                {
+                  "name": "Object ID colour",
+                  "description": ""
+                },
+                {
+                  "name": "X-min range mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-range min",
+                  "description": ""
+                },
+                {
+                  "name": "X-max range mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-range max",
+                  "description": ""
+                },
+                {
+                  "name": "Y-min range mode",
+                  "description": ""
+                },
+                {
+                  "name": "Y-range min",
+                  "description": ""
+                },
+                {
+                  "name": "Y-max range mode",
+                  "description": ""
+                },
+                {
+                  "name": "Y-range max",
+                  "description": ""
+                }
+              ],
+              "slug": "plot-track-motility"
             }
           ]
         }
@@ -11071,6 +11624,19 @@
             "description": "Object collection to display all measurements for."
           }],
           "slug": "show-object-measurements"
+        },
+        {
+          "path": "/modules/visualisation/show-object-metadata",
+          "deprecated": false,
+          "name": "Show object metadata",
+          "shortDescription": "Displays all metadata items associated with all objects of the specified object collection.",
+          "fullDescription": "Displays all metadata items associated with all objects of the specified object collection.",
+          "version": "1.0.0",
+          "parameters": [{
+            "name": "Input objects",
+            "description": "Object collection to display all metadata for."
+          }],
+          "slug": "show-object-metadata"
         }
       ]
     },

@@ -38,6 +38,9 @@ public class ModuleExporter {
         JSONObject json = generateCategory(Categories.getRootCategory(), "");
 
         export(json);
+
+        System.out.println("Exported JSON");
+
     }
 
     private static void export(JSONObject json) {
