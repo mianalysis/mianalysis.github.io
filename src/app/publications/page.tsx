@@ -13,6 +13,46 @@ export default function Publications() {
       </section>
 
       <section className="space-y-4">
+        <AnchoredHeading type="h2">2024</AnchoredHeading>
+
+        <p>
+          López-Cuevas, P., <em>et al.</em>, &quot;Reprogramming macrophages with R848-loaded
+          artificial protocells to modulate skin and skeletal wound healing&quot;, <em>J Cell
+            Sci</em> (2024), doi:{' '}
+          <a className="link" href="https://doi.org/10.1242/jcs.262202">
+            10.1242/jcs.262202
+          </a>
+        </p>
+
+        <p>
+          Harris, A.G., <em>et al.</em>, &quot;Protocol to decellularize porcine right ventricular
+          outflow tracts using a 3D printed flow chamber&quot;, <em>STAR Protocols</em>
+          (2024) <strong>5</strong> 102899, doi:{' '}
+          <a className="link" href="https://doi.org/10.1016/j.xpro.2024.102899">
+            10.1016/j.xpro.2024.102899
+          </a>
+        </p>
+
+        <p>
+          Needs, H.I., <em>et al.</em>, &quot;Rescue of mitochondrial import failure by
+          intercellular organellar transfer&quot;, <em>Nature Communications</em> (2024){' '}
+          <strong>15</strong> 988, doi:{' '}
+          <a className="link" href="https://doi.org/10.1038/s41467-024-45283-2">
+            10.1038/s41467-024-45283-2
+          </a>
+        </p>
+
+        <p>
+          Young, F.J., <em>et al.</em>, &quot;Enhanced long-term memory and increased mushroom body
+          plasticity in Heliconius butterflies&quot;, <em>iScience</em> (2024) <strong>27</strong>{' '}
+          108949, doi:{' '}
+          <a className="link" href="https://doi.org/10.1016/j.isci.2024.108949">
+            10.1016/j.isci.2024.108949
+          </a>
+        </p>
+      </section>
+
+      <section className="space-y-4">
         <AnchoredHeading type="h2">2023</AnchoredHeading>
 
         <p>
