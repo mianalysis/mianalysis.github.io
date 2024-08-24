@@ -17,8 +17,8 @@ export default function Publications() {
 
         <p>
           López-Cuevas, P., <em>et al.</em>, &quot;Reprogramming macrophages with R848-loaded
-          artificial protocells to modulate skin and skeletal wound healing&quot;, <em>J Cell
-            Sci</em> (2024), doi:{' '}
+          artificial protocells to modulate skin and skeletal wound healing&quot;,{' '}
+          <em>J Cell Sci</em> (2024), doi:{' '}
           <a className="link" href="https://doi.org/10.1242/jcs.262202">
             10.1242/jcs.262202
           </a>
