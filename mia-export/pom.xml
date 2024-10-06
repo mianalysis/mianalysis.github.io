@@ -41,8 +41,50 @@
     <dependencies>
         <dependency>
             <groupId>io.github.mianalysis</groupId>
-            <artifactId>mia</artifactId>
-            <version>1.4.4</version>
+            <artifactId>mia-core</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-macros</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-modules</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-plugin</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-bonej</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-deepimagej</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-ptbiop</artifactId>
+            <version>${mia_version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mianalysis</groupId>
+            <artifactId>mia-stardist</artifactId>
+            <version>${mia_version}</version>
         </dependency>
     </dependencies>
 </project>
