@@ -29,7 +29,7 @@ export default function Home() {
         <h2>Extensive</h2>
 
         <p className="opacity-70 text-2xl">
-          Near 200 modules covering a wide range of image and object analysis processes such as
+          Over 200 modules covering a wide range of image and object analysis processes such as
           transform, filtering, detection, measurement and visualisation
         </p>
 

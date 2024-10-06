@@ -16,6 +16,15 @@ export default function Publications() {
         <AnchoredHeading type="h2">2024</AnchoredHeading>
 
         <p>
+          López-Cuevas, P., <em>et al.</em>, &quot;Reprogramming macrophages with R848-loaded
+          artificial protocells to modulate skin and skeletal wound healing&quot;,{' '}
+          <em>J Cell Sci</em> (2024), doi:{' '}
+          <a className="link" href="https://doi.org/10.1242/jcs.262202">
+            10.1242/jcs.262202
+          </a>
+        </p>
+
+        <p>
           Harris, A.G., <em>et al.</em>, &quot;Protocol to decellularize porcine right ventricular
           outflow tracts using a 3D printed flow chamber&quot;, <em>STAR Protocols</em>
           (2024) <strong>5</strong> 102899, doi:{' '}
