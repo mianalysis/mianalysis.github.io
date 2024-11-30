@@ -24,7 +24,7 @@ import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
 import net.imagej.patcher.LegacyInjector;
 
 public class ModuleExporter {
-    private static final String OUTPUT_PATH = "./src/assets/modules.json";
+    private static final String OUTPUT_PATH = "../src/assets/modules.json";
     private static final int JSON_INDENTATION = 2;
     private static HashMap<Category, TreeSet<Module>> modulesByCategory;
 
@@ -41,6 +41,7 @@ public class ModuleExporter {
 
         System.out.println("Exported JSON");
 
+        System.exit(0);
     }
 
     private static void export(JSONObject json) {

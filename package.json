@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "mia-export": "mvn -f ./mia-export -X clean install exec:java -Dmia_version=1.6.2"
+    "mia-export": "gradle -p mia-export clean run"
   },
   "dependencies": {
     "@docsearch/react": "^3.5.1",

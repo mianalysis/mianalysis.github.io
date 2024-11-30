@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'com.ModuleExporter'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.scijava.org/content/groups/public'
+    }
+}
+
+
+dependencies {
+    implementation 'net.imagej:ij1-patcher:1.2.7'
+
+    def miaVersion = '1.6.12' 
+    implementation "io.github.mianalysis:mia-core:${miaVersion}"
+    implementation "io.github.mianalysis:mia-macros:${miaVersion}"
+    implementation "io.github.mianalysis:mia-modules:${miaVersion}"
+    implementation "io.github.mianalysis:mia-plugin:${miaVersion}"
+    implementation "io.github.mianalysis:mia-bonej:${miaVersion}"
+    implementation "io.github.mianalysis:mia-deepimagej:${miaVersion}"
+    implementation "io.github.mianalysis:mia-ptbiop:${miaVersion}"
+    implementation "io.github.mianalysis:mia-stardist:${miaVersion}"
+}
+
+tasks.named('run') {
+    doFirst {
+        jvmArgs = [
+           '--add-opens=java.base/java.lang=ALL-UNNAMED',
+           '--add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED',
+        ]
+    }
+}
