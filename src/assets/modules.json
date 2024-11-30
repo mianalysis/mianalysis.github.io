@@ -116,7 +116,7 @@
             },
             {
               "name": "Run macro",
-              "description": "When selected, a final macro can be run once all the analysis runs (jobs) have been completed.  By using the workspace handling macros (\"MIA_GetListOfWorkspaceIDs\" and \"MIA_SetActiveWorkspace\") it's possible to switch between workspaces, thus facilitating dataset-wide analyses.  This macro will be executed only once as part of the final data exporting phase of the analysis."
+              "description": "When selected, a final macro can be run once all the analysis runs (jobs) have been completed.  By using the workspace handling macros (\"MIA_GetListOfWorkspaceIDs\"and \"MIA_SetActiveWorkspace\") it's possible to switch between workspaces, thus facilitating dataset-wide analyses.  This macro will be executed only once as part of the final data exporting phase of the analysis."
             },
             {
               "name": "Macro mode",
@@ -218,7 +218,7 @@
               "name": "Set intensity display range",
               "shortDescription": "Set the minimum and maximum displayed intensities for a specified image from the workspace.",
               "fullDescription": "Set the minimum and maximum displayed intensities for a specified image from the workspace.  Any pixels with intensities outside the set displayed range will be rendered with the corresponding extreme value (i.e. any pixels with intensities less than the minimum display value will be shown with the same as the value at the minimum display value).  Display ranges can be calculated automatically or specified manually.  One or both extrema can be set at a time.<br><br>Note: Unlike the \"Normalise intensity\" module, pixel values are unchanged by this module.  The only change is to the way ImageJ/Fiji renders the image.",
-              "version": "1.0.0",
+              "version": "1.0.1",
               "parameters": [
                 {
                   "name": "Input image",
@@ -297,7 +297,11 @@
                 },
                 {
                   "name": "Lookup table",
-                  "description": "Look-up table to apply to the relevant channels.  Choices are: Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Spectrum, Thermal, Random."
+                  "description": "Look-up table to apply to the relevant channels.  Choices are: From wavelength, Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Random, Spectrum, Thermal."
+                },
+                {
+                  "name": "Wavelength (nm)",
+                  "description": ""
                 },
                 {
                   "name": "Display mode",
@@ -940,7 +944,7 @@
                   "name": "Calculate distance map",
                   "shortDescription": "Creates a 32-bit greyscale image from an input binary image, where the value of each foreground pixel in the input image is equal to its Euclidean distance to the nearest background pixel.",
                   "fullDescription": "Creates a 32-bit greyscale image from an input binary image, where the value of each foreground pixel in the input image is equal to its Euclidean distance to the nearest background pixel.  This image will be 8-bit with binary logic determined by the \"Binary logic\" parameter.  The output image will have pixel values of 0 coincident with background pixels in the input image and values greater than zero coincident with foreground pixels.  Uses the plugin \"<a href=\"https://github.com/ijpb/MorphoLibJ\">MorphoLibJ<\/a>\".",
-                  "version": "1.0.0",
+                  "version": "1.0.1",
                   "parameters": [
                     {
                       "name": "Input image",
@@ -952,7 +956,7 @@
                     },
                     {
                       "name": "Weight modes",
-                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
+                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                     },
                     {
                       "name": "Match Z to XY",
@@ -1262,6 +1266,10 @@
                     {
                       "name": "Connectivity",
                       "description": "Controls which adjacent pixels are considered:<br><ul><li>\"6\" Only pixels immediately next to the active pixel are considered.  These are the pixels on the four \"cardinal\" directions plus the pixels immediately above and below the current pixel.  If working in 2D, 4-way connectivity is used.<\/li><li>\"26\" In addition to the core 6-pixels, all immediately diagonal pixels are used.  If working in 2D, 8-way connectivity is used.<\/li>"
+                    },
+                    {
+                      "name": "Weight mode",
+                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                     },
                     {
                       "name": "Match Z to XY",
@@ -2805,6 +2813,105 @@
                 "slug": "affine-(object-centroids)"
               },
               {
+                "path": "/modules/images/transform/registration/elastix-registration",
+                "deprecated": false,
+                "name": "Elastix registration",
+                "shortDescription": "",
+                "fullDescription": "",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Output image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": ""
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": ""
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": ""
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": ""
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": ""
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": ""
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": ""
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": ""
+                  },
+                  {
+                    "name": "External source",
+                    "description": ""
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": ""
+                  },
+                  {
+                    "name": "Elastix executable",
+                    "description": ""
+                  },
+                  {
+                    "name": "Transformix executable",
+                    "description": ""
+                  },
+                  {
+                    "name": "Affine",
+                    "description": ""
+                  },
+                  {
+                    "name": "Fast affine",
+                    "description": ""
+                  },
+                  {
+                    "name": "Rigid",
+                    "description": ""
+                  },
+                  {
+                    "name": "Spline",
+                    "description": ""
+                  },
+                  {
+                    "name": "Spline grid spacing",
+                    "description": ""
+                  }
+                ],
+                "slug": "elastix-registration"
+              },
+              {
                 "path": "/modules/images/transform/registration/register-images",
                 "deprecated": true,
                 "name": "Register images",
@@ -3191,11 +3298,46 @@
               "slug": "concatenate-stacks"
             },
             {
+              "path": "/modules/images/transform/concatenate-stacks-2",
+              "deprecated": true,
+              "name": "Concatenate stacks 2",
+              "shortDescription": "This is a candidate replacement for the original ConcatenateStacks.",
+              "fullDescription": "This is a candidate replacement for the original ConcatenateStacks.  For now, it's marked as \"deprecated\" to keep it hidden.<br>Combine two or more image stacks into a single stack.  This module allows images to be combined along any of the axes X,Y,C,Z or T.<br><br>Note: Image stack dimensions and bit-depths must be compatible.",
+              "version": "1.1.0",
+              "parameters": [
+                {
+                  "name": "Add image",
+                  "subParameters": [{
+                    "name": "Input image",
+                    "description": "Image for concatenation."
+                  }],
+                  "description": "Add another image for concatenation."
+                },
+                {
+                  "name": "Allow missing images",
+                  "description": "If enabled, the moduule can ignore any images specified for inclusion that aren't present in the workspace.  This is useful if an image's existence is dependent on optional modules."
+                },
+                {
+                  "name": "Remove input images",
+                  "description": ""
+                },
+                {
+                  "name": "Output image",
+                  "description": "The resultant image of concatenation to be added to the workspace."
+                },
+                {
+                  "name": "Axis mode",
+                  "description": "Axis along which to concatenate input images."
+                }
+              ],
+              "slug": "concatenate-stacks-2"
+            },
+            {
               "path": "/modules/images/transform/convert-3d-stack-(switch-z-and-t)",
               "deprecated": false,
               "name": "Convert 3D stack (switch Z and T)",
-              "shortDescription": "Emsures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).",
-              "fullDescription": "Emsures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).  This module verifies the singular dimension of a 3D stack is correct for the specified output type (e.g. single slice when dealing with timeseries).  Any stacks which are not in the expected order have their T and Z axes swapped.",
+              "shortDescription": "Ensures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).",
+              "fullDescription": "Ensures 3D stacks (or 4D with multiple channels) are of the expected type (timeseries or Z-stack).  This module verifies the singular dimension of a 3D stack is correct for the specified output type (e.g. single slice when dealing with timeseries).  Any stacks which are not in the expected order have their T and Z axes swapped.",
               "version": "1.0.0",
               "parameters": [
                 {
@@ -3687,6 +3829,65 @@
           "slug": "export-acc-dataset"
         },
         {
+          "path": "/modules/input-output/export-voc-annotations",
+          "deprecated": false,
+          "name": "Export VOC annotations",
+          "shortDescription": "",
+          "fullDescription": "",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Save location",
+              "description": ""
+            },
+            {
+              "name": "Mirrored directory root",
+              "description": ""
+            },
+            {
+              "name": "File path",
+              "description": ""
+            },
+            {
+              "name": "File name (generic)",
+              "description": ""
+            },
+            {
+              "name": "Save name mode",
+              "description": ""
+            },
+            {
+              "name": "File name",
+              "description": ""
+            },
+            {
+              "name": "Append series mode",
+              "description": ""
+            },
+            {
+              "name": "Append date/time mode",
+              "description": ""
+            },
+            {
+              "name": "Add filename suffix",
+              "description": ""
+            },
+            {
+              "name": "Input objects",
+              "description": ""
+            },
+            {
+              "name": "Input image",
+              "description": ""
+            },
+            {
+              "name": "Metadata item for class",
+              "description": ""
+            }
+          ],
+          "slug": "export-voc-annotations"
+        },
+        {
           "path": "/modules/input-output/extract-metadata",
           "deprecated": false,
           "name": "Extract metadata",
@@ -3921,6 +4122,41 @@
           "slug": "load-image"
         },
         {
+          "path": "/modules/input-output/load-image-2",
+          "deprecated": true,
+          "name": "Load image 2",
+          "shortDescription": "In development image loader using ImgLib2.",
+          "fullDescription": "In development image loader using ImgLib2.",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Output image",
+              "description": "Name assigned to the image."
+            },
+            {
+              "name": "Import mode",
+              "description": "Controls where the image will be loaded from:<br><ul><li>\"Current file\" (default option) will import the current root-file for the workspace (this is the file specified in the \"Input control\" module).<\/li><li>\"Matching format\" will load the image matching a filename based on the root-file for the workspace and a series of rules.<\/li><li>\"Specific file\" will load the image at the location specified by \"File path\".<\/li><\/ul>"
+            },
+            {
+              "name": "Generic format",
+              "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+            },
+            {
+              "name": "File path",
+              "description": "Path to file to be loaded."
+            },
+            {
+              "name": "Series mode",
+              "description": "Controls which series should be loaded for multiseries files (e.g. Leica LIF files):<br><ul><li>\"Current series\" will load the same series as the current root file (i.e. that selected via \"Input control\").<\/li><li>\"Specific series\" will load a specific series specified by the \"Series number\"parameter.<\/li><\/ul>"
+            },
+            {
+              "name": "Series number",
+              "description": "If a specific series is being loaded (\"Series mode\" set to \"Specific series\"), this is the series that will be used."
+            }
+          ],
+          "slug": "load-image-2"
+        },
+        {
           "path": "/modules/input-output/load-objects",
           "deprecated": false,
           "name": "Load objects",
@@ -4069,6 +4305,10 @@
             },
             {
               "name": "Output track objects",
+              "description": ""
+            },
+            {
+              "name": "Assign object class",
               "description": ""
             },
             {
@@ -4277,11 +4517,70 @@
               "description": ""
             },
             {
+              "name": "Add object class",
+              "description": ""
+            },
+            {
+              "name": "Metadata item",
+              "description": ""
+            },
+            {
               "name": "File mode",
               "description": ""
             }
           ],
           "slug": "save-objects-as-rois"
+        },
+        {
+          "path": "/modules/input-output/save-overlay-as-rois",
+          "deprecated": false,
+          "name": "Save overlay as ROIs",
+          "shortDescription": "Saves image overlay as a zipped set of ROIs.",
+          "fullDescription": "Saves image overlay as a zipped set of ROIs.  This method preserves colours and labels and allows overlays to be stored in a memory efficient manner.",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Save location",
+              "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
+            },
+            {
+              "name": "Mirrored directory root",
+              "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
+            },
+            {
+              "name": "File path",
+              "description": "Path to folder where images will be saved."
+            },
+            {
+              "name": "File name (generic)",
+              "description": ""
+            },
+            {
+              "name": "Save name mode",
+              "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
+            },
+            {
+              "name": "File name",
+              "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Append series mode",
+              "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
+            },
+            {
+              "name": "Append date/time mode",
+              "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
+            },
+            {
+              "name": "Add filename suffix",
+              "description": "A custom suffix to be added to each filename."
+            },
+            {
+              "name": "Input image",
+              "description": ""
+            }
+          ],
+          "slug": "save-overlay-as-rois"
         }
       ]
     },
@@ -4362,8 +4661,12 @@
                   "description": "Object collection used to determine the colour based on number of children per object when \"Colour mode\" is set to \"Child count\".  These objects will be children of the input objects."
                 },
                 {
-                  "name": "Measurement",
+                  "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -4424,6 +4727,121 @@
           "slug": "detect",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/detect/cellpose-detection",
+              "deprecated": false,
+              "name": "Cellpose detection",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Cellpose environment path",
+                  "description": ""
+                },
+                {
+                  "name": "Environment type",
+                  "description": ""
+                },
+                {
+                  "name": "Cellpose version",
+                  "description": ""
+                },
+                {
+                  "name": "Use MXNet",
+                  "description": ""
+                },
+                {
+                  "name": "Use resample",
+                  "description": ""
+                },
+                {
+                  "name": "Use GPU",
+                  "description": ""
+                },
+                {
+                  "name": "Use fast mode",
+                  "description": ""
+                },
+                {
+                  "name": "Model mode",
+                  "description": ""
+                },
+                {
+                  "name": "Custom model path",
+                  "description": ""
+                },
+                {
+                  "name": "Model",
+                  "description": ""
+                },
+                {
+                  "name": "Use nuclei channel",
+                  "description": ""
+                },
+                {
+                  "name": "Nuclei channel",
+                  "description": ""
+                },
+                {
+                  "name": "Use cyto channel",
+                  "description": ""
+                },
+                {
+                  "name": "Cyto channel",
+                  "description": ""
+                },
+                {
+                  "name": "Dimension mode",
+                  "description": ""
+                },
+                {
+                  "name": "Diameter",
+                  "description": ""
+                },
+                {
+                  "name": "Cell probability threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Flow threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Anisotropy",
+                  "description": ""
+                },
+                {
+                  "name": "Diameter threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Stitch threshold",
+                  "description": ""
+                },
+                {
+                  "name": "Use Omnipose mask reconstruction features",
+                  "description": ""
+                },
+                {
+                  "name": "Use DBSCAN clustering",
+                  "description": ""
+                },
+                {
+                  "name": "Additional flags",
+                  "description": ""
+                }
+              ],
+              "slug": "cellpose-detection"
+            },
             {
               "path": "/modules/objects/detect/circle-detection",
               "deprecated": false,
@@ -4578,73 +4996,6 @@
               "slug": "create-whole-slice-objects"
             },
             {
-              "path": "/modules/objects/detect/distance-bands",
-              "deprecated": false,
-              "name": "Distance bands",
-              "shortDescription": "",
-              "fullDescription": "",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input image",
-                  "description": ""
-                },
-                {
-                  "name": "Binary logic",
-                  "description": ""
-                },
-                {
-                  "name": "Output objects",
-                  "description": ""
-                },
-                {
-                  "name": "Band mode",
-                  "description": ""
-                },
-                {
-                  "name": "Volume type",
-                  "description": ""
-                },
-                {
-                  "name": "Merge bands",
-                  "description": ""
-                },
-                {
-                  "name": "Match Z to XY",
-                  "description": ""
-                },
-                {
-                  "name": "Weight mode",
-                  "description": ""
-                },
-                {
-                  "name": "Band width",
-                  "description": ""
-                },
-                {
-                  "name": "Spatial units mode",
-                  "description": ""
-                },
-                {
-                  "name": "Apply minimum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Minimum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Apply maximum band distance",
-                  "description": ""
-                },
-                {
-                  "name": "Maximum band distance",
-                  "description": ""
-                }
-              ],
-              "slug": "distance-bands"
-            },
-            {
               "path": "/modules/objects/detect/identify-objects",
               "deprecated": false,
               "name": "Identify objects",
@@ -4697,11 +5048,67 @@
               "name": "Manually identify objects",
               "shortDescription": "Manually create objects using the ImageJ selection tools.",
               "fullDescription": "Manually create objects using the ImageJ selection tools.  Selected regions can be interpolated in Z and T to speed up the object creation process.<br><br>This module will display a control panel and an image onto which selections are made.  <br><br>Following selection of a region to be included in the object, the user can either add this region to a new object (\"Add new\" button), or add it to an existing object (\"Add to existing\" button).  The target object for adding to an existing object is specified using the \"Existing object number\" control (a list of existing object IDs is shown directly below this control).<br><br>References to each selection are displayed below the controls.  Previously-added regions can be re-selected by clicking the relevant reference.  This allows selections to be deleted or used as a basis for further selections.<br><br>Once all selections have been made, objects are added to the workspace with the \"Finish\" button.<br><br>Objects need to be added slice-by-slice and can be linked in 3D using the \"Add to existing\" control.",
-              "version": "1.0.1",
+              "version": "1.1.0",
               "parameters": [
+                {
+                  "name": "Save location",
+                  "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
+                },
+                {
+                  "name": "Mirrored directory root",
+                  "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
+                },
+                {
+                  "name": "File path",
+                  "description": "Path to folder where images will be saved."
+                },
+                {
+                  "name": "File name (generic)",
+                  "description": ""
+                },
+                {
+                  "name": "Save name mode",
+                  "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
+                },
+                {
+                  "name": "File name",
+                  "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                },
+                {
+                  "name": "Append series mode",
+                  "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
+                },
+                {
+                  "name": "Append date/time mode",
+                  "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
+                },
+                {
+                  "name": "Add filename suffix",
+                  "description": "A custom suffix to be added to each filename."
+                },
                 {
                   "name": "Input image",
                   "description": "Image onto which selections will be drawn.  This will be displayed automatically when the module runs."
+                },
+                {
+                  "name": "Add existing objects",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Allow missing objects",
+                  "description": ""
+                },
+                {
+                  "name": "Apply existing class",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata item for class",
+                  "description": ""
                 },
                 {
                   "name": "Output objects",
@@ -4728,12 +5135,32 @@
                   "description": "Interpolate objects across multiple frames.  Objects assigned the same ID will be interpolated to appear in all frames between the first and last specified timepoints.  Specified regions must contain a degree of overlap (higher overlap will give better results)."
                 },
                 {
+                  "name": "Assign classes",
+                  "description": ""
+                },
+                {
+                  "name": "Classes source",
+                  "description": ""
+                },
+                {
+                  "name": "Class file",
+                  "description": ""
+                },
+                {
+                  "name": "Allow additions",
+                  "description": ""
+                },
+                {
+                  "name": "Class list (comma-separated)",
+                  "description": ""
+                },
+                {
                   "name": "Instruction text",
                   "description": "Text that will be displayed to the user on the object selection control panel.  This can inform them of the steps they need to take to select the objects."
                 },
                 {
                   "name": "Default selector type",
-                  "description": "Default region drawing tool to enable.  This tool can be changed by the user when selecting regions.  Choices are: Freehand line, Freehand region, Line, Oval, Points, Polygon, Rectangle, Segmented line, Wand (tracing) tool."
+                  "description": "Default region drawing tool to enable.  This tool can be changed by the user when selecting regions.  Choices are: Freehand line, Freehand region, Line, Oval, Points, Polygon, Rectangle, Segmented line, Single point, Wand (tracing) tool."
                 },
                 {
                   "name": "Point mode (point-type ROIs only)",
@@ -5255,7 +5682,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5267,6 +5694,49 @@
                 }
               ],
               "slug": "based-on-measurement"
+            },
+            {
+              "path": "/modules/objects/filter/based-on-metadata",
+              "deprecated": false,
+              "name": "Based on metadata",
+              "shortDescription": "Filter an object collection based on a metadata value associated with this object.",
+              "fullDescription": "Filter an object collection based on a metadata value associated with this object.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Filter mode",
+                  "description": ""
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": ""
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": ""
+                },
+                {
+                  "name": "Reference value",
+                  "description": ""
+                },
+                {
+                  "name": "Store summary filter results",
+                  "description": ""
+                },
+                {
+                  "name": "Store individual filter results",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata to filter on",
+                  "description": "Objects will be filtered against their value of this measurement.  Objects missing this measurement are not removed; however, they can be removed by using the module \"With / without measurement\"."
+                }
+              ],
+              "slug": "based-on-metadata"
             },
             {
               "path": "/modules/objects/filter/filter-objects",
@@ -5495,7 +5965,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5562,7 +6032,7 @@
                 },
                 {
                   "name": "Store summary filter results",
-                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Filter mode\" parameter)."
+                  "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
                   "name": "Store individual filter results",
@@ -5742,6 +6212,41 @@
                 }
               ],
               "slug": "with--without-measurement"
+            },
+            {
+              "path": "/modules/objects/filter/with--without-metadata",
+              "deprecated": false,
+              "name": "With / without metadata",
+              "shortDescription": "Filter an object collection based on the presence of a specific metadata item for each object.",
+              "fullDescription": "Filter an object collection based on the presence of a specific metadata item for each object.  Objects which do/don't have the relevant metadata item can be removed from the input collection, moved to another collection (and removed from the input collection) or simply counted (but retained in the input collection).  The number of objects failing the filter can be stored as a metadata value.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be filtered."
+                },
+                {
+                  "name": "Filter mode",
+                  "description": "Controls what happens to objects which don't pass the filter:<br><ul><li>\"Do nothing\" Retains all input objects, irrespective of whether they passed or failed the filter.  This is useful when also storing the filter results as metadata values (i.e. just counting the number of objects which pass the filter).<\/li><li>\"Move filtered objects to new class\" Objects failing the filter are moved to a new object class.  The name of the class is determined by the \"Output (filtered) objects\" parameter.  All existing measurements and relationships are carried forward into the new object collection.<\/li><li>\"Remove filtered objects\" (default) Removes objects failing the filter.  Once removed, these objects are unavailable for further use by modules and won't be included in exported results.<\/li><\/ul>"
+                },
+                {
+                  "name": "Output (filtered) objects",
+                  "description": "New object collection containing input objects which did not pass the filter.  These objects are only stored if \"Filter mode\" is set to \"Move filtered objects to new class\"."
+                },
+                {
+                  "name": "Method for filtering",
+                  "description": "Controls whether objects are removed when a specific metadata item is present or not:<br><br>- \"Remove objects without metadata\" Objects without the metadata item specified by \"Metadata item to filter on\" are removed, counted or moved (depending on the \"Filter mode\" parameter).<br><br>- \"Remove objects with metadata\" Objects with the metadata item specified by \"Metadata item to filter on\" are removed, counted or moved (depending on the \"Filter mode\" parameter).<br>"
+                },
+                {
+                  "name": "Metadata item to filter on",
+                  "description": "Metadata item to filter by.  The presence or absence of this metadata item will determine which of the input objects are counted, removed or moved (depending on the \"Filter mode\" parameter)."
+                },
+                {
+                  "name": "Store filter results",
+                  "description": "When selected, the number of removed (or moved) objects is counted and stored as a metadata item (name in the format \"FILTER // NUM_[inputObjectsName] WITHOUT [metadata item name] METADATA\")."
+                }
+              ],
+              "slug": "with--without-metadata"
             },
             {
               "path": "/modules/objects/filter/with--without-parent",
@@ -6030,8 +6535,16 @@
                       "description": "Image from which pixel intensities will be measured.  This image can be 8-bit, 16-bit or 32-bit.  Measurements are always taken from the first channel if more than one channel is present (to measure additional channels, please first use the \"Extract substack\" module)."
                     },
                     {
+                      "name": "Measure median intensity",
+                      "description": "When selected, the median intensity of each input object will be calculated.  For very large objects, this can require a lot of memory"
+                    },
+                    {
                       "name": "Measure weighted centre",
                       "description": "When selected, the intensity-weighted centroid of each input object will be calculated.  With this, the greater the intensity in a particular region of an object, the more the \"centre of mass\" will be drawn towards it."
+                    },
+                    {
+                      "name": "Measure peak brightness location",
+                      "description": "When selected, the location of the brightest pixel in the object will be calculated.  In instances where multiple pixels have the same brightest value, the mean of their positions will be used"
                     }
                   ],
                   "slug": "measure-object-intensity"
@@ -6258,6 +6771,60 @@
               "subCategories": [],
               "modules": [
                 {
+                  "path": "/modules/objects/measure/miscellaneous/adopt-parent-measurement",
+                  "deprecated": false,
+                  "name": "Adopt parent measurement",
+                  "shortDescription": "",
+                  "fullDescription": "",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Parent objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
+                      "description": ""
+                    }
+                  ],
+                  "slug": "adopt-parent-measurement"
+                },
+                {
+                  "path": "/modules/objects/measure/miscellaneous/adopt-parent-metadata",
+                  "deprecated": false,
+                  "name": "Adopt parent metadata",
+                  "shortDescription": "",
+                  "fullDescription": "",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Parent objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Add metadata item",
+                      "subParameters": [{
+                        "name": "Metadata item",
+                        "description": ""
+                      }],
+                      "description": ""
+                    }
+                  ],
+                  "slug": "adopt-parent-metadata"
+                },
+                {
                   "path": "/modules/objects/measure/miscellaneous/apply-weka-object-classification",
                   "deprecated": false,
                   "name": "Apply Weka object classification",
@@ -6317,7 +6884,7 @@
                   "name": "Calculate statistics for children",
                   "shortDescription": "Calculates statistics for a measurement associated with all child objects of parent object.",
                   "fullDescription": "Calculates statistics for a measurement associated with all child objects of parent object.  The calculated statistics are stored as new measurements, associated with the relevant parent object.  For example, calculating the summed volume of all child objects (from a specified collection) of each parent object.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Parent objects",
@@ -6328,8 +6895,12 @@
                       "description": "Input object collection from the workspace, where these objects are children of the collection selected by the \"Parent objects\" parameter.)"
                     },
                     {
-                      "name": "Measurement",
-                      "description": "Measurement associated with the child objects for which statistics will be calculated.  Statistics will be calculated for all children of a parent object."
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
+                      "description": ""
                     },
                     {
                       "name": "Calculate mean",
@@ -6364,7 +6935,7 @@
                   "name": "Calculate statistics for partners",
                   "shortDescription": "Calculates statistics for a measurement associated with all partner objects of an input object.",
                   "fullDescription": "Calculates statistics for a measurement associated with all partner objects of an input object.  The calculated statistics are stored as new measurements, associated with the relevant input object.  For example, calculating the summed volume of all partner objects (from a specified collection) of each input object.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Input objects",
@@ -6375,8 +6946,12 @@
                       "description": "Input object collection from the workspace, where these objects are partners of the collection selected by the \"Input objects\" parameter.)"
                     },
                     {
-                      "name": "Measurement",
-                      "description": "Measurement associated with the partner objects for which statistics will be calculated.  Statistics will be calculated for all partners of an input object."
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
+                      "description": ""
                     },
                     {
                       "name": "Calculate mean",
@@ -6612,7 +7187,7 @@
                   "name": "Calculate nearest neighbour",
                   "shortDescription": "Measures the shortest distance between all objects in the specified input collection and all other objects in the same, or a different collection.",
                   "fullDescription": "Measures the shortest distance between all objects in the specified input collection and all other objects in the same, or a different collection.  The shortest distance (nearest neighbour distance) is recorded as a measurement associated with the input object.  Optionally, the distances between all objects can be calculated and exported as a standalone spreadsheet.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Save location",
@@ -7072,8 +7647,28 @@
                       "description": "Input individual timepoint instance objects for the track.  These are the spatial records of the tracked objects in a single timepoint and are children of the track object specified by \"Input track objects\".  Instantaneous track measurements (e.g. instantaneous x-velociyty) are associated with the corresponding spot objects."
                     },
                     {
+                      "name": "Position mode",
+                      "description": ""
+                    },
+                    {
+                      "name": "X-position measurement",
+                      "description": ""
+                    },
+                    {
+                      "name": "Y-position measurement",
+                      "description": ""
+                    },
+                    {
+                      "name": "Z-position measurement",
+                      "description": ""
+                    },
+                    {
                       "name": "Subtract average motion",
                       "description": "When selected, the average motion of all points between two frames is subtracted from the motion prior to calculation of any track measurements.  This can be used as a crude form of drift correction; however, it only works for global drift (where the whole sample moved together) and is less robust with few tracked objects.  Ideally, drift would be removed from the input images using image registration prior to object detection."
+                    },
+                    {
+                      "name": "Calculate orientation",
+                      "description": ""
                     },
                     {
                       "name": "Identify leading point",
@@ -7098,6 +7693,100 @@
           "slug": "process",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/process/create-bounding-boxes",
+              "deprecated": false,
+              "name": "Create bounding boxes",
+              "shortDescription": "Creates a solid bounding box for each input object.",
+              "fullDescription": "Creates a solid bounding box for each input object.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Input objects to extract bounding box from."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Output bounding box objects to be stored in the workspace."
+                }
+              ],
+              "slug": "create-bounding-boxes"
+            },
+            {
+              "path": "/modules/objects/process/create-distance-bands",
+              "deprecated": false,
+              "name": "Create distance bands",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.2.1",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Volume type",
+                  "description": ""
+                },
+                {
+                  "name": "Relative mode",
+                  "description": ""
+                },
+                {
+                  "name": "Parent objects",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
+                  "name": "Band mode",
+                  "description": ""
+                },
+                {
+                  "name": "Match Z to XY",
+                  "description": ""
+                },
+                {
+                  "name": "Weight mode",
+                  "description": ""
+                },
+                {
+                  "name": "Band width",
+                  "description": ""
+                },
+                {
+                  "name": "Spatial units mode",
+                  "description": ""
+                },
+                {
+                  "name": "Apply minimum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Minimum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Apply maximum band distance",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum band distance",
+                  "description": ""
+                }
+              ],
+              "slug": "create-distance-bands"
+            },
             {
               "path": "/modules/objects/process/create-skeleton",
               "deprecated": false,
@@ -7263,6 +7952,10 @@
                 {
                   "name": "Percentage",
                   "description": "If \"Edge determination\" is set to \"Percentage of maximum distance to edge\", this is the percentage of the maximum centroid-edge distance for an object that will be used to calculate the edge/interior boundary location.  Percentages approaching 0% will put the boundary increasingly close to the object edge (more detected as \"interiors\"), while percentages approaching 100% will have the boundary increasingly close to the object centroid (more detected as \"edges\")."
+                },
+                {
+                  "name": "Weight mode",
+                  "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                 }
               ],
               "slug": "extract-object-edges"
@@ -7663,6 +8356,10 @@
                   "description": ""
                 },
                 {
+                  "name": "Output object mode",
+                  "description": ""
+                },
+                {
                   "name": "Output objects",
                   "description": ""
                 },
@@ -7700,25 +8397,6 @@
                 }
               ],
               "slug": "grow-objects"
-            },
-            {
-              "path": "/modules/objects/process/project-objects",
-              "deprecated": false,
-              "name": "Project objects",
-              "shortDescription": "",
-              "fullDescription": "",
-              "version": "1.0.0",
-              "parameters": [
-                {
-                  "name": "Input objects",
-                  "description": "Objects to be projected into the xy-plane.  Tese are related as a parent of their respective projected object."
-                },
-                {
-                  "name": "Output objects",
-                  "description": "Output projected objects to be stored in the workspace.  These are related as children of the respective input object."
-                }
-              ],
-              "slug": "project-objects"
             }
           ]
         },
@@ -7749,6 +8427,10 @@
                   {
                     "name": "Input objects 2",
                     "description": "Second of two object collections to combine.  Depending on the choice for parameter \"Output mode\", this collection may be updated to include the objects from the first collection (\"Input objects 2\")."
+                  },
+                  {
+                    "name": "Allow missing objects",
+                    "description": ""
                   },
                   {
                     "name": "Output mode",
@@ -7815,6 +8497,37 @@
           }],
           "modules": [
             {
+              "path": "/modules/objects/relate/object-slices-to-3d",
+              "deprecated": false,
+              "name": "Object slices to 3D",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Linking distance XY",
+                  "description": ""
+                },
+                {
+                  "name": "Calibrated units",
+                  "description": ""
+                },
+                {
+                  "name": "Max number of missing slices",
+                  "description": ""
+                }
+              ],
+              "slug": "object-slices-to-3d"
+            },
+            {
               "path": "/modules/objects/relate/relate-many-to-many",
               "deprecated": false,
               "name": "Relate many-to-many",
@@ -7879,6 +8592,14 @@
                   "description": ""
                 },
                 {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
                   "name": "Add measurement",
                   "subParameters": [
                     {
@@ -7913,7 +8634,7 @@
               "name": "Relate many-to-one",
               "shortDescription": "Relate objects of two classes based on a variety of metrics (e.",
               "fullDescription": "Relate objects of two classes based on a variety of metrics (e.g. spatial overlap or proximity).  The assigned relationships are of the form many-to-one, where many input \"child\" objects can be related to at most, one \"parent\" object (see \"Relate many-to-many\" and \"Relate one-to-one\" modules for alternatives).  Measurements associated with this relationship (e.g. distance from child to parent surface) are stored as measurements of the relevant child object.",
-              "version": "1.0.0",
+              "version": "1.1.0",
               "parameters": [
                 {
                   "name": "Parent (larger) objects",
@@ -7921,7 +8642,7 @@
                 },
                 {
                   "name": "Child (smaller) objects",
-                  "description": "Objects to relate to the parents.  Each child will be assigned at most one parent.  There's no guarantee a child will be assigned any parent, especially when using options such as \"Limit linking by distance\"."
+                  "description": "Objects to relate to the parents.  Each child will be assigned at most one parent.  There's no guarantee a child will be assigned any parent, especially when using options such as \"Linking distance limit\"."
                 },
                 {
                   "name": "Method to relate objects",
@@ -7932,12 +8653,12 @@
                   "description": "Controls the method used for determining proximity-based relationships:<br><ul><li>\"Centroid\" Distances are from child object centroids to parent object centroids.  These distances are always positive; increasing as the distance between centroids increases.<\/li><li>\"Child centroid to parent surface\" Distances are from child object centroids to the closest point on parent object surfaces.  These distances increase in magnitude the further from the parent surface a child centroid is; however, they are assigned a positive value if the child is outside the parent and a negative value if the child is inside the parent.  For example, a centroid 5px outside the object will be simply \"5px\", whereas a centroid 5px from the surface, but contained within the parent object will be recorded as \"-5px\".<\/li><li>\"Surface\" Distances are between the closest points on the child and parent surfaces.  These distances increase in magnitude the greater the minimum parent-child surface distance is; however, they are assigned a positive value if the closest child surface point is outside the parent and a negative value if the closest child surface point is inside the parent.  For example, a closest child surface point 5px outside the object will be simply \"5px\", whereas a closest child surface point 5px from the surface, but contained within the parent object will be recorded as \"-5px\".  Note: Any instances where the child and parent surfaces overlap will be recorded as \"0px\" distance.<\/li><\/ul>"
                 },
                 {
-                  "name": "Limit linking by distance",
-                  "description": "When selected, objects will only be related if the distance between them (as calculated by the \"Reference mode\" metric) is less than or equal to the distance defined by \"Maximum linking distance (px)\"."
+                  "name": "Linking distance limit",
+                  "description": "Depending on the options selected, objects will only be related if the distance between them (as calculated by the \"Reference mode\" metric) is less than or equal to the distance defined by \"Maximum linking distance (px)\"."
                 },
                 {
                   "name": "Maximum linking distance (px)",
-                  "description": "If \"Limit linking by distance\" is selected, this is the maximum permitted distance between objects for them to be assigned a relationship."
+                  "description": "If \"Linking distance limit\" is set to a value other than \"No limit\", this is the maximum permitted distance between objects for them to be assigned a relationship."
                 },
                 {
                   "name": "Inside/outside mode",
@@ -7960,8 +8681,24 @@
                   "description": "When selected, the fractional distance of the child object between the centre and surface of the parent is calculated.  This option is only available when relating children to the parent surface.  The calculation can be computationally intensive when dealing with many objects."
                 },
                 {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
                   "name": "Enable multithreading",
                   "description": "Process multiple object relationships simultaneously.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                },
+                {
+                  "name": "Show objects",
+                  "description": ""
+                },
+                {
+                  "name": "Show measurements",
+                  "description": ""
                 }
               ],
               "slug": "relate-many-to-one"
@@ -8013,6 +8750,14 @@
                 {
                   "name": "Only link objects in same frame",
                   "description": "When selected, child and parent objects must be in the same time frame for them to be linked."
+                },
+                {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
                 },
                 {
                   "name": "Merge related objects",
@@ -8082,7 +8827,7 @@
               "name": "Single class cluster",
               "shortDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.",
               "fullDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.  In K-Means++ [1], an optimisation of the standard K-Means algorithm, the points are assigned to a pre-determined number of clusters such that each point is assigned to its closest cluster mean position (this process is repeated until the cluster assignments stabilise or a maximum number of iterations is reached).  For DBSCAN [2], points are clustered based on a minimum number of neighbours within a specified spatial range.  As such, this algorithm doesn't require prior knowledge of the number of clusters.  Both algorithms use their respective <a href=\"https://commons.apache.org/proper/commons-math/\">Apache Commons Math implementations.<\/a><br><br>References:<br>[1] Arthur, D.; Vassilvitskii, S. (2007). \"k-means++: the advantages of careful seeding.\" <i>Proceedings of the eighteenth annual ACM-SIAM symposium on Discrete algorithms. Society for Industrial and Applied Mathematics Philadelphia, PA, USA.<\/i> pp. 1027\u20131035<br>[2] Ester, M.; Kriegel, H.-P.; Sander, J.; Xu, X. (1996). \"A density-based algorithm for discovering clusters in large spatial databases with noise.\" <i>Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD-96). AAAI Press.<\/i> pp. 226\u2013231",
-              "version": "1.0.0",
+              "version": "1.1.0",
               "parameters": [
                 {
                   "name": "Input objects",
@@ -8094,7 +8839,7 @@
                 },
                 {
                   "name": "Apply volume",
-                  "description": "When selected, the output cluster object will be assigned volume based on the extents of all child objects."
+                  "description": "When selected, the output cluster object will gain all coordinates of any child objects."
                 },
                 {
                   "name": "Clustering algorithm",
@@ -8122,9 +8867,84 @@
                 }
               ],
               "slug": "single-class-cluster"
+            }
+          ]
+        },
+        {
+          "path": "/modules/objects/track",
+          "name": "Track",
+          "description": "Modules tracking objects between frames.  Establishes parent-child relationships, with parent track objects acting as links for all instances of that track.",
+          "slug": "track",
+          "subCategories": [],
+          "modules": [
+            {
+              "path": "/modules/objects/track/kalman-tracking",
+              "deprecated": false,
+              "name": "Kalman tracking",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output track objects",
+                  "description": ""
+                },
+                {
+                  "name": "Search radius (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum linking distance (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum frame gap",
+                  "description": ""
+                }
+              ],
+              "slug": "kalman-tracking"
             },
             {
-              "path": "/modules/objects/relate/track-objects",
+              "path": "/modules/objects/track/overlap-tracking-3d",
+              "deprecated": false,
+              "name": "Overlap tracking 3D",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output track objects",
+                  "description": ""
+                },
+                {
+                  "name": "Allow track splitting",
+                  "description": ""
+                },
+                {
+                  "name": "Allow track merging",
+                  "description": ""
+                },
+                {
+                  "name": "Track segment objects",
+                  "description": ""
+                },
+                {
+                  "name": "Min IoU",
+                  "description": ""
+                }
+              ],
+              "slug": "overlap-tracking-3d"
+            },
+            {
+              "path": "/modules/objects/track/track-objects",
               "deprecated": false,
               "name": "Track objects",
               "shortDescription": "Track objects between frames.",
@@ -8227,6 +9047,41 @@
           "slug": "transform",
           "subCategories": [],
           "modules": [
+            {
+              "path": "/modules/objects/transform/duplicate-objects",
+              "deprecated": false,
+              "name": "Duplicate objects",
+              "shortDescription": "Creates an exact copy of objects.",
+              "fullDescription": "Creates an exact copy of objects. Can optionally also duplicate relationships, measurements and metadata. Duplicated objects are entirely separate from their original copies (i.e. don't share coordinate sets), so changes made to the original after duplication won't be reflected in the duplicate copy.",
+              "version": "1.0.1",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Copy relationships",
+                  "description": ""
+                },
+                {
+                  "name": "Copy measurements",
+                  "description": ""
+                },
+                {
+                  "name": "Copy metadata",
+                  "description": ""
+                },
+                {
+                  "name": "Add relationship to original",
+                  "description": ""
+                }
+              ],
+              "slug": "duplicate-objects"
+            },
             {
               "path": "/modules/objects/transform/duplicate-objects-across-time",
               "deprecated": false,
@@ -8361,6 +9216,29 @@
               "slug": "fill-holes-in-objects"
             },
             {
+              "path": "/modules/objects/transform/interpolate-along-z",
+              "deprecated": false,
+              "name": "Interpolate along Z",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output spatial calibration",
+                  "description": ""
+                }
+              ],
+              "slug": "interpolate-along-z"
+            },
+            {
               "path": "/modules/objects/transform/mask-objects",
               "deprecated": false,
               "name": "Mask objects",
@@ -8400,6 +9278,25 @@
               "slug": "mask-objects"
             },
             {
+              "path": "/modules/objects/transform/project-objects",
+              "deprecated": false,
+              "name": "Project objects",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be projected into the xy-plane.  These are related as a parent of their respective projected object."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Output projected objects to be stored in the workspace.  These are related as children of the respective input object."
+                }
+              ],
+              "slug": "project-objects"
+            },
+            {
               "path": "/modules/objects/transform/reassign-enclosed-objects",
               "deprecated": false,
               "name": "Reassign enclosed objects",
@@ -8411,6 +9308,19 @@
                 "description": "Object collection to process for enclosed objects.  Objects in this collection will be updated as a result of this module (enclosed objects will be removed as separate entities and their coordinates will be added to the enclosing object)."
               }],
               "slug": "reassign-enclosed-objects"
+            },
+            {
+              "path": "/modules/objects/transform/resolve-object-overlap",
+              "deprecated": false,
+              "name": "Resolve object overlap",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [{
+                "name": "Input objects",
+                "description": ""
+              }],
+              "slug": "resolve-object-overlap"
             },
             {
               "path": "/modules/objects/transform/track-editor",
@@ -8607,7 +9517,7 @@
           "name": "Run script",
           "shortDescription": "Run Fiji-compatible scripts directly within a MIA workflow.",
           "fullDescription": "Run Fiji-compatible scripts directly within a MIA workflow.  These can be used to perform advanced actions, such as making measurements that aren't explicitly supported in MIA or running additional plugins.  Each script has access to the current workspace, thus providing a route to interact with and specify new images and objects.  Scripts also have access to this module, which in turn can be used to access all modules in the current workflow.  Scripts are run once per workflow execution.",
-          "version": "1.0.1",
+          "version": "1.0.2",
           "parameters": [
             {
               "name": "Script mode",
@@ -8655,6 +9565,10 @@
                 {
                   "name": "Measurement name",
                   "description": "Name of the measurement that has been added to either an image or objects of an object collection.  This name must exactly match that assigned in the script."
+                },
+                {
+                  "name": "Object metadata name",
+                  "description": ""
                 },
                 {
                   "name": "Parent name",
@@ -8860,6 +9774,19 @@
             "description": "Mark another object set from the workspace for removal."
           }],
           "slug": "remove-objects"
+        },
+        {
+          "path": "/modules/system/test-big-image",
+          "deprecated": true,
+          "name": "Test big image",
+          "shortDescription": "In development image loader using ImgLib2.",
+          "fullDescription": "In development image loader using ImgLib2.",
+          "version": "1.0.0",
+          "parameters": [{
+            "name": "Output image",
+            "description": ""
+          }],
+          "slug": "test-big-image"
         }
       ]
     },
@@ -8903,6 +9830,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -8990,6 +9921,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -9198,6 +10133,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9317,6 +10256,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9409,6 +10352,10 @@
                   "description": "If \"Label mode\" is set to either \"Measurement value\" or \"Parent measurement value\", these are the measurements which will be used."
                 },
                 {
+                  "name": "Metadata item for label",
+                  "description": ""
+                },
+                {
                   "name": "Prefix",
                   "description": "Text to display at beginning of every label"
                 },
@@ -9486,6 +10433,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -9623,6 +10574,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9718,6 +10673,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -9803,6 +10762,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -10059,6 +11022,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10194,6 +11161,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10301,6 +11272,10 @@
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
                 },
                 {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
                   "name": "Parent object for colour",
                   "description": "Object collection used to determine the colour based on either the ID or measurement value  of a parent object when \"Colour mode\" is set to either  \"Parent ID\" or \"Parent measurement value\".  These objects will be parents of the input objects."
                 },
@@ -10339,6 +11314,22 @@
                 {
                   "name": "Spot objects",
                   "description": "Objects present in each frame of this track.  These are children of the \"Input objects\" and provide the coordinate information for each frame."
+                },
+                {
+                  "name": "Position mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-position measurement",
+                  "description": ""
+                },
+                {
+                  "name": "Y-position measurement",
+                  "description": ""
+                },
+                {
+                  "name": "Z-position measurement",
+                  "description": ""
                 },
                 {
                   "name": "Apply to input image",
@@ -10398,6 +11389,10 @@
                 {
                   "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -10578,6 +11573,129 @@
                 }
               ],
               "slug": "plot-measurements-as-scatter"
+            },
+            {
+              "path": "/modules/visualisation/plots/plot-track-motility",
+              "deprecated": false,
+              "name": "Plot track motility",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Colour mode",
+                  "description": ""
+                },
+                {
+                  "name": "Colour map",
+                  "description": ""
+                },
+                {
+                  "name": "Single colour",
+                  "description": ""
+                },
+                {
+                  "name": "Child objects for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Measurement for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Parent object for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Partner objects for colour",
+                  "description": ""
+                },
+                {
+                  "name": "Opacity (%)",
+                  "description": ""
+                },
+                {
+                  "name": "Range minimum mode",
+                  "description": ""
+                },
+                {
+                  "name": "Minimum value",
+                  "description": ""
+                },
+                {
+                  "name": "Range maximum mode",
+                  "description": ""
+                },
+                {
+                  "name": "Maximum value",
+                  "description": ""
+                },
+                {
+                  "name": "Input tracks",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output image",
+                  "description": ""
+                },
+                {
+                  "name": "Plot mode",
+                  "description": ""
+                },
+                {
+                  "name": "Line width",
+                  "description": ""
+                },
+                {
+                  "name": "Add object ID",
+                  "description": ""
+                },
+                {
+                  "name": "Object ID colour",
+                  "description": ""
+                },
+                {
+                  "name": "X-min range mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-range min",
+                  "description": ""
+                },
+                {
+                  "name": "X-max range mode",
+                  "description": ""
+                },
+                {
+                  "name": "X-range max",
+                  "description": ""
+                },
+                {
+                  "name": "Y-min range mode",
+                  "description": ""
+                },
+                {
+                  "name": "Y-range min",
+                  "description": ""
+                },
+                {
+                  "name": "Y-max range mode",
+                  "description": ""
+                },
+                {
+                  "name": "Y-range max",
+                  "description": ""
+                }
+              ],
+              "slug": "plot-track-motility"
             }
           ]
         }
@@ -10719,6 +11837,19 @@
             "description": "Object collection to display all measurements for."
           }],
           "slug": "show-object-measurements"
+        },
+        {
+          "path": "/modules/visualisation/show-object-metadata",
+          "deprecated": false,
+          "name": "Show object metadata",
+          "shortDescription": "Displays all metadata items associated with all objects of the specified object collection.",
+          "fullDescription": "Displays all metadata items associated with all objects of the specified object collection.",
+          "version": "1.0.0",
+          "parameters": [{
+            "name": "Input objects",
+            "description": "Object collection to display all metadata for."
+          }],
+          "slug": "show-object-metadata"
         }
       ]
     },

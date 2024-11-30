@@ -21,13 +21,16 @@ import io.github.mianalysis.mia.module.Module;
 import io.github.mianalysis.mia.module.Modules;
 import io.github.mianalysis.mia.object.parameters.ParameterGroup;
 import io.github.mianalysis.mia.object.parameters.abstrakt.Parameter;
+import net.imagej.patcher.LegacyInjector;
 
 public class ModuleExporter {
-    private static final String OUTPUT_PATH = "./src/assets/modules.json";
+    private static final String OUTPUT_PATH = "../src/assets/modules.json";
     private static final int JSON_INDENTATION = 2;
     private static HashMap<Category, TreeSet<Module>> modulesByCategory;
 
     public static void main(String[] args) {
+        LegacyInjector.preinit();
+
         System.out.println("MIA version [" + MIA.getVersion() + "]");
 
         modulesByCategory = getModules();
@@ -35,6 +38,10 @@ public class ModuleExporter {
         JSONObject json = generateCategory(Categories.getRootCategory(), "");
 
         export(json);
+
+        System.out.println("Exported JSON");
+
+        System.exit(0);
     }
 
     private static void export(JSONObject json) {
