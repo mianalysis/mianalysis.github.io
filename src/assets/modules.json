@@ -297,7 +297,11 @@
                 },
                 {
                   "name": "Lookup table",
-                  "description": "Look-up table to apply to the relevant channels.  Choices are: Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Spectrum, Thermal, Random."
+                  "description": "Look-up table to apply to the relevant channels.  Choices are: From wavelength, Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Random, Spectrum, Thermal."
+                },
+                {
+                  "name": "Wavelength (nm)",
+                  "description": ""
                 },
                 {
                   "name": "Display mode",
@@ -1262,6 +1266,10 @@
                     {
                       "name": "Connectivity",
                       "description": "Controls which adjacent pixels are considered:<br><ul><li>\"6\" Only pixels immediately next to the active pixel are considered.  These are the pixels on the four \"cardinal\" directions plus the pixels immediately above and below the current pixel.  If working in 2D, 4-way connectivity is used.<\/li><li>\"26\" In addition to the core 6-pixels, all immediately diagonal pixels are used.  If working in 2D, 8-way connectivity is used.<\/li>"
+                    },
+                    {
+                      "name": "Weight mode",
+                      "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                     },
                     {
                       "name": "Match Z to XY",
@@ -4522,6 +4530,57 @@
             }
           ],
           "slug": "save-objects-as-rois"
+        },
+        {
+          "path": "/modules/input-output/save-overlay-as-rois",
+          "deprecated": false,
+          "name": "Save overlay as ROIs",
+          "shortDescription": "Saves image overlay as a zipped set of ROIs.",
+          "fullDescription": "Saves image overlay as a zipped set of ROIs.  This method preserves colours and labels and allows overlays to be stored in a memory efficient manner.",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Save location",
+              "description": "Select where the image should be saved.<br><ul><li>\"Mirrored directory\" Save the image to a new directory structure which has the same layout as the input.  This is useful when batch processing from a multi-layer folder structure.  The subdirectory layout will match that of the input structure, but will have its root at the folder specified in \"Mirrored directory root\".<\/li><li>\"Match Output Control\" Save the image to the folder specified by the \"Save location\" parameter in \"Output control\".<\/li><li>\"Save with input file\" Save the image in the same file as the root file for this workspace (i.e. the image specified in \"Input control\".<\/li><li>\"Specific location\" Save the image to a specific folder.<\/li><\/ul>"
+            },
+            {
+              "name": "Mirrored directory root",
+              "description": "The root path for the mirrored directory structure.  This path is the equivalent of the folder specified in \"Input control\".  All subfolders will be in the same relative locations to their input counterparts."
+            },
+            {
+              "name": "File path",
+              "description": "Path to folder where images will be saved."
+            },
+            {
+              "name": "File name (generic)",
+              "description": ""
+            },
+            {
+              "name": "Save name mode",
+              "description": "Controls how saved image names will be generated.<br><ul><li>\"Match input file name\" Use the same name as the root file for this workspace (i.e. the input file in \"Input control\".<\/li><li>\"Specific name\" Use a specific name for the output file.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images.<\/li><\/ul>"
+            },
+            {
+              "name": "File name",
+              "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Append series mode",
+              "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
+            },
+            {
+              "name": "Append date/time mode",
+              "description": "Controls under what conditions the time and date will be appended on to the end of the image filename.  This can be used to prevent accidental over-writing of images from previous runs:<br><ul><li>\"Always\" Always append the time and date on to the end of the filename.<\/li><li>\"If file exists\" Only append the time and date if the results file already exists.<\/li><li>\"Never\" Never append time and date (unless the file is open and unwritable).<\/li><\/ul>"
+            },
+            {
+              "name": "Add filename suffix",
+              "description": "A custom suffix to be added to each filename."
+            },
+            {
+              "name": "Input image",
+              "description": ""
+            }
+          ],
+          "slug": "save-overlay-as-rois"
         }
       ]
     },
@@ -4602,8 +4661,12 @@
                   "description": "Object collection used to determine the colour based on number of children per object when \"Colour mode\" is set to \"Child count\".  These objects will be children of the input objects."
                 },
                 {
-                  "name": "Measurement",
+                  "name": "Measurement for colour",
                   "description": "Measurement used to determine the colour when \"Colour mode\" is set to either \"Measurement value\" or \"Parent measurement value\"."
+                },
+                {
+                  "name": "Metadata item for colour",
+                  "description": ""
                 },
                 {
                   "name": "Parent object for colour",
@@ -5097,7 +5160,7 @@
                 },
                 {
                   "name": "Default selector type",
-                  "description": "Default region drawing tool to enable.  This tool can be changed by the user when selecting regions.  Choices are: Freehand line, Freehand region, Line, Oval, Points, Polygon, Rectangle, Segmented line, Wand (tracing) tool."
+                  "description": "Default region drawing tool to enable.  This tool can be changed by the user when selecting regions.  Choices are: Freehand line, Freehand region, Line, Oval, Points, Polygon, Rectangle, Segmented line, Single point, Wand (tracing) tool."
                 },
                 {
                   "name": "Point mode (point-type ROIs only)",
@@ -6724,11 +6787,42 @@
                       "description": ""
                     },
                     {
-                      "name": "Measurement",
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
                       "description": ""
                     }
                   ],
                   "slug": "adopt-parent-measurement"
+                },
+                {
+                  "path": "/modules/objects/measure/miscellaneous/adopt-parent-metadata",
+                  "deprecated": false,
+                  "name": "Adopt parent metadata",
+                  "shortDescription": "",
+                  "fullDescription": "",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Parent objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Add metadata item",
+                      "subParameters": [{
+                        "name": "Metadata item",
+                        "description": ""
+                      }],
+                      "description": ""
+                    }
+                  ],
+                  "slug": "adopt-parent-metadata"
                 },
                 {
                   "path": "/modules/objects/measure/miscellaneous/apply-weka-object-classification",
@@ -6790,7 +6884,7 @@
                   "name": "Calculate statistics for children",
                   "shortDescription": "Calculates statistics for a measurement associated with all child objects of parent object.",
                   "fullDescription": "Calculates statistics for a measurement associated with all child objects of parent object.  The calculated statistics are stored as new measurements, associated with the relevant parent object.  For example, calculating the summed volume of all child objects (from a specified collection) of each parent object.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Parent objects",
@@ -6801,8 +6895,12 @@
                       "description": "Input object collection from the workspace, where these objects are children of the collection selected by the \"Parent objects\" parameter.)"
                     },
                     {
-                      "name": "Measurement",
-                      "description": "Measurement associated with the child objects for which statistics will be calculated.  Statistics will be calculated for all children of a parent object."
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
+                      "description": ""
                     },
                     {
                       "name": "Calculate mean",
@@ -6837,7 +6935,7 @@
                   "name": "Calculate statistics for partners",
                   "shortDescription": "Calculates statistics for a measurement associated with all partner objects of an input object.",
                   "fullDescription": "Calculates statistics for a measurement associated with all partner objects of an input object.  The calculated statistics are stored as new measurements, associated with the relevant input object.  For example, calculating the summed volume of all partner objects (from a specified collection) of each input object.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Input objects",
@@ -6848,8 +6946,12 @@
                       "description": "Input object collection from the workspace, where these objects are partners of the collection selected by the \"Input objects\" parameter.)"
                     },
                     {
-                      "name": "Measurement",
-                      "description": "Measurement associated with the partner objects for which statistics will be calculated.  Statistics will be calculated for all partners of an input object."
+                      "name": "Add measurement",
+                      "subParameters": [{
+                        "name": "Measurement",
+                        "description": ""
+                      }],
+                      "description": ""
                     },
                     {
                       "name": "Calculate mean",
@@ -7085,7 +7187,7 @@
                   "name": "Calculate nearest neighbour",
                   "shortDescription": "Measures the shortest distance between all objects in the specified input collection and all other objects in the same, or a different collection.",
                   "fullDescription": "Measures the shortest distance between all objects in the specified input collection and all other objects in the same, or a different collection.  The shortest distance (nearest neighbour distance) is recorded as a measurement associated with the input object.  Optionally, the distances between all objects can be calculated and exported as a standalone spreadsheet.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Save location",
@@ -7639,6 +7741,14 @@
                   "description": ""
                 },
                 {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
                   "name": "Band mode",
                   "description": ""
                 },
@@ -7842,6 +7952,10 @@
                 {
                   "name": "Percentage",
                   "description": "If \"Edge determination\" is set to \"Percentage of maximum distance to edge\", this is the percentage of the maximum centroid-edge distance for an object that will be used to calculate the edge/interior boundary location.  Percentages approaching 0% will put the boundary increasingly close to the object edge (more detected as \"interiors\"), while percentages approaching 100% will have the boundary increasingly close to the object centroid (more detected as \"edges\")."
+                },
+                {
+                  "name": "Weight mode",
+                  "description": "The pre-defined set of weights that are used to compute the 3D distance transform using chamfer approximations of the euclidean metric (descriptions taken from <a href=\"https://ijpb.github.io/MorphoLibJ/javadoc/\">https://ijpb.github.io/MorphoLibJ/javadoc/<\/a>):<br><ul><li>\"Borgefors (3,4,5) (Emax = 0.1181)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors and 5 for cube-diagonals (best approximation for 3-by-3-by-3 masks).<\/li><li>\"Chessboard (1,1,1)\" Use weight values of 1 for all neighbours.<\/li><li>\"City-Block (1,2,3) (Emax = 0.2679)\" Use weight values of 1 for orthogonal neighbors, 2 for diagonal neighbors and 3 for cube-diagonals.<\/li><li>\"Svensson (3,4,5,7) (Emax = 0.0809)\" Use weight values of 3 for orthogonal neighbors, 4 for diagonal neighbors, 5 for cube-diagonals and 7 for (2,1,1) shifts. Good approximation using only four weights, and keeping low value of orthogonal weight.<\/li><\/ul>"
                 }
               ],
               "slug": "extract-object-edges"
@@ -8242,6 +8356,10 @@
                   "description": ""
                 },
                 {
+                  "name": "Output object mode",
+                  "description": ""
+                },
+                {
                   "name": "Output objects",
                   "description": ""
                 },
@@ -8474,6 +8592,14 @@
                   "description": ""
                 },
                 {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
                   "name": "Add measurement",
                   "subParameters": [
                     {
@@ -8555,6 +8681,14 @@
                   "description": "When selected, the fractional distance of the child object between the centre and surface of the parent is calculated.  This option is only available when relating children to the parent surface.  The calculation can be computationally intensive when dealing with many objects."
                 },
                 {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
+                },
+                {
                   "name": "Enable multithreading",
                   "description": "Process multiple object relationships simultaneously.  This can provide a speed improvement when working on a computer with a multi-core CPU."
                 },
@@ -8616,6 +8750,14 @@
                 {
                   "name": "Only link objects in same frame",
                   "description": "When selected, child and parent objects must be in the same time frame for them to be linked."
+                },
+                {
+                  "name": "Ignore XY edges",
+                  "description": ""
+                },
+                {
+                  "name": "Ignore Z edges",
+                  "description": ""
                 },
                 {
                   "name": "Merge related objects",
@@ -8906,6 +9048,41 @@
           "subCategories": [],
           "modules": [
             {
+              "path": "/modules/objects/transform/duplicate-objects",
+              "deprecated": false,
+              "name": "Duplicate objects",
+              "shortDescription": "Creates an exact copy of objects.",
+              "fullDescription": "Creates an exact copy of objects. Can optionally also duplicate relationships, measurements and metadata. Duplicated objects are entirely separate from their original copies (i.e. don't share coordinate sets), so changes made to the original after duplication won't be reflected in the duplicate copy.",
+              "version": "1.0.1",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Copy relationships",
+                  "description": ""
+                },
+                {
+                  "name": "Copy measurements",
+                  "description": ""
+                },
+                {
+                  "name": "Copy metadata",
+                  "description": ""
+                },
+                {
+                  "name": "Add relationship to original",
+                  "description": ""
+                }
+              ],
+              "slug": "duplicate-objects"
+            },
+            {
               "path": "/modules/objects/transform/duplicate-objects-across-time",
               "deprecated": false,
               "name": "Duplicate objects across time",
@@ -9039,6 +9216,29 @@
               "slug": "fill-holes-in-objects"
             },
             {
+              "path": "/modules/objects/transform/interpolate-along-z",
+              "deprecated": false,
+              "name": "Interpolate along Z",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output spatial calibration",
+                  "description": ""
+                }
+              ],
+              "slug": "interpolate-along-z"
+            },
+            {
               "path": "/modules/objects/transform/mask-objects",
               "deprecated": false,
               "name": "Mask objects",
@@ -9087,7 +9287,7 @@
               "parameters": [
                 {
                   "name": "Input objects",
-                  "description": "Objects to be projected into the xy-plane.  Tese are related as a parent of their respective projected object."
+                  "description": "Objects to be projected into the xy-plane.  These are related as a parent of their respective projected object."
                 },
                 {
                   "name": "Output objects",
@@ -9108,6 +9308,19 @@
                 "description": "Object collection to process for enclosed objects.  Objects in this collection will be updated as a result of this module (enclosed objects will be removed as separate entities and their coordinates will be added to the enclosing object)."
               }],
               "slug": "reassign-enclosed-objects"
+            },
+            {
+              "path": "/modules/objects/transform/resolve-object-overlap",
+              "deprecated": false,
+              "name": "Resolve object overlap",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [{
+                "name": "Input objects",
+                "description": ""
+              }],
+              "slug": "resolve-object-overlap"
             },
             {
               "path": "/modules/objects/transform/track-editor",
