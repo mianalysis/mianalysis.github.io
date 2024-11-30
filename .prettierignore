@@ -2,3 +2,4 @@ package*
 .next
 out
 modules.json
+mia-export/build
