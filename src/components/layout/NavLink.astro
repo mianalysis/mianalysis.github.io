@@ -5,9 +5,10 @@ interface Props {
 
 const { href } = Astro.props;
 
-const currentPath = Astro.url.pathname;
+// Remove trailing slash
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
-const active = currentPath.includes(href);
+const active = currentPath.endsWith(href);
 ---
 
 <li

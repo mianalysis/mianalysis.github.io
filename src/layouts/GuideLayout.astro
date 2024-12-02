@@ -3,7 +3,8 @@ import TreeNav from '@/components/TreeNav';
 import type { TreeNavNode } from '@/types';
 import RootLayout from './RootLayout.astro';
 
-const currentPath = Astro.url.pathname;
+// Remove trailing slash
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
 const rootNode: TreeNavNode = {
   name: 'Guides',

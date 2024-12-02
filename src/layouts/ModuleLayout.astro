@@ -4,7 +4,8 @@ import modules from '@/assets/modules.json';
 import { moduleCategoryToNode } from '@/lib/modules';
 import RootLayout from '@/layouts/RootLayout.astro';
 
-const currentPath = Astro.url.pathname;
+// Remove trailing slash
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
 const rootNode = moduleCategoryToNode(modules);
 ---

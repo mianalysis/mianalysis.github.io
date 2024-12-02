@@ -36,7 +36,7 @@ function InternalNode({
   currentPath: string;
   depth: number;
 }) {
-  const relatesToCurrentPath = currentPath.includes(node.path);
+  const relatesToCurrentPath = currentPath.startsWith(node.path);
 
   const [expanded, setExpanded] = useState(relatesToCurrentPath);
 
