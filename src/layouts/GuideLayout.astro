@@ -64,7 +64,7 @@ const rootNode: TreeNavNode = {
     <div class="w-80 max-xl:hidden sticky top-32 self-start max-h-[80vh] pr-4 overflow-auto">
       <a href="/guides">Guides</a>
 
-      <TreeNav node={rootNode} currentPath={currentPath} />
+      <TreeNav client:load node={rootNode} currentPath={currentPath} />
     </div>
 
     <div>
