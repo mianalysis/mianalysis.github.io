@@ -18,7 +18,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
       <AnchoredHeading type="h2" text="Introduction" />
 
       <p>
-        Workflows can be created and edited from{' '}
+        Workflows can be created and edited from
         <a class="link" href="/guides/editing-view"> editing view </a>
         . Modules are assembled into a linear sequence that forms the workflow. Each module has its own
         independent set of parameters which can be configured by selecting that module from the workflow
@@ -28,13 +28,13 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
       <p>
         In this guide we will cover adding modules, setting the input file, configuring modules,
-        configuring output Excel formats and setting parameters to be visible in{' '}
+        configuring output Excel formats and setting parameters to be visible in
         <a class="link" href="/guides/processing-view"> processing view </a>
         .
       </p>
 
       <p>
-        If you haven&apos;t already done so, at this point it&apos;s also worth looking at the
+        If you haven't already done so, at this point it's also worth looking at the
         <a class="link" href="/guides/example-workflows"> example workflows </a>
         . These workflows include key modules used in the majority of analyses, each of which has accompanying
         notes, explaining its configuration.
@@ -48,14 +48,13 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
       <ul>
         <li>
-          By default, MIA will open in{' '}
+          By default, MIA will open in
           <a class="link" href="/guides/processing-view"> processing view </a>
-          . To switch to editing view, select &quot;View {'>'} Switch to editing view&quot; from the
-          MIA menu.
+          . To switch to editing view, select "View {'>'} Switch to editing view" from the MIA menu.
           <ul>
             <li>
-              The layout of editing view is covered in the{' '}
-              <a class="link" href="/guides/editing-view"> editing view </a>{' '}
+              The layout of editing view is covered in the
+              <a class="link" href="/guides/editing-view"> editing view </a>
               guide.
             </li>
           </ul>
@@ -76,8 +75,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
             <li>Modules are grouped into general categories and sub-categories.</li>
             <li>To view a description of each module, hover the mouse over its name.</li>
             <li>
-              Full documentation of each module can be found in the{' '}
-              <a class="link" href="/modules"> Modules </a>{' '}
+              Full documentation of each module can be found in the
+              <a class="link" href="/modules"> Modules </a>
               pages.
             </li>
           </ul>
@@ -97,13 +96,13 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
           Modules can also be discovered and added using the module search feature.
           <ul>
             <li>
-              Access search via either the menu bar (&quot;View {'>'} Show module search&quot;) or by
-              clicking &quot;Search for module&quot; in the available module list.
+              Access search via either the menu bar ("View {'>'} Show module search") or by clicking
+              "Search for module" in the available module list.
             </li>
             <li>
               Search will always match modules based on the module name, but can optionally be set
-              to also search in the module and/or parameter descriptions using the &quot;Include
-              module/parameter descriptions&quot; checkboxes.
+              to also search in the module and/or parameter descriptions using the "Include
+              module/parameter descriptions" checkboxes.
             </li>
             <li>
               Detected modules need only match one search word; however, mandatory words can be
@@ -130,20 +129,20 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
       <ul>
         <li>
-          Files or folders being processed are specified in the always-present{' '}
+          Files or folders being processed are specified in the always-present
           <a class="link" href="/modules/core/input-control"> Input control </a>
           module, which can be found above the current workflow.
         </li>
 
         <li>
-          The &quot;Input path&quot; parameter specifies either a file or folder that the analysis
-          will be run on.
+          The "Input path" parameter specifies either a file or folder that the analysis will be run
+          on.
           <ul>
             <li>
               The selected file only acts to provide a root path from which the analysis runs. The
-              image at this location isn&apos;t automatically loaded into the MIA workspace, instead
-              this is done by a variety of image loading modules (see{' '}
-              <a class="link" href="/modules/input-output"> Input/output </a>{' '}
+              image at this location isn't automatically loaded into the MIA workspace, instead this
+              is done by a variety of image loading modules (see
+              <a class="link" href="/modules/input-output"> Input/output </a>
               modules).
             </li>
             <li>
@@ -152,8 +151,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
               any given time.
             </li>
             <li>
-              A copy of the{' '}
-              <a class="link" href="/modules/input-output/load-image"> Load image </a>{' '}
+              A copy of the
+              <a class="link" href="/modules/input-output/load-image"> Load image </a>
               module is automatically included with all new workflows.
             </li>
           </ul>
@@ -163,10 +162,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
           If a folder is selected, all files contained within (and within sub-folders) can be
           processed.
           <ul>
-            <li>
-              In this &quot;batch&quot; mode, only files matching specified filters will be
-              processed.
-            </li>
+            <li>In this "batch" mode, only files matching specified filters will be processed.</li>
           </ul>
         </li>
       </ul>
@@ -197,8 +193,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         </li>
 
         <li>
-          Specific parameters can be added to{' '}
-          <a class="link" href="/guides/processing-view"> processing view </a>{' '}
+          Specific parameters can be added to
+          <a class="link" href="/guides/processing-view"> processing view </a>
           by toggling the visibility button to the right of the parameter.
           <ul>
             <li>
@@ -209,11 +205,11 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         </li>
 
         <li>
-          It&apos;s also possible to allow modules to be disabled from processing view by selecting
-          &quot;Can be disabled&quot; from the top of the parameter window.
+          It's also possible to allow modules to be disabled from processing view by selecting "Can
+          be disabled" from the top of the parameter window.
           <ul>
             <li>
-              When selected, a power icon (<MiaIcon type="power_bright_green.png" /> or{' '}
+              When selected, a power icon (<MiaIcon type="power_bright_green.png" /> or
               <MiaIcon type="power_black_strike.png" />) will be displayed next to the module name
               in processing view.
             </li>
@@ -234,8 +230,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
       <StaticVideo url="https://assets.jdjfisher.dev/mia/guides/new-workflow/set_results.mp4" />
 
       <li>
-        The generated results spreadsheet can be configured in the always-present{' '}
-        <a class="link" href="/modules/core/output-control"> Output control </a>{' '}
+        The generated results spreadsheet can be configured in the always-present
+        <a class="link" href="/modules/core/output-control"> Output control </a>
         module, which can be found above the current workflow.
         <ul>
           <li>
@@ -247,7 +243,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
       <li>
         By default, all measurements will be included in the spreadsheet. These can be
-        enabled/disabled individually from the &quot;Measurement selection&quot; section.
+        enabled/disabled individually from the "Measurement selection" section.
         <ul>
           <li>Each exported object collection will be given a separate sheet in the worksheet.</li>
           <li>
@@ -258,8 +254,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
       </li>
 
       <li>
-        Measurements will also be summarised in a separate &quot;Summary&quot; sheet. This sheet can
-        be enabled/disabled in the &quot;Summary sheet&quot; section.
+        Measurements will also be summarised in a separate "Summary" sheet. This sheet can be
+        enabled/disabled in the "Summary sheet" section.
         <ul>
           <li>
             A single summary is prepared for each processed image; however, this can be split down
@@ -270,15 +266,15 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
             sum.
           </li>
           <li>
-            Individual measurement summaries can be enabled/disabled in the &quot;Measurement
-            selection&quot; section.
+            Individual measurement summaries can be enabled/disabled in the "Measurement selection"
+            section.
           </li>
         </ul>
       </li>
 
       <li>
-        More information on the results spreadsheet format can be found in the{' '}
-        <a class="link" href="/guides/results-format"> Results format </a>{' '}
+        More information on the results spreadsheet format can be found in the
+        <a class="link" href="/guides/results-format"> Results format </a>
         guide.
       </li>
     </section>

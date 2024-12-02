@@ -16,10 +16,10 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
       <AnchoredHeading type="h2" text="Introduction" />
 
       <p>
-        Using MIA&apos;s headless mode it&apos;s possible to run workflows without opening a
-        graphical Fiji environment. This enables running workflows on terminal-only systems such as
-        compute clusters. It also provides more fine-grain control for multi-folder batch processing
-        and facilitates performing higher-level workflows such as parameter-sweeps.
+        Using MIA's headless mode it's possible to run workflows without opening a graphical Fiji
+        environment. This enables running workflows on terminal-only systems such as compute
+        clusters. It also provides more fine-grain control for multi-folder batch processing and
+        facilitates performing higher-level workflows such as parameter-sweeps.
       </p>
     </section>
 
@@ -28,7 +28,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
       <p>
         Headless running of workflows can be performed using any copy of Fiji with a standard MIA
-        install. If you&apos;ve already got a copy of Fiji and MIA, you can proceed to running a
+        install. If you've already got a copy of Fiji and MIA, you can proceed to running a
         workflow. On systems lacking a graphical interface (e.g. servers), Fiji can be installed
         using the following system-specific commands. Following this, MIA is installed using the
         steps outlined in installing MIA.
@@ -120,8 +120,8 @@ cd .\fiji-win64\Fiji.app
         The following commands will run a workflow in headless mode. Examples are given for running
         both a single file and also a folder (batch mode). Headless mode can be configured with
         multiple optional parameters which are listed in optional arguments. Arguments are specified
-        as a comma-separated list of names and values. If you don&apos;t have a workflow to hand,
-        you can download the example workflow (from the MIA-examples repository) using the first few
+        as a comma-separated list of names and values. If you don't have a workflow to hand, you can
+        download the example workflow (from the MIA-examples repository) using the first few
         optional commands. Note: Headless running requires MIA version 1.2.0 or newer.
       </p>
 
@@ -186,8 +186,8 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
       <p>
         Currently, headless running only requires a single argument specifying the path to a
         pre-configured MIA workflow. In such a case, the file to be processed is that specified in
-        the workflow file&apos;s &quot;Input path&quot;. To run a different file, please use the
-        &quot;inputPath&quot; optional argument.
+        the workflow file's "Input path". To run a different file, please use the "inputPath"
+        optional argument.
       </p>
 
       <table>
@@ -214,10 +214,10 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
 
       <p>
         Workflow execution can be configured using additional optional arguments. Arguably the most
-        important optional arguments are &quot;inputPath&quot;, which allows specific files/folders
-        to be processed, and &quot;variables&quot;, through which global variables in a workflow can
-        be modified. The remainder of the arguments (e.g. &quot;showMemory&quot; and
-        &quot;verbose&quot;) control the text displayed in the terminal during execution.
+        important optional arguments are "inputPath", which allows specific files/folders to be
+        processed, and "variables", through which global variables in a workflow can be modified.
+        The remainder of the arguments (e.g. "showMemory" and "verbose") control the text displayed
+        in the terminal during execution.
       </p>
 
       <table>
@@ -232,9 +232,8 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
           <tr>
             <td>inputPath</td>
             <td>
-              If set, this will override the &quot;Input path&quot; file/folder set in the specified
-              workflow. When left blank, the &quot;Input path&quot; of the workflow file will be
-              used.
+              If set, this will override the "Input path" file/folder set in the specified workflow.
+              When left blank, the "Input path" of the workflow file will be used.
             </td>
             <td>
               <code>[Blank]</code>
@@ -243,9 +242,8 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
           <tr>
             <td>variables</td>
             <td>
-              Global variables (i.e. those specified as name-value pairs in a &quot;Global
-              Variables&quot; module) can be overridden using the form &quot;name1:value1;
-              name2:value2; etc.&quot;.
+              Global variables (i.e. those specified as name-value pairs in a "Global Variables"
+              module) can be overridden using the form "name1:value1; name2:value2; etc.".
             </td>
             <td>
               <code>[Blank]</code>
@@ -305,8 +303,8 @@ $inPath="'$HOME\mia-examples-1.0.6\Ex1_NucleiSegmentation\'"
           <tr>
             <td>verbose</td>
             <td>
-              If processing multiple files/series (i.e. &quot;batch mode&quot;), verbose mode will
-              display the current module status, rather than the number of jobs completed.
+              If processing multiple files/series (i.e. "batch mode"), verbose mode will display the
+              current module status, rather than the number of jobs completed.
             </td>
             <td>
               <code>false</code>

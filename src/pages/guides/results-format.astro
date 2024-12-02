@@ -26,13 +26,13 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
       <p>
         Output results files can contain multiple, highly configurable sheets. Typically, a results
         file will include a summary sheet with one row per input image, individual object sheets
-        with one row per detected object and a couple of record-keeping sheets.{' '}
+        with one row per detected object and a couple of record-keeping sheets.
       </p>
 
       <p>
-        The output file format is configured in the{' '}
-        <a class="link" href="/modules/core/output-control"> Output control </a>{' '}
-        module.{' '}
+        The output file format is configured in the
+        <a class="link" href="/modules/core/output-control"> Output control </a>
+        module.
       </p>
     </section>
 
@@ -43,20 +43,20 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         <li>
           The summary sheet is intended to provide a quick overview of the measurements contained
           within the individual object sheets. Information is broken down into four classes of
-          column.{' '}
+          column.
           <ul>
             <li>
               By default, each row of the summary sheet will summarise the results from a single
               input image.
             </li>
             <li>
-              By changing the &quot;Summary mode&quot; parameter of the &quot;Output control&quot;
-              module to &quot;Per timepoint per input file&quot;, a new row can be generated for
-              each timepoint in the image, allowing for quick analysis of time-dependent processes.
+              By changing the "Summary mode" parameter of the "Output control" module to "Per
+              timepoint per input file", a new row can be generated for each timepoint in the image,
+              allowing for quick analysis of time-dependent processes.
             </li>
             <li>
-              Alternatively, by setting this to &quot;Group by metadata&quot;, results can be
-              grouped by a specific metadata item, with one row per unique metadata value.
+              Alternatively, by setting this to "Group by metadata", results can be grouped by a
+              specific metadata item, with one row per unique metadata value.
             </li>
           </ul>
         </li>
@@ -71,8 +71,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
             </li>
             <li>Column headings simply state the name of the metadata item.</li>
             <li>
-              Metadata columns can be enabled/disabled using the &quot;Ind&quot; controls in the
-              &quot;Output control&quot; module.
+              Metadata columns can be enabled/disabled using the "Ind" controls in the "Output
+              control" module.
             </li>
           </ul>
         </li>
@@ -86,13 +86,12 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
               <code>[Image name]_(IM) // [Measurement name]</code>
             </li>
             <li>
-              For example, an image called &quot;Binary&quot; with the measurement &quot;THRESHOLD
-              // GLOBAL Huang&quot; would be called &quot;Binary_(IM) // THRESHOLD // GLOBAL
-              Huang&quot;.
+              For example, an image called "Binary" with the measurement "THRESHOLD // GLOBAL Huang"
+              would be called "Binary_(IM) // THRESHOLD // GLOBAL Huang".
             </li>
             <li>
-              Image measurements columns can be enabled/disabled using the &quot;Ind&quot; controls
-              in the &quot;Output control&quot; module.
+              Image measurements columns can be enabled/disabled using the "Ind" controls in the
+              "Output control" module.
             </li>
           </ul>
         </li>
@@ -106,13 +105,12 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
               <code>[Objects name]_(OBJ) // NUMBER</code>
             </li>
             <li>
-              For example, for the count of detected &quot;Nuclei&quot; objects, this would be
-              &quot;Nuclei_(OBJ) // NUMBER&quot;.
+              For example, for the count of detected "Nuclei" objects, this would be "Nuclei_(OBJ)
+              // NUMBER".
             </li>
             <li>
-              Object count columns can be enabled/disabled using the &quot;Show object counts&quot;
-              control in the &quot;Output control&quot; module. Object counts are either on or off
-              for all objects.
+              Object count columns can be enabled/disabled using the "Show object counts" control in
+              the "Output control" module. Object counts are either on or off for all objects.
             </li>
           </ul>
         </li>
@@ -129,20 +127,17 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
               <code>[Objects name]_(OBJ_[Statistic]) // [Measurement name]</code>
             </li>
             <li>
-              For example, the header corresponding to the mean of the &quot;SHAPE // N_VOXELS&quot;
-              measurement for &quot;Nuclei&quot; objects would be &quot;Nuclei_(OBJ_MEAN) // SHAPE
-              // N_VOXELS&quot;.
+              For example, the header corresponding to the mean of the "SHAPE // N_VOXELS"
+              measurement for "Nuclei" objects would be "Nuclei_(OBJ_MEAN) // SHAPE // N_VOXELS".
             </li>
             <li>
-              Supported statistics are the mean (&quot;MEAN&quot;), minimum (&quot;MIN&quot;),
-              maximum (&quot;MAX&quot;), standard deviation (&quot;STD&quot;) and sum
-              (&quot;SUM&quot;).
+              Supported statistics are the mean ("MEAN"), minimum ("MIN"), maximum ("MAX"), standard
+              deviation ("STD") and sum ("SUM").
             </li>
             <li>
-              Object measurement statistic columns can be enabled/disabled using the
-              &quot;Mean&quot;, &quot;Min&quot;, &quot;Max&quot;, &quot;Sum&quot; and
-              &quot;Std&quot; controls in the &quot;Output control&quot; module. The &quot;Ind&quot;
-              control determines if the measurement appears in the object-specific results sheet.
+              Object measurement statistic columns can be enabled/disabled using the "Mean", "Min",
+              "Max", "Sum" and "Std" controls in the "Output control" module. The "Ind" control
+              determines if the measurement appears in the object-specific results sheet.
             </li>
           </ul>
         </li>
@@ -159,8 +154,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         </li>
 
         <li>
-          The first column is always (&quot;OBJECT_ID&quot;), which is the unique ID number for that
-          object in that analysis run.
+          The first column is always ("OBJECT_ID"), which is the unique ID number for that object in
+          that analysis run.
           <ul>
             <li>
               Note: IDs are only unique to that analysis run, so if multiple input files were
@@ -175,8 +170,8 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         </li>
 
         <li>
-          Metadata and measurement columns can be disabled with the &quot;Ind&quot; controls in the
-          &quot;Output control&quot; module.
+          Metadata and measurement columns can be disabled with the "Ind" controls in the "Output
+          control" module.
         </li>
       </ul>
     </section>
@@ -192,15 +187,15 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
         </li>
 
         <li>
-          The &quot;Configuration&quot; sheet includes some device-specific information such as the
-          computer operating system, plugin version and date/time of execution. It also includes a
-          full copy of the .mia workflow file used. In the event of the workflow file being lost,
-          these rows can be copied into a text file and saved with the .mia extension.
+          The "Configuration" sheet includes some device-specific information such as the computer
+          operating system, plugin version and date/time of execution. It also includes a full copy
+          of the .mia workflow file used. In the event of the workflow file being lost, these rows
+          can be copied into a text file and saved with the .mia extension.
         </li>
 
         <li>
-          The &quot;Log&quot; sheet contains a list of any error messages encountered during the
-          analysis run. All being well, this sheet should be empty.
+          The "Log" sheet contains a list of any error messages encountered during the analysis run.
+          All being well, this sheet should be empty.
         </li>
       </ul>
     </section>
