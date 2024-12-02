@@ -2,6 +2,10 @@ export function uniqueBy<T>(items: T[], key: keyof T): T[] {
   return [...new Map(items.map((item) => [item[key], item])).values()];
 }
 
+export function unique<T>(items: T[]): T[] {
+  return [...new Set(items)];
+}
+
 export function randomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -22,14 +26,14 @@ export function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export const partition = <T>(array: T[], predicate: (element: T) => boolean) => {
-  return array.reduce<T[][]>(
+export const partition = <T>(array: T[], predicate: (element: T) => boolean): [T[], T[]] => {
+  return array.reduce(
     ([pass, fail], element) => {
       predicate(element) ? pass.push(element) : fail.push(element);
 
       return [pass, fail];
     },
-    [[], []]
+    [[] as T[], [] as T[]]
   );
 };
 

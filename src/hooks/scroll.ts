@@ -1,5 +1,3 @@
-'use client';
-
 import { debounce } from '@/lib/util';
 import { useState, useEffect } from 'react';
 

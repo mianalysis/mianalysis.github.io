@@ -1,0 +1,31 @@
+---
+import ModuleCategoryComponent from '@/components/module/ModuleCategory.astro';
+import ModuleDetails from '@/components/module/ModuleDetails.astro';
+import ModuleLayout from '@/layouts/ModuleLayout.astro';
+import { findModuleOrCategory, getModulePaths } from '@/lib/modules';
+
+export function getStaticPaths() {
+  const paths = getModulePaths();
+
+  return paths.map((path) => ({ params: { path } }));
+}
+
+const { path } = Astro.params;
+
+const slugs = path.split('/').filter(Boolean) ?? [path];
+
+const node = findModuleOrCategory(slugs)!;
+---
+
+<ModuleLayout>
+  <div class="mx-auto max-w-4xl space-y-5">
+    <h1>{node.name}</h1>
+    {
+      'subCategories' in node ? (
+        <ModuleCategoryComponent category={node} />
+      ) : (
+        <ModuleDetails module={node} />
+      )
+    }
+  </div>
+</ModuleLayout>

@@ -1,10 +1,5 @@
-'use client';
-
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-import javaSyntax from 'react-syntax-highlighter/dist/esm/languages/hljs/java';
-import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
-SyntaxHighlighter.registerLanguage('java', javaSyntax);
+import { obsidian } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 // TODO: Sort max width issue on mobile
 

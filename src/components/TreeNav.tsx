@@ -1,18 +1,15 @@
-'use client';
-
 import { partition } from '@/lib/util';
-import { TreeNavNode } from '@/types';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import type { TreeNavNode } from '@/types';
 import { useState } from 'react';
 import { MdChevronRight, MdExpandMore } from 'react-icons/md';
 
 interface Props {
   node: TreeNavNode;
+  currentPath: string;
   depth?: number;
 }
 
-export default function TreeNav({ node, depth = 1 }: Props) {
+export default function TreeNav({ node, currentPath, depth = 1 }: Props) {
   const [internalChildren, leafChildren] = partition(
     node.children,
     (child) => child.children.length > 0
@@ -21,27 +18,33 @@ export default function TreeNav({ node, depth = 1 }: Props) {
   return (
     <ul className="list-none text-gray-500 pl-0 pb-0">
       {internalChildren.map((child) => (
-        <InternalNode key={child.path} node={child} depth={depth} />
+        <InternalNode key={child.path} node={child} currentPath={currentPath} depth={depth} />
       ))}
       {leafChildren.map((child) => (
-        <LeafNode key={child.path} node={child} />
+        <LeafNode key={child.path} node={child} currentPath={currentPath} />
       ))}
     </ul>
   );
 }
 
-function InternalNode({ node, depth }: { node: TreeNavNode; depth: number }) {
-  const pathname = usePathname();
-
+function InternalNode({
+  node,
+  currentPath,
+  depth,
+}: {
+  node: TreeNavNode;
+  currentPath: string;
+  depth: number;
+}) {
   const [hidden, setHidden] = useState(false);
 
-  const toggleHidden = () => setHidden((hidden) => !hidden && pathname.endsWith(node.path));
+  const toggleHidden = () => setHidden((hidden) => !hidden && currentPath.endsWith(node.path));
 
-  const expanded = pathname.includes(node.path) && !hidden;
+  const expanded = currentPath.includes(node.path) && !hidden;
 
   return (
     <li>
-      <Link
+      <a
         href={node.path}
         className="relative flex justify-between py-1 transition-colors duration-200 hover:text-gray-950"
         onClick={toggleHidden}
@@ -51,26 +54,24 @@ function InternalNode({ node, depth }: { node: TreeNavNode; depth: number }) {
         )}
         {node.name}
         {expanded ? <MdExpandMore /> : <MdChevronRight />}
-      </Link>
+      </a>
 
       {expanded && (
         <div className="ml-4 border-l border-gray-200 pl-3 delay-75 my-2">
-          {TreeNav({ node, depth: depth + 1 })}
+          {TreeNav({ node, currentPath, depth: depth + 1 })}
         </div>
       )}
     </li>
   );
 }
 
-function LeafNode({ node }: { node: TreeNavNode }) {
-  const pathname = usePathname();
-
+function LeafNode({ node, currentPath }: { node: TreeNavNode; currentPath: string }) {
   return (
     <li className="relative transition-colors duration-200 hover:text-gray-950">
-      <Link href={node.path} className="flex py-1">
+      <a href={node.path} className="flex py-1">
         {node.name}
-      </Link>
-      {pathname.endsWith(node.path) && (
+      </a>
+      {currentPath.endsWith(node.path) && (
         <div className="absolute -left-[14px] bottom-0 top-0 w-[3px] bg-mia-blue" />
       )}
     </li>

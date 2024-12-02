@@ -1,0 +1,136 @@
+---
+import AnchoredHeading from '@/components/layout/AnchoredHeading.astro';
+import RootLayout from '@/layouts/RootLayout.astro';
+---
+
+<RootLayout>
+  <div class="mx-auto max-w-4xl space-y-16">
+    <section class="space-y-4">
+      <h1>About</h1>
+
+      <p class="opacity-70 text-3xl">
+        Image and object analysis workflow automation plugin for Fiji
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <AnchoredHeading type="h2" text="Description" />
+
+      <p>
+        ModularImageAnalysis (MIA) is an ImageJ plugin which provides a modular framework for
+        assembling image and object analysis workflows. Detected objects can be transformed,
+        filtered, measured and related. Analysis workflows are batch-enabled by default, allowing
+        easy processing of high-content datasets. MIA is developed in the{' '}
+        <a class="link" href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+          Wolfson Bioimaging Facility
+        </a>{' '}
+        at the University of Bristol.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <AnchoredHeading type="h2" text="Acknowledgements" />
+
+      <p>
+        The plugin makes use of a combination of plugins packaged with Fiji as well as others that
+        can be installed via the updater.
+      </p>
+
+      <p>
+        Required plugins pre-packaged with Fiji:{' '}
+        <a class="link" href="https://github.com/fiji/AnalyzeSkeleton"> AnalyzeSkeleton </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/Auto_Threshold"> Auto Threshold </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/bUnwarpJ"> bUnwarpJ </a>
+        ,{' '}
+        <a class="link" href="https://github.com/openmicroscopy/bioformats"> Bio-Formats </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/Colour_Deconvolution">
+          Colour Deconvolution
+        </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/CorrectBleach"> Correct Bleach </a>
+        ,{' '}
+        <a class="link" href="https://github.com/axtimwalde/mpicbg"> MPICBG </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/TrackMate"> TrackMate </a>
+        ,{' '}
+        <a class="link" href="https://github.com/fiji/Trainable_Segmentation">
+          Weka Trainable Segmentation
+        </a>
+        . Required plugins that need installing via the ImageJ updater:{' '}
+        <a class="link" href="https://github.com/ijpb/MorphoLibJ"> MorphoLibJ </a>
+        . Plugins bundled with MIA:{' '}
+        <a class="link" href="https://imagej.nih.gov/ij/plugins/stack-focuser.html">
+          Stack Focuser
+        </a>
+        .
+      </p>
+
+      {
+        /* <p>
+        A list of bundled dependencies along with their respective licenses can be found{' '}
+        <a
+          class="link"
+          href="https://htmlpreview.github.io/?https://github.com/mianalysis/mia/blob/master/target/site/dependencies.html"
+        >
+          here
+        </a>
+        .
+      </p> */
+      }
+
+      <p>
+        Special thanks to all MIA users who have provided vital feedback over the years. In
+        particular, big thanks to Dr. Dominic Alibhai for his many suggestions and ideas.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <AnchoredHeading type="h2" text="Citing MIA" />
+
+      <p>
+        We hope you find MIA useful. If you&apos;ve used MIA in your research, please cite the
+        following paper:
+      </p>
+
+      <p>
+        Cross, S.J., Fisher, J.D.J.R. & Jepson, M.A., &quot;ModularImageAnalysis (MIA): Assembly of
+        modularised image and object analysis workflows in ImageJ&quot;,{' '}
+        <em>Journal of Microscopy</em> (2023), doi:{' '}
+        <a class="link" href="https://doi.org/10.1111/jmi.13227"> 110.1111/jmi.13227 </a>
+        .
+      </p>
+
+      <p>
+        MIA is also archived at Zenodo, which provides a unique DOI for each released version.
+        Zenodo DOIs can be found{' '}
+        <a class="link" href="https://zenodo.org/record/8164907"> here </a>
+        .
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <AnchoredHeading type="h2" text="Publications" />
+
+      <p>
+        MIA has been used in a variety of different analyses, a few published examples of which are
+        listed below. For a more complete list, please go to{' '}
+        <a class="link" href="/publications"> Publications </a>
+        .
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <AnchoredHeading type="h2" text="Ongoing development" />
+
+      <p>
+        This plugin is still in development and test coverage is currently incomplete. Please keep
+        an eye on results and add an{' '}
+        <a class="link" href="https://github.com/mianalysis/mia/issues"> issue </a>{' '}
+        if any problems are encountered.
+      </p>
+    </section>
+  </div>
+</RootLayout>

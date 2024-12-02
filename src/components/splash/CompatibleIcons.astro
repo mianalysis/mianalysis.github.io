@@ -1,0 +1,48 @@
+---
+import imagej from '@/assets/images/logos/imagej.png';
+import fiji from '@/assets/images/logos/fiji.png';
+import trackmate from '@/assets/images/logos/trackmate.png';
+import bioformats from '@/assets/images/logos/bio_formats.png';
+import { Image } from 'astro:assets';
+
+const commonClasses =
+  'transition-all duration-500 data-[in-view=true]:translate-x-0 data-[in-view=true]:opacity-100 data-[in-view=false]:translate-x-5 data-[in-view=false]:opacity-0';
+---
+
+<div id="compatibility" class="flex gap-4 items-center drop-shadow-2xl">
+  <a href="https://github.com/imagej" class:list={[commonClasses, 'delay-0']}>
+    <Image src={imagej} alt="ImageJ" width={200} height={200} />
+  </a>
+
+  <a href="https://github.com/fiji" class:list={[commonClasses, 'delay-200']}>
+    <Image src={fiji} alt="Fiji" width={200} height={200} />
+  </a>
+
+  <a
+    href="https://github.com/openmicroscopy/bioformats"
+    class:list={[commonClasses, 'delay-[400ms]']}
+  >
+    <Image src={bioformats} alt="Bio-Formats" width={200} height={200} />
+  </a>
+
+  <a href="https://github.com/fiji/TrackMate" class:list={[commonClasses, 'delay-[600ms]']}>
+    <Image src={trackmate} alt="TrackMate" width={200} height={200} />
+  </a>
+</div>
+
+<script>
+  const items = document.querySelectorAll('#compatibility a');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const { target } = entry;
+
+        target.setAttribute('data-in-view', entry.isIntersecting ? 'true' : 'false');
+      });
+    },
+    { threshold: 1 }
+  );
+
+  items.forEach((item) => observer.observe(item));
+</script>

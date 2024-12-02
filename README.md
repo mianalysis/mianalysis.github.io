@@ -1,6 +1,6 @@
 # MIA Documentation
 
-This is the documentation for [MIA](https://github.com/mianalysis/mia/). It is built using [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+This is the documentation for [MIA](https://github.com/mianalysis/mia/). It is built using [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ Then, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://localhost:4321](http://localhost:4321) with your browser.
 
 ## Update module documentation
 
@@ -34,10 +34,4 @@ This project uses [Prettier](https://prettier.io/) for code formatting. To forma
 
 ```bash
 npm run format
-```
-
-To install a git hook that will format the code run:
-
-```bash
-npm run prepare
 ```
