@@ -1,4 +1,4 @@
-import { Module, ModuleCategory, TreeNavNode } from '@/types';
+import type { Module, ModuleCategory, TreeNavNode } from '@/types';
 import rootCategory from '@/assets/modules.json';
 
 export function findModuleOrCategory(
@@ -21,23 +21,23 @@ export function findModuleOrCategory(
 }
 
 export function getModulePaths() {
-  const paths: string[][] = [];
+  const paths: string[] = [];
 
-  function explore(category: ModuleCategory, slugs: string[]) {
-    if (slugs.length > 0) {
-      paths.push(slugs);
+  function explore(category: ModuleCategory, basePath: string = '') {
+    if (basePath) {
+      paths.push(basePath);
     }
 
     category.subCategories.forEach((subCategory) => {
-      explore(subCategory, [...slugs, subCategory.slug]);
+      explore(subCategory, basePath + '/' + subCategory.slug);
     });
 
     category.modules.forEach((module) => {
-      paths.push([...slugs, module.slug]);
+      paths.push(basePath + '/' + module.slug);
     });
   }
 
-  explore(rootCategory, []);
+  explore(rootCategory);
 
   return paths;
 }

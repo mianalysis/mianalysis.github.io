@@ -1,16 +1,9 @@
-'use client';
-
 import { useClickOutside } from '@/hooks/click';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
 import { MdCopyAll } from 'react-icons/md';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-import bashSyntax from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
-import powershellSyntax from 'react-syntax-highlighter/dist/esm/languages/hljs/powershell';
-import { obsidian } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
-SyntaxHighlighter.registerLanguage('bash', bashSyntax);
-SyntaxHighlighter.registerLanguage('powershell', powershellSyntax);
+import { obsidian } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const systemLanguages = {
   linux: 'bash',

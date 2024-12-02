@@ -1,0 +1,27 @@
+---
+import type { Module } from '@/types';
+import ModuleParameters from './ModuleParameters.astro';
+import AnchoredHeading from '../layout/AnchoredHeading.astro';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props;
+---
+
+<div class="space-y-16">
+  <p class="text-2xl">{module.shortDescription}</p>
+
+  <section>
+    <AnchoredHeading type="h2" text="Description" />
+
+    <p set:html={module.fullDescription} />
+  </section>
+
+  <section>
+    <AnchoredHeading type="h2" text="Parameters" />
+
+    <ModuleParameters module={module} />
+  </section>
+</div>

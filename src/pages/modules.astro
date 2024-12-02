@@ -1,0 +1,13 @@
+---
+import rootCategory from '@/assets/modules.json';
+import ModuleCategory from '@/components/module/ModuleCategory.astro';
+import ModuleLayout from '@/layouts/ModuleLayout.astro';
+---
+
+<ModuleLayout>
+  <div class="mx-auto max-w-4xl space-y-5">
+    <h1>Modules</h1>
+
+    <ModuleCategory category={rootCategory} />
+  </div>
+</ModuleLayout>

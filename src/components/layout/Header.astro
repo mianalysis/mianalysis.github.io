@@ -1,0 +1,33 @@
+---
+import NavBar from './NavBar.astro';
+---
+
+<>
+  {/* Transition height and add shadow once scrolling has started */}
+  <header
+    id="header"
+    data-scrolled="false"
+    class="fixed left-0 right-0 top-0 bg-white z-50 transition-all duration-300 data-[scrolled=true]:border-b data-[scrolled=true]:shadow-md data-[scrolled=false]:pt-4 data-[scrolled=true]:pt-2"
+  >
+    <NavBar />
+  </header>
+
+  {/* The NavBar has position fixed so displace the content below by roughly its height */}
+  <div class="h-16"></div>
+</>
+
+<script>
+  import { debounce } from '@/lib/util';
+
+  function updateScrolled() {
+    const scrolled = window.scrollY > 0;
+    const header = document.querySelector('#header') as HTMLElement;
+
+    header.setAttribute('data-scrolled', scrolled ? 'true' : 'false');
+  }
+
+  // Double check the scroll position on load
+  updateScrolled();
+
+  window.addEventListener('scroll', debounce(updateScrolled, 100));
+</script>

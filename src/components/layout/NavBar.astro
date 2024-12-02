@@ -1,0 +1,60 @@
+---
+import Logo from './Logo.astro';
+import NavLink from './NavLink.astro';
+import { MdMenu } from 'react-icons/md';
+import Search from '@/components/Search.astro';
+
+const links = [
+  { href: '/guides', text: 'Guides' },
+  { href: '/modules', text: 'Modules' },
+  { href: '/publications', text: 'Publications' },
+  { href: '/getinvolved', text: 'Get involved' },
+  { href: '/about', text: 'About' },
+] as const;
+---
+
+<nav class="space-y-2 max-w-4xl mx-auto">
+  <div class="flex justify-between gap-x-8 py-2 max-sm:px-4">
+    <Logo />
+
+    <ul class="flex max-sm:hidden list-none items-center gap-x-8 pl-0 pb-0">
+      {links.map(({ href, text }) => <NavLink href={href}>{text}</NavLink>)}
+      <li>
+        <Search />
+      </li>
+    </ul>
+
+    <button id="mobile-button" type="button" class="sm:hidden">
+      <MdMenu size={32} />
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="flex justify-between items-start overflow-hidden transition-all bg-gray-100 p-4 drop-shadow-lg h-0 py-0"
+  >
+    <ul class="list-none space-y-2">
+      {links.map(({ href, text }) => <NavLink href={href}>{text}</NavLink>)}
+    </ul>
+    <Search />
+  </div>
+</nav>
+
+<script>
+  const button = document.getElementById('mobile-button')!;
+  const menu = document.getElementById('mobile-menu')!;
+
+  // Toggle the menu
+  button.addEventListener('click', () => {
+    menu.classList.toggle('h-0');
+    menu.classList.toggle('py-0');
+  });
+
+  // Close the menu when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target as Node) && !button.contains(event.target as Node)) {
+      menu.classList.add('h-0');
+      menu.classList.add('py-0');
+    }
+  });
+</script>

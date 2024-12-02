@@ -34,28 +34,19 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
-
       - name: Install dependencies
         run: npm ci
 
       - name: Build static site
         env:
-          NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          NEXT_PUBLIC_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          PUBLIC_ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          PUBLIC_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./out
+          path: ./dist
 
   # Deployment job
   deploy:

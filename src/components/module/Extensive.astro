@@ -1,0 +1,33 @@
+---
+import ModuleCloud from '@/components/module/ModuleCloud';
+
+import sample1 from '@/assets/images/samples/sample_1.png';
+import sample2 from '@/assets/images/samples/sample_2.png';
+import sample3 from '@/assets/images/samples/sample_3.png';
+import sample4 from '@/assets/images/samples/sample_4.png';
+import { Image } from 'astro:assets';
+import { unique } from '@/lib/util';
+import { getModules } from '@/lib/modules';
+
+const moduleNames = unique(getModules().map((m) => m.name));
+---
+
+<div class="relative">
+  <ModuleCloud client:load moduleNames={moduleNames} />
+
+  <div class="absolute top-48 left-72 max-sm:max-w-[60vw]">
+    <Image src={sample4} alt="MIA sample" width={256} height={256} />
+  </div>
+
+  <div class="absolute top-0 left-0 max-sm:max-w-[60vw]">
+    <Image src={sample1} alt="MIA sample" width={400} height={400} />
+  </div>
+
+  <div class="absolute top-32 right-0 max-sm:max-w-[60vw]">
+    <Image src={sample3} alt="MIA sample" width={400} height={400} />
+  </div>
+
+  <div class="absolute bottom-0 left-48 max-sm:max-w-[60vw]">
+    <Image src={sample2} alt="MIA sample" width={400} height={400} />
+  </div>
+</div>

@@ -1,0 +1,80 @@
+---
+import wbif from '@/assets/images/logos/wbif-black-logo.png';
+import Logo from './Logo.astro';
+import { Image } from 'astro:assets';
+---
+
+<footer
+  class="mx-auto flex flex-col sm:flex-row w-full items-center max-w-4xl sm:items-start justify-between gap-16 sm:py-32 py-16 px-4 text-gray-700"
+>
+  <div class="space-y-6">
+    <div class="flex justify-between">
+      <Logo />
+
+      <a href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+        <Image src={wbif} alt="Wolfson Bioimaging Facility" height={32} />
+      </a>
+    </div>
+
+    <p class="max-w-sm font-thin">
+      Developed in the
+      <a class="font-normal hover:text-black" href="https://www.bristol.ac.uk/wolfson-bioimaging/">
+        Wolfson Bioimaging Facility
+      </a>
+      at the University of Bristol.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-8">
+    <ul class="list-none space-y-1 group">
+      <li
+        class="mb-5 font-thin uppercase drop-shadow-sm underline decoration-2 decoration-transparent underline-offset-8 transition-colors duration-500 group-hover:decoration-mia-orange"
+      >
+        Explore
+      </li>
+      <li class="hover:text-black">
+        <a href="https://github.com/mianalysis">GitHub</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="/publications">Publications</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="https://imagej.net/plugins/modularimageanalysis/index">ImageJ</a>
+      </li>
+    </ul>
+
+    <ul class="list-none space-y-1 group">
+      <li
+        class="mb-5 font-thin uppercase drop-shadow-sm underline decoration-2 decoration-transparent underline-offset-8 transition-colors duration-500 group-hover:decoration-mia-blue"
+      >
+        Learn
+      </li>
+      <li class="hover:text-black">
+        <a href="/about">About</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="/guides">Guides</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="https://www.youtube.com/@mianalysis">YouTube</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="https://github.com/mianalysis/mia-examples">Examples</a>
+      </li>
+    </ul>
+
+    <ul class="list-none space-y-1 group">
+      <li
+        class="mb-5 font-thin uppercase drop-shadow-sm underline decoration-2 decoration-transparent underline-offset-8 transition-colors duration-500 group-hover:decoration-mia-green"
+      >
+        Follow
+      </li>
+      <li class="hover:text-black">
+        <a href="https://twitter.com/_mianalysis/">Twitter</a>
+      </li>
+      <li class="hover:text-black">
+        <a href="https://github.com/mianalysis/mia/releases">Releases</a>
+      </li>
+    </ul>
+  </div>
+</footer>

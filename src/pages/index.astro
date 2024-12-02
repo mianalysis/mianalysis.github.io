@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import splash from '@/assets/images/screenshots/splash.png';
+import splashMobile from '@/assets/images/screenshots/splash_mobile.png';
+import dataExport from '@/assets/images/screenshots/data_export.png';
+import { MdMovie, MdDescription, MdApps } from 'react-icons/md';
+import CodeSnippet from '@/components/splash/CodeSnippet';
+import Card from '@/components/Card.astro';
+import BatchProcessing from '@/components/splash/BatchProcessing';
+import CompatibleIcons from '@/components/splash/CompatibleIcons.astro';
+import RootLayout from '@/layouts/RootLayout.astro';
+import batchProcessing from '@/assets/images/screenshots/batch_processing.png';
+import Extensive from '@/components/module/Extensive.astro';
+---
+
+<RootLayout>
+  <div class="mx-auto max-w-4xl space-y-40">
+    <section class="space-y-4">
+      <h1 class="max-sm:hidden">ModularImageAnalysis</h1>
+      <h1 class="sm:hidden leading-[4rem]">Modular Image Analysis</h1>
+
+      <p class="mb-8 opacity-70 text-3xl">
+        A Fiji plugin providing a modular framework for assembling image and object analysis
+        workflows
+      </p>
+
+      <Image src={splash} alt="MIA" class="max-sm:hidden shadow-lg" />
+      <Image src={splashMobile} alt="MIA" class="sm:hidden shadow-lg" />
+    </section>
+
+    <section class="space-y-4">
+      <h2>Extensive</h2>
+
+      <p class="opacity-70 text-2xl">
+        Over 200 modules covering a wide range of image and object analysis processes such as
+        transform, filtering, detection, measurement and visualisation
+      </p>
+
+      <Extensive />
+    </section>
+
+    <section>
+      <h2>Compatible</h2>
+
+      <div class="grid sm:grid-cols-3 gap-8 items-center mb-8">
+        <p class="opacity-70 text-2xl sm:col-span-2">
+          Designed with out-of-the-box support for spatially-calibrated 5D images, yielding image
+          and object measurements in both pixel and physical units
+        </p>
+        <Image src={dataExport} alt="MIA" />
+      </div>
+
+      <div class="flex flex-col-reverse sm:flex-row gap-16 justify-between items-center">
+        <CompatibleIcons />
+
+        <p class="opacity-70 text-2xl">
+          Integrates with key ImageJ plugins such as
+          <a href="https://github.com/openmicroscopy/bioformats">Bio-Formats</a>,
+          <a href="https://github.com/fiji/TrackMate">TrackMate</a> and
+          <a href="https://github.com/fiji/Trainable_Segmentation">Weka Trainable Segmentation</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="grid sm:grid-cols-3 gap-16 items-center">
+      <div class="sm:col-span-2 space-y-4">
+        <div>
+          <h2>Efficient</h2>
+
+          <p class="opacity-70 text-2xl">
+            MIA's modular design allows for efficient, automated, and high throughput image analysis
+          </p>
+        </div>
+
+        <div>
+          <h3>Automated</h3>
+          <p class="opacity-70 text-lg">
+            Workflows can be automated from initial image loading through processing, object
+            detection, measurement extraction, visualisation, and data exporting
+          </p>
+        </div>
+
+        <div>
+          <h3>High throughput</h3>
+          <p class="opacity-70 text-lg">
+            Workflows are, by default, compatible with batch processing multiple files within a
+            single folder
+          </p>
+        </div>
+
+        <div>
+          <h3>Memory Efficient</h3>
+          <p class="opacity-70 text-lg">
+            Dense spatial object data can be stored in a compressed quadtree coordinate structure to
+            significantly reduce memory usage
+          </p>
+        </div>
+      </div>
+
+      <div class="relative">
+        <Image src={batchProcessing} alt="MIA batch processing" class="shadow-xl" />
+
+        <BatchProcessing client:load />
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <div>
+        <h2>Extensible</h2>
+        <p class="opacity-70 text-2xl">
+          Functionality can be extended via integration with
+          <a href="https://imagej.net/scripting/">SciJava's scripting interface</a> or with Java modules
+          that extend the core MIA framework
+        </p>
+      </div>
+
+      <CodeSnippet />
+    </section>
+
+    <section>
+      <h2>For you</h2>
+
+      <p class="opacity-70 text-2xl mb-16">
+        Documented and ready to use for all your image analysis needs
+      </p>
+
+      <div class="grid sm:grid-cols-3 items-center gap-8">
+        <Card href="https://www.youtube.com/@mianalysis" className="flex flex-col items-center">
+          <span class="h3">Video Tutorials</span>
+          <MdMovie size={128} className="text-mia-orange" />
+        </Card>
+        <Card href="/guides" className="flex flex-col items-center">
+          <span class="h3">Guides</span>
+          <MdDescription size={128} className="text-mia-blue" />
+        </Card>
+        <Card href="/modules" className="flex flex-col items-center">
+          <span class="h3">Module Index</span>
+          <MdApps size={128} className="text-mia-green" />
+        </Card>
+      </div>
+    </section>
+  </div>
+</RootLayout>

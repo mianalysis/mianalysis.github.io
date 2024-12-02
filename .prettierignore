@@ -1,5 +1,6 @@
 package*
 .next
 out
+dist
 modules.json
 mia-export/build

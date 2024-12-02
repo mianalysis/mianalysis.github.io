@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const active = currentPath.endsWith(href);
+---
+
+<li
+  class="underline decoration-2 underline-offset-4 transition-colors duration-500 whitespace-nowrap"
+  class:list={active ? 'decoration-mia-blue' : 'decoration-transparent hover:decoration-mia-orange'}
+>
+  <a href={href}>
+    <slot />
+  </a>
+</li>

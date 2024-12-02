@@ -1,0 +1,28 @@
+---
+import TreeNav from '@/components/TreeNav';
+import modules from '@/assets/modules.json';
+import { moduleCategoryToNode } from '@/lib/modules';
+import RootLayout from '@/layouts/RootLayout.astro';
+
+const currentPath = Astro.url.pathname;
+
+const rootNode = moduleCategoryToNode(modules);
+---
+
+<RootLayout>
+  <div class="flex justify-center gap-16 w-full">
+    {/* Tree nav for large screens */}
+    <div class="w-80 max-xl:hidden sticky top-32 self-start max-h-[80vh] pr-4 overflow-auto">
+      <a href="/modules">Modules</a>
+
+      <TreeNav client:load node={rootNode} currentPath={currentPath} />
+    </div>
+
+    <div>
+      <slot />
+    </div>
+
+    {/* Keep children center only on large screens */}
+    <div class="w-80 max-2xl:hidden"></div>
+  </div>
+</RootLayout>

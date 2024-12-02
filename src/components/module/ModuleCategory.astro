@@ -1,0 +1,38 @@
+---
+import Card from '../Card.astro';
+import type { ModuleCategory as ModuleCategoryType } from '@/types';
+import { MdChevronRight } from 'react-icons/md';
+
+interface Props {
+  category: ModuleCategoryType;
+}
+
+const { category } = Astro.props;
+---
+
+<div class="space-y-10">
+  <p>{category.description}</p>
+
+  <section class="grid sm:grid-cols-2 gap-8">
+    {
+      category.subCategories.map((subCategory) => (
+        <Card className="border-2 border-dashed" href={subCategory.path}>
+          <span class="h3">{subCategory.name}</span>
+          <p>{subCategory.description}</p>
+          <div class="flex items-center gap-1">
+            See modules <MdChevronRight />
+          </div>
+        </Card>
+      ))
+    }
+
+    {
+      category.modules.map((module) => (
+        <Card className="border-gray-300" href={module.path}>
+          <span class="h3">{module.name}</span>
+          <p>{module.shortDescription}</p>
+        </Card>
+      ))
+    }
+  </section>
+</div>

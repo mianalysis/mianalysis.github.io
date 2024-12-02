@@ -1,0 +1,33 @@
+---
+import type { Module } from '@/types';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props;
+
+// TODO: Render sub parameters better
+const parameters = module.parameters.flatMap((parameter) =>
+  parameter.subParameters ? [parameter, ...parameter.subParameters] : [parameter]
+);
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      parameters.map((parameter) => (
+        <tr>
+          <td>{parameter.name}</td>
+          <td set:html={parameter.description} />
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
