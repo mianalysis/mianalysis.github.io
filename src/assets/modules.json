@@ -306,6 +306,10 @@
                 {
                   "name": "Display mode",
                   "description": "Controls how the minimum value in the look-up table should be rendered:<br><br>- \"Full range\" Use the full colour range of the look-up table.  This is the default look-up table without modifications.<br><br>- \"Set zero to black\" Uses the standard look-up table, except for the lowest value, which is always set to black.  This is useful for cases where the background will be 0 or NaN and should be rendered as black.<br>"
+                },
+                {
+                  "name": "Invert LUT",
+                  "description": ""
                 }
               ],
               "slug": "set-lookup-table"
@@ -463,7 +467,7 @@
               "name": "Image measurement calculator",
               "shortDescription": "Perform a mathematical operation on measurements associated with an image.",
               "fullDescription": "Perform a mathematical operation on measurements associated with an image.  The calculation can replace either or both input image measurements with fixed values.  The resulting measurement is associated with the input image as a new measurement.",
-              "version": "1.0.0",
+              "version": "1.1.0",
               "parameters": [
                 {
                   "name": "Input image",
@@ -471,35 +475,75 @@
                 },
                 {
                   "name": "Value mode 1",
-                  "description": "Controls how the first value in the calculation is defined:<br><ul><li>\"Fixed\" A single, fixed value defined by \"Fixed value 1\"is used.<\/li><li>\"Measurement\" A measurement associated with the input image and defined by \"Measurement 1\" is used.<\/li><\/ul>"
+                  "description": "Controls how the first value in the calculation is defined:<br><ul><li>\"Fixed\" A single, fixed value defined by \"Fixed value 1\"is used.<\/li><li>\"Image measurement\" A measurement associated with an image (specified by \"Image 1\") and defined by \"Image measurement 1\" is used.<\/li><li>\"Measurement\" A measurement associated with the input image/object and defined by \"Measurement 1\" is used.<\/li><li>\"Object collection statistic\" A statistic (specified by \"Statistic mode 1\") of a measurement (specified by \"Reference measurement 1\") associated with all objects in an object collection (specified by \"Reference objects 1\") is used.  For example, the mean object volume.  Note: The object collection used to calculate the statistic doesn't have to be the same as the input object collection.<\/li><\/ul>"
                 },
                 {
                   "name": "Fixed value 1",
                   "description": "Fixed value to use in the calculation when \"Value mode 1\" is in \"Fixed\" mode."
                 },
                 {
-                  "name": "Measurement 1",
-                  "description": "Measurement associated with the input image to use in the calculation when \"Value mode 1\" is in \"Measurement\" mode."
+                  "name": "Image 1",
+                  "description": "A measurement associated with this image will be used in the calculated when \"Value mode 1\" is in \"Image measurement\" mode."
+                },
+                {
+                  "name": "Image measurement 1",
+                  "description": "Measurement associated with an image (specified by \"Image 1\") to use in the calculation when \"Value mode 1\" is in \"Image measurement\" mode."
+                },
+                {
+                  "name": "Reference objects 1",
+                  "description": "Object collection for which a statistic of an associated measurement will be used in the calculation when \"Value mode 1\" is in \"Object collection statistic\" mode."
+                },
+                {
+                  "name": "Reference measurement 1",
+                  "description": "Measurement associated with the objects in the collection specified by \"Reference objects 1\".  A statistic of all object measurements will be used in the calculation when \"Value mode 1\" is in \"Object collection statistic\" mode."
+                },
+                {
+                  "name": "Statistic mode 1",
+                  "description": "Statistic to apply to all measurements (specified by \"Reference measurement 1\") of an object collection (specified by \"Reference objects 1\").  The resulting value will be used in the calculation when \"Value mode 1\" is in \"Object collection statistic\" mode.  Choices are: First value, Last value, Minimum, Mean, Maximum, Range, Standard deviation, Sum."
                 },
                 {
                   "name": "Value mode 2",
-                  "description": "Controls how the second value in the calculation is defined:<br><ul><li>\"Fixed\" A single, fixed value defined by \"Fixed value 2\"is used.<\/li><li>\"Measurement\" A measurement associated with the input image and defined by \"Measurement 2\" is used.<\/li><\/ul>"
+                  "description": "Controls how the second value in the calculation is defined:<br><ul><li>\"Fixed\" A single, fixed value defined by \"Fixed value 2\"is used.<\/li><li>\"Image measurement\" A measurement associated with an image (specified by \"Image 2\") and defined by \"Image measurement 2\" is used.<\/li><li>\"Measurement\" A measurement associated with the input image/object and defined by \"Measurement 2\" is used.<\/li><li>\"Object collection statistic\" A statistic (specified by \"Statistic mode 2\") of a measurement (specified by \"Reference measurement 2\") associated with all objects in an object collection (specified by \"Reference objects 2\") is used.  For example, the mean object volume.  Note: The object collection used to calculate the statistic doesn't have to be the same as the input object collection.<\/li><\/ul>"
                 },
                 {
                   "name": "Fixed value 2",
                   "description": "Fixed value to use in the calculation when \"Value mode 2\" is in \"Fixed\" mode."
                 },
                 {
-                  "name": "Measurement 2",
-                  "description": "Measurement associated with the input image to use in the calculation when \"Value mode 2\" is in \"Measurement\" mode."
+                  "name": "Image 2",
+                  "description": "A measurement associated with this image will be used in the calculated when \"Value mode 2\" is in \"Image measurement\" mode."
+                },
+                {
+                  "name": "Image measurement 2",
+                  "description": "Measurement associated with an image (specified by \"Image 2\") to use in the calculation when \"Value mode 2\" is in \"Image measurement\" mode."
+                },
+                {
+                  "name": "Reference objects 2",
+                  "description": "Object collection for which a statistic of an associated measurement will be used in the calculation when \"Value mode 2\" is in \"Object collection statistic\" mode."
+                },
+                {
+                  "name": "Reference measurement 2",
+                  "description": "Measurement associated with the objects in the collection specified by \"Reference objects 2\".  A statistic of all object measurements will be used in the calculation when \"Value mode 2\" is in \"Object collection statistic\" mode."
+                },
+                {
+                  "name": "Statistic mode 2",
+                  "description": "Statistic to apply to all measurements (specified by \"Reference measurement 2\") of an object collection (specified by \"Reference objects 2\").  The resulting value will be used in the calculation when \"Value mode 2\" is in \"Object collection statistic\" mode.  Choices are: First value, Last value, Minimum, Mean, Maximum, Range, Standard deviation, Sum."
                 },
                 {
                   "name": "Output measurement",
-                  "description": "The value resulting from the calculation will be stored as a new measurement with this name.  This output measurement will be associated with the input image"
+                  "description": "The value resulting from the calculation will be stored as a new measurement with this name.  This output measurement will be associated with the corresponding image/object."
                 },
                 {
                   "name": "Calculation mode",
-                  "description": "Calculation to perform.  Choices are: Add value 1 and value 2, Divide value 1 by value 2, Multiply value 1 and value 2, Subtract value 2 from value 1."
+                  "description": "Calculation to perform.  Choices are: Add value 1 and value 2, Difference of value 1 and value 2, Divide value 1 by value 2, Value 1 == value 2, Value 1 > value 2, Value 1 >= value 2, Value 1 < value 2, Value 1 <= value 2, Maximum of value 1 and value 2, Mean of value 1 and value 2, Minimum of value 1 and value 2, Multiply value 1 and value 2, Value 1 != value 2, Subtract value 2 from value 1."
+                },
+                {
+                  "name": "Measurement 1",
+                  "description": "Measurement, associated with the current image/object, to use in the calculation when \"Value mode 1\" is in \"Measurement\" mode."
+                },
+                {
+                  "name": "Measurement 2",
+                  "description": "Measurement, associated with the current image/object, to use in the calculation when \"Value mode 2\" is in \"Measurement\" mode."
                 }
               ],
               "slug": "image-measurement-calculator"
@@ -3768,6 +3812,92 @@
                 }
               ],
               "slug": "scale-stack"
+            },
+            {
+              "path": "/modules/images/transform/stitch-tiles",
+              "deprecated": false,
+              "name": "Stitch tiles",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output image",
+                  "description": ""
+                },
+                {
+                  "name": "x-axis number of tiles",
+                  "description": ""
+                },
+                {
+                  "name": "y-axis number of tiles",
+                  "description": ""
+                },
+                {
+                  "name": "x-axis overlap",
+                  "description": ""
+                },
+                {
+                  "name": "y-axis overlap",
+                  "description": ""
+                },
+                {
+                  "name": "Output image width (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Output image height (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Tile axis",
+                  "description": ""
+                }
+              ],
+              "slug": "stitch-tiles"
+            },
+            {
+              "path": "/modules/images/transform/tile-stack",
+              "deprecated": false,
+              "name": "Tile stack",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output image",
+                  "description": ""
+                },
+                {
+                  "name": "x-axis number of tiles",
+                  "description": ""
+                },
+                {
+                  "name": "y-axis number of tiles",
+                  "description": ""
+                },
+                {
+                  "name": "x-axis overlap",
+                  "description": ""
+                },
+                {
+                  "name": "y-axis overlap",
+                  "description": ""
+                },
+                {
+                  "name": "Tile axis",
+                  "description": ""
+                }
+              ],
+              "slug": "tile-stack"
             }
           ]
         }
@@ -4379,6 +4509,30 @@
               "description": "Image to be saved to file."
             },
             {
+              "name": "Image sequence mode",
+              "description": ""
+            },
+            {
+              "name": "Split channels",
+              "description": ""
+            },
+            {
+              "name": "Split z-stacks",
+              "description": ""
+            },
+            {
+              "name": "Split timeseries",
+              "description": ""
+            },
+            {
+              "name": "Number of zeros",
+              "description": ""
+            },
+            {
+              "name": "Starting index",
+              "description": ""
+            },
+            {
               "name": "File format",
               "description": "The format the output image will be saved as:<br><ul><li>\"AVI\" Video written using the stock ImageJ \"<a href=\"https://github.com/imagej/imagej1/blob/master/ij/plugin/filter/AVI_Writer.java\">AVI Writer<\/a>\".  Videos can use different compression algorithms specified using \"Compression mode\".  Framerate specified by \"Frame rate (fps)\" parameter.<\/li><li>\"TIF\" Standard multidimensional (multi-page) TIF image saving.<\/li><li>\"ZIP\" TIF images stored using ZIP compression.  For images with large homogeneous regions of pixel intensity this can greatly reduce file size in a lossless manner.  Zipped images can be read directly back into ImageJ/Fiji without the need for prior decompression.<\/li><\/ul>"
             },
@@ -4680,6 +4834,39 @@
               "slug": "convert-objects-to-image"
             },
             {
+              "path": "/modules/objects/convert/create-class-image",
+              "deprecated": false,
+              "name": "Create class image",
+              "shortDescription": "Creates a class image for the specific objects.",
+              "fullDescription": "Creates a class image for the specific objects.  For each object, the index of that class is assigned to all pixels.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Add objects",
+                  "subParameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Class index",
+                      "description": ""
+                    }
+                  ],
+                  "description": "Add another object set."
+                },
+                {
+                  "name": "Allow missing objects",
+                  "description": "If enabled, the moduule can ignore any objects specified for inclusion that aren't present in the workspace.  This is useful if an object's existence is dependent on optional modules."
+                },
+                {
+                  "name": "Output image",
+                  "description": "The resultant class image to be added to the workspace."
+                }
+              ],
+              "slug": "create-class-image"
+            },
+            {
               "path": "/modules/objects/convert/create-distance-map",
               "deprecated": false,
               "name": "Create distance map",
@@ -4971,6 +5158,33 @@
                 }
               ],
               "slug": "cluster-points"
+            },
+            {
+              "path": "/modules/objects/detect/create-object-grid",
+              "deprecated": false,
+              "name": "Create object grid",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Cell width (px)",
+                  "description": ""
+                },
+                {
+                  "name": "Cell height (px)",
+                  "description": ""
+                }
+              ],
+              "slug": "create-object-grid"
             },
             {
               "path": "/modules/objects/detect/create-whole-slice-objects",
@@ -6636,6 +6850,10 @@
                     {
                       "name": "Parent objects name",
                       "description": ""
+                    },
+                    {
+                      "name": "Enable multithreading",
+                      "description": ""
                     }
                   ],
                   "slug": "measure-object-intensity-orientation"
@@ -7005,7 +7223,7 @@
                   "name": "Object measurement calculator",
                   "shortDescription": "Perform a mathematical operation on measurements associated with each object of an object collection in the workspace.",
                   "fullDescription": "Perform a mathematical operation on measurements associated with each object of an object collection in the workspace.  The calculation can replace either or both values with fixed values, measurements associated with an image or a statistic of all measurements associated with another object collection (e.g. the mean volume of all objects).  The resulting measurements are associated with the corresponding input objects as new measurements.",
-                  "version": "1.0.0",
+                  "version": "1.1.0",
                   "parameters": [
                     {
                       "name": "Input objects",
@@ -7081,7 +7299,7 @@
                     },
                     {
                       "name": "Calculation mode",
-                      "description": "Calculation to perform.  Choices are: Add measurement 1 and measurement 2, Divide measurement 1 by measurement 2, Multiply measurement 1 and measurement 2, Subtract measurement 2 from measurement 1."
+                      "description": "Calculation to perform.  Choices are: Add value 1 and value 2, Difference of value 1 and value 2, Divide value 1 by value 2, Value 1 == value 2, Value 1 > value 2, Value 1 >= value 2, Value 1 < value 2, Value 1 <= value 2, Maximum of value 1 and value 2, Mean of value 1 and value 2, Minimum of value 1 and value 2, Multiply value 1 and value 2, Value 1 != value 2, Subtract value 2 from value 1."
                     }
                   ],
                   "slug": "object-measurement-calculator"
@@ -7295,6 +7513,65 @@
                     }
                   ],
                   "slug": "calculate-nearest-neighbour"
+                },
+                {
+                  "path": "/modules/objects/measure/spatial/measure-distances-to-neighbours",
+                  "deprecated": false,
+                  "name": "Measure distances to neighbours",
+                  "shortDescription": "Measures distances to the closest N objects in the specified input collection.",
+                  "fullDescription": "Measures distances to the closest N objects in the specified input collection.",
+                  "version": "1.0.0",
+                  "parameters": [
+                    {
+                      "name": "Input objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Relationship mode",
+                      "description": ""
+                    },
+                    {
+                      "name": "Neighbour objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Reference mode",
+                      "description": ""
+                    },
+                    {
+                      "name": "Only calculate for objects in same parent",
+                      "description": ""
+                    },
+                    {
+                      "name": "Parent objects",
+                      "description": ""
+                    },
+                    {
+                      "name": "Limit linking distance",
+                      "description": ""
+                    },
+                    {
+                      "name": "Maximum linking distance",
+                      "description": ""
+                    },
+                    {
+                      "name": "Calibrated distance",
+                      "description": ""
+                    },
+                    {
+                      "name": "Only link objects in same frame",
+                      "description": ""
+                    },
+                    {
+                      "name": "Number of neighbours",
+                      "description": ""
+                    },
+                    {
+                      "name": "Add neighbours as partners",
+                      "description": ""
+                    }
+                  ],
+                  "slug": "measure-distances-to-neighbours"
                 },
                 {
                   "path": "/modules/objects/measure/spatial/measure-object-centroid",
@@ -9536,6 +9813,32 @@
               "description": "Select a script file to be run by this module.  As with the \"Script text\" parameter, this script can start with the lines \"#@ io.github.mianalysis.mia.object.Workspace workspace\" and \"#@ io.github.mianalysis.mia.module.Module thisModule\", which provide access to the active workspace and this module."
             },
             {
+              "name": "Add parameter",
+              "subParameters": [
+                {
+                  "name": "Parameter type",
+                  "description": ""
+                },
+                {
+                  "name": "Parameter name",
+                  "description": ""
+                },
+                {
+                  "name": "Parameter checkbox",
+                  "description": ""
+                },
+                {
+                  "name": "Parameter numeric value",
+                  "description": ""
+                },
+                {
+                  "name": "Parameter text value",
+                  "description": ""
+                }
+              ],
+              "description": ""
+            },
+            {
               "name": "Add output",
               "subParameters": [
                 {
@@ -9694,7 +9997,7 @@
               },
               {
                 "name": "Variable type",
-                "description": "Controls how the variable is specified:<br><ul><li>\"Boolean\" The output variable is assigned either \"True\" or \"False\" depending on whether the switch (specified with the \"Variable Boolean\" parameter) is enabled or disabled, respectively.<\/li><li>\"Choice\" Select the output variable from a pre-determined list of options (specified with the \"Variable choices\" parameter).<\/li><li>\"File\" Select a specific file on the computer for this variable using the \"Variable file\" parameter.  The variable will be set to the full path to this file.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Folder\" Select a specific folder on the computer for this variable using the \"Variable folder\" parameter.  The variable will be set to the full path to this folder.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Text\" Specify a fixed text value for this variable using the \"Variable value\" parameter.<\/li><\/ul>"
+                "description": "Controls how the variable is specified:<br><ul><li>\"Boolean\" The output variable is assigned either \"True\" or \"False\" depending on whether the switch (specified with the \"Variable Boolean\" parameter) is enabled or disabled, respectively.<\/li><li>\"Choice\" Select the output variable from a pre-determined list of options (specified with the \"Variable choices\" parameter).<\/li><li>\"File\" Select a specific file on the computer for this variable using the \"Variable file\" parameter.  The variable will be set to the full path to this file.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Folder\" Select a specific folder on the computer for this variable using the \"Variable folder\" parameter.  The variable will be set to the full path to this folder.  Note: backslash characters will be escaped (i.e. \"\\\" will appear as \"\\\\\").<\/li><li>\"Text\" Specify a fixed text value for this variable using the \"Variable value\" parameter.<\/li><\/ul><li>\"Text area\" Specify a fixed text value for this variable using the \"Variable text\" parameter.  This simply provides a larger, multiline area in which text can be entered.<\/li><\/ul>"
               },
               {
                 "name": "Variable Boolean",
@@ -9723,6 +10026,10 @@
               {
                 "name": "Store as metadata item",
                 "description": "When selected, the variable will be stored as a metadata item.  This allows it to be exported to the final spreadsheet."
+              },
+              {
+                "name": "Variable text",
+                "description": ""
               }
             ],
             "description": "Add a new global variable.  Added variables can be removed using the \"Remove\" button."
@@ -11350,6 +11657,10 @@
                 {
                   "name": "Track history (frames)",
                   "description": "Number of frames a track segment will be displayed for after the timepoint to which it corresponds."
+                },
+                {
+                  "name": "Fade out tracks",
+                  "description": ""
                 },
                 {
                   "name": "Line width",
