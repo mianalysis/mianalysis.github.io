@@ -26,7 +26,7 @@ repositories {
 dependencies {
     implementation 'net.imagej:ij1-patcher:1.2.7'
 
-    def miaVersion = '1.7.4' 
+    def miaVersion = '1.7.7' 
     implementation "io.github.mianalysis:mia-core:${miaVersion}"
     implementation "io.github.mianalysis:mia-macros:${miaVersion}"
     implementation "io.github.mianalysis:mia-modules:${miaVersion}"
