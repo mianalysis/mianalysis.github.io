@@ -13,11 +13,11 @@ const links = [
 ] as const;
 ---
 
-<nav class="space-y-2 max-w-4xl mx-auto">
+<nav class="mx-auto max-w-4xl space-y-2">
   <div class="flex justify-between gap-x-8 py-2 max-sm:px-4">
     <Logo />
 
-    <ul class="flex max-sm:hidden list-none items-center gap-x-8 pl-0 pb-0">
+    <ul class="flex list-none items-center gap-x-8 pb-0 pl-0 max-sm:hidden">
       {links.map(({ href, text }) => <NavLink href={href}>{text}</NavLink>)}
       <li>
         <Search />
@@ -31,7 +31,7 @@ const links = [
 
   <div
     id="mobile-menu"
-    class="flex justify-between items-start overflow-hidden transition-all bg-gray-100 p-4 drop-shadow-lg h-0 py-0"
+    class="flex h-0 items-start justify-between overflow-hidden bg-gray-100 p-4 py-0 drop-shadow-lg transition-all"
   >
     <ul class="list-none space-y-2">
       {links.map(({ href, text }) => <NavLink href={href}>{text}</NavLink>)}

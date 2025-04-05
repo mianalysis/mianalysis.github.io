@@ -15,7 +15,7 @@ function ProgressBar({ inView }: { inView: boolean }) {
     >
       <div
         className={classNames(
-          'h-full transition-colors duration-500 shadow-inner',
+          'h-full shadow-inner transition-colors duration-500',
           inView ? 'bg-mia-green' : 'bg-mia-blue'
         )}
         style={{ transitionDelay: `${delay + duration}ms` }}
@@ -28,7 +28,7 @@ export default function BatchProcessing() {
   const { ref, inView } = useInView();
 
   return (
-    <div className="w-full h-full absolute top-0 flex flex-col -z-10 pl-30 py-9" ref={ref}>
+    <div className="pl-30 absolute top-0 -z-10 flex h-full w-full flex-col py-9" ref={ref}>
       {Array.from(Array(BARS).keys()).map((i) => (
         <ProgressBar key={i} inView={inView} />
       ))}

@@ -13,7 +13,7 @@ const { category } = Astro.props;
 <div class="space-y-10">
   <p>{category.description}</p>
 
-  <section class="grid sm:grid-cols-2 gap-8">
+  <section class="grid gap-8 sm:grid-cols-2">
     {
       category.subCategories.map((subCategory) => (
         <Card className="border-2 border-dashed" href={subCategory.path}>

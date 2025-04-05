@@ -15,17 +15,17 @@ export default function ModuleCloud({ moduleNames }: Props) {
 
   return (
     <div
-      className="select-none max-sm:max-h-[60vh] sm:max-h-none overflow-hidden"
+      className="select-none overflow-hidden max-sm:max-h-[60vh] sm:max-h-none"
       ref={containerRef}
       aria-hidden
     >
-      <p className="flex flex-wrap justify-evenly gap-x-2 gap-y-1 lowercase cursor-default drop-shadow-2xl items-center">
+      <p className="flex cursor-default flex-wrap items-center justify-evenly gap-x-2 gap-y-1 lowercase drop-shadow-2xl">
         {moduleNames.map((module, i) => (
           <span
             key={module}
             className={classNames(
               // constant styles
-              'hover:text-black transition-all duration-500',
+              'transition-all duration-500 hover:text-black',
               // stripe the 3 colors across the modules
               i % 3 === 0 ? 'text-mia-green' : i % 3 === 1 ? 'text-mia-blue' : 'text-mia-orange',
               // adjust the size of the modules
@@ -33,7 +33,7 @@ export default function ModuleCloud({ moduleNames }: Props) {
               // adjust the blur of the modules
               scrollY % scrollStep === i % scrollStep
                 ? 'opacity-100'
-                : 'opacity-20  hover:opacity-100'
+                : 'opacity-20 hover:opacity-100'
             )}
           >
             {module}

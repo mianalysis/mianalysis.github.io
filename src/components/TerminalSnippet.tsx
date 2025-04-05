@@ -40,8 +40,8 @@ export default function TerminalSnippet(snippets: Props) {
             key={system}
             type="button"
             onClick={() => setSelectedSystem(system as System)}
-            className={`px-2 py-1 transition-colors duration-500 capitalize ${
-              selectedSystem === system ? ' text-black' : 'text-gray-300 hover:text-gray-500'
+            className={`px-2 py-1 capitalize transition-colors duration-500 ${
+              selectedSystem === system ? 'text-black' : 'text-gray-300 hover:text-gray-500'
             }`}
           >
             {system}

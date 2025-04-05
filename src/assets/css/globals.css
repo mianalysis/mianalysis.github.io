@@ -54,7 +54,7 @@ h3,
 /* List defaults */
 ul,
 ol {
-  @apply list-outside pl-8 pb-2;
+  @apply list-outside pb-2 pl-8;
 }
 
 ul {

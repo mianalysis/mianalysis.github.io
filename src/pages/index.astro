@@ -17,21 +17,21 @@ import Extensive from '@/components/module/Extensive.astro';
   <div class="mx-auto max-w-4xl space-y-40">
     <section class="space-y-4">
       <h1 class="max-sm:hidden">ModularImageAnalysis</h1>
-      <h1 class="sm:hidden leading-[4rem]">Modular Image Analysis</h1>
+      <h1 class="leading-[4rem] sm:hidden">Modular Image Analysis</h1>
 
-      <p class="mb-8 opacity-70 text-3xl">
+      <p class="mb-8 text-3xl opacity-70">
         A Fiji plugin providing a modular framework for assembling image and object analysis
         workflows
       </p>
 
-      <Image src={splash} alt="MIA" class="max-sm:hidden shadow-lg" />
-      <Image src={splashMobile} alt="MIA" class="sm:hidden shadow-lg" />
+      <Image src={splash} alt="MIA" class="shadow-lg max-sm:hidden" />
+      <Image src={splashMobile} alt="MIA" class="shadow-lg sm:hidden" />
     </section>
 
     <section class="space-y-4">
       <h2>Extensive</h2>
 
-      <p class="opacity-70 text-2xl">
+      <p class="text-2xl opacity-70">
         Over 200 modules covering a wide range of image and object analysis processes such as
         transform, filtering, detection, measurement and visualisation
       </p>
@@ -42,18 +42,18 @@ import Extensive from '@/components/module/Extensive.astro';
     <section>
       <h2>Compatible</h2>
 
-      <div class="grid sm:grid-cols-3 gap-8 items-center mb-8">
-        <p class="opacity-70 text-2xl sm:col-span-2">
+      <div class="mb-8 grid items-center gap-8 sm:grid-cols-3">
+        <p class="text-2xl opacity-70 sm:col-span-2">
           Designed with out-of-the-box support for spatially-calibrated 5D images, yielding image
           and object measurements in both pixel and physical units
         </p>
         <Image src={dataExport} alt="MIA" />
       </div>
 
-      <div class="flex flex-col-reverse sm:flex-row gap-16 justify-between items-center">
+      <div class="flex flex-col-reverse items-center justify-between gap-16 sm:flex-row">
         <CompatibleIcons />
 
-        <p class="opacity-70 text-2xl">
+        <p class="text-2xl opacity-70">
           Integrates with key ImageJ plugins such as
           <a href="https://github.com/openmicroscopy/bioformats">Bio-Formats</a>,
           <a href="https://github.com/fiji/TrackMate">TrackMate</a> and
@@ -62,19 +62,19 @@ import Extensive from '@/components/module/Extensive.astro';
       </div>
     </section>
 
-    <section class="grid sm:grid-cols-3 gap-16 items-center">
-      <div class="sm:col-span-2 space-y-4">
+    <section class="grid items-center gap-16 sm:grid-cols-3">
+      <div class="space-y-4 sm:col-span-2">
         <div>
           <h2>Efficient</h2>
 
-          <p class="opacity-70 text-2xl">
+          <p class="text-2xl opacity-70">
             MIA's modular design allows for efficient, automated, and high throughput image analysis
           </p>
         </div>
 
         <div>
           <h3>Automated</h3>
-          <p class="opacity-70 text-lg">
+          <p class="text-lg opacity-70">
             Workflows can be automated from initial image loading through processing, object
             detection, measurement extraction, visualisation, and data exporting
           </p>
@@ -82,7 +82,7 @@ import Extensive from '@/components/module/Extensive.astro';
 
         <div>
           <h3>High throughput</h3>
-          <p class="opacity-70 text-lg">
+          <p class="text-lg opacity-70">
             Workflows are, by default, compatible with batch processing multiple files within a
             single folder
           </p>
@@ -90,7 +90,7 @@ import Extensive from '@/components/module/Extensive.astro';
 
         <div>
           <h3>Memory Efficient</h3>
-          <p class="opacity-70 text-lg">
+          <p class="text-lg opacity-70">
             Dense spatial object data can be stored in a compressed quadtree coordinate structure to
             significantly reduce memory usage
           </p>
@@ -107,7 +107,7 @@ import Extensive from '@/components/module/Extensive.astro';
     <section class="space-y-4">
       <div>
         <h2>Extensible</h2>
-        <p class="opacity-70 text-2xl">
+        <p class="text-2xl opacity-70">
           Functionality can be extended via integration with
           <a href="https://imagej.net/scripting/">SciJava's scripting interface</a> or with Java modules
           that extend the core MIA framework
@@ -120,11 +120,11 @@ import Extensive from '@/components/module/Extensive.astro';
     <section>
       <h2>For you</h2>
 
-      <p class="opacity-70 text-2xl mb-16">
+      <p class="mb-16 text-2xl opacity-70">
         Documented and ready to use for all your image analysis needs
       </p>
 
-      <div class="grid sm:grid-cols-3 items-center gap-8">
+      <div class="grid items-center gap-8 sm:grid-cols-3">
         <Card href="https://www.youtube.com/@mianalysis" className="flex flex-col items-center">
           <span class="h3">Video Tutorials</span>
           <MdMovie size={128} className="text-mia-orange" />

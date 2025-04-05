@@ -16,7 +16,7 @@ export default function TreeNav({ node, currentPath, depth = 1 }: Props) {
   );
 
   return (
-    <ul className="list-none text-gray-500 pl-0 pb-0">
+    <ul className="list-none pb-0 pl-0 text-gray-500">
       {internalChildren.map((child) => (
         <InternalNode key={child.path} node={child} currentPath={currentPath} depth={depth} />
       ))}
@@ -57,7 +57,7 @@ function InternalNode({
       </div>
 
       {expanded && (
-        <div className="ml-4 border-l border-gray-200 pl-3 delay-75 my-2">
+        <div className="my-2 ml-4 border-l border-gray-200 pl-3 delay-75">
           {TreeNav({ node, currentPath, depth: depth + 1 })}
         </div>
       )}

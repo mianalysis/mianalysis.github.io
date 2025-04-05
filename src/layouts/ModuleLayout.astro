@@ -11,9 +11,9 @@ const rootNode = moduleCategoryToNode(modules);
 ---
 
 <RootLayout>
-  <div class="flex justify-center gap-16 w-full">
+  <div class="flex w-full justify-center gap-16">
     {/* Tree nav for large screens */}
-    <div class="w-80 max-xl:hidden sticky top-32 self-start max-h-[80vh] pr-4 overflow-auto">
+    <div class="sticky top-32 max-h-[80vh] w-80 self-start overflow-auto pr-4 max-xl:hidden">
       <a href="/modules">Modules</a>
 
       <TreeNav client:load node={rootNode} currentPath={currentPath} />

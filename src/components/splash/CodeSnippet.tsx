@@ -5,7 +5,7 @@ import { obsidian } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 export default function CodeSnippet() {
   return (
-    <div className="shadow-lg text-xs max-w-xs sm:max-w-none" aria-hidden>
+    <div className="max-w-xs text-xs shadow-lg sm:max-w-none" aria-hidden>
       <SyntaxHighlighter language="java" style={obsidian} showLineNumbers>
         {`@Override
 public Status process(Workspace workspace) {
