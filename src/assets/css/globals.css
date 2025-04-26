@@ -1,6 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-mia-blue: #65b5d5;
+  --color-mia-orange: #dc9247;
+  --color-mia-green: #7dd55b;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* Text defaults */
 
@@ -44,7 +66,7 @@ h2,
 
 h3,
 .h3 {
-  @apply truncate text-lg font-medium leading-snug;
+  @apply truncate text-lg leading-snug font-medium;
 }
 
 .link {
@@ -52,6 +74,10 @@ h3,
 }
 
 /* List defaults */
+li {
+  @apply list-none;
+}
+
 ul,
 ol {
   @apply list-outside pb-2 pl-8;

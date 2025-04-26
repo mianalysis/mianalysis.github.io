@@ -13,7 +13,7 @@ const active = currentPath.endsWith(href);
 
 <li
   class="whitespace-nowrap underline decoration-2 underline-offset-4 transition-colors duration-500"
-  class:list={active ? 'decoration-mia-blue' : 'decoration-transparent hover:decoration-mia-orange'}
+  class:list={active ? 'decoration-mia-blue' : 'hover:decoration-mia-orange decoration-transparent'}
 >
   <a href={href}>
     <slot />

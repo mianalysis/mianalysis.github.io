@@ -56,7 +56,7 @@ export default function TerminalSnippet(snippets: Props) {
           onClick={copy}
           title="Copy to clipboard"
           className={classNames(
-            'absolute right-0 top-0 p-3 transition-colors',
+            'absolute top-0 right-0 p-3 transition-colors',
             copied ? 'text-mia-green' : 'text-white hover:text-gray-300'
           )}
         >

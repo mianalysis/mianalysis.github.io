@@ -28,7 +28,7 @@ export default function BatchProcessing() {
   const { ref, inView } = useInView();
 
   return (
-    <div className="pl-30 absolute top-0 -z-10 flex h-full w-full flex-col py-9" ref={ref}>
+    <div className="absolute top-0 -z-10 flex h-full w-full flex-col py-9 pl-30" ref={ref}>
       {Array.from(Array(BARS).keys()).map((i) => (
         <ProgressBar key={i} inView={inView} />
       ))}

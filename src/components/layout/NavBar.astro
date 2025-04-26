@@ -17,7 +17,7 @@ const links = [
   <div class="flex justify-between gap-x-8 py-2 max-sm:px-4">
     <Logo />
 
-    <ul class="flex list-none items-center gap-x-8 pb-0 pl-0 max-sm:hidden">
+    <ul class="flex list-none items-center gap-x-8 pb-0 !pl-0 max-sm:hidden">
       {links.map(({ href, text }) => <NavLink href={href}>{text}</NavLink>)}
       <li>
         <Search />

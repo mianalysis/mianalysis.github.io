@@ -15,7 +15,7 @@ export default function ModuleCloud({ moduleNames }: Props) {
 
   return (
     <div
-      className="select-none overflow-hidden max-sm:max-h-[60vh] sm:max-h-none"
+      className="overflow-hidden select-none max-sm:max-h-[60vh] sm:max-h-none"
       ref={containerRef}
       aria-hidden
     >

@@ -16,7 +16,7 @@ export default function TreeNav({ node, currentPath, depth = 1 }: Props) {
   );
 
   return (
-    <ul className="list-none pb-0 pl-0 text-gray-500">
+    <ul className="list-none pb-0 !pl-0 text-gray-500">
       {internalChildren.map((child) => (
         <InternalNode key={child.path} node={child} currentPath={currentPath} depth={depth} />
       ))}
@@ -46,7 +46,7 @@ function InternalNode({
     <li>
       <div className="relative flex justify-between py-1 transition-colors duration-200 hover:text-gray-950">
         {relatesToCurrentPath && depth > 1 && (
-          <div className="absolute -left-[14px] bottom-0 top-0 w-[3px] bg-mia-blue" />
+          <div className="bg-mia-blue absolute top-0 bottom-0 -left-[14px] w-[3px]" />
         )}
 
         <a href={node.path}>{node.name}</a>
@@ -72,7 +72,7 @@ function LeafNode({ node, currentPath }: { node: TreeNavNode; currentPath: strin
         {node.name}
       </a>
       {currentPath.endsWith(node.path) && (
-        <div className="absolute -left-[14px] bottom-0 top-0 w-[3px] bg-mia-blue" />
+        <div className="bg-mia-blue absolute top-0 bottom-0 -left-[14px] w-[3px]" />
       )}
     </li>
   );
