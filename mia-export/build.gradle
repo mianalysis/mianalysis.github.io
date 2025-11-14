@@ -25,16 +25,8 @@ repositories {
 
 dependencies {
     implementation 'net.imagej:ij1-patcher:1.2.7'
-
-    def miaVersion = '1.7.7' 
-    implementation "io.github.mianalysis:mia-core:${miaVersion}"
-    implementation "io.github.mianalysis:mia-macros:${miaVersion}"
-    implementation "io.github.mianalysis:mia-modules:${miaVersion}"
-    implementation "io.github.mianalysis:mia-plugin:${miaVersion}"
-    implementation "io.github.mianalysis:mia-bonej:${miaVersion}"
-    implementation "io.github.mianalysis:mia-deepimagej:${miaVersion}"
-    implementation "io.github.mianalysis:mia-ptbiop:${miaVersion}"
-    implementation "io.github.mianalysis:mia-stardist:${miaVersion}"
+    implementation("org.jetbrains.bio:npy:0.3.5") // Forcing a newer version of npy (deepimagej wants 0.3.5)
+    implementation("io.github.mianalysis:mia-plugin:1.7.18")
 }
 
 tasks.named('run') {

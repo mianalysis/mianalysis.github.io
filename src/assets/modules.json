@@ -20,6 +20,10 @@
           "version": "1.0.0",
           "parameters": [
             {
+              "name": "No load message",
+              "description": ""
+            },
+            {
               "name": "Input path",
               "description": "The file or folder path to process.  If a file is selected, that file alone will be processed.  If a folder is selected, each file in that folder (and all sub-folders) passing the filters will be processed."
             },
@@ -52,10 +56,6 @@
               "description": "Temporal units for calibrated measurements.  Assuming temporal calibration can be read from the input file when loaded, this will convert the input calibrated units to the units specified here."
             },
             {
-              "name": "Ignore case",
-              "description": ""
-            },
-            {
               "name": "Add filter",
               "subParameters": [
                 {
@@ -69,6 +69,10 @@
                 {
                   "name": "Filter type",
                   "description": "Control how the present filter operates:<br><ul><li>\"Matches partially (include)\" will process an image if the filter value is partially present in the source (e.g. filename or extension).<\/li><li>\"Matches completely (include)\" will process an image if the filter value is exactly the same as the source.<\/li><li>\"Matches partially (exclude)\" will not process an image if the filter value is partially present in the source.<\/li><li>\"Matches completely (exclude)\" will not process an image if the filter value is exactly the same as the source.<\/li><\/ul>"
+                },
+                {
+                  "name": "Ignore case",
+                  "description": ""
                 }
               ],
               "description": "Add another filename filter.  All images to be processed will pass all filters."
@@ -76,6 +80,10 @@
             {
               "name": "Simultaneous jobs",
               "description": "The number of images that will be processed simultaneously.  If this is set to \"1\" while processing a folder each valid file will still be processed, they will just complete one at a time.  For large images this is best left as \"1\" unless using a system with large amounts of RAM."
+            },
+            {
+              "name": "Macro warning",
+              "description": ""
             }
           ],
           "slug": "input-control"
@@ -297,7 +305,19 @@
                 },
                 {
                   "name": "Lookup table",
-                  "description": "Look-up table to apply to the relevant channels.  Choices are: From wavelength, Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Random, Spectrum, Thermal."
+                  "description": "Look-up table to apply to the relevant channels.  Choices are: From RGB, From wavelength, Grey, Red, Green, Blue, Cyan, Magenta, Yellow, Fire, Ice, Jet, Physics, Random, Spectrum, Thermal."
+                },
+                {
+                  "name": "Red component",
+                  "description": ""
+                },
+                {
+                  "name": "Green component",
+                  "description": ""
+                },
+                {
+                  "name": "Blue component",
+                  "description": ""
                 },
                 {
                   "name": "Wavelength (nm)",
@@ -604,6 +624,10 @@
                   "description": ""
                 },
                 {
+                  "name": "Available metadata fields",
+                  "description": ""
+                },
+                {
                   "name": "Append series mode",
                   "description": ""
                 },
@@ -782,6 +806,10 @@
                 {
                   "name": "File name",
                   "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                },
+                {
+                  "name": "Available metadata fields",
+                  "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
                 },
                 {
                   "name": "Append series mode",
@@ -1687,6 +1715,10 @@
                 },
                 {
                   "name": "Patch size",
+                  "description": ""
+                },
+                {
+                  "name": "Axes order",
                   "description": ""
                 }
               ],
@@ -3174,6 +3206,133 @@
                 "slug": "unwarp-(automatic)"
               },
               {
+                "path": "/modules/images/transform/registration/unwarp-(centroids)",
+                "deprecated": false,
+                "name": "Unwarp (centroids)",
+                "shortDescription": "Apply slice-by-slice (2D) B-spline unwarping-based image registration to a multi-dimensional stack.",
+                "fullDescription": "Apply slice-by-slice (2D) B-spline unwarping-based image registration to a multi-dimensional stack.  Images can be aligned relative to the first frame in the stack, the previous frame or a separate image in the workspace.  The registration transform can also be calculated from a separate stack to the one that it will be applied to.  Registration can be performed along either the time or Z axes.  The non-registered axis (e.g. time axis when registering in Z) can be \"linked\" (all frames given the same registration) or \"independent\" (each stack registered separately).<br><br>This module uses the <a href=\"https://imagej.net/BUnwarpJ\">BUnwarpJ<\/a> plugin to calculate and apply the necessary 2D transforms.  Detailed information about how the BUnwarpJ process works can be found at <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>.",
+                "version": "1.0.0",
+                "parameters": [
+                  {
+                    "name": "Input image",
+                    "description": "Image from workspace to apply registration to."
+                  },
+                  {
+                    "name": "Apply to input image",
+                    "description": "When selected, the post-operation image will overwrite the input image in the workspace.  Otherwise, the image will be saved to the workspace with the name specified by the \"Output image\" parameter."
+                  },
+                  {
+                    "name": "Output image",
+                    "description": "If \"Apply to input image\" is not selected, the post-operation image will be saved to the workspace with this name."
+                  },
+                  {
+                    "name": "Registration axis",
+                    "description": "Controls which stack axis the registration will be applied in.  For example, when \"Time\" is selected, all images along the time axis will be aligned.  Choices are: Time, Z."
+                  },
+                  {
+                    "name": "Other axis mode",
+                    "description": "For stacks with non-registration axis lengths longer than 1 (e.g. the \"Z\" axis when registering in time) the behaviour of this other axis is controlled by this parameter:<br><ul><li>\"Independent\" Each non-registration axis is registered independently.  For example, applying separate Z-registrations for each timepoint of a 4D stack.<\/li><li>\"Linked\" All elements of the non-registration axis are registered with a single transform.  For example, applying the same registration at a timepoint to all slices of a 4D stack.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Fill mode",
+                    "description": "Controls what intensity any border pixels will have.  \"Borders\" in this case correspond to strips/wedges at the image edge corresponding to regions outside the initial image (e.g. the right-side of an output image when the input was translated to the left).   Choices are: Black, White."
+                  },
+                  {
+                    "name": "Show detected points",
+                    "description": "When enabled, the points used for calculation of the registration will be added as an overlay to the input image and displayed."
+                  },
+                  {
+                    "name": "Enable multithreading",
+                    "description": "When selected, certain parts of the registration process will be run on multiple threads of the CPU.  This can provide a speed improvement when working on a computer with a multi-core CPU."
+                  },
+                  {
+                    "name": "Reference mode",
+                    "description": "Controls what reference image each image will be compared to:<br><ul><li>\"First frame\" All images will be compared to the first frame (or slice when in Z-axis mode).  For image sequences which continuously evolve over time (e.g. cells dividing) this can lead to reduced likelihood of successfully calculating the transform over time.<\/li><li>\"Previous N frames\" Each image will be compared to the N frames (or slice when in Z-axis mode) immediately before it (number of frames specified by \"Number of previous frames\").  These reference frames are consolidated into a single reference image using a projection based on the statistic specified by \"Previous frames statistic\".  This mode copes better with image sequences which continuously evolve over time, but can also lead to compounding errors over time (errors in registration get propagated to all remaining slices).<\/li><li>\"Specific image\" All images will be compared to a separate 2D image from the workspace.  The image to compare to is selected using the \"Reference image\" parameter.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "Number of previous frames",
+                    "description": "Number of previous frames (or slices) to use as reference image when \"Reference mode\" is set to \"Previous N frames\".  If there are insufficient previous frames (e.g. towards the beginning of the stack) the maximum available frames will be used.  Irrespective of the number of frames used, the images will be projected into a single reference image using the statistic specified by \"Previous frames statistic\"."
+                  },
+                  {
+                    "name": "Previous frames statistic",
+                    "description": "Statistic to use when combining multiple previous frames as a reference (\"Reference mode\" set to \"Previous N frames\")."
+                  },
+                  {
+                    "name": "Reference image",
+                    "description": "If \"Reference mode\" is set to \"Specific image\" mode, all input images will be registered relative to this image.  This image must only have a single channel, slice and timepoint."
+                  },
+                  {
+                    "name": "Calculation source",
+                    "description": "Controls whether the input image will be used to calculate the registration transform or whether it will be determined from a separate image:<br><ul><li>\"External\" The transform is calculated from a separate image from the workspace (specified using \"External source\").  This could be an image with enhanced contrast (to enable better feature extraction), but where the enhancements are not desired in the output registered image.  When \"Other axis mode\" is set to \"Linked\", the external image must be the same length along the registration axis and have single-valued length along the non-registration axis.  However, when set to \"Independent\", the external image must have the same axis lengths for both the registration and non-registration axes.<\/li><li>\"Internal\" The transform is calculated from the input image.<\/li><\/ul>"
+                  },
+                  {
+                    "name": "External source",
+                    "description": "If \"Calculation source\" is set to \"External\", registration transforms will be calculated using this image from the workspace.  This image will be unaffected by the process."
+                  },
+                  {
+                    "name": "Calculation channel",
+                    "description": "If calculating the registration transform from a multi-channel image stack, the transform will be determined from this channel only.  Irrespectively, for multi-channel image stacks, the calculated transform will be applied equally to all channels."
+                  },
+                  {
+                    "name": "Registration mode",
+                    "description": "\"The registration mode can be \"Accurate\", \"Fast\" and \"Mono\". The registration mode \"Mono\" makes the program to perform only unidirectional registration, i.e. from source to target. The two registration modes \"Accurate\" and \"Fast\" involve performing bidirectional registration and affect the stopping criteria internally used by the program.\"  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Subsample factor",
+                    "description": "\"The registration will be calculated using subsampled versions of the images but the results will be applied to the original ones. The image subsampling parameter can be chosen between 0 and 7, i.e. the image dimensions can be reduced by a factor of 2^0 = 1 to 2^7 = 128. This is very useful when registering large images.\"  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Initial deformation mode",
+                    "description": "\"Determines the level of detail of the initial deformation. In bUnwarpJ this is defined by the number of B-splines used to represent the deformations:<br><br><table style=\"font:sans-serif;font-size:12\"><tr><th>Deformation<\/th><th>Num. intervals in grid<\/th><\/tr><tr><td>Very coarse<\/td><td>1x1<\/td><\/tr><tr><td>Coarse<\/td><td>2x2<\/td><\/tr><tr><td>Fine<\/td><td>3x3<\/td><\/tr><tr><td>Very fine<\/td><td>8x8<\/td><\/tr><tr><td>Super fine<\/td><td>16x16<\/td><\/tr><\/table><font face=\"sans-serif\" size=\"3\"><br>If images start very far away from the right alignment, it is usually a good idea to go from \"Very Coarse\" to \"Very Fine\". If they start close to the right alignment, using a very coarse initial deformation could cause the algorithm to fail. So, in that case, it would be enough to set initial deformation to \"Fine\" and final deformation to \"Very Fine\". Use \"Super Fine\" only when you need a very high level of accuracy, because it makes the algorithm quite slower depending on the image sizes.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Final deformation mode",
+                    "description": "See description for \"Initial deformation mode\""
+                  },
+                  {
+                    "name": "Divergence weight",
+                    "description": "Regularizes the deformation by penalizing the divergence of the deformation vector field.  If you see that your transformations get too rough, it is a good idea to use this parameter.  A value of 0.1 is usually good if there's no prior knowledge about the deformation shape.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Curl weight",
+                    "description": "Regularizes the deformation by penalizing the curl of the deformation vector field.  If you see that your transformations get too rough, it is a good idea to use this parameter.  A value of 0.1 is usually good if there's no prior knowledge about the deformation shape.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Landmark weight",
+                    "description": "Forces the deformations to fit the landmark points.  Set it to 1.0 unless you're not using landmarks.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Image weight",
+                    "description": "The weight to control the pixel values difference.  Leave it at 1.0 unless you want to do, for instance, landmark-only registration.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Consistency weight",
+                    "description": "Forces the resulting deformations to be one (source to target) as close as possible to the inverse of the other one (target to source). Values between 10.0 and 30.0 usually work fine. It is only taken into account for registration modes \"Fast\" or \"Accurate\".  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Stop threshold",
+                    "description": "Stops the optimization process at each multiresolution level when the error relative change is not larger than this threshold.  Description taken from <a href=\"https://imagej.net/BUnwarpJ\">https://imagej.net/BUnwarpJ<\/a>"
+                  },
+                  {
+                    "name": "Input objects",
+                    "description": "Centroids for these objects will be used as the references for image alignment."
+                  },
+                  {
+                    "name": "Maximum separation (px)",
+                    "description": "Maximum spatial separation between object centroids for them to be linked and used in the alignment."
+                  },
+                  {
+                    "name": "Maximal alignment error (px)",
+                    "description": "\"Matching local descriptors gives many false positives, but true positives are consistent with respect to a common transformation while false positives are not. This consistent set and the underlying transformation are identified using RANSAC. This value is the maximal allowed transfer error of a match to be counted as a good one. Tip: Set this to about 10% of the image size.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  },
+                  {
+                    "name": "Inlier ratio",
+                    "description": "\"The ratio of the number of true matches to the number of all matches including both true and false used by RANSAC. 0.05 means that minimally 5% of all matches are expected to be good while 0.9 requires that 90% of the matches were good. Only transformations with this minimal ratio of true consent matches are accepted. Tip: Do not go below 0.05 (and only if 5% is more than about 7 matches) except with a very small maximal alignment error to avoid wrong solutions.\".  Description taken from <a href=\"https://imagej.net/Feature_Extraction\">https://imagej.net/Feature_Extraction<\/a>"
+                  }
+                ],
+                "slug": "unwarp-(centroids)"
+              },
+              {
                 "path": "/modules/images/transform/registration/unwarp-(manual)",
                 "deprecated": false,
                 "name": "Unwarp (manual)",
@@ -3995,6 +4154,10 @@
               "description": ""
             },
             {
+              "name": "Available metadata fields",
+              "description": ""
+            },
+            {
               "name": "Append series mode",
               "description": ""
             },
@@ -4141,6 +4304,10 @@
               "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
             },
             {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
+            },
+            {
               "name": "Include series number",
               "description": "Option to include the current series number when compiling filenames.  This may be necessary when working with multi-series files, as there will be multiple analyses completed for the same root file."
             },
@@ -4280,6 +4447,10 @@
               "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
             },
             {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
+            },
+            {
               "name": "File path",
               "description": "Path to file to be loaded."
             },
@@ -4317,6 +4488,10 @@
             {
               "name": "Generic format",
               "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+            },
+            {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
             },
             {
               "name": "Prefix",
@@ -4462,6 +4637,10 @@
               "description": ""
             },
             {
+              "name": "Available metadata fields",
+              "description": ""
+            },
+            {
               "name": "Specific file path",
               "description": ""
             }
@@ -4499,6 +4678,10 @@
             {
               "name": "File name",
               "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
             },
             {
               "name": "Append series mode",
@@ -4588,6 +4771,10 @@
               "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
             },
             {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
+            },
+            {
               "name": "Append date/time mode",
               "description": ""
             },
@@ -4653,6 +4840,10 @@
             {
               "name": "File name",
               "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
             },
             {
               "name": "Append series mode",
@@ -4724,6 +4915,10 @@
             {
               "name": "File name",
               "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+            },
+            {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
             },
             {
               "name": "Append series mode",
@@ -4947,23 +5142,7 @@
                   "description": ""
                 },
                 {
-                  "name": "Cellpose version",
-                  "description": ""
-                },
-                {
-                  "name": "Use MXNet",
-                  "description": ""
-                },
-                {
-                  "name": "Use resample",
-                  "description": ""
-                },
-                {
                   "name": "Use GPU",
-                  "description": ""
-                },
-                {
-                  "name": "Use fast mode",
                   "description": ""
                 },
                 {
@@ -4979,19 +5158,7 @@
                   "description": ""
                 },
                 {
-                  "name": "Use nuclei channel",
-                  "description": ""
-                },
-                {
-                  "name": "Nuclei channel",
-                  "description": ""
-                },
-                {
-                  "name": "Use cyto channel",
-                  "description": ""
-                },
-                {
-                  "name": "Cyto channel",
+                  "name": "Model message",
                   "description": ""
                 },
                 {
@@ -5015,23 +5182,15 @@
                   "description": ""
                 },
                 {
-                  "name": "Diameter threshold",
-                  "description": ""
-                },
-                {
                   "name": "Stitch threshold",
                   "description": ""
                 },
                 {
-                  "name": "Use Omnipose mask reconstruction features",
-                  "description": ""
-                },
-                {
-                  "name": "Use DBSCAN clustering",
-                  "description": ""
-                },
-                {
                   "name": "Additional flags",
+                  "description": ""
+                },
+                {
+                  "name": "Flags message",
                   "description": ""
                 }
               ],
@@ -5370,6 +5529,10 @@
                 {
                   "name": "File name",
                   "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                },
+                {
+                  "name": "Available metadata fields",
+                  "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
                 },
                 {
                   "name": "Append series mode",
@@ -5986,8 +6149,24 @@
                   "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
+                  "name": "Use fixed summary name",
+                  "description": ""
+                },
+                {
+                  "name": "Summary name",
+                  "description": ""
+                },
+                {
                   "name": "Store individual filter results",
                   "description": "When selected, each input object will be assigned a measurement reporting if that object passed or failed the filter.  The measurement value is \"1\" for objects that failed the filter (i.e. would be removed if the relevant removal setting was enabled) and \"0\" for objects that passed (i.e. wouldn't be removed)."
+                },
+                {
+                  "name": "Use fixed individual name",
+                  "description": ""
+                },
+                {
+                  "name": "Individual name",
+                  "description": ""
                 },
                 {
                   "name": "Measurement to filter on",
@@ -6269,8 +6448,24 @@
                   "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
+                  "name": "Use fixed summary name",
+                  "description": ""
+                },
+                {
+                  "name": "Summary name",
+                  "description": ""
+                },
+                {
                   "name": "Store individual filter results",
                   "description": "When selected, each input object will be assigned a measurement reporting if that object passed or failed the filter.  The measurement value is \"1\" for objects that failed the filter (i.e. would be removed if the relevant removal setting was enabled) and \"0\" for objects that passed (i.e. wouldn't be removed)."
+                },
+                {
+                  "name": "Use fixed individual name",
+                  "description": ""
+                },
+                {
+                  "name": "Individual name",
+                  "description": ""
                 },
                 {
                   "name": "Child objects",
@@ -6336,8 +6531,24 @@
                   "description": "When selected, a metadata value is stored in the workspace, which records the number of objects which failed the filter and were removed or moved to another object class (depending on the \"Method for filtering\" parameter)."
                 },
                 {
+                  "name": "Use fixed summary name",
+                  "description": ""
+                },
+                {
+                  "name": "Summary name",
+                  "description": ""
+                },
+                {
                   "name": "Store individual filter results",
                   "description": "When selected, each input object will be assigned a measurement reporting if that object passed or failed the filter.  The measurement value is \"1\" for objects that failed the filter (i.e. would be removed if the relevant removal setting was enabled) and \"0\" for objects that passed (i.e. wouldn't be removed)."
+                },
+                {
+                  "name": "Use fixed individual name",
+                  "description": ""
+                },
+                {
+                  "name": "Individual name",
+                  "description": ""
                 },
                 {
                   "name": "Partner objects",
@@ -6632,6 +6843,10 @@
                       "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
                     },
                     {
+                      "name": "Available metadata fields",
+                      "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
+                    },
+                    {
                       "name": "Append series mode",
                       "description": "Controls if any series information should be appended to the end of the filename.  This is useful when working with multi-series files, as it should help prevent writing files from multiple runs with the same filename.  Series numbers are prepended by \"S\".  Choices are: None, Series name, Series number."
                     },
@@ -6785,6 +7000,10 @@
                       "description": ""
                     },
                     {
+                      "name": "Available metadata fields",
+                      "description": ""
+                    },
+                    {
                       "name": "Append series mode",
                       "description": ""
                     },
@@ -6881,6 +7100,10 @@
                     {
                       "name": "File name",
                       "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                    },
+                    {
+                      "name": "Available metadata fields",
+                      "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
                     },
                     {
                       "name": "Append series mode",
@@ -7290,16 +7513,20 @@
                   "deprecated": false,
                   "name": "Child object count",
                   "shortDescription": "Calculates the number of children from a specific class.",
-                  "fullDescription": "Calculates the number of children from a specific class.  Measurements are assigned to all objects in the input collection.  Unlike normal measurements, this value is evaluated at the time of use, so should always be up to date.",
+                  "fullDescription": "Calculates the number of children from a specific class.  Measurements are assigned to all objects in the input collection.  Unlike normal measurements, this value can optionally be evaluated at the time of use, so should always be up to date.",
                   "version": "1.0.0",
                   "parameters": [
                     {
                       "name": "Input objects",
-                      "description": "For each object in this collection the number of associated child objects (from the collection specified by \"Child objects\") will be calculated.  The count is stored as a measurement associated with each input object.  The measurement is evaluated at the time of access (unlike \"normal\" measurements which have fixed values), so should always be correct."
+                      "description": "For each object in this collection the number of associated child objects (from the collection specified by \"Child objects\") will be calculated.  The count is stored as a measurement associated with each input object.  Depending on the \"Live measurement\" parameters, the measurement can be evaluated at the time of access (unlike \"normal\" measurements which have fixed values), so should always be correct."
                     },
                     {
                       "name": "Child objects",
                       "description": "Child objects to be counted."
+                    },
+                    {
+                      "name": "Live measurement",
+                      "description": "When selected, the child object count will be evaluated at the time of access, so will always be up to date.  When not selected it is fixed at the time of evaluation."
                     }
                   ],
                   "slug": "child-object-count"
@@ -7428,16 +7655,20 @@
                   "deprecated": false,
                   "name": "Partner object count",
                   "shortDescription": "Calculates the number of partners from a specific class.",
-                  "fullDescription": "Calculates the number of partners from a specific class.  Measurements are assigned to all objects in the input collection.  Unlike normal measurements, this value is evaluated at the time of use, so should always be up to date.",
+                  "fullDescription": "Calculates the number of partners from a specific class.  Measurements are assigned to all objects in the input collection.  Unlike normal measurements, this value can optionally be evaluated at the time of use, so should always be up to date.",
                   "version": "1.0.0",
                   "parameters": [
                     {
                       "name": "Input objects",
-                      "description": "For each object in this collection the number of associated partner objects (from the collection specified by \"Partner objects\") will be calculated.  The count is stored as a measurement associated with each input object.  The measurement is evaluated at the time of access (unlike \"normal\" measurements which have fixed values), so should always be correct."
+                      "description": "For each object in this collection the number of associated partner objects (from the collection specified by \"Partner objects\") will be calculated.  The count is stored as a measurement associated with each input object.  Depending on the \"Live measurement\" parameters, the measurement can be evaluated at the time of access (unlike \"normal\" measurements which have fixed values), so should always be correct."
                     },
                     {
                       "name": "Partner objects",
                       "description": "Partner objects to be counted."
+                    },
+                    {
+                      "name": "Live measurement",
+                      "description": "When selected, the partner object count will be evaluated at the time of access, so will always be up to date.  When not selected it is fixed at the time of evaluation."
                     }
                   ],
                   "slug": "partner-object-count"
@@ -7517,6 +7748,10 @@
                     {
                       "name": "File name",
                       "description": "Filename for saved image.  Care should be taken with this when working in batch mode as it's easy to continuously write over output images."
+                    },
+                    {
+                      "name": "Available metadata fields",
+                      "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
                     },
                     {
                       "name": "Append series mode",
@@ -8467,6 +8702,33 @@
               "slug": "fit-active-contours"
             },
             {
+              "path": "/modules/objects/process/fit-circle",
+              "deprecated": false,
+              "name": "Fit circle",
+              "shortDescription": "Fit circles to all objects in a collection using ImageJ's built-in \"Fit circles\" functionality.",
+              "fullDescription": "Fit circles to all objects in a collection using ImageJ's built-in \"Fit circles\" functionality.  For 3D objects, a 2D projection in the XY plane is used for fitting.  If an object is comprised of multiple spatially isolated parts this will fit the circle to the largest.<br><br>This uses the <a href=\"https://github.com/imagej/ImageJ/blob/5f3faaf4be7a5ec82778c2a7f348c782044a888b/ij/plugin/Selection.java#L119\">ImageJ implementation<\/a> of <a href=\"https://github.com/mdoube/BoneJ/blob/master/src/org/doube/geometry/FitCircle.java\">BoneJ's Java interpretation<\/a> of <a href=\"http://www.math.uab.edu/~chernov/cl/MATLABcircle.html\">Nikolai Chernov's MATALAB implementation<\/a> of the Pratt method (Pratt V., Direct least-squares fitting of algebraic surfaces\", <i>Computer Graphics<\/i> (1987) <b>21<\/b> 145-152).",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Object output mode",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Enable multithreading",
+                  "description": ""
+                }
+              ],
+              "slug": "fit-circle"
+            },
+            {
               "path": "/modules/objects/process/fit-concave-hull-2d",
               "deprecated": false,
               "name": "Fit concave hull 2D",
@@ -8761,6 +9023,33 @@
                 }
               ],
               "slug": "grow-objects"
+            },
+            {
+              "path": "/modules/objects/process/trace-paths",
+              "deprecated": false,
+              "name": "Trace paths",
+              "shortDescription": "",
+              "fullDescription": "",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input image",
+                  "description": ""
+                },
+                {
+                  "name": "Input objects",
+                  "description": ""
+                },
+                {
+                  "name": "Output objects",
+                  "description": ""
+                },
+                {
+                  "name": "Node interval",
+                  "description": ""
+                }
+              ],
+              "slug": "trace-paths"
             }
           ]
         },
@@ -9191,7 +9480,7 @@
               "name": "Single class cluster",
               "shortDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.",
               "fullDescription": "Clusters objects (based on centroid locations) using K-Means++ and/or DBSCAN algorithms.  In K-Means++ [1], an optimisation of the standard K-Means algorithm, the points are assigned to a pre-determined number of clusters such that each point is assigned to its closest cluster mean position (this process is repeated until the cluster assignments stabilise or a maximum number of iterations is reached).  For DBSCAN [2], points are clustered based on a minimum number of neighbours within a specified spatial range.  As such, this algorithm doesn't require prior knowledge of the number of clusters.  Both algorithms use their respective <a href=\"https://commons.apache.org/proper/commons-math/\">Apache Commons Math implementations.<\/a><br><br>References:<br>[1] Arthur, D.; Vassilvitskii, S. (2007). \"k-means++: the advantages of careful seeding.\" <i>Proceedings of the eighteenth annual ACM-SIAM symposium on Discrete algorithms. Society for Industrial and Applied Mathematics Philadelphia, PA, USA.<\/i> pp. 1027\u20131035<br>[2] Ester, M.; Kriegel, H.-P.; Sander, J.; Xu, X. (1996). \"A density-based algorithm for discovering clusters in large spatial databases with noise.\" <i>Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD-96). AAAI Press.<\/i> pp. 226\u2013231",
-              "version": "1.1.0",
+              "version": "1.2.0",
               "parameters": [
                 {
                   "name": "Input objects",
@@ -9467,6 +9756,10 @@
                   "description": "Controls whether the duplicated objects share the same common coordinate set or each have their own.  A duplicated coordinate set will use a lot less memory (as no redundant duplication of data is required), but should be used with caution, as any change to the coordinates in one frame will result in the change being mirrored across all timepoints."
                 },
                 {
+                  "name": "Common warning",
+                  "description": ""
+                },
+                {
                   "name": "Start frame mode",
                   "description": "Specifies the source for the first timepoint the objects will be created for:<br><ul><li>\"Fixed value\" The first timepoint will be controlled by the value specified in the \"Start frame fixed value\" parameter.<\/li><li>\"Image measurement\" The first timepoint will be taken from a measurement (\"Start frame image measurement\" parameter) assigned to the image specified by \"Start frame image\".<\/li><\/ul>"
                 },
@@ -9588,6 +9881,10 @@
               "version": "1.0.0",
               "parameters": [
                 {
+                  "name": "Quality message",
+                  "description": ""
+                },
+                {
                   "name": "Input objects",
                   "description": ""
                 },
@@ -9687,6 +9984,97 @@
               "slug": "resolve-object-overlap"
             },
             {
+              "path": "/modules/objects/transform/scale-object-set",
+              "deprecated": false,
+              "name": "Scale object set",
+              "shortDescription": "Scales the entire object space and all objects within.",
+              "fullDescription": "Scales the entire object space and all objects within.  This has the effect of uniformly scaling all objects.  Scaled objects are related as children of their respective input objects.",
+              "version": "1.0.0",
+              "parameters": [
+                {
+                  "name": "Input objects",
+                  "description": "Objects to be scaled.  These are related as a parent of their respective scaled object."
+                },
+                {
+                  "name": "Output objects",
+                  "description": "Output scaled objects to be stored in the workspace.  These are related as children of the respective input object."
+                },
+                {
+                  "name": "Scale mode (x-axis)",
+                  "description": "Controls how the output x-axis resolution is calculated:<br><ul><li>\"Fixed resolution\" The output object set will have the specific resolution defined by the \"Resolution (x-axis)\" parameter.<\/li><li>\"Match image\" The output object set will have the same resolution as the image specified by the \"Image (x-axis)\" parameter.<\/li><li>\"Match object set\" The output object set will have the same resolution as the object set specified by the \"Object set (x-axis)\" parameter.<\/li><li>\"Scale factor\" The output object set will have an equal resolution to the input size multiplied by the scaling factor, \"Scale factor (x-axis)\".  The output resolution will be rounded to the closest whole number.<\/li><\/ul>"
+                },
+                {
+                  "name": "Resolution (x-axis)",
+                  "description": "If \"Scale mode (x-axis)\" is set to \"Fixed resolution\", this is the size of the output object set."
+                },
+                {
+                  "name": "Image (x-axis)",
+                  "description": "If \"Scale mode (x-axis)\" is set to \"Match image\", the output object set will have the same size as this image."
+                },
+                {
+                  "name": "Object set (x-axis)",
+                  "description": ""
+                },
+                {
+                  "name": "Adopt calibration (xy-axes)",
+                  "description": "If \"Scale mode (x-axis)\" is set to \"Match image\" or \"Match object set\", and this is selected, the output object set's x and y axis calibration will be copied from the input image's x-axis (MIA uses the same value for both axes)."
+                },
+                {
+                  "name": "Scale factor (x-axis)",
+                  "description": "If \"Scale mode (x-axis)\" is set to \"Scale factor\", the output object set will have a size equal to the input resolution multiplied by this scale factor.  The applied size will be rounded to the closest whole number"
+                },
+                {
+                  "name": "Anisotropy warning",
+                  "description": ""
+                },
+                {
+                  "name": "Scale mode (y-axis)",
+                  "description": "Controls how the output y-axis resolution is calculated:<br><ul><li>\"Fixed resolution\" The output object set will have the specific resolution defined by the \"Resolution (y-axis)\" parameter.<\/li><li>\"Match image\" The output object set will have the same resolution as the image specified by the \"Image (y-axis)\" parameter.<\/li><li>\"Match object set\" The output object set will have the same resolution as the object set specified by the \"Object set (y-axis)\" parameter.<\/li><li>\"Scale factor\" The output object set will have an equal resolution to the input size multiplied by the scaling factor, \"Scale factor (y-axis)\".  The output resolution will be rounded to the closest whole number.<\/li><\/ul>"
+                },
+                {
+                  "name": "Resolution (y-axis)",
+                  "description": "If \"Scale mode (y-axis)\" is set to \"Fixed resolution\", this is the size in the output object set."
+                },
+                {
+                  "name": "Image (y-axis)",
+                  "description": "If \"Scale mode (y-axis)\" is set to \"Match image\", the output object set will have the same size as this image."
+                },
+                {
+                  "name": "Object set (y-axis)",
+                  "description": ""
+                },
+                {
+                  "name": "Scale factor (y-axis)",
+                  "description": "If \"Scale mode (y-axis)\" is set to \"Scale factor\", the output object set will have a size equal to the input resolution multiplied by this scale factor.  The applied size will be rounded to the closest whole number"
+                },
+                {
+                  "name": "Scale mode (z-axis)",
+                  "description": "Controls how the output z-axis resolution (number of slices) is calculated:<br><ul><li>\"Fixed resolution\" The output object set will have the specific number of slices defined by the \"Resolution (z-axis)\" parameter.<\/li><li>\"Match image\" The output object set will have the same number of slices as the image specified by the \"Image (z-axis)\" parameter.<\/li><li>\"Match object set\" The output object set will have the same resolution as the object set specified by the \"Object set (z-axis)\" parameter.<\/li><li>\"Scale factor\" The output object set will have an equal number of slices to the input number of slices multiplied by the scaling factor, \"Scale factor (z-axis)\".  The output number of slices will be rounded to the closest whole number.<\/li><\/ul>"
+                },
+                {
+                  "name": "Resolution (z-axis)",
+                  "description": "If \"Scale mode (z-axis)\" is set to \"Fixed resolution\", this is the number of slices in the output object set."
+                },
+                {
+                  "name": "Image (z-axis)",
+                  "description": "If \"Scale mode (z-axis)\" is set to \"Match image\", the output object set will have the same number of slices as there are in this image."
+                },
+                {
+                  "name": "Object set (z-axis)",
+                  "description": ""
+                },
+                {
+                  "name": "Adopt calibration (z-axis)",
+                  "description": "If \"Scale mode (z-axis)\" is set to \"Match image\" or \"Match object set\", and this is selected, the output object set's z-axis calibration will be copied from the input image."
+                },
+                {
+                  "name": "Scale factor (z-axis)",
+                  "description": "If \"Scale mode (z-axis)\" is set to \"Scale factor\", the output object set will have a number of slices equal to the input number of slices multiplied by this scale factor.  The applied number of slices will be rounded to the closest whole number"
+                }
+              ],
+              "slug": "scale-object-set"
+            },
+            {
               "path": "/modules/objects/transform/track-editor",
               "deprecated": false,
               "name": "Track editor",
@@ -9709,6 +10097,10 @@
                 {
                   "name": "Show projected (3D only)",
                   "description": "When selected (and when \"Display image\" has more than one Z-slice), a separate projected image will be displayed.  This can assist understanding track connectivity in 3D."
+                },
+                {
+                  "name": "Measurement warning",
+                  "description": ""
                 }
               ],
               "slug": "track-editor"
@@ -10046,6 +10438,29 @@
           "slug": "add-custom-metadata-item"
         },
         {
+          "path": "/modules/system/display-message",
+          "deprecated": false,
+          "name": "Display message",
+          "shortDescription": "Display a message in processing view.",
+          "fullDescription": "Display a message in processing view.  Messages can be colour-coded according to state (e.g. warning, info, etc.)",
+          "version": "1.0.0",
+          "parameters": [
+            {
+              "name": "Message text",
+              "description": ""
+            },
+            {
+              "name": "Message colour",
+              "description": ""
+            },
+            {
+              "name": "Message preview",
+              "description": ""
+            }
+          ],
+          "slug": "display-message"
+        },
+        {
           "path": "/modules/system/gui-separator",
           "deprecated": false,
           "name": "GUI separator",
@@ -10258,6 +10673,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -10347,6 +10766,10 @@
                 {
                   "name": "Maximum value",
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
+                },
+                {
+                  "name": "Hide objects missing value",
+                  "description": ""
                 },
                 {
                   "name": "Input image",
@@ -10559,6 +10982,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -10680,6 +11107,10 @@
                 {
                   "name": "Maximum value",
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
+                },
+                {
+                  "name": "Hide objects missing value",
+                  "description": ""
                 },
                 {
                   "name": "Input image",
@@ -10861,6 +11292,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -11000,6 +11435,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -11099,6 +11538,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -11188,6 +11631,10 @@
                 {
                   "name": "Maximum value",
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
+                },
+                {
+                  "name": "Hide objects missing value",
+                  "description": ""
                 },
                 {
                   "name": "Input image",
@@ -11448,6 +11895,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -11587,6 +12038,10 @@
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input image",
                   "description": "Image onto which overlay will be rendered.  Input image will only be updated if \"Apply to input image\" is enabled, otherwise the image containing the overlay will be stored as a new image with name specified by \"Output image\"."
                 },
@@ -11605,6 +12060,10 @@
                 {
                   "name": "Text",
                   "description": "Fixed text to be displayed.  The current slice and frame numbers can be inserted using \"D{SLICE}\" and \"D{FRAME}\".  Similarly, it's possible to insert the elapsed frame time in the form \"T{HH:mm:ss.SSS}\" (where this example would give hours:minutes:seconds.millis).  The full description of supported time values can be found <a href=\"https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html\">here<\/a>."
+                },
+                {
+                  "name": "Available dynamic values",
+                  "description": ""
                 },
                 {
                   "name": "X-position",
@@ -11696,6 +12155,10 @@
                 {
                   "name": "Maximum value",
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
+                },
+                {
+                  "name": "Hide objects missing value",
+                  "description": ""
                 },
                 {
                   "name": "Input image",
@@ -11819,6 +12282,10 @@
                 {
                   "name": "Maximum value",
                   "description": "When \"Range maximum mode\" is set to \"Manual\", this is the maximum value that will be displayed as a unique colour.  All values larger than this will be displayed with the same colour."
+                },
+                {
+                  "name": "Hide objects missing value",
+                  "description": ""
                 },
                 {
                   "name": "Input image",
@@ -12033,6 +12500,10 @@
                   "description": ""
                 },
                 {
+                  "name": "Hide objects missing value",
+                  "description": ""
+                },
+                {
                   "name": "Input tracks",
                   "description": ""
                 },
@@ -12220,7 +12691,10 @@
           "shortDescription": "Displays all measurements associated with an image.",
           "fullDescription": "Displays all measurements associated with an image.",
           "version": "1.0.0",
-          "parameters": [],
+          "parameters": [{
+            "name": "Message",
+            "description": ""
+          }],
           "slug": "show-metadata"
         },
         {
@@ -12577,6 +13051,10 @@
             {
               "name": "Generic format",
               "description": "Format for a generic filename.  Plain text can be mixed with global variables or metadata values currently stored in the workspace.  Global variables are specified using the \"V{name}\" notation, where \"name\" is the name of the variable to insert.  Similarly, metadata values are specified with the \"M{name}\" notation."
+            },
+            {
+              "name": "Available metadata fields",
+              "description": "List of the currently-available metadata values for this workspace.  These can be used when compiling a generic filename."
             },
             {
               "name": "Continuation mode",
